@@ -15,7 +15,7 @@ const CategoriesPage = lazy(() => import('pages/CategoriesPage'));
 const AddRecipePage = lazy(() => import('pages/AddRecipePage'));
 const FavoritePage = lazy(() => import('pages/FavoritePage'));
 const RecipePage = lazy(() => import('pages/RecipePage'));
-const MyRecipesPage = lazy(() => import('pages/MyRecipesPage')); 
+const MyRecipesPage = lazy(() => import('pages/MyRecipesPage'));
 const SearchPage = lazy(() => import('pages/SearchPage'));
 const ShoppingListPage = lazy(() => import('pages/ShoppingListPage'));
 
@@ -30,20 +30,27 @@ const App = () => {
     <p>Refreshing user</p>
   ) : (
     <Routes>
-      <Route path="/" element={<SharedLayout />}>
-        <Route index element={<WellcomPage />} />
-        <Route
-          path="/register"
-          element={
-            <PublicRoute redirectTo="/main" component={<RegisterPage />} />
-          }
-        />
-        <Route
-          path="/signin"
-          element={
-            <PublicRoute redirectTo="/main" component={<SigninPage />} />
-          }
-        />
+      <Route
+        path="/welcome"
+        element={<PublicRoute redirectTo="/" component={<WellcomPage />} />}
+      />
+      <Route
+        path="/register"
+        element={
+          <PublicRoute redirectTo="/main" component={<RegisterPage />} />
+        }
+      />
+      <Route
+        path="/signin"
+        element={<PublicRoute redirectTo="/main" component={<SigninPage />} />}
+      />
+
+      <Route
+        path="/"
+        element={
+          <PrivateRoute component={SharedLayout} redirectTo="/welcome" />
+        }
+      >
         <Route
           path="/main"
           element={
@@ -89,7 +96,10 @@ const App = () => {
         <Route
           path="/shopping-list"
           element={
-            <PrivateRoute redirectTo="/login" component={<ShoppingListPage />} />
+            <PrivateRoute
+              redirectTo="/login"
+              component={<ShoppingListPage />}
+            />
           }
         />
       </Route>
