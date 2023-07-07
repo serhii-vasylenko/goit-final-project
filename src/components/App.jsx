@@ -18,6 +18,7 @@ const RecipePage = lazy(() => import('pages/RecipePage'));
 const MyRecipesPage = lazy(() => import('pages/MyRecipesPage'));
 const SearchPage = lazy(() => import('pages/SearchPage'));
 const ShoppingListPage = lazy(() => import('pages/ShoppingListPage'));
+const NotFound = lazy(() => import('pages/NotFound'));
 
 const App = () => {
   const dispatcher = useDispatch();
@@ -103,6 +104,7 @@ const App = () => {
           }
         />
       </Route>
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };
