@@ -11,7 +11,7 @@ export const Button = styled.button`
   padding-bottom: ${props => props.padding.paddingBottom};
   padding-left: ${props => props.padding.paddingLeft};
   padding-right: ${props => props.padding.paddingRight};
-
+  cursor: pointer;
 
   &:hover {
     ${props => props.hoverStyles.styleFirst} : ${props => props.hoverParams.paramFirst};
