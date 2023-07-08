@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom/dist"
-import { Modal, ModalWrapper, ModalText, EditIcon } from "./UserInfoModal.styled"
+import { Modal, ModalWrapper, ModalText, EditIcon } from "../UserLogoModal/UserLogoModal.styled"
 export const UserInfoModal = () => {
    
     return (<Modal>
@@ -7,7 +6,7 @@ export const UserInfoModal = () => {
             <ModalText>Edit profile</ModalText>
             <EditIcon />
         </ModalWrapper>
-        <Link to={'/logout'} style={{ border: '1px solid green', padding: '15px', marginTop: '50px', display: 'block' }}>Log out</Link>
+        <button style={{ border: '1px solid green', padding: '15px', marginTop: '50px', display: 'block' }}>Log out</button>
     </Modal>
         
     )

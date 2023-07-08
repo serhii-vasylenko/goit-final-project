@@ -24,6 +24,10 @@ font-size: 14px;
 font-weight: 600;
 line-height: 170%;
 margin-left: 14px;
+transition: color var(--transition-duration) var(--timing-function);
+&:hover{
+    color: var(--accent-color);
+}
 `
 
 export{UserWrapper, ImgContainer, UserImg, UserName}
