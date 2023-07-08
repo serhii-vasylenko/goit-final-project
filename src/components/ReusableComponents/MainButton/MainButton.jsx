@@ -18,8 +18,10 @@ const MainButton = ({
     paddingLeft: '48px',
     paddingRight: '48px',
   },
-  hoverStyles = { styleFirst: 'color' }, //додати кількість необхідних стилів для ховеру(фокусу), якщо потрібно, тут не міняти
+  hoverStyles = { styleFirst: 'background-color' }, //додати кількість необхідних стилів для ховеру(фокусу), якщо потрібно, тут не міняти
   hoverParams = { paramFirst: '#8BAA36' }, //додати кількість необхідних параметрів для ховеру(фокусу), якщо потрібно, тут не міняти
+  focusStyles = { styleFirst: 'outline-color' }, //додати кількість якщо потрібно, тут не міняти
+  focusParams = { paramFirst: '#8BAA36' }, //додати кількість  тут не міняти
 }) => {
   return (
     <Button
@@ -34,6 +36,8 @@ const MainButton = ({
       padding={padding}
       hoverStyles={hoverStyles}
       hoverParams={hoverParams}
+      focusStyles={focusStyles}
+      focusParams={focusParams}
     >
       {nameButton}
     </Button>
@@ -67,6 +71,8 @@ MainButton.propTypes = {
   }),
   hoverStyles: PropTypes.object,
   hoverParams: PropTypes.object,
+  focusStyles: PropTypes.object,
+  focusParam: PropTypes.object,
 };
 
 export default MainButton;
