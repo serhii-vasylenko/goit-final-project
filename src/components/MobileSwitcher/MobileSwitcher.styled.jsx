@@ -1,4 +1,7 @@
 import styled from "@emotion/styled"
+import { HiOutlineMenuAlt2 } from "react-icons/hi";
+import {RxCross2} from "react-icons/rx";
+
 const MenuSwitcher = styled.div`
 display: block;
 width: 32px;
@@ -9,13 +12,23 @@ height: 32px;
    
 
 `
-const OpenMenu = styled.img`
-width: 28px;
-height: 28px;
-
-
+const OpenMenu = styled(HiOutlineMenuAlt2)`
+width: 32px;
+height: 32px;
+color: var(--primary-text-color);
+transition: color var(--transition-duration) var(--timing-function);
+&:hover{
+    color: var(--accent-color);
+}
 `
-const CloseMenu = styled.img`
+const CloseMenu = styled(RxCross2)`
+width: 32px;
+height: 32px;
+color: var(--primary-text-color);
+transition: color var(--transition-duration) var(--timing-function);
+&:hover{
+    color: var(--accent-color);
+}
 `
 
 export {MenuSwitcher, OpenMenu, CloseMenu}

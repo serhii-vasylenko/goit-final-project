@@ -7,7 +7,7 @@ import { MobileSwitcher } from "components/MobileSwitcher/MobileSwitcher";
 import { ThemeToggle } from "components/ThemeToggler/ThemeToggler";
 export const MobileMenu = ({nav, setNav}) => {
     return (
-        <MobileMenuEl>
+        <MobileMenuEl className={nav ? 'active' : ' '}>
             <Wrapper>
                 <NavLink to={'/'}><Logo src={logo} alt='logo' /></NavLink>
                 <MobileSwitcher nav={nav} setNav={setNav}/>

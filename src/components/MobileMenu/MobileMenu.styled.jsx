@@ -6,8 +6,14 @@ top: 0;
 left: 0;
 width: 100%;
 height: 100%;
+z-index: 20;
 background-color: #EBF3D4;
 padding: 18px 16px;
+transform: translateY(-100%);
+transition: transform var(--transition-duration) var(--timing-function);
+&.active {
+      transform: translateY(0%);
+    }
 @media (min-width: 768px) {
         padding: 18px 32px 32px 32px;
 	}

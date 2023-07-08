@@ -19,6 +19,6 @@ export const Header = () => {
                 <ThemeToggle />     
             </Wrapper>
             <MobileSwitcher nav={nav} setNav={setNav} />
-           { nav ?  <MobileMenu nav={nav} setNav={setNav} /> : null}
+            <MobileMenu nav={nav} setNav={setNav} />
         </HeaderEl >)
 }
