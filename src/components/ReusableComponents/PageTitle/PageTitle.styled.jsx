@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const Title = styled.h1`
-  color: #001833;
+  color: var(--page-title-color);
   font-size: 28px;
   font-weight: 600;
   line-height: 1;
@@ -31,7 +31,7 @@ export const RectangleFirst = styled.div`
   transform: rotate(-25deg);
   flex-shrink: 0;
   border-radius: 3px;
-  background: #8baa36;
+  background: var(--accent-color);
 
   @media screen and (min-width: 768px) {
     width: 14px;
@@ -62,7 +62,7 @@ export const Circle = styled.div`
   transform: rotate(-25deg);
   flex-shrink: 0;
   border-radius: 3px;
-  background: #22252a;
+  background: var(----backgraund-color-circle);
 
   @media screen and (min-width: 768px) {
     width: 12px;

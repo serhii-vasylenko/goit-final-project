@@ -12,12 +12,20 @@ export const Button = styled.button`
   padding-left: ${props => props.padding.paddingLeft};
   padding-right: ${props => props.padding.paddingRight};
 
-  &:focus,
+
   &:hover {
     ${props => props.hoverStyles.styleFirst} : ${props => props.hoverParams.paramFirst};
   }
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:focus {
+    ${props => props.focusStyles.styleFirst}: ${props => props.focusParams.paramFirst};
+  }
+
+  &:active {
+    transform: scale(1.01);
+  }
+
+  transition: ${props => props.hoverStyles.styleFirst} var(--transition-duration) var(--timing-function),
 
   @media screen and (min-width: 768px) { 
     font-size: calc(${props => props.fontSize}*${props => props.cofByMedia768.font});
