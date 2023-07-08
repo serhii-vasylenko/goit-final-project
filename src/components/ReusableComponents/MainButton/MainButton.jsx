@@ -40,7 +40,7 @@ const MainButton = ({
   );
 };
 
-TitlePage.propTypes = {
+MainButton.propTypes = {
   nameButton: PropTypes.string,
   fontSize: PropTypes.string,
   bgColor: PropTypes.string,

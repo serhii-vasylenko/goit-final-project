@@ -7,7 +7,7 @@ import {
   Circle,
 } from './PageTitle.styled';
 
-const TitlePage = ({ title }) => {
+const PageTitle = ({ title }) => {
   return (
     <Wrapper>
       <Title>{title}</Title>
@@ -18,8 +18,8 @@ const TitlePage = ({ title }) => {
   );
 };
 
-TitlePage.propTypes = {
+PageTitle.propTypes = {
   title: PropTypes.string,
 };
 
-export default TitlePage;
+export default PageTitle;

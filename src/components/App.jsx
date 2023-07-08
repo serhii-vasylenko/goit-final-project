@@ -16,7 +16,7 @@ const FavoritePage = lazy(() => import('pages/FavoritePage'));
 const SearchPage = lazy(() => import('pages/SearchPage'))
 const MyRecipesPage = lazy(()=> import('pages/MyRecipesPage'))
 const ShoppingListPage = lazy(() => import('pages/ShoppingListPage'))
-const NotFound = lazy(() => import('pages/NotFound'));
+//const NotFound = lazy(() => import('pages/NotFound'));
 
 const App = () => {
   const dispatcher = useDispatch();
