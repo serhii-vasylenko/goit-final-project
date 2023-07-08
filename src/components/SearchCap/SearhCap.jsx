@@ -17,7 +17,7 @@ const SearchCapImage = () => {
             srcSet={`${searchCapSmall} 1x, ${searchCapSmall2x} 2x`}
             media="(max-width: 367px)"
           />
-          <img src={searchCapSmall} alt="vegitable image" />
+          <img src={searchCapSmall} alt="vegitable" />
         </picture>
         <Text>Try looking for something else..</Text>
       </ImageContainer>
