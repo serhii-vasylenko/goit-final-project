@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Button } from './MainButton.styled';
 
 const MainButton = ({
@@ -17,8 +18,8 @@ const MainButton = ({
     paddingLeft: '48px',
     paddingRight: '48px',
   },
-  hoverStyles = {styleFirst: "color"}, //додати кількість необхідних стилів для ховеру(фокусу), якщо потрібно, тут не міняти
-  hoverParams = {paramFirst: "#8BAA36"} //додати кількість необхідних параметрів для ховеру(фокусу), якщо потрібно, тут не міняти
+  hoverStyles = { styleFirst: 'color' }, //додати кількість необхідних стилів для ховеру(фокусу), якщо потрібно, тут не міняти
+  hoverParams = { paramFirst: '#8BAA36' }, //додати кількість необхідних параметрів для ховеру(фокусу), якщо потрібно, тут не міняти
 }) => {
   return (
     <Button
@@ -37,6 +38,35 @@ const MainButton = ({
       {nameButton}
     </Button>
   );
+};
+
+TitlePage.propTypes = {
+  nameButton: PropTypes.string,
+  fontSize: PropTypes.string,
+  bgColor: PropTypes.string,
+  color: PropTypes.string,
+  border: PropTypes.string,
+  borderColor: PropTypes.string,
+  borderRadius: PropTypes.string,
+  cofByMedia768: PropTypes.exact({
+    font: PropTypes.number,
+    padX: PropTypes.number,
+    padY: PropTypes.number,
+  }),
+
+  cofByMedia1440: PropTypes.exact({
+    font: PropTypes.number,
+    padX: PropTypes.number,
+    padY: PropTypes.number,
+  }),
+  padding: PropTypes.exact({
+    paddingTop: PropTypes.string,
+    paddingBottom: PropTypes.string,
+    paddingLeft: PropTypes.string,
+    paddingRight: PropTypes.string,
+  }),
+  hoverStyles: PropTypes.object,
+  hoverParams: PropTypes.object,
 };
 
 export default MainButton;
