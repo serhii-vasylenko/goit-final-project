@@ -7,7 +7,7 @@ import { refreshUser } from 'redux/auth/operations';
 import { PrivateRoute } from 'components/PrivateRoute/PrivateRoute';
 import { PublicRoute } from './PublicRoute/PublicRoute';
 
-const WellcomePage = lazy(() => import('pages/WellcomePage'));
+const WelcomePage = lazy(() => import('pages/WelcomePage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage'));
 const SigninPage = lazy(() => import('pages/SigninPage'));
 const MainPage = lazy(() => import('pages/MainPage'));
@@ -16,6 +16,7 @@ const FavoritePage = lazy(() => import('pages/FavoritePage'));
 const SearchPage = lazy(() => import('pages/SearchPage'))
 const MyRecipesPage = lazy(()=> import('pages/MyRecipesPage'))
 const ShoppingListPage = lazy(() => import('pages/ShoppingListPage'))
+const NotFound = lazy(() => import('pages/NotFound'));
 
 const App = () => {
   const dispatcher = useDispatch();
@@ -29,7 +30,7 @@ const App = () => {
   ) : (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
-          <Route index element={<WellcomePage />} />
+          <Route index element={<WelcomePage />} />
           <Route path="categories/:categoryName" element={<CategoriesPage />} />
           <Route path="add" element={<FavoritePage />} />
           <Route path="my" element={<MyRecipesPage />} />
