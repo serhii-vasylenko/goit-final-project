@@ -1,6 +1,6 @@
 // import { useState, useEffect} from "react";
-
-export const ThemeToggle = () => {
+import { Toggle } from "./ThemeToggle.styled"
+export const ThemeToggle = ({nav}) => {
  
     // const[theme, setTheme] = useState('light')
 	// useEffect(() => {
@@ -12,7 +12,8 @@ export const ThemeToggle = () => {
     //     setTheme(theme === 'dark' ? 'light' : 'dark')
     // };
     
-    return <>
-    </>
+    return <Toggle nav={nav}>
+        Toggle
+    </Toggle>
 }
 

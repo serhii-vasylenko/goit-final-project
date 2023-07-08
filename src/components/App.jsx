@@ -11,12 +11,12 @@ const WelcomePage = lazy(() => import('pages/WelcomePage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage'));
 const SigninPage = lazy(() => import('pages/SigninPage'));
 const MainPage = lazy(() => import('pages/MainPage'));
-const CategoriesPage = lazy(() => import('pages/CategoriesPage'));
+const CategoriesPage = lazy(() => import('pages/CategoriesPage/CategoriesPage'));
 const FavoritePage = lazy(() => import('pages/FavoritePage'));
 const SearchPage = lazy(() => import('pages/SearchPage'))
 const MyRecipesPage = lazy(()=> import('pages/MyRecipesPage'))
 const ShoppingListPage = lazy(() => import('pages/ShoppingListPage'))
-const NotFound = lazy(() => import('pages/NotFound'));
+//const NotFound = lazy(() => import('pages/NotFound'));
 
 const App = () => {
   const dispatcher = useDispatch();
@@ -37,6 +37,7 @@ const App = () => {
           <Route path="favorite" element={<FavoritePage />} />
           <Route path="shopping-list" element={<ShoppingListPage />} />
           <Route path="search" element={<SearchPage />} />
+          {/* <Route path='*' element={<NotFound />}/> */}
         <Route
           path="/register"
           element={<PublicRoute redirectTo="/main" component={<RegisterPage />} />}

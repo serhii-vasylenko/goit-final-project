@@ -1,9 +1,13 @@
-import search from '../../images/search.svg'
-import { NavList, NavItem, NavLinkEl } from './Navigation.styled'
-export const Navigation = () => {
+// import search from '../../images/search.svg'
+import { NavList, NavItem, NavLinkEl, SearchIcon } from './Navigation.styled'
+export const Navigation = ({ nav, setNav }) => {
+    const onListClick = () => {
+        if(!nav) return
+        setNav(false)
+    }
     return (
         <nav>
-            <NavList>
+            <NavList nav={nav} onClick={() => onListClick()}>
                 <NavItem> 
                     <NavLinkEl to={'/categories/:categoryName'}>
                         Categories   
@@ -31,7 +35,8 @@ export const Navigation = () => {
                 </NavItem>
                     <NavItem>
                         <NavLinkEl to={'/search'}>
-                         <img src={search} alt='search-icon' />
+                        <SearchIcon/>
+                        { nav ? 'Search' : null}
                         </NavLinkEl>  
                 </NavItem>
                 </NavList>
