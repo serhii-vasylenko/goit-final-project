@@ -1,3 +1,5 @@
-const FavoritePage = () => {};
+const FavoritePage = () => {
+  return <>fav</>;
+};
 
 export default FavoritePage;

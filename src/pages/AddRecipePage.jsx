@@ -1,3 +1,4 @@
-const AddRecipePage = () => {};
-
+const AddRecipePage = () => {
+  return <>add</>;
+};
 export default AddRecipePage;

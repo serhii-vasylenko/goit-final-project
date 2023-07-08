@@ -1,0 +1,29 @@
+import styled from "@emotion/styled";
+
+const UserWrapper = styled.div`
+display: flex;
+align-items: center;
+margin-right: 50px;
+`
+const ImgContainer = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+width: 44px;
+height: 44px;
+background-color: #D9D9D9;
+border-radius: 50px;
+`
+const UserImg = styled.img`
+width: 28px;
+height: 28px;
+`
+const UserName = styled.p`
+color: var(--primary-text-color);
+font-size: 14px;
+font-weight: 600;
+line-height: 170%;
+margin-left: 14px;
+`
+
+export{UserWrapper, ImgContainer, UserImg, UserName}
