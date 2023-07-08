@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router';
+import { Route, Routes } from 'react-router-dom';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 import { lazy, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,10 +7,15 @@ import { refreshUser } from 'redux/auth/operations';
 import { PrivateRoute } from 'components/PrivateRoute/PrivateRoute';
 import { PublicRoute } from './PublicRoute/PublicRoute';
 
-const WellcomPage = lazy(() => import('pages/WellcomPage'));
+const WellcomePage = lazy(() => import('pages/WellcomePage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage'));
 const SigninPage = lazy(() => import('pages/SigninPage'));
 const MainPage = lazy(() => import('pages/MainPage'));
+const CategoriesPage = lazy(() => import('pages/CategoriesPage'));
+const FavoritePage = lazy(() => import('pages/FavoritePage'));
+const SearchPage = lazy(() => import('pages/SearchPage'))
+const MyRecipesPage = lazy(()=> import('pages/MyRecipesPage'))
+const ShoppingListPage = lazy(() => import('pages/ShoppingListPage'))
 
 const App = () => {
   const dispatcher = useDispatch();
@@ -24,7 +29,13 @@ const App = () => {
   ) : (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
-        <Route index element={<WellcomPage />} />
+          <Route index element={<WellcomePage />} />
+          <Route path="categories/:categoryName" element={<CategoriesPage />} />
+          <Route path="add" element={<FavoritePage />} />
+          <Route path="my" element={<MyRecipesPage />} />
+          <Route path="favorite" element={<FavoritePage />} />
+          <Route path="shopping-list" element={<ShoppingListPage />} />
+          <Route path="search" element={<SearchPage />} />
         <Route
           path="/register"
           element={<PublicRoute redirectTo="/main" component={<RegisterPage />} />}
