@@ -12,7 +12,6 @@ const handleRejected = (state, action) => {
 
 const initialState = {
   categoryList: null,
-  ingredientsList: null,
   mainPageRecipes: null,
   isLoading: false,
   error: null,
@@ -30,16 +29,6 @@ const recipesSlice = createSlice({
         state.categoryList = action.payload;
       })
       .addCase(recipeOperations.getCategoryList.rejected, handleRejected)
-      .addCase(recipeOperations.getIngredientsList.pending, handlePending)
-      .addCase(
-        recipeOperations.getIngredientsList.fulfilled,
-        (state, action) => {
-          state.isLoading = false;
-          state.error = null;
-          state.ingredientsList = action.payload;
-        }
-      )
-      .addCase(recipeOperations.getIngredientsList.rejected, handleRejected)
       .addCase(recipeOperations.getMainPageRecipes.pending, handlePending)
       .addCase(
         recipeOperations.getMainPageRecipes.fulfilled,
