@@ -1,4 +1,4 @@
-import search from '../../images/search.svg'
+// import search from '../../images/search.svg'
 import { NavList, NavItem, NavLinkEl, SearchIcon } from './Navigation.styled'
 export const Navigation = ({ nav, setNav }) => {
     const onListClick = () => {

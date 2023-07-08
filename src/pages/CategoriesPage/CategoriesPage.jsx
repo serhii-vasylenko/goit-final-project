@@ -1,9 +1,9 @@
 import { CategoryList } from "components/CategoryList/CategoryList";
 import PageTitle from "components/ReusableComponents/PageTitle/PageTitle";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router";
 const CategoriesPage = () => {
-  const [currentCategory, setCurrentCategory] = useState('Beef')
+  // const [currentCategory, setCurrentCategory] = useState('Beef')
   const { categoryName } = useParams();
 
   useEffect(() => {
