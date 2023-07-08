@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/403.c3ca59b5.chunk.js","mappings":"2JAIA,UAJsB,WACpB,OAAO,4CACR,C","sources":["pages/MyRecipesPage.jsx"],"sourcesContent":["const MyRecipesPage = () => {\n  return <>my recipes</>;\n};\n\nexport default MyRecipesPage;\n"],"names":[],"sourceRoot":""}
