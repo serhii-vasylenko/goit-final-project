@@ -37,6 +37,7 @@ const App = () => {
           <Route path="favorite" element={<FavoritePage />} />
           <Route path="shopping-list" element={<ShoppingListPage />} />
           <Route path="search" element={<SearchPage />} />
+          <Route path='*' element={<NotFound />}/>
         <Route
           path="/register"
           element={<PublicRoute redirectTo="/main" component={<RegisterPage />} />}
