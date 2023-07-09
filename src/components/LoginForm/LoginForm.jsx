@@ -1,6 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { loginUser } from 'redux/auth/operations';
 
+import sprite from '../../images/sprite.svg';
+
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import {
@@ -30,21 +32,17 @@ export const LoginForm = () => {
     values,
     errors,
     touched,
-    getFieldProps,
-    submitCount,
     handleSubmit,
     handleChange,
-    setValues,
     isSubmitting,
-    setSubmitting,
     resetForm,
     isValid,
-    dirty,
   } = useFormik({
     initialValues: {
       email: '',
       password: '',
     },
+	 
     validationSchema: Yup.object().shape({
       email: Yup.string().email('Invalid email address').required('Required'),
       password: Yup.string()
@@ -71,7 +69,9 @@ export const LoginForm = () => {
       <Title>Sign In</Title>
 
       <LabelGroup>
-        <EnvelopeIconStyled />
+		<EnvelopeIconStyled width="24" height="24" fill= 'none'>
+          <use href={`${sprite}#icon-mail-01`}></use>
+        </EnvelopeIconStyled>
       </LabelGroup>
 
       <InputGroup>
@@ -95,17 +95,19 @@ export const LoginForm = () => {
       </InputGroup>
 
       <LabelGroup>
-        <LockIconStyled />
+		<LockIconStyled width="24" height="24" fill= 'none'>
+          <use href={`${sprite}#icon-lock-02`}></use>
+        </LockIconStyled>
       </LabelGroup>
 
       <InputGroup>
         <Input
           id="password"
           name="password"
-          type="text"
+          type="password"
           onChange={handleChange}
           placeholder="Password"
-          value={values.password.replace(/[^*]/, '*')}
+          value={values.password}
           ValidationState={getStatus(errors.password, touched.password, isValid, isSubmitting)}
         />
         <ErrMessage>

@@ -1,10 +1,8 @@
 import styled from '@emotion/styled';
 
-import { ReactComponent as EnvelopeIcon } from '../../images/registrationPage/icons/mail-01.svg';
-import { ReactComponent as LockIcon } from '../../images/registrationPage/icons/lock-02.svg';
-
 import { ReactComponent as ErrorIcon } from '../../images/registrationPage/icons/error.svg';
 import { ReactComponent as CorrectIcon } from '../../images/registrationPage/icons/correct.svg';
+
 export const Form = styled.form`
   font-family: Poppins;
   display: flex;
@@ -35,14 +33,12 @@ export const LabelGroup = styled.div`
   z-index: 2;
 `;
 
-export const EnvelopeIconStyled = styled(EnvelopeIcon)`
-  /* stroke: tomato;
-  fill: yellowgreen; */
+export const EnvelopeIconStyled = styled.svg`
+stroke: #fff;
 `;
 
-export const LockIconStyled = styled(LockIcon)`
-  /* stroke: tomato;
-  fill: yellowgreen; */
+export const LockIconStyled = styled.svg`
+  stroke: #fff;
 `;
 
 export const ErrorIconStyled = styled(ErrorIcon)`

@@ -32,22 +32,18 @@ export const AuthForm = () => {
     values,
     errors,
     touched,
-    getFieldProps,
-    submitCount,
     handleSubmit,
     handleChange,
-    setValues,
     isSubmitting,
-    setSubmitting,
     resetForm,
     isValid,
-    dirty,
   } = useFormik({
     initialValues: {
       name: '',
       email: '',
       password: '',
     },
+	 
     validationSchema: Yup.object().shape({
       name: Yup.string().required('Required'),
       email: Yup.string().email('Invalid email address').required('Required'),
@@ -75,7 +71,6 @@ export const AuthForm = () => {
       <Title>Registration</Title>
 
       <LabelGroup>
-        {/* <UserIconStyled /> */}
         <UserIconStyled width="24" height="24" fill= 'none'>
           <use href={`${sprite}#icon-user-01`}></use>
         </UserIconStyled>
@@ -87,6 +82,7 @@ export const AuthForm = () => {
           name="name"
           type="text"
           placeholder="Name"
+			 autocomplete="off"
           onChange={handleChange}
           value={values.name}
           ValidationState={getStatus(
@@ -107,7 +103,9 @@ export const AuthForm = () => {
       </InputGroup>
 
       <LabelGroup>
-        <EnvelopeIconStyled />
+		<EnvelopeIconStyled width="24" height="24" fill= 'none'>
+          <use href={`${sprite}#icon-mail-01`}></use>
+        </EnvelopeIconStyled>
       </LabelGroup>
 
       <InputGroup>
@@ -116,6 +114,7 @@ export const AuthForm = () => {
           name="email"
           type="text"
           placeholder="Email"
+			 autocomplete="off"
           onChange={handleChange}
           value={values.email}
           ValidationState={getStatus(
@@ -136,17 +135,20 @@ export const AuthForm = () => {
       </InputGroup>
 
       <LabelGroup>
-        <LockIconStyled />
+		<LockIconStyled width="24" height="24" fill= 'none'>
+          <use href={`${sprite}#icon-lock-02`}></use>
+        </LockIconStyled>
       </LabelGroup>
 
       <InputGroup>
         <Input
           id="password"
           name="password"
-          type="text"
+          type="password"
           onChange={handleChange}
           placeholder="Password"
-          value={values.password.replace(/[^*]/, '*')}
+			 autocomplete="off"
+          value={values.password}
           ValidationState={getStatus(
             errors.password,
             touched.password,
