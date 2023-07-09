@@ -1,15 +1,19 @@
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useSearchParams, useNavigate, useLocation } from 'react-router-dom';
 
 import MainButton from '../MainButton/MainButton';
 
 import { Input, InputWrapper, ButtonWrapper } from './SearchForm.styled';
 
+import { selectSearchFilter } from 'redux/recipes/recipesSelector';
+
 const SearchForm = () => {
   const [searchValue, setSearchValue] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
   const location = useLocation();
+  const selectedOption = useSelector(selectSearchFilter);
 
   useEffect(() => {
     const query = searchParams.get('query');
@@ -32,14 +36,19 @@ const SearchForm = () => {
 
       if (location.pathname === '/') {
         navigate({ pathname: path, search: query });
-      } else if (location.pathname === '/search')
+      }
+      if (
+        location.pathname === '/search' &&
+        selectedOption === 'title'
+      ) {
         setSearchParams({ query: trimmedValue });
+      } else if (
+        location.pathname === '/search' &&
+        selectedOption === 'ingredient'
+      ) {
+        setSearchParams({ ingredient: trimmedValue });
+      }
     }
-    console.log('searchValue :>> ', trimmedValue);
-
-    //   axios.get(`/api/search${query}`)
-    // .then(response => { console.log(response.data) })
-    // .catch(error => { console.log(error.message) });
   };
 
   return (
@@ -48,6 +57,7 @@ const SearchForm = () => {
         <InputWrapper>
           <Input
             type="text"
+            name="search"
             value={searchValue}
             onChange={handleInputChange}
             placeholder="Enter the text"
@@ -61,6 +71,16 @@ const SearchForm = () => {
                 paddingBottom: '16px',
                 paddingLeft: '32px',
                 paddingRight: '32px',
+              }}
+              cofByMedia768={{
+                font: 1.2,
+                padX: 1.02,
+                padY: 1.63,
+              }}
+              cofByMedia1440={{
+                font: 1.2,
+                padX: 1.46,
+                padY: 1.63,
               }}
               bgColor={location.pathname === '/' ? '#22252A' : '#8BAA36'}
               hoverStyles={{ styleFirst: 'background-color' }}

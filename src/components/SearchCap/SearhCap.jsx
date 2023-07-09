@@ -15,11 +15,11 @@ const SearchCapImage = () => {
           />
           <source
             srcSet={`${searchCapSmall} 1x, ${searchCapSmall2x} 2x`}
-            media="(max-width: 367px)"
+            media="(max-width: 767px)"
           />
           <img src={searchCapSmall} alt="vegitable" />
         </picture>
-        <Text>Try looking for something else..</Text>
+        <Text>Try looking for something else...</Text>
       </ImageContainer>
     );
 };
