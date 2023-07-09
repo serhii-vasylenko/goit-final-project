@@ -4,8 +4,10 @@ import { useParams } from "react-router";
 import getCategoryList from "redux/recipes/operations/getCategoryList";
 import { CategoryList } from "components/CategoryList/CategoryList";
 import PageTitle from "components/ReusableComponents/PageTitle/PageTitle";
-
+import { Container } from "./CategoriesPage.styled"; 
+import { MainEl } from "components/Main/Main.styled";
 const categrs = ['beef', 'breakfast', 'chicken', 'dessert', 'goat', 'lamb', 'miscellaneous', 'pasta', 'pork', 'seafood', 'side']
+
 const CategoriesPage = () => {
   const [currentCategory, setCurrentCategory] = useState('beef')
   const { categoryName } = useParams();
@@ -23,11 +25,14 @@ const CategoriesPage = () => {
 
   console.log('current', currentCategory);
 
-  return <section>
-    <PageTitle title={'Categories'} />
-    <CategoryList list={categrs} />
+  return <Container>
+    <MainEl>
+      <PageTitle title={'Categories'} />
+      <CategoryList list={categrs} />
+    </MainEl>
     
-  </section>
+    
+  </Container>
 };
 
 export default CategoriesPage;

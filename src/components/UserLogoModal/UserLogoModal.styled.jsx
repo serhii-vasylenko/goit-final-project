@@ -4,7 +4,6 @@ import { LuEdit2 } from "react-icons/lu";
 const Modal = styled.div`
 background-color: var(--background-color);
 width: 177px;
-height: 134px;
 padding: 18px;
 border-radius: 8px;
 border: 1px solid var(--accent-color);
@@ -14,6 +13,7 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 width: 100%;
+margin-bottom: 32px;
 `
 const ModalText = styled.p`
 font-weight: 500;
