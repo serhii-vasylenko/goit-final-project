@@ -1,17 +1,18 @@
 {
   "files": {
     "main.css": "/goit-final-project/static/css/main.debbb8fa.css",
-    "main.js": "/goit-final-project/static/js/main.a23c20d1.js",
+    "main.js": "/goit-final-project/static/js/main.6dd4bdfe.js",
     "static/js/676.42f8c21b.chunk.js": "/goit-final-project/static/js/676.42f8c21b.chunk.js",
-    "static/js/541.39bddcc7.chunk.js": "/goit-final-project/static/js/541.39bddcc7.chunk.js",
-    "static/js/323.7f85f721.chunk.js": "/goit-final-project/static/js/323.7f85f721.chunk.js",
+    "static/js/541.9ac91504.chunk.js": "/goit-final-project/static/js/541.9ac91504.chunk.js",
+    "static/js/323.2e55230c.chunk.js": "/goit-final-project/static/js/323.2e55230c.chunk.js",
     "static/js/727.46045738.chunk.js": "/goit-final-project/static/js/727.46045738.chunk.js",
-    "static/js/626.567c0628.chunk.js": "/goit-final-project/static/js/626.567c0628.chunk.js",
+    "static/js/626.67b37250.chunk.js": "/goit-final-project/static/js/626.67b37250.chunk.js",
     "static/js/339.99cbeb1f.chunk.js": "/goit-final-project/static/js/339.99cbeb1f.chunk.js",
-    "static/js/605.ec42c432.chunk.js": "/goit-final-project/static/js/605.ec42c432.chunk.js",
+    "static/js/172.de759fb9.chunk.js": "/goit-final-project/static/js/172.de759fb9.chunk.js",
     "static/js/403.c3ca59b5.chunk.js": "/goit-final-project/static/js/403.c3ca59b5.chunk.js",
     "static/js/707.00a9d668.chunk.js": "/goit-final-project/static/js/707.00a9d668.chunk.js",
     "static/js/568.fa2c578c.chunk.js": "/goit-final-project/static/js/568.fa2c578c.chunk.js",
+    "static/js/368.0f7d7cc3.chunk.js": "/goit-final-project/static/js/368.0f7d7cc3.chunk.js",
     "static/media/searchCapLarge@2x.png": "/goit-final-project/static/media/searchCapLarge@2x.831629f38acb698698c1.png",
     "static/media/searchCapSmall@2x.png": "/goit-final-project/static/media/searchCapSmall@2x.22bf64dcd04d440d3bf8.png",
     "static/media/searchCapLarge.png": "/goit-final-project/static/media/searchCapLarge.3c0232a5f0c7332b77cc.png",
@@ -23,20 +24,21 @@
     "static/media/correct.svg": "/goit-final-project/static/media/correct.2c20cfce5010676dc2acf065541b3183.svg",
     "static/media/user-icon.svg": "/goit-final-project/static/media/user-icon.8b04d065a66483f3095e819fac01e7d6.svg",
     "main.debbb8fa.css.map": "/goit-final-project/static/css/main.debbb8fa.css.map",
-    "main.a23c20d1.js.map": "/goit-final-project/static/js/main.a23c20d1.js.map",
+    "main.6dd4bdfe.js.map": "/goit-final-project/static/js/main.6dd4bdfe.js.map",
     "676.42f8c21b.chunk.js.map": "/goit-final-project/static/js/676.42f8c21b.chunk.js.map",
-    "541.39bddcc7.chunk.js.map": "/goit-final-project/static/js/541.39bddcc7.chunk.js.map",
-    "323.7f85f721.chunk.js.map": "/goit-final-project/static/js/323.7f85f721.chunk.js.map",
+    "541.9ac91504.chunk.js.map": "/goit-final-project/static/js/541.9ac91504.chunk.js.map",
+    "323.2e55230c.chunk.js.map": "/goit-final-project/static/js/323.2e55230c.chunk.js.map",
     "727.46045738.chunk.js.map": "/goit-final-project/static/js/727.46045738.chunk.js.map",
-    "626.567c0628.chunk.js.map": "/goit-final-project/static/js/626.567c0628.chunk.js.map",
+    "626.67b37250.chunk.js.map": "/goit-final-project/static/js/626.67b37250.chunk.js.map",
     "339.99cbeb1f.chunk.js.map": "/goit-final-project/static/js/339.99cbeb1f.chunk.js.map",
-    "605.ec42c432.chunk.js.map": "/goit-final-project/static/js/605.ec42c432.chunk.js.map",
+    "172.de759fb9.chunk.js.map": "/goit-final-project/static/js/172.de759fb9.chunk.js.map",
     "403.c3ca59b5.chunk.js.map": "/goit-final-project/static/js/403.c3ca59b5.chunk.js.map",
     "707.00a9d668.chunk.js.map": "/goit-final-project/static/js/707.00a9d668.chunk.js.map",
-    "568.fa2c578c.chunk.js.map": "/goit-final-project/static/js/568.fa2c578c.chunk.js.map"
+    "568.fa2c578c.chunk.js.map": "/goit-final-project/static/js/568.fa2c578c.chunk.js.map",
+    "368.0f7d7cc3.chunk.js.map": "/goit-final-project/static/js/368.0f7d7cc3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.debbb8fa.css",
-    "static/js/main.a23c20d1.js"
+    "static/js/main.6dd4bdfe.js"
   ]
 }
