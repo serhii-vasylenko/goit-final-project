@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import {
-  logo_sm,
-  logo_md,
+//   logo_sm,
+//   logo_md,
   salat_sm,
   salat_sm_retina,
   salat_md,
