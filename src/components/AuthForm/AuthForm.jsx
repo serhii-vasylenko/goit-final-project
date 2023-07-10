@@ -13,11 +13,8 @@ import {
   Title,
   LabelGroup,
   InputGroup,
-  EnvelopeIconStyled,
-  LockIconStyled,
   ErrorIconStyled,
   CorrectIconIconStyled,
-  UserIconStyled,
   LabelIcon,
 } from './AuthForm.styled';
 
