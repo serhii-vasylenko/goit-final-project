@@ -1,8 +1,17 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { FormControl, Select, MenuItem } from '@mui/material';
+
+import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
 
 import { selectSearchFilter } from 'redux/recipes/recipesSelector';
+
+import {
+  StyledFormControl,
+  SelectWrapper,
+  SelectName,
+  StyledSelect,
+  StyledMenuItem,
+} from './SearchTypeSelector.styled';
 
 const SearchTypeSelector = () => {
   const dispatch = useDispatch();
@@ -26,15 +35,38 @@ const SearchTypeSelector = () => {
     setSelectedValue(value);
     dispatch(selectOption(value));
   };
-  console.log('selectedOption :>> ', selectedOption);
+  // console.log('selectedOption :>> ', selectedOption);
 
   return (
-    <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-      <Select value={selectedValue} name="select" onChange={handleChange}>
-        <MenuItem value={'title'}>Title</MenuItem>
-        <MenuItem value={'ingredient'}>Ingredients</MenuItem>
-      </Select>
-    </FormControl>
+    <>
+      <SelectWrapper>
+        <SelectName> Search by:</SelectName>
+        <StyledFormControl
+          sx={{
+            m: 1,
+            minWidth: 120,
+            '& .MuiOutlinedInput-notchedOutline': {
+              border: 'none',
+            },
+          }}
+          size="small"
+          margin="normal"
+          focused={false}
+        >
+          <StyledSelect
+            value={selectedValue}
+            name="select"
+            onChange={handleChange}
+            IconComponent={props => (
+              <KeyboardArrowDown sx={{ fill: '#8BAA36' }} {...props} />
+            )}
+          >
+            <StyledMenuItem value="title">Title</StyledMenuItem>
+            <StyledMenuItem value="ingredient">Ingredients</StyledMenuItem>
+          </StyledSelect>
+        </StyledFormControl>
+      </SelectWrapper>
+    </>
   );
 };
 
