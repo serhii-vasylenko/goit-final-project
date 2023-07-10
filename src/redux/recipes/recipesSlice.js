@@ -82,7 +82,14 @@ const recipesSlice = createSlice({
         );
         state.ownRecipes.splice(index, 1);
       })
-      .addCase(recipeOperations.deleteownRecipe.rejected, handleRejected);
+      .addCase(recipeOperations.deleteownRecipe.rejected, handleRejected)
+      .addCase(recipeOperations.addOwnRecipe.pending, handlePending)
+      .addCase(recipeOperations.addOwnRecipe.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.ownRecipes = [...state.ownRecipes, action.payload];
+      })
+      .addCase(recipeOperations.addOwnRecipe.rejected, handleRejected);
   },
 });
 
