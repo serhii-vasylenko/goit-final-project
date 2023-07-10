@@ -76,3 +76,15 @@ export const refreshUser = createAsyncThunk(
       }
     }
   );
+
+  export const changeUserName = createAsyncThunk(
+    'auth/changeUserName',
+    async (userName, thunkAPI) => {
+      try {
+        const response = await axios.patch('/users', userName);
+        return response.data;
+      } catch (error) {
+        return thunkAPI.rejectWithValue(error.message);
+      }
+    }
+  );
