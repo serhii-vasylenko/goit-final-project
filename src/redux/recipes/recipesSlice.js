@@ -13,12 +13,19 @@ const handleRejected = (state, action) => {
 const initialState = {
   categoryList: null,
   mainPageRecipes: null,
+  searchFilter: null,
   isLoading: false,
   error: null,
 };
 const recipesSlice = createSlice({
   name: 'recipes',
   initialState,
+
+  reducers: {
+    setSearchFilter: (state, action) => {
+      state.searchFilter = action.payload;
+    }
+  },
 
   extraReducers: builder => {
     builder
