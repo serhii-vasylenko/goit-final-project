@@ -1,14 +1,13 @@
 import { AuthForm } from "components/AuthForm/AuthForm";
-import { NavLink } from "react-router-dom";
-import { Container} from "./RegisterPage.styled";
+import { Container, StyledLink} from "./RegisterPage.styled";
 
 const RegisterPage = () => {
 	return (
 		<Container>
 		  <AuthForm />
-		  <NavLink to="/signin">
+		  <StyledLink to="/signin">
         Sign In
-      </NavLink>
+      </StyledLink>
 		</Container>
 	 );
 };

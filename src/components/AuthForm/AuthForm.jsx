@@ -18,6 +18,7 @@ import {
   ErrorIconStyled,
   CorrectIconIconStyled,
   UserIconStyled,
+  LabelIcon,
 } from './AuthForm.styled';
 
 const getStatus = (err, touched, isVal, isSub) => {
@@ -71,9 +72,9 @@ export const AuthForm = () => {
       <Title>Registration</Title>
 
       <LabelGroup>
-        <UserIconStyled width="24" height="24" fill= 'none'>
+        <LabelIcon>
           <use href={`${sprite}#icon-user-01`}></use>
-        </UserIconStyled>
+        </LabelIcon>
       </LabelGroup>
 
       <InputGroup>
@@ -103,9 +104,9 @@ export const AuthForm = () => {
       </InputGroup>
 
       <LabelGroup>
-		<EnvelopeIconStyled width="24" height="24" fill= 'none'>
+		<LabelIcon>
           <use href={`${sprite}#icon-mail-01`}></use>
-        </EnvelopeIconStyled>
+        </LabelIcon>
       </LabelGroup>
 
       <InputGroup>
@@ -135,9 +136,9 @@ export const AuthForm = () => {
       </InputGroup>
 
       <LabelGroup>
-		<LockIconStyled width="24" height="24" fill= 'none'>
+		<LabelIcon>
           <use href={`${sprite}#icon-lock-02`}></use>
-        </LockIconStyled>
+        </LabelIcon>
       </LabelGroup>
 
       <InputGroup>
