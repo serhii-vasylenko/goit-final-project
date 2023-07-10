@@ -33,7 +33,7 @@ const App = () => {
   ) : (
     <div>
       <Routes>
-        <Route path="/" element={<WelcomePage />} />
+        <Route path="/"  element={<PublicRoute redirectTo="/main" component={<WelcomePage />} />} />
         <Route
           path="/register"
           element={<PublicRoute redirectTo="/main" component={<RegisterPage />} />}
