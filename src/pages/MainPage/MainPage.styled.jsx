@@ -79,16 +79,40 @@ export const HeroSection = styled.section`
 `;
 
 export const HeroContainer = styled.div`
-  padding: 68px 27.5px 83px 27.5px;
-  text-align: center;
+  @media screen and (max-width: 767px) {
+    padding: 68px 27.5px 83px 27.5px;
+    text-align: center;
+  }
 
-  /* @media screen and (min-width: 768px) {
-    width: 378px;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    /* gap: 4px; */
+    padding-top: 159px;
+    padding-left: 38px;
+    padding-bottom: 202px;
   }
 
   @media screen and (min-width: 1260px) {
-    width: 578px;
-  } */
+    gap: 68px;
+    padding-top: 126px;
+    padding-left: 20px;
+    padding-bottom: 235px;
+  }
+`;
+
+export const FlexWrapper = styled.div`
+  @media screen and (max-width: 767px) {
+    margin-bottom: 44px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 362px;
+  }
+
+  @media screen and (min-width: 1260px) {
+    width: 510px;
+  }
 `;
 
 export const HeroTitle = styled.h1`
@@ -101,13 +125,19 @@ export const HeroTitle = styled.h1`
 
   margin-bottom: 14px;
 
-  /* @media screen and (min-width: 768px) {
-    width: 378px;
+  @media screen and (min-width: 768px) {
+    font-size: 72px;
+    letter-spacing: -0.36px;
+
+    margin-bottom: 24px;
   }
 
   @media screen and (min-width: 1280px) {
-    width: 578px;
-  } */
+    font-size: 100px;
+    letter-spacing: -0.5px;
+
+    margin-bottom: 14px;
+  }
 `;
 
 export const HeroTitleAccent = styled.span`
@@ -122,32 +152,54 @@ export const HeroDescription = styled.p`
   line-height: 1.3;
   letter-spacing: -0.28px;
 
-  margin-bottom: 44px;
-
-  /* @media screen and (min-width: 768px) {
-    width: 378px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 32px;
   }
 
   @media screen and (min-width: 1280px) {
-    width: 578px;
-  } */
+    width: 465px;
+    font-size: 18px;
+    margin-bottom: 50px;
+  }
 `;
 
 export const HeroImgWrapper = styled.div`
   position: relative;
 
-  margin-bottom: 24px;
-
-  @media screen and (min-width: 768px) {
-    /* width: 378px; */
-  }
-
-  @media screen and (min-width: 1280px) {
-    /* width: 578px; */
+  @media screen and (max-width: 767px) {
+    margin-bottom: 24px;
   }
 `;
 
 export const HeroImg = styled.img`
   width: 320px;
   height: 296px;
+
+  @media screen and (min-width: 768px) {
+    width: 378px;
+    height: 351px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 578px;
+    height: 539px;
+  }
+`;
+
+export const PointerImg = styled.img`
+  position: absolute;
+
+  @media screen and (min-width: 768px) {
+    top: 289px;
+    left: 145px;
+    width: 151px;
+    height: 100px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    top: 420px;
+    left: 390px;
+    width: 200px;
+    height: 135px;
+  }
 `;
