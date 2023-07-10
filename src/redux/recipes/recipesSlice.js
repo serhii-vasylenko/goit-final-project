@@ -11,11 +11,12 @@ const handleRejected = (state, action) => {
 };
 
 const initialState = {
-  categoryList: null,
-  mainPageRecipes: null,
+  categoryList: [],
+  mainPageRecipes: [],
   searchFilter: null,
-  recipeByTitle: null,
-  recipeById: null,
+  recipeByTitle: [],
+  recipeById: {},
+  ownRecipes: [],
   isLoading: false,
   error: null,
 };
@@ -26,7 +27,7 @@ const recipesSlice = createSlice({
   reducers: {
     setSearchFilter: (state, action) => {
       state.searchFilter = action.payload;
-    }
+    },
   },
 
   extraReducers: builder => {
@@ -64,7 +65,24 @@ const recipesSlice = createSlice({
           state.recipeByTitle = action.payload;
         }
       )
-      .addCase(recipeOperations.getRecipesByTitle.rejected, handleRejected);
+      .addCase(recipeOperations.getRecipesByTitle.rejected, handleRejected)
+      .addCase(recipeOperations.getOwnRecipe.pending, handlePending)
+      .addCase(recipeOperations.getOwnRecipe.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.ownRecipes = action.payload;
+      })
+      .addCase(recipeOperations.getOwnRecipe.rejected, handleRejected)
+      .addCase(recipeOperations.deleteownRecipe.pending, handlePending)
+      .addCase(recipeOperations.deleteownRecipe.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        const index = state.ownRecipes.findIndex(
+          ownRecipe => ownRecipe.id === action.payload.id
+        );
+        state.ownRecipes.splice(index, 1);
+      })
+      .addCase(recipeOperations.deleteownRecipe.rejected, handleRejected);
   },
 });
 
