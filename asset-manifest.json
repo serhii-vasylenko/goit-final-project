@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/goit-final-project/static/css/main.a22db0ac.css",
-    "main.js": "/goit-final-project/static/js/main.6ee9fb31.js",
+    "main.js": "/goit-final-project/static/js/main.002a0dd4.js",
     "static/js/62.b5b2673b.chunk.js": "/goit-final-project/static/js/62.b5b2673b.chunk.js",
     "static/js/111.df780b43.chunk.js": "/goit-final-project/static/js/111.df780b43.chunk.js",
     "static/js/212.62204a77.chunk.js": "/goit-final-project/static/js/212.62204a77.chunk.js",
@@ -56,7 +56,7 @@
     "static/media/correct.svg": "/goit-final-project/static/media/correct.2c20cfce5010676dc2acf065541b3183.svg",
     "static/media/user-icon.svg": "/goit-final-project/static/media/user-icon.8b04d065a66483f3095e819fac01e7d6.svg",
     "main.a22db0ac.css.map": "/goit-final-project/static/css/main.a22db0ac.css.map",
-    "main.6ee9fb31.js.map": "/goit-final-project/static/js/main.6ee9fb31.js.map",
+    "main.002a0dd4.js.map": "/goit-final-project/static/js/main.002a0dd4.js.map",
     "62.b5b2673b.chunk.js.map": "/goit-final-project/static/js/62.b5b2673b.chunk.js.map",
     "111.df780b43.chunk.js.map": "/goit-final-project/static/js/111.df780b43.chunk.js.map",
     "212.62204a77.chunk.js.map": "/goit-final-project/static/js/212.62204a77.chunk.js.map",
@@ -67,6 +67,6 @@
   },
   "entrypoints": [
     "static/css/main.a22db0ac.css",
-    "static/js/main.6ee9fb31.js"
+    "static/js/main.002a0dd4.js"
   ]
 }
