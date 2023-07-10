@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/goit-final-project/static/css/main.a22db0ac.css",
-    "main.js": "/goit-final-project/static/js/main.002a0dd4.js",
+    "main.js": "/goit-final-project/static/js/main.ad64abcb.js",
     "static/js/62.b5b2673b.chunk.js": "/goit-final-project/static/js/62.b5b2673b.chunk.js",
     "static/js/111.df780b43.chunk.js": "/goit-final-project/static/js/111.df780b43.chunk.js",
     "static/js/212.62204a77.chunk.js": "/goit-final-project/static/js/212.62204a77.chunk.js",
@@ -9,23 +9,24 @@
     "static/js/403.c3ca59b5.chunk.js": "/goit-final-project/static/js/403.c3ca59b5.chunk.js",
     "static/js/707.00a9d668.chunk.js": "/goit-final-project/static/js/707.00a9d668.chunk.js",
     "static/js/258.05dd64d9.chunk.js": "/goit-final-project/static/js/258.05dd64d9.chunk.js",
-    "static/media/salat_lg@2x.png": "/goit-final-project/static/media/salat_lg@2x.8336f5f9a7ad74a9ea7e.png",
-    "static/media/salat_sm@2x.png": "/goit-final-project/static/media/salat_sm@2x.60904f0b154abe2b37a2.png",
-    "static/media/salat_lg.png": "/goit-final-project/static/media/salat_lg.3c4230179042e7c43d8f.png",
-    "static/media/salat_md.png": "/goit-final-project/static/media/salat_md.9994458b9910500b2adb.png",
+    "static/media/salat_lg_retina@2x.jpg": "/goit-final-project/static/media/salat_lg_retina@2x.1a2b9cff51350c28af1f.jpg",
+    "static/media/salat_md_retina@2x.jpg": "/goit-final-project/static/media/salat_md_retina@2x.2b37ec8891eafb8cf665.jpg",
     "static/media/hero-desktop-leaves-bottom@2x.png": "/goit-final-project/static/media/hero-desktop-leaves-bottom@2x.125f120df5ddb8d51c0c.png",
+    "static/media/salat_sm_retina@2x.jpg": "/goit-final-project/static/media/salat_sm_retina@2x.58052e7998ab57b0e27c.jpg",
+    "static/media/salat_lg.jpg": "/goit-final-project/static/media/salat_lg.7c780104ae0e76795d39.jpg",
     "static/media/bluered-bg.png": "/goit-final-project/static/media/bluered-bg.f7baf402da3a58a0e94a.png",
     "static/media/hero-desktop-dish@2x.png": "/goit-final-project/static/media/hero-desktop-dish@2x.9942e565600e00530de3.png",
+    "static/media/salat_md.jpg": "/goit-final-project/static/media/salat_md.6f43f9e2f9c84a598d89.jpg",
     "static/media/hero-tablet-dish@2x.png": "/goit-final-project/static/media/hero-tablet-dish@2x.740a06475c15a7421a58.png",
     "static/media/hero-tablet-leaves-bottom@2x.png": "/goit-final-project/static/media/hero-tablet-leaves-bottom@2x.a3f424ed0ee3147963f9.png",
     "static/media/hero-mobile-dish@2x.png": "/goit-final-project/static/media/hero-mobile-dish@2x.bb205abf4a797570f1ef.png",
-    "static/media/salat_sm.png": "/goit-final-project/static/media/salat_sm.e5e7a1db1e4c329ad993.png",
     "static/media/hero-mobile-leaves-bottom@2x.png": "/goit-final-project/static/media/hero-mobile-leaves-bottom@2x.318a718b977d1d113342.png",
     "static/media/hero-desktop-dish.png": "/goit-final-project/static/media/hero-desktop-dish.9d9e6d0ee8b3f0030879.png",
     "static/media/searchCapLarge@2x.png": "/goit-final-project/static/media/searchCapLarge@2x.831629f38acb698698c1.png",
     "static/media/hero-desktop-leaves-bottom.png": "/goit-final-project/static/media/hero-desktop-leaves-bottom.0d9bc7e0a4e80e4bc1d5.png",
     "static/media/bg-image@1x.png": "/goit-final-project/static/media/bg-image@1x.b71e9b75c1b593424026.png",
     "static/media/bg-img.png": "/goit-final-project/static/media/bg-img.b7f90b04d88fb5c81bf1.png",
+    "static/media/salat_sm.jpg": "/goit-final-project/static/media/salat_sm.7b82a8a7773366f5c2b0.jpg",
     "static/media/hero-tablet-dish.png": "/goit-final-project/static/media/hero-tablet-dish.57329ba675e2aee976f3.png",
     "static/media/searchCapSmall@2x.png": "/goit-final-project/static/media/searchCapSmall@2x.22bf64dcd04d440d3bf8.png",
     "static/media/hero-tablet-leaves-bottom.png": "/goit-final-project/static/media/hero-tablet-leaves-bottom.bb59d4c982aff2372aa4.png",
@@ -56,7 +57,7 @@
     "static/media/correct.svg": "/goit-final-project/static/media/correct.2c20cfce5010676dc2acf065541b3183.svg",
     "static/media/user-icon.svg": "/goit-final-project/static/media/user-icon.8b04d065a66483f3095e819fac01e7d6.svg",
     "main.a22db0ac.css.map": "/goit-final-project/static/css/main.a22db0ac.css.map",
-    "main.002a0dd4.js.map": "/goit-final-project/static/js/main.002a0dd4.js.map",
+    "main.ad64abcb.js.map": "/goit-final-project/static/js/main.ad64abcb.js.map",
     "62.b5b2673b.chunk.js.map": "/goit-final-project/static/js/62.b5b2673b.chunk.js.map",
     "111.df780b43.chunk.js.map": "/goit-final-project/static/js/111.df780b43.chunk.js.map",
     "212.62204a77.chunk.js.map": "/goit-final-project/static/js/212.62204a77.chunk.js.map",
@@ -67,6 +68,6 @@
   },
   "entrypoints": [
     "static/css/main.a22db0ac.css",
-    "static/js/main.002a0dd4.js"
+    "static/js/main.ad64abcb.js"
   ]
 }
