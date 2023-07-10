@@ -6,7 +6,7 @@ import { Outlet } from 'react-router';
 const SharedLayout = () => {
   return <>
       <Header />
-    <main>
+    <main style={{marginTop: '120px'}}>
         <Suspense fallback={<div>Loading</div>}>
           <Outlet />
         </Suspense>

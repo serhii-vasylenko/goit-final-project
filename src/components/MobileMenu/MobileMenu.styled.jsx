@@ -1,53 +1,33 @@
 import styled from "@emotion/styled";
-import bgImg from "./images/bg-image@1x.png"
-import bgImgMob from "./images/bg-image-mob@1x.png"
+import bgImgTab from "./images/bg-tab.png"
+import bgImgMob from "./images/bg-mob.png"
 
 export const MobileMenuEl = styled.div`
 position: fixed;
 top: 0;
 left: 0;
-width: 100vw;
+width: 100%;
 height: 100%;
 z-index: 20;
-background-color: #EBF3D4;
 overflow: hidden;
+overflow-y:hidden; 
+overflow-x:hidden;
 padding: 18px 16px;
 transform: translateY(-100%);
 transition: transform var(--transition-duration) var(--timing-function);
+background: #EBF3D4 url(${bgImgMob}) no-repeat;
+background-position: right -285px bottom -85px;
+background-size: 585px 378px;
+
 &.active {
       transform: translateY(0%);
 }
- &::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-image: url(${bgImgMob});
-                background-repeat: no-repeat;
-                background-position: right -225px bottom -80px;
-                background-size: 550px 360px;
-                filter: blur(4.5px);
-
-
-        }
 @media (min-width: 768px) {
+        background: #EBF3D4 url(${bgImgTab}) no-repeat;
+        background-position: right -323px bottom -335px;
+        background-size: 904px 747px;
         padding: 18px 32px 32px 32px;
-        &::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-image: url(${bgImg});
-                background-repeat: no-repeat;
-                background-position: right -375px bottom -240px;
-                background-size: 882px 658px;
-                filter: blur(4.5px);
 
-        }
 }
 @media (min-width: 1260px) {
         display: none;
