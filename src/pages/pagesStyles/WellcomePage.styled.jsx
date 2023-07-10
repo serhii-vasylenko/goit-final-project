@@ -1,7 +1,8 @@
 import styled from '@emotion/styled';
+import { NavLink } from 'react-router-dom';
 import {
-//   logo_sm,
-//   logo_md,
+  //   logo_sm,
+  //   logo_md,
   salat_sm,
   salat_sm_retina,
   salat_md,
@@ -25,11 +26,8 @@ export const Container = styled.div`
     background-image: url(${salat_sm_retina});
   }
 
-  /**
-    |============================
-    | Завантаження звичайного фонового зображення для планшету
-    |============================
-  */
+  // Завантаження звичайного фонового зображення для планшету
+
   @media screen and (min-width: 768px) {
     background-image: url(${salat_md});
 
@@ -41,11 +39,8 @@ export const Container = styled.div`
     }
   }
 
-  /**
-    |============================
-    | Завантаження звичайного фонового зображення для десктопної версії
-    |============================
-  */
+  //Завантаження звичайного фонового зображення для десктопної версії
+
   @media screen and (min-width: 1280px) {
     background-image: url(${salat_lg});
 
@@ -56,4 +51,8 @@ export const Container = styled.div`
       background-image: url(${salat_lg_retina});
     }
   }
+`;
+
+export const LinkStyled = styled(NavLink)`
+  color: white;
 `;
