@@ -6,16 +6,19 @@ import { selectAuth } from 'redux/auth/selectors';
 import { refreshUser } from 'redux/auth/operations';
 import { PrivateRoute } from 'components/PrivateRoute/PrivateRoute';
 import { PublicRoute } from './PublicRoute/PublicRoute';
+import WelcomePage from 'pages/WelcomePage';
+import RegisterPage from 'pages/RegisterPage';
+import SigninPage from 'pages/SigninPage';
 
-const WelcomePage = lazy(() => import('pages/WelcomePage'));
-const RegisterPage = lazy(() => import('pages/RegisterPage'));
-const SigninPage = lazy(() => import('pages/SigninPage'));
+
 const MainPage = lazy(() => import('pages/MainPage/MainPage'));
-const CategoriesPage = lazy(() => import('pages/CategoriesPage/CategoriesPage'));
+const CategoriesPage = lazy(() =>
+  import('pages/CategoriesPage/CategoriesPage')
+);
 const FavoritePage = lazy(() => import('pages/FavoritePage'));
-const SearchPage = lazy(() => import('pages/SearchPage'))
-const MyRecipesPage = lazy(()=> import('pages/MyRecipesPage'))
-const ShoppingListPage = lazy(() => import('pages/ShoppingListPage'))
+const SearchPage = lazy(() => import('pages/SearchPage'));
+const MyRecipesPage = lazy(() => import('pages/MyRecipesPage'));
+const ShoppingListPage = lazy(() => import('pages/ShoppingListPage'));
 //const NotFound = lazy(() => import('pages/NotFound'));
 
 const App = () => {
@@ -28,16 +31,9 @@ const App = () => {
   return isRefreshing ? (
     <p>Refreshing user</p>
   ) : (
-    <Routes>
-      <Route path="/" element={<SharedLayout />}>
-          <Route index element={<WelcomePage />} />
-          <Route path="categories/:categoryName" element={<CategoriesPage />} />
-          <Route path="add" element={<FavoritePage />} />
-          <Route path="my" element={<MyRecipesPage />} />
-          <Route path="favorite" element={<FavoritePage />} />
-          <Route path="shopping-list" element={<ShoppingListPage />} />
-          <Route path="search" element={<SearchPage />} />
-          {/* <Route path='*' element={<NotFound />}/> */}
+    <div>
+      <Routes>
+        <Route path="/" element={<WelcomePage />} />
         <Route
           path="/register"
           element={<PublicRoute redirectTo="/main" component={<RegisterPage />} />}
@@ -46,14 +42,23 @@ const App = () => {
           path="/signin"
           element={<PublicRoute redirectTo="/main" component={<SigninPage />} />}
         ></Route>
-        <Route
+        <Route element={<SharedLayout />}>
+		  <Route
           path="/main"
           element={
-            <PrivateRoute redirectTo="/login" component={<MainPage />} />
+            <PrivateRoute redirectTo="/signin" component={<MainPage />} />
           }
         />
-      </Route>
-    </Routes>
+          <Route path="categories/:categoryName" element={<CategoriesPage />} />
+          <Route path="add" element={<FavoritePage />} />
+          <Route path="my" element={<MyRecipesPage />} />
+          <Route path="favorite" element={<FavoritePage />} />
+          <Route path="shopping-list" element={<ShoppingListPage />} />
+          <Route path="search" element={<SearchPage />} />
+          {/* <Route path='*' element={<NotFound />}/> */}
+        </Route>
+      </Routes>
+    </div>
   );
 };
 
