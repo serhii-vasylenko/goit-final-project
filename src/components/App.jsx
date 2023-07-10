@@ -7,7 +7,7 @@ import { refreshUser } from 'redux/auth/operations';
 import { PrivateRoute } from 'components/PrivateRoute/PrivateRoute';
 import { PublicRoute } from './PublicRoute/PublicRoute';
 
-const WelcomePage = lazy(() => import('pages/WelcomePage'));
+// const WelcomePage = lazy(() => import('pages/WelcomePage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage'));
 const SigninPage = lazy(() => import('pages/SigninPage'));
 const MainPage = lazy(() => import('pages/MainPage/MainPage'));
@@ -30,7 +30,7 @@ const App = () => {
   ) : (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
-          <Route index element={<WelcomePage />} />
+          <Route index element={<MainPage />} />
           <Route path="categories/:categoryName" element={<CategoriesPage />} />
           <Route path="add" element={<FavoritePage />} />
           <Route path="my" element={<MyRecipesPage />} />

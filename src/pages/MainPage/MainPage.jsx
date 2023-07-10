@@ -10,32 +10,45 @@ import TabletDishRetina from 'images/mainPage/images/hero-tablet-dish@2x.png';
 import DesktopDish from 'images/mainPage/images/hero-desktop-dish.png';
 import DesktopDishRetina from 'images/mainPage/images/hero-desktop-dish@2x.png';
 
-import { HeroSection, HeroImg } from './MainPage.styled';
+import {
+  HeroSection,
+  HeroContainer,
+  HeroTitle,
+  HeroTitleAccent,
+  HeroDescription,
+  HeroImgWrapper,
+  HeroImg,
+} from './MainPage.styled';
 
 const MainPage = () => {
   return (
     <>
       <HeroSection>
-        <h1>
-          <span>So</span>Yummy
-        </h1>
-        <p>
-          "What to cook?" is not only a recipe app, it is, in fact, your
-          cookbook. You can add your own recipes to save them for the future.
-        </p>
-        <HeroImg
-          srcSet={`${MobileDish} 320w,
+        <HeroContainer>
+          <HeroTitle>
+            <HeroTitleAccent>So</HeroTitleAccent>Yummy
+          </HeroTitle>
+          <HeroDescription>
+            "What to cook?" is not only a recipe app, it is, in fact, your
+            cookbook. You can add your own recipes to save them for the future.
+          </HeroDescription>
+          <HeroImgWrapper>
+            <HeroImg
+              srcSet={`${MobileDish} 320w,
           ${TabletDish} 378w,
           ${DesktopDish} 578w,
           ${MobileDishRetina} 640w,
           ${TabletDishRetina} 756w,
           ${DesktopDishRetina} 1156w`}
-          sizes="(min-width: 1280px) 578px, (min-width: 768px) 378px, 320px"
-          src={MobileDish}
-          alt="Healthy salad"
-        />
-        <СhooseYourBreakfast />
-        <SearchForm />
+              sizes="(min-width: 1280px) 578px, (min-width: 768px) 378px, 320px"
+              src={MobileDish}
+              alt="Healthy salad"
+            />
+            <СhooseYourBreakfast />
+          </HeroImgWrapper>
+
+          <SearchForm />
+        </HeroContainer>
       </HeroSection>
       <PreviewCategories />
     </>
