@@ -3,8 +3,7 @@ import {
   AdviceDesc,
   AdviceDescAccent,
   StyledLink,
-  // Icon,
-  LinkText,
+  Icon,
 } from './СhooseYourBreakfast.styled';
 
 const СhooseYourBreakfast = () => (
@@ -14,8 +13,8 @@ const СhooseYourBreakfast = () => (
       variety of fresh ingredients in one satisfying meal
     </AdviceDesc>
     <StyledLink to="/recipes/breakfast">
-      <LinkText>See recipes</LinkText>
-      {/* <Icon /> */}
+      See recipes
+      <Icon />
     </StyledLink>
   </AdviceBox>
 );
