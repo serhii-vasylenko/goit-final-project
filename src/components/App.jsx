@@ -6,8 +6,8 @@ import { selectAuth } from 'redux/auth/selectors';
 import { refreshUser } from 'redux/auth/operations';
 import { PrivateRoute } from 'components/PrivateRoute/PrivateRoute';
 import { PublicRoute } from './PublicRoute/PublicRoute';
-import WelcomePage from 'pages/WelcomePage';
-import RegisterPage from 'pages/RegisterPage';
+import WelcomePage from 'pages/WelcomePage/WelcomePage';
+import RegisterPage from 'pages/RegisterPage/RegisterPage';
 import SigninPage from 'pages/SigninPage';
 
 
