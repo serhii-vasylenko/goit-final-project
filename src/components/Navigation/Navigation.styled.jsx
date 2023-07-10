@@ -23,6 +23,7 @@ transition: color var(--transition-duration) var(--timing-function);
 }
 &.active {
     color: var(--accent-color);
+    font-weight: 600;
 }
 `
 const NavItem = styled.li`
@@ -35,6 +36,10 @@ letter-spacing: -0.36px;
     margin-bottom: 40px;
 }
 
+@media (min-width: 768px) {
+font-size: 24px;
+letter-spacing: -0.48px;
+}
 @media (min-width: 1260px) {
 font-size: 14px;
 line-height: 22.4px;

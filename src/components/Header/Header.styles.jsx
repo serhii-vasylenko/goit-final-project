@@ -1,11 +1,14 @@
 import styled from "@emotion/styled";
 
 const HeaderEl = styled.header`
+// position: absolute; // for absolute posithion
+// top: 0;
+// left: 50%;
+// transform: translate(-50%, 0);
 min-width: 320px;
 margin: 0 auto;
 padding: 0 16px;
 margin-top: 18px;
-margin-bottom: 18px;
 display: flex;
 align-items: center;
 @media (min-width: 375px) {

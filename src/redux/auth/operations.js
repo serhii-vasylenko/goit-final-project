@@ -64,3 +64,27 @@ export const refreshUser = createAsyncThunk(
       }
     }
   );
+
+  export const uploadAvatar = createAsyncThunk(
+    'auth/uploadAvatar',
+    async (avatarData, thunkAPI) => {
+      try {
+        const response = await axios.patch('/users/avatars', avatarData);
+        return response.data;
+      } catch (error) {
+        return thunkAPI.rejectWithValue(error.message);
+      }
+    }
+  );
+
+  export const changeUserName = createAsyncThunk(
+    'auth/changeUserName',
+    async (userName, thunkAPI) => {
+      try {
+        const response = await axios.patch('/users', userName);
+        return response.data;
+      } catch (error) {
+        return thunkAPI.rejectWithValue(error.message);
+      }
+    }
+  );
