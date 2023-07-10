@@ -70,7 +70,6 @@ export const refreshUser = createAsyncThunk(
     async (avatarData, thunkAPI) => {
       try {
         const response = await axios.patch('/users/avatars', avatarData);
-        setAuthHeader(response.data.token);
         return response.data;
       } catch (error) {
         return thunkAPI.rejectWithValue(error.message);
