@@ -5,6 +5,7 @@ import {
   loginUser,
   logoutUser,
   refreshUser,
+  uploadAvatar,
 } from 'redux/auth/operations';
 
 const authSlice = createSlice({
@@ -14,6 +15,7 @@ const authSlice = createSlice({
     token: null,
     isLoggedIn: false,
     isRefreshing: false,
+    avatarUrl: null,
   },
   extraReducers: builder => {
     builder.addCase(registerUser.fulfilled, (state, actions) => {
@@ -44,6 +46,18 @@ const authSlice = createSlice({
     });
     builder.addCase(refreshUser.rejected, state => {
       state.isRefreshing = false;
+    });
+    builder.addCase(uploadAvatar.pending, state => {
+      state.loading = true;
+      state.error = null;
+    });
+    builder.addCase(uploadAvatar.fulfilled, (state, action) => {
+      state.loading = false;
+      state.avatarUrl = action.payload;
+    });
+    builder.addCase(uploadAvatar.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
     });
   },
 });
