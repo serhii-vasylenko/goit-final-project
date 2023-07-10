@@ -14,6 +14,8 @@ const initialState = {
   categoryList: null,
   mainPageRecipes: null,
   searchFilter: null,
+  recipeByTitle: null,
+  recipeById: null,
   isLoading: false,
   error: null,
 };
@@ -45,7 +47,24 @@ const recipesSlice = createSlice({
           state.mainPageRecipes = action.payload;
         }
       )
-      .addCase(recipeOperations.getMainPageRecipes.rejected, handleRejected);
+      .addCase(recipeOperations.getMainPageRecipes.rejected, handleRejected)
+      .addCase(recipeOperations.getRecipesById.pending, handlePending)
+      .addCase(recipeOperations.getRecipesById.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.recipeById = action.payload;
+      })
+      .addCase(recipeOperations.getRecipesById.rejected, handleRejected)
+      .addCase(recipeOperations.getRecipesByTitle.pending, handlePending)
+      .addCase(
+        recipeOperations.getRecipesByTitle.fulfilled,
+        (state, action) => {
+          state.isLoading = false;
+          state.error = null;
+          state.recipeByTitle = action.payload;
+        }
+      )
+      .addCase(recipeOperations.getRecipesByTitle.rejected, handleRejected);
   },
 });
 
