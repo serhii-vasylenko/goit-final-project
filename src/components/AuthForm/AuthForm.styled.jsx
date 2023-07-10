@@ -8,13 +8,23 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
 
-  width: 500px;
-  height: 419px;
+  width: 335px;
+  height: 350px;
   padding: 50px;
 
   border-radius: 30px;
   color: #fafafa;
   background-color: #2a2c36;
+
+  margin: 0 auto;
+
+  @media (min-width: 768px) {
+    width: 419px;
+    height: 500px;
+  }
+  @media (min-width: 1280px) {
+    width: 481px;
+  }
 `;
 
 export const Title = styled.h2`
@@ -38,7 +48,7 @@ export const UserIconStyled = styled.svg`
 `;
 
 export const EnvelopeIconStyled = styled.svg`
-stroke: #fff;
+  stroke: #fff;
 `;
 
 export const LockIconStyled = styled.svg`
@@ -90,16 +100,16 @@ export const Input = styled.input`
   }
 
   border-color: ${props => {
-	switch (props.ValidationState) {
-		case 'correct':
-			return "green";
-		case 'warn':
-			return "yellow";
-		case 'error':
-			return "tomato";
-		default:
-			return "gray"; 
-	}
+    switch (props.ValidationState) {
+      case 'correct':
+        return 'green';
+      case 'warn':
+        return 'yellow';
+      case 'error':
+        return 'tomato';
+      default:
+        return 'gray';
+    }
   }};
 `;
 
