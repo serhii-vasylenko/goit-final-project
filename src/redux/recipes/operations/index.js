@@ -4,6 +4,7 @@ import getRecipesById from "./getRecipesById";
 import getRecipesByTitle from "./getRecipesByTitle";
 import deleteownRecipe from "./deleteOwnRecipe";
 import getOwnRecipe from "./getOwnRecipe";
+import addOwnRecipe from "./addOwnRecipe";
 
  export const recipeOperations = {
     getCategoryList,
@@ -12,5 +13,6 @@ import getOwnRecipe from "./getOwnRecipe";
     getRecipesByTitle,
     deleteownRecipe,
     getOwnRecipe,
+    addOwnRecipe,
 }
 
