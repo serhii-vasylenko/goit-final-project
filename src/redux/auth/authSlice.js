@@ -66,7 +66,7 @@ const authSlice = createSlice({
     });
     builder.addCase(changeUserName.fulfilled, (state, action) => {
       state.loading = false;
-      state.user = {...user, ...action.payload};
+      state.user = {...state.user, ...action.payload};
     });
     builder.addCase(changeUserName.rejected, (state, action) => {
       state.loading = false;
