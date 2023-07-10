@@ -6,6 +6,7 @@ import {
   logoutUser,
   refreshUser,
   uploadAvatar,
+  changeUserName,
 } from 'redux/auth/operations';
 
 const authSlice = createSlice({
@@ -56,6 +57,18 @@ const authSlice = createSlice({
       state.avatarUrl = action.payload;
     });
     builder.addCase(uploadAvatar.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    });
+    builder.addCase(changeUserName.pending, state => {
+      state.loading = true;
+      state.error = null;
+    });
+    builder.addCase(changeUserName.fulfilled, (state, action) => {
+      state.loading = false;
+      state.user = {...user, ...action.payload};
+    });
+    builder.addCase(changeUserName.rejected, (state, action) => {
       state.loading = false;
       state.error = action.payload;
     });
