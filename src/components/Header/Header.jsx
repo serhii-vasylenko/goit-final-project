@@ -9,7 +9,6 @@ import { MobileSwitcher } from 'components/MobileSwitcher/MobileSwitcher';
 import { MobileMenu } from 'components/MobileMenu/MobileMenu';
 export const Header = () => {
     const [nav, setNav] = useState(false);
-    console.log(nav);
     return (
         <HeaderEl>
             <NavLink to={'/'}><Logo src={logo} alt='logo'/></NavLink>

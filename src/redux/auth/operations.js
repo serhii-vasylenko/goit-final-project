@@ -12,7 +12,7 @@ export const registerUser = createAsyncThunk(
   'auth/register',
   async (user, thunkAPI) => {
     try {
-      const response = await axios.post('/users/signup', user);
+      const response = await axios.post('/users/register', user);
       setAuthHeader(response.data.token);
       return response.data;
     } catch (error) {
@@ -58,6 +58,19 @@ export const refreshUser = createAsyncThunk(
   
       try {setAuthHeader(token);
         const response = await axios.get('/users/current');
+        return response.data;
+      } catch (error) {
+        return thunkAPI.rejectWithValue(error.message);
+      }
+    }
+  );
+
+  export const uploadAvatar = createAsyncThunk(
+    'auth/uploadAvatar',
+    async (avatarData, thunkAPI) => {
+      try {
+        const response = await axios.patch('/users/avatars', avatarData);
+        setAuthHeader(response.data.token);
         return response.data;
       } catch (error) {
         return thunkAPI.rejectWithValue(error.message);
