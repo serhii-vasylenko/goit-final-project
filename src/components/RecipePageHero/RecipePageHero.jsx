@@ -1,11 +1,13 @@
-// import React from 'react'
+import React from 'react'
 
-// const RecipePageHero = () => {
-//   return (
-//     <div>
-      
-//     </div>
-//   )
-// }
+import { recipeHeroWrapper } from './RecipePageHero.styled'
 
-// export default RecipePageHero
+const RecipePageHero = () => {
+  return (
+     <>
+        <recipeHeroWrapper/>     
+    </>
+  )
+}
+
+export default RecipePageHero
