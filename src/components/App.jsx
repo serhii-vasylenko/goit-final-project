@@ -15,6 +15,7 @@ const MainPage = lazy(() => import('pages/MainPage/MainPage'));
 const CategoriesPage = lazy(() =>
   import('pages/CategoriesPage/CategoriesPage')
 );
+const RecipePage = lazy(() => import('pages/RecipePage/RecipePage'));
 const FavoritePage = lazy(() => import('pages/FavoritePage'));
 const SearchPage = lazy(() => import('pages/SearchPage'));
 const MyRecipesPage = lazy(() => import('pages/MyRecipesPage'));
@@ -33,25 +34,35 @@ const App = () => {
   ) : (
     <div>
       <Routes>
-        <Route path="/"  element={<PublicRoute redirectTo="/main" component={<WelcomePage />} />} />
+        <Route
+          path="/"
+          element={
+            <PublicRoute redirectTo="/main" component={<WelcomePage />} />
+          }
+        />
         <Route
           path="/register"
-          element={<PublicRoute redirectTo="/main" component={<RegisterPage />} />}
+          element={
+            <PublicRoute redirectTo="/main" component={<RegisterPage />} />
+          }
         ></Route>
         <Route
           path="/signin"
-          element={<PublicRoute redirectTo="/main" component={<SigninPage />} />}
+          element={
+            <PublicRoute redirectTo="/main" component={<SigninPage />} />
+          }
         ></Route>
         <Route element={<SharedLayout />}>
-		  <Route
-          path="/main"
-          element={
-            <PrivateRoute redirectTo="/signin" component={<MainPage />} />
-          }
-        />
+          <Route
+            path="/main"
+            element={
+              <PrivateRoute redirectTo="/signin" component={<MainPage />} />
+            }
+          />
           <Route path="categories/:categoryName" element={<CategoriesPage />} />
           <Route path="add" element={<FavoritePage />} />
           <Route path="my" element={<MyRecipesPage />} />
+          <Route path="/recipes/:recipeId" element={<RecipePage />} />
           <Route path="favorite" element={<FavoritePage />} />
           <Route path="shopping-list" element={<ShoppingListPage />} />
           <Route path="search" element={<SearchPage />} />
