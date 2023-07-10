@@ -62,7 +62,7 @@ export const Circle = styled.div`
   transform: rotate(-25deg);
   flex-shrink: 0;
   border-radius: 3px;
-  background: var(--backgraund-color-circle);
+  background: var(--background-color-circle);
 
   @media screen and (min-width: 768px) {
     width: 12px;

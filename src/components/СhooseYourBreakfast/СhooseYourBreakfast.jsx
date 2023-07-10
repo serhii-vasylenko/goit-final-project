@@ -1,13 +1,22 @@
-import { Link } from 'react-router-dom';
+import {
+  AdviceBox,
+  AdviceDesc,
+  AdviceDescAccent,
+  StyledLink,
+  Icon,
+} from './СhooseYourBreakfast.styled';
 
 const СhooseYourBreakfast = () => (
-  <>
-    <p>
-      <span>Delicious and healthy way</span> to enjoy a variety of fresh
-      ingredients in one satisfying meal
-    </p>
-    <Link>See recipes</Link>
-  </>
+  <AdviceBox>
+    <AdviceDesc>
+      <AdviceDescAccent>Delicious and healthy way</AdviceDescAccent> to enjoy a
+      variety of fresh ingredients in one satisfying meal
+    </AdviceDesc>
+    <StyledLink to="/recipes/breakfast">
+      See recipes
+      <Icon />
+    </StyledLink>
+  </AdviceBox>
 );
 
 export default СhooseYourBreakfast;
