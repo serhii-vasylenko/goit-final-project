@@ -153,6 +153,7 @@ export const LinkStyled = styled(NavLink)`
   font-size: 14px;
   background-color: #8baa36;
 
+
   color: var(--white-color);
   border-radius: 24px 44px;
   border: 2px solid transparent;
@@ -160,6 +161,7 @@ export const LinkStyled = styled(NavLink)`
   &:focus,
   :hover {
     background-color: transparent;
+	 border-color: var(--white-color);
   }
 
   @media (min-width: 768px) {
