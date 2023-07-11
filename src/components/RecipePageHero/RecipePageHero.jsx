@@ -3,23 +3,19 @@ import React from 'react'
 import { HeroContainer, HeroTitle, HeroText, CookingTime , ClockIcon} from './RecipePageHero.styled';
 import MainButton from '../ReusableComponents/MainButton/MainButton';
 
-
-const RecipePageHero = () => {
-
-  // const { title, time } = recipeData;
-
+const RecipePageHero = ({title,description, time}) => {
+  
+ 
   return (
     <HeroContainer>
-      <HeroTitle>recipe</HeroTitle>
+      <HeroTitle>{title}</HeroTitle>
       <HeroText>
-        Is a healthy salad recipe that’s big on nutrients and flavor. A moist,
-        pan seared salmon is layered on top of spinach, avocado, tomatoes, and
-        red onions. Then drizzled with a homemade lemon vinaigrette.
+        {description}
       </HeroText>
       <MainButton/>
       <CookingTime>
         <ClockIcon/>
-        <span>20 min </span>
+        <span>{time} min </span>
       </CookingTime>
     </HeroContainer>
   );  

@@ -18,6 +18,7 @@ const FavoritePage = lazy(() => import('pages/FavoritePage/FavoritePage'));
 const SearchPage = lazy(() => import('pages/SearchPage'));
 const MyRecipesPage = lazy(() => import('pages/MyRecipesPage'));
 const ShoppingListPage = lazy(() => import('pages/ShoppingListPage'));
+const RecipePage = lazy(() => import('pages/RecipePage/RecipePage'));
 //const NotFound = lazy(() => import('pages/NotFound'));
 
 const App = () => {
@@ -61,6 +62,7 @@ const App = () => {
           <Route path="add" element={<FavoritePage />} />
           <Route path="my" element={<MyRecipesPage />} />
           <Route path="favorite" element={<FavoritePage />} />
+          <Route path="/recipes/:recipeId" element={<RecipePage />} />
           <Route path="shopping-list" element={<ShoppingListPage />} />
           <Route path="search" element={<SearchPage />} />
           {/* <Route path='*' element={<NotFound />}/> */}
