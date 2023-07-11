@@ -12,7 +12,6 @@
   --page-title-color: #001833;
   --background-color-circle: #22252a;
   --background-authForm-color: #2a2c36;
-  
 }
 :root[data-theme='light'] {
   --background-color: #fafafa;

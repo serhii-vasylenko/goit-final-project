@@ -13,7 +13,7 @@ export const UserLogo = () => {
                 <UserImg src={defaultImg} />
             </ImgContainer> 
             <UserName>Anonym</UserName>
-             {isOpen ? <UserLogoModal/> : null}
+            <UserLogoModal isOpen={isOpen} setIsOpen={setIsOpen} />
 
         </UserWrapper>
     
