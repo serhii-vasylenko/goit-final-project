@@ -10,7 +10,7 @@
   --primary-text-color: #23262a;
   --secondary-text-color: #3e4462;
   --page-title-color: #001833;
-  --backgraund-color-circle: #22252a;
+  --background-color-circle: #22252a;
   
 }
 :root[data-theme='light'] {

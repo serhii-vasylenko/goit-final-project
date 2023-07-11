@@ -22,10 +22,10 @@ import DesktopBg from 'images/mainPage/images/hero-desktop.png';
 import DesktopBg2x from 'images/mainPage/images/hero-desktop@2x.png';
 
 export const HeroSection = styled.section`
-  width: 100%;
-  height: 713px;
-  padding-top: 68px;
-  text-align: center;
+  max-width: 375px;
+  /* height: 713px; */
+  margin-left: auto;
+  margin-right: auto;
 
   background-image: url(${MobileBgLeavesBottom}), url(${MobileBg}),
     url(${MobileBgLeavesTop});
@@ -42,6 +42,7 @@ export const HeroSection = styled.section`
   }
 
   @media screen and (min-width: 768px) {
+    max-width: 768px;
     height: 640px;
     margin-top: -64px;
 
@@ -60,6 +61,7 @@ export const HeroSection = styled.section`
   }
 
   @media screen and (min-width: 1280px) {
+    max-width: 1280px;
     height: 800px;
 
     background-image: url(${DesktopBgLeavesBottom}), url(${DesktopBg}),
@@ -76,22 +78,128 @@ export const HeroSection = styled.section`
   }
 `;
 
+export const HeroContainer = styled.div`
+  @media screen and (max-width: 767px) {
+    padding: 68px 27.5px 83px 27.5px;
+    text-align: center;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    /* gap: 4px; */
+    padding-top: 159px;
+    padding-left: 38px;
+    padding-bottom: 202px;
+  }
+
+  @media screen and (min-width: 1260px) {
+    gap: 68px;
+    padding-top: 126px;
+    padding-left: 20px;
+    padding-bottom: 235px;
+  }
+`;
+
+export const FlexWrapper = styled.div`
+  @media screen and (max-width: 767px) {
+    margin-bottom: 44px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 362px;
+  }
+
+  @media screen and (min-width: 1260px) {
+    width: 510px;
+  }
+`;
+
+export const HeroTitle = styled.h1`
+  color: var(--backgraund-color-circle);
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.3px;
+
+  margin-bottom: 14px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 72px;
+    letter-spacing: -0.36px;
+
+    margin-bottom: 24px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 100px;
+    letter-spacing: -0.5px;
+
+    margin-bottom: 14px;
+  }
+`;
+
+export const HeroTitleAccent = styled.span`
+  color: var(--accent-color);
+`;
+
+export const HeroDescription = styled.p`
+  color: var(--primary-text-color);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: -0.28px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 32px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 465px;
+    font-size: 18px;
+    margin-bottom: 50px;
+  }
+`;
+
+export const HeroImgWrapper = styled.div`
+  position: relative;
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 24px;
+  }
+`;
+
 export const HeroImg = styled.img`
   width: 320px;
-  /* height: 296px; */
+  height: 296px;
 
   @media screen and (min-width: 768px) {
     width: 378px;
-    /* height: 351px; */
+    height: 351px;
   }
 
   @media screen and (min-width: 1280px) {
     width: 578px;
-    /* height: 539px; */
+    height: 539px;
   }
 `;
 
-// const MainTitle = styled.section`
-// color: ;
+export const PointerImg = styled.img`
+  position: absolute;
 
-// `
+  @media screen and (min-width: 768px) {
+    top: 289px;
+    left: 145px;
+    width: 151px;
+    height: 100px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    top: 420px;
+    left: 390px;
+    width: 200px;
+    height: 135px;
+  }
+`;

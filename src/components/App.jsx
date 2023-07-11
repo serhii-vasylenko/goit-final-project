@@ -6,17 +6,15 @@ import { selectAuth } from 'redux/auth/selectors';
 import { refreshUser } from 'redux/auth/operations';
 import { PrivateRoute } from 'components/PrivateRoute/PrivateRoute';
 import { PublicRoute } from './PublicRoute/PublicRoute';
-import WelcomePage from 'pages/WelcomePage';
-import RegisterPage from 'pages/RegisterPage';
+import WelcomePage from 'pages/WelcomePage/WelcomePage';
+import RegisterPage from 'pages/RegisterPage/RegisterPage';
 import SigninPage from 'pages/SigninPage';
-
 
 const MainPage = lazy(() => import('pages/MainPage/MainPage'));
 const CategoriesPage = lazy(() =>
   import('pages/CategoriesPage/CategoriesPage')
 );
-const RecipePage = lazy(() => import('pages/RecipePage/RecipePage'));
-const FavoritePage = lazy(() => import('pages/FavoritePage'));
+const FavoritePage = lazy(() => import('pages/FavoritePage/FavoritePage'));
 const SearchPage = lazy(() => import('pages/SearchPage'));
 const MyRecipesPage = lazy(() => import('pages/MyRecipesPage'));
 const ShoppingListPage = lazy(() => import('pages/ShoppingListPage'));
@@ -62,7 +60,6 @@ const App = () => {
           <Route path="categories/:categoryName" element={<CategoriesPage />} />
           <Route path="add" element={<FavoritePage />} />
           <Route path="my" element={<MyRecipesPage />} />
-          <Route path="/recipes/:recipeId" element={<RecipePage />} />
           <Route path="favorite" element={<FavoritePage />} />
           <Route path="shopping-list" element={<ShoppingListPage />} />
           <Route path="search" element={<SearchPage />} />
