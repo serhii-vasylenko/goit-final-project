@@ -32,6 +32,7 @@ export const RectangleFirst = styled.div`
   flex-shrink: 0;
   border-radius: 3px;
   background: var(--accent-color);
+  z-index: -9999;
 
   @media screen and (min-width: 768px) {
     width: 14px;
@@ -63,6 +64,7 @@ export const Circle = styled.div`
   flex-shrink: 0;
   border-radius: 3px;
   background: var(--background-color-circle);
+  z-index: -9999;
 
   @media screen and (min-width: 768px) {
     width: 12px;

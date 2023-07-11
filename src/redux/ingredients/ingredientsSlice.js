@@ -27,7 +27,7 @@ const ingredientsSlice = createSlice({
         (state, action) => {
           state.isLoading = false;
           state.error = null;
-          state.ingredientsList = action.payload;
+          state.ingredientsList = action.payload.data.ingredients;
         }
       )
       .addCase(ingredientOperations.getIngredientsList.rejected, handleRejected);
