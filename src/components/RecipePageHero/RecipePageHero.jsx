@@ -4,13 +4,13 @@ import { HeroContainer, HeroTitle, HeroText, CookingTime , ClockIcon} from './Re
 import MainButton from '../ReusableComponents/MainButton/MainButton';
 
 
-const RecipePageHero = ({recipeData, recipe_id}) => {
+const RecipePageHero = () => {
 
-  const { title, time } = recipeData;
+  // const { title, time } = recipeData;
 
   return (
     <HeroContainer>
-      <HeroTitle>Salmon Avocado Salad</HeroTitle>
+      <HeroTitle>recipe</HeroTitle>
       <HeroText>
         Is a healthy salad recipe that’s big on nutrients and flavor. A moist,
         pan seared salmon is layered on top of spinach, avocado, tomatoes, and
@@ -19,7 +19,7 @@ const RecipePageHero = ({recipeData, recipe_id}) => {
       <MainButton/>
       <CookingTime>
         <ClockIcon/>
-        <span>20 min</span>
+        <span>20 min </span>
       </CookingTime>
     </HeroContainer>
   );  
