@@ -25,11 +25,15 @@ const authSlice = createSlice({
       state.isLoggedIn = true;
       toast.info(`Successfully registered`);
     });
+
     builder.addCase(loginUser.fulfilled, (state, actions) => {
       state.user = actions.payload.user;
       state.token = actions.payload.token;
       state.isLoggedIn = true;
       toast.info(`Successfully logged in`);
+    });
+    builder.addCase(loginUser.rejected, (state, actions) => {
+      toast.error(`User is not found`);
     });
     builder.addCase(logoutUser.fulfilled, state => {
       state.user = { name: null, email: null };
@@ -66,7 +70,7 @@ const authSlice = createSlice({
     });
     builder.addCase(changeUserName.fulfilled, (state, action) => {
       state.loading = false;
-      state.user = {...state.user, ...action.payload};
+      state.user = { ...state.user, ...action.payload };
     });
     builder.addCase(changeUserName.rejected, (state, action) => {
       state.loading = false;
