@@ -32,9 +32,6 @@ const authSlice = createSlice({
       state.isLoggedIn = true;
       toast.info(`Successfully logged in`);
     });
-    builder.addCase(loginUser.rejected, (state, actions) => {
-      toast.error(`User is not found`);
-    });
     builder.addCase(logoutUser.fulfilled, state => {
       state.user = { name: null, email: null };
       state.token = '';
