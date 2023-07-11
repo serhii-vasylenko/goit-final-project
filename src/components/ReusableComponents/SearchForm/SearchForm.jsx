@@ -32,22 +32,20 @@ const SearchForm = () => {
 
     if (trimmedValue !== '') {
       const path = '/search';
-      const query = `?query=${encodeURIComponent(trimmedValue)}`;
+      const query = `?q=${encodeURIComponent(trimmedValue)}`;
 
       if (location.pathname === '/') {
         navigate({ pathname: path, search: query });
       }
-      if (
-        location.pathname === '/search' &&
-        selectedOption === 'title'
-      ) {
-        setSearchParams({ query: trimmedValue });
+      if (location.pathname === '/search' && selectedOption === 'title') {
+        setSearchParams({ q: trimmedValue });
       } else if (
         location.pathname === '/search' &&
         selectedOption === 'ingredient'
       ) {
         setSearchParams({ ingredient: trimmedValue });
       }
+      // console.log('searchParams in formSubmit:>> ', searchParams);
     }
   };
 
@@ -61,6 +59,7 @@ const SearchForm = () => {
             value={searchValue}
             onChange={handleInputChange}
             placeholder="Enter the text"
+            autoComplete='off'
           />
           <ButtonWrapper>
             <MainButton

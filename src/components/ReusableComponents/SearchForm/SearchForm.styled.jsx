@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 export const Input = styled.input`
+  box-sizing: border-box;
   width: 295px;
   padding: 16px 32px;
   drop-shadow: 0px 4px 97px rgba(34, 37, 42, 0.03);
@@ -17,7 +18,7 @@ export const Input = styled.input`
   :focus,
   :active {
     border: 1px solid rgba(35, 38, 42, 0.2);
-    outline: 1px solid rgba(35, 38, 42, 0.2);
+    outline:  rgba(35, 38, 42, 0.2);
   }
 
   ::placeholder {
@@ -26,7 +27,7 @@ export const Input = styled.input`
 
   @media screen and (min-width: 768px) {
     width: 362px;
-    padding: 18px 38px;
+    padding: 17px 38px;
     font-size: 14px;
     line-height: 1.2;
   }
