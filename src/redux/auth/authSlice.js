@@ -24,6 +24,7 @@ const authSlice = createSlice({
       state.isLoggedIn = true;
       toast.info(`Successfully registered`);
     });
+
     builder.addCase(loginUser.fulfilled, (state, actions) => {
       state.user = actions.payload.data.user;
       state.token = actions.payload.data.token;

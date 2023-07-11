@@ -13,7 +13,7 @@ import {
 import { NavLink } from 'react-router-dom';
 
 export const Container = styled.div`
-  height: 125vh;
+  height: 100vh;
   background-repeat: no-repeat;
   background-position: top 30px center, bottom 0 center;
   background-size: auto, 100% 60%;
@@ -27,7 +27,7 @@ export const Container = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    height: 140vh;
+    /* height: 140vh; */
     background-image: url(${orger_md}), url(${rectangle_md});
     background-size: auto, 100% 55%;
   }
@@ -39,7 +39,7 @@ export const Container = styled.div`
   }
 
   @media screen and (min-width: 1280px) {
-    height: 100vh;
+    /* height: 100vh; */
     background-image: url(${orger_lg}), url(${rectangle_lg});
     background-position: bottom 170px left 110px, bottom 0 center;
     background-size: auto, 100% 40%;
@@ -53,7 +53,7 @@ export const Container = styled.div`
 `;
 
 export const StyledLink = styled(NavLink)`
-  color: #fafafa;
+  color: var(--white-color);
   text-decoration: underline;
   font-size: 14px;
   position: absolute;
@@ -69,5 +69,9 @@ export const StyledLink = styled(NavLink)`
     top: 630px;
     left: 75%;
     font-size: 16px;
+  }
+
+  @media (min-width: 1640px) {
+    top: 780px;
   }
 `;
