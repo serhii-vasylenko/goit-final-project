@@ -71,6 +71,7 @@ justify-content: center;
 padding: 14px 18px;
 cursor: pointer;
 border-radius: 6px;
+font-family: inherit;
 color: var(--white-color);
 background: var(--accent-color);
 border: 1px solid transparent;

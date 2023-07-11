@@ -46,6 +46,7 @@ align-item: center;
 justify-content: center;
 width: 100%;
 padding: 12px 0;
+font-family: inherit;
 background-color: var(--accent-color);
 color: var(--white-color);
 border: none;
