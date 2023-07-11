@@ -54,6 +54,7 @@ export const Logo = styled.img`
   width: 54px;
   height: 54px;
   position: absolute;
+
   top: 300px;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -66,7 +67,7 @@ export const Logo = styled.img`
   }
 
   @media (min-width: 1280px) {
-    top: 260px;
+    top: 230px;
   }
 `;
 
@@ -84,7 +85,8 @@ export const TextContainer = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: inherit;
-  color: #fafafa;
+  color: var(--white-color);
+  font-family: inherit;
 
   @media (min-width: 768px) {
     width: 600px;
@@ -98,7 +100,7 @@ export const TextContainer = styled.div`
     width: 544px;
     height: 121px;
 
-    top: 390px;
+    top: 360px;
   }
 `;
 
@@ -142,7 +144,7 @@ export const LinksContainer = styled.div`
   }
 
   @media (min-width: 1280px) {
-    top: 520px;
+    top: 490px;
   }
 `;
 
@@ -151,13 +153,12 @@ export const LinkStyled = styled(NavLink)`
   font-size: 14px;
   background-color: #8baa36;
 
-  color: #fafafa;
+  color: var(--white-color);
   border-radius: 24px 44px;
   border: 2px solid transparent;
 
   &:focus,
   :hover {
-    border-color: #fafafa;
     background-color: transparent;
   }
 

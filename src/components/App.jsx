@@ -8,7 +8,7 @@ import { PrivateRoute } from 'components/PrivateRoute/PrivateRoute';
 import { PublicRoute } from './PublicRoute/PublicRoute';
 import WelcomePage from 'pages/WelcomePage/WelcomePage';
 import RegisterPage from 'pages/RegisterPage/RegisterPage';
-import SigninPage from 'pages/SigninPage';
+import SigninPage from 'pages/SigninPage/SigninPage';
 
 const MainPage = lazy(() => import('pages/MainPage/MainPage'));
 const CategoriesPage = lazy(() =>

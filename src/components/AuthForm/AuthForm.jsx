@@ -1,10 +1,9 @@
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../../redux/auth/operations';
 
-import sprite from '../../images/sprite.svg';
-
 import { useFormik } from 'formik';
-import * as Yup from 'yup';
+
+import sprite from '../../images/sprite.svg';
 import {
   BtnSubmit,
   ErrMessage,
@@ -15,13 +14,16 @@ import {
   InputGroup,
   ErrorIconStyled,
   CorrectIconIconStyled,
+  WarnIconIconStyled,
   LabelIcon,
+  WarnMessage,
 } from './AuthForm.styled';
+import {
+  checkPasswordSecure,
+  registrationSchema,
+} from 'helpers/registerValidationShema';
+import { getStatus } from 'helpers/utils';
 
-const getStatus = (err, touched, isVal, isSub) => {
-  if (err && touched) return 'error';
-  if (!isVal && !isSub && !err) return 'correct';
-};
 
 export const AuthForm = () => {
   const dispatch = useDispatch();
@@ -41,14 +43,8 @@ export const AuthForm = () => {
       email: '',
       password: '',
     },
-	 
-    validationSchema: Yup.object().shape({
-      name: Yup.string().required('Required'),
-      email: Yup.string().email('Invalid email address').required('Required'),
-      password: Yup.string()
-        .min(3, 'Must be more than 3 characters')
-        .required('Required'),
-    }),
+
+    validationSchema: registrationSchema,
 
     onSubmit: values => {
       console.log('values', values);
@@ -69,7 +65,12 @@ export const AuthForm = () => {
       <Title>Registration</Title>
 
       <LabelGroup>
-        <LabelIcon>
+        <LabelIcon ValidationState={getStatus(
+            errors.name,
+            touched.name,
+            isValid,
+            isSubmitting
+          )}>
           <use href={`${sprite}#icon-user-01`}></use>
         </LabelIcon>
       </LabelGroup>
@@ -80,7 +81,7 @@ export const AuthForm = () => {
           name="name"
           type="text"
           placeholder="Name"
-			 autocomplete="off"
+          autocomplete="off"
           onChange={handleChange}
           value={values.name}
           ValidationState={getStatus(
@@ -101,7 +102,12 @@ export const AuthForm = () => {
       </InputGroup>
 
       <LabelGroup>
-		<LabelIcon>
+        <LabelIcon ValidationState={getStatus(
+            errors.name,
+            touched.name,
+            isValid,
+            isSubmitting
+          )}>
           <use href={`${sprite}#icon-mail-01`}></use>
         </LabelIcon>
       </LabelGroup>
@@ -112,7 +118,7 @@ export const AuthForm = () => {
           name="email"
           type="text"
           placeholder="Email"
-			 autocomplete="off"
+          autocomplete="off"
           onChange={handleChange}
           value={values.email}
           ValidationState={getStatus(
@@ -133,7 +139,12 @@ export const AuthForm = () => {
       </InputGroup>
 
       <LabelGroup>
-		<LabelIcon>
+        <LabelIcon ValidationState={getStatus(
+            errors.name,
+            touched.name,
+            isValid,
+            isSubmitting
+          )}>
           <use href={`${sprite}#icon-lock-02`}></use>
         </LabelIcon>
       </LabelGroup>
@@ -145,7 +156,7 @@ export const AuthForm = () => {
           type="password"
           onChange={handleChange}
           placeholder="Password"
-			 autocomplete="off"
+          autocomplete="off"
           value={values.password}
           ValidationState={getStatus(
             errors.password,
@@ -154,16 +165,32 @@ export const AuthForm = () => {
             isSubmitting
           )}
         />
+
+        {values.password.length > 3 && checkPasswordSecure(values.password) && (
+          <div>
+            <CorrectIconIconStyled />
+            <WarnMessage style={{ color: '#3CBC81' }}>
+              Password is secure
+            </WarnMessage>
+          </div>
+        )}
+
+        {values.password.length > 0 &&
+          !errors.password &&
+          !touched.password &&
+          !checkPasswordSecure(values.password) && (
+            <div>
+              <WarnIconIconStyled />
+              <WarnMessage>You password is little secure</WarnMessage>
+            </div>
+          )}
+
         <ErrMessage>
           {errors.password && touched.password ? (
             <span>{errors.password}</span>
           ) : null}
         </ErrMessage>
-
         {errors.password && touched.password ? <ErrorIconStyled /> : null}
-        {!isValid && !isSubmitting && !errors.password ? (
-          <CorrectIconIconStyled />
-        ) : null}
       </InputGroup>
 
       <BtnSubmit type="submit">Sing up</BtnSubmit>
