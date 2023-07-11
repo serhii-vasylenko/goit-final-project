@@ -12,27 +12,26 @@ import {
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
-    user: { name: null, email: null },
+    user: { name: null, email: null, avatarUrl: null, userId: null },
     token: null,
     isLoggedIn: false,
     isRefreshing: false,
-    avatarUrl: null,
   },
   extraReducers: builder => {
     builder.addCase(registerUser.fulfilled, (state, actions) => {
-      state.user = actions.payload.user;
-      state.token = actions.payload.token;
+      state.user = actions.payload.data.user;
+      state.token = actions.payload.data.token;
       state.isLoggedIn = true;
       toast.info(`Successfully registered`);
     });
     builder.addCase(loginUser.fulfilled, (state, actions) => {
-      state.user = actions.payload.user;
-      state.token = actions.payload.token;
+      state.user = actions.payload.data.user;
+      state.token = actions.payload.data.token;
       state.isLoggedIn = true;
       toast.info(`Successfully logged in`);
     });
     builder.addCase(logoutUser.fulfilled, state => {
-      state.user = { name: null, email: null };
+      state.user = { name: null, email: null, userId: null, avatarURL: null };
       state.token = '';
       state.isLoggedIn = false;
       toast.info(`Successfully logged out`);
@@ -41,7 +40,7 @@ const authSlice = createSlice({
       state.isRefreshing = true;
     });
     builder.addCase(refreshUser.fulfilled, (state, actions) => {
-      state.user = actions.payload;
+      state.user = actions.payload.data.user;
       state.isLoggedIn = true;
       state.isRefreshing = false;
     });
@@ -54,7 +53,10 @@ const authSlice = createSlice({
     });
     builder.addCase(uploadAvatar.fulfilled, (state, action) => {
       state.loading = false;
-      state.avatarUrl = action.payload;
+      state.user = {
+        ...state.user,
+        avatarURL: action.payload.data.user.avatarURL,
+      };
     });
     builder.addCase(uploadAvatar.rejected, (state, action) => {
       state.loading = false;
@@ -66,7 +68,7 @@ const authSlice = createSlice({
     });
     builder.addCase(changeUserName.fulfilled, (state, action) => {
       state.loading = false;
-      state.user = {...state.user, ...action.payload};
+      state.user = { ...state.user, name: action.payload.data.user.name };
     });
     builder.addCase(changeUserName.rejected, (state, action) => {
       state.loading = false;
