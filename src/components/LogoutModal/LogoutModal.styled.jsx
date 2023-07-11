@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import {RxCross2} from "react-icons/rx";
+import { Link } from "react-router-dom";
 
 const Backdrop = styled.div`
 display: none;
@@ -66,7 +67,33 @@ margin-top: 24px;
 const Btn = styled.button`
 border: none;
 width: 137px;
-display: inline-flex;
+display: flex;
+justify-content: center;
+padding: 14px 18px;
+cursor: pointer;
+border-radius: 6px;
+font-family: inherit;
+color: var(--primary-text-color);
+background: #D9D9D9;
+border: 1px solid transparent;
+
+&:hover{
+    color: var(--white-color);
+    background: var(--accent-color);
+}
+
+@media (min-width: 768px) {
+        padding: 18px 39px;
+        width: 192px;
+
+
+}
+`
+const BtnLogout = styled(Link)`
+box-sizing: border-box;
+border: none;
+width: 137px;
+display: flex;
 justify-content: center;
 padding: 14px 18px;
 cursor: pointer;
@@ -81,20 +108,9 @@ border: 1px solid transparent;
     background: transparent;
     border: 1px solid var(--accent-color);
 }
-
-&.cancel{
-    color: var(--primary-text-color);
-    background: #D9D9D9;
-&:hover{
-    color: var(--white-color);
-    background: var(--accent-color);
-}
-}
 @media (min-width: 768px) {
         padding: 18px 39px;
         width: 192px;
-
-
 }
 `
 const CloseModal = styled(RxCross2)`
@@ -116,4 +132,4 @@ transition: color var(--transition-duration) var(--timing-function);
 
 }
 `
-export {Backdrop, Modal, Text, BtnList, Btn, CloseModal}
+export {Backdrop, Modal, Text, BtnList, Btn, CloseModal, BtnLogout}

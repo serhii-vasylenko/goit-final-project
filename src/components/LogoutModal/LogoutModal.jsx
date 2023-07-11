@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
-import { Backdrop, Modal, Text, BtnList, Btn, CloseModal } from './LogoutModal.styled';
+import { Backdrop, Modal, Text, BtnList, Btn, CloseModal, BtnLogout } from './LogoutModal.styled';
 import { useCallback, useEffect } from 'react';
 const modalRoot = document.getElementById('modal-root');
 
@@ -29,7 +29,7 @@ export const LogoutModal = ({ modalIsOpen, setModalIsOpen }) => {
                 <CloseModal onClick={()=> onCloseClick()}/>
                 <Text>Are you sure you want to log out?</Text>
                 <BtnList>
-                    <li><Btn>Log out</Btn></li>
+                    <li><BtnLogout to='/'>Log out</BtnLogout></li>
                     <li><Btn className='cancel' onClick={()=> onCloseClick()}>Cancel</Btn></li>
                 </BtnList>
             </Modal>
