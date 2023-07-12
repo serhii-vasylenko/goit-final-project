@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Field, ErrorMessage } from 'formik';
+import { Field} from 'formik';
 
 export const DescriptionFields = styled.div`
   display: flex;
@@ -49,6 +49,7 @@ export const Image = styled.img`
 `;
 
 export const FieldContainer = styled.div`
+position:relative;
   display: flex;
   flex-direction: column;
   height: 40px;
@@ -66,15 +67,17 @@ border: none;
 background-color: transparent;
 padding: 0;
 color: #000000;
+height: 100%;
 outline: none;
 `;
 
 export const FieldLabel = styled.label`
+position: absolute;
+top: 0;
+left: 0;
   font-size: 16px;
   color: #797979;
-  margin-bottom: 3px;
-`;
+  pointer-events: none;
+  /* margin-bottom: 3px; */
 
-export const ErrorMess = styled(ErrorMessage)`
-color: red;
 `;

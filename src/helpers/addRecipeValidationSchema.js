@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import cookTime from 'const/cookTime';
+// import cookTime from 'const/cookTime';
 
 // const timeValidation = cookTime.map(el => el.time);
 
@@ -19,8 +19,8 @@ const addRecipeValidationSchema = Yup.object().shape({
   //       value.type === "image/webp"
   //     );
   //   })
-    // title: Yup.string().required('Please enter the recipe title').matches(/[а-яА-Яa-zA-Z]+/, 'Title must contain letters'),
-    // about: Yup.string().required('Please describe the recipe').matches(/[а-яА-Яa-zA-Z]+/, 'Describe must contain letters'),
+    title: Yup.string().required('Please enter the recipe title').matches(/[а-яА-Яa-zA-Z]+/, 'Title must contain letters'),
+    about: Yup.string().required('Please describe the recipe').matches(/[а-яА-Яa-zA-Z]+/, 'Describe must contain letters'),
     // category: Yup.string()
     //   .required('Please choose a category for your recipe'),
     //   // .oneOf(category),

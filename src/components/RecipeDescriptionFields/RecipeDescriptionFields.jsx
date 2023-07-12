@@ -13,15 +13,13 @@ import {
   Input,
   FieldContainer,
   FieldLabel,
-  ErrorMess,
 } from './RecipeDescriptionFields.styled';
-import { useState } from 'react';
 
 const RecipeDescriptionFields = ({ file, handleFileChange }) => {
  
   const categoryRecipes = useSelector(selectCategoryList);
   const { setFieldValue, errors } = useFormikContext();
-  console.log(errors.title) 
+ 
   return (
     <DescriptionFields>
       <Field name="photo" type="file">
@@ -52,21 +50,27 @@ const RecipeDescriptionFields = ({ file, handleFileChange }) => {
           )
         }}
       </Field>
-      <ErrorMessage name="photo" component="div" className="error-message" />
+     <ErrorMessage name="photo" component="div" className="error-message" />
+
      <FieldWrapper>
-     <FieldContainer className={errors.title ? 'error' : ''}>
-      {
-      errors.title  ? <FormError name='title' /> : <FieldLabel htmlFor="title">Enter item title</FieldLabel>}
+     <FormError name='title' />
+      <FieldContainer className={errors.title ? 'error' : ''}>
+       <FieldLabel htmlFor="title">Enter item title</FieldLabel>
       <Input name="title" id="title" type="text"/>
+      </FieldContainer> 
+      <FormError name='about' />
+      <FieldContainer className={errors.about ? 'error' : ''}>
+        <FieldLabel htmlFor="about">Enter about recipe</FieldLabel>
+      <Input name="about" id="about" type="text"/>
+      </FieldContainer> 
+
+      {/* <FieldContainer className={errors.about ? 'error' : ''}>
+        <FieldLabel htmlFor="about">Enter about recipe</FieldLabel>
+        <Input name="about" id="about" type="text" />
+        
       </FieldContainer>
-
-<FieldContainer className={errors.about ? 'error' : ''}>
-  {errors.about ? <FormError name="about" /> : <FieldLabel htmlFor="about">Enter about recipe</FieldLabel>}
-  <Input name="about" id="about" type="text" />
-</FieldContainer>
-      {/* <Field name="about" type="text" placeholder="Enter about recipe"></Field>
-      <ErrorMessage name="about" component="div" className="error-message" /> */}
-
+      <FormError name="about" component="div" />  */}
+    
       <Field name="category" as="select">
         <option value="">Select option</option>
         {categoryRecipes.map(({ _id, name }) => (
@@ -81,11 +85,12 @@ const RecipeDescriptionFields = ({ file, handleFileChange }) => {
         <option value="">Select time</option>
         {cookTime.map(({ id, time }) => (
           <option value={time} key={id}>
-            {time}
+            {`${time} min`}
           </option>
         ))}
       </Field>
       <ErrorMessage name="time" component="div" className="error-message" />
+
       </FieldWrapper>
     </DescriptionFields>
   );

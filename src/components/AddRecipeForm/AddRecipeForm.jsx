@@ -1,9 +1,8 @@
 import { Formik, Form } from 'formik';
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import addRecipeValidationSchema from 'helpers/addRecipeValidationSchema';
-import { selectUser } from 'redux/auth/selectors';
 import { recipeOperations } from 'redux/recipes/operations';
 import MainButton from '../ReusableComponents/MainButton/MainButton';
 import RecipeDescriptionFields from 'components/RecipeDescriptionFields/RecipeDescriptionFields';
@@ -28,7 +27,6 @@ const initialValues = {
 const AddRecipeForm = () => {
   const [file, setFile] = useState(null);
 
-  const {userId} = useSelector(selectUser)
   const dispatch = useDispatch();
 
   const handleFileChange = event => {
