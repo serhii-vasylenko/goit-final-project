@@ -18,7 +18,7 @@ const FavoritePage = lazy(() => import('pages/FavoritePage/FavoritePage'));
 const SearchPage = lazy(() => import('pages/SearchPage'));
 const MyRecipesPage = lazy(() => import('pages/MyRecipesPage'));
 const ShoppingListPage = lazy(() => import('pages/ShoppingListPage'));
-//const NotFound = lazy(() => import('pages/NotFound'));
+const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFound'));
 
 const App = () => {
   const dispatcher = useDispatch();
@@ -63,7 +63,7 @@ const App = () => {
           <Route path="favorite" element={<FavoritePage />} />
           <Route path="shopping-list" element={<ShoppingListPage />} />
           <Route path="search" element={<SearchPage />} />
-          {/* <Route path='*' element={<NotFound />}/> */}
+          <Route path='*' element={<NotFoundPage />}/>
         </Route>
       </Routes>
     </div>
