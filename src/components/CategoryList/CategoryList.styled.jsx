@@ -14,6 +14,7 @@ font-weight: 400;
 line-height: 1;
 padding-bottom: 27px;
 text-transform: capitalize;
+transition: color var(--transition-duration) var(--timing-function);
 
 &:not(:last-child){
     margin-right: 55px;
