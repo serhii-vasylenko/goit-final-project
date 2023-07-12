@@ -13,12 +13,14 @@ import SigninPage from 'pages/SigninPage/SigninPage';
 const MainPage = lazy(() => import('pages/MainPage/MainPage'));
 const CategoriesPage = lazy(() =>
   import('pages/CategoriesPage/CategoriesPage')
-); 
+);
 const AddRecipePage = lazy(() => import('pages/AddRecipePage/AddRecipePage'));
 const FavoritePage = lazy(() => import('pages/FavoritePage/FavoritePage'));
 const SearchPage = lazy(() => import('pages/SearchPage'));
 const MyRecipesPage = lazy(() => import('pages/MyRecipesPage'));
-const ShoppingListPage = lazy(() => import('pages/ShoppingListPage'));
+const ShoppingListPage = lazy(() =>
+  import('pages/ShoppingListPage/ShoppingListPage')
+);
 const RecipePage = lazy(() => import('pages/RecipePage/RecipePage'));
 const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFound'));
 
@@ -63,10 +65,18 @@ const App = () => {
           <Route path="add" element={<AddRecipePage />} />
           <Route path="my" element={<MyRecipesPage />} />
           <Route path="favorite" element={<FavoritePage />} />
-          <Route path="shopping-list" element={<ShoppingListPage />} />
+          <Route
+            path="shopping-list"
+            element={
+              <PrivateRoute
+                redirectTo="/signin"
+                component={<ShoppingListPage />}
+              />
+            }
+          />
           <Route path="search" element={<SearchPage />} />
           <Route path="/recipes/:recipeId" element={<RecipePage />} />
-          <Route path='*' element={<NotFoundPage />}/>
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </div>

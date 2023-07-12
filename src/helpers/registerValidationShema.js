@@ -22,12 +22,12 @@ export const checkPasswordSecure = (password = '') => {
 };
 
 export const signInSchema = yup.object().shape({
-	email: yup
-	  .string()
-	  .email('Invalid email address')
-	  .required('email is required'),
-	password: yup
-	  .string()
-	  .min(3, 'Must be more than 3 characters')
-	  .required('password is required'),
- });
+  email: yup
+    .string()
+    .email('Invalid email address')
+    .required('email is required'),
+  password: yup
+    .string()
+    .min(3, 'Must be more than 3 characters')
+    .required('password is required'),
+});

@@ -25,9 +25,8 @@ export const Container = styled.div`
     (min-resolution: 2dppx) {
     background-image: url(${order_sm_retina});
   }
- 
+
   @media all and (min-width: 768px) {
-    /* height: 140vh; */
     background-image: url(${orger_md}), url(${rectangle_md});
     background-size: auto, 100% 55%;
   }
@@ -57,21 +56,21 @@ export const StyledLink = styled(NavLink)`
   text-decoration: underline;
   font-size: 14px;
   position: absolute;
-  top: 650px;
+  top: 690px;
   left: 50%;
   transform: translate(-50%, -50%);
 
   @media (min-width: 768px) {
-    top: 730px;
-  }
-
-  @media (min-width: 1280px) {
-    top: 630px;
-    left: 75%;
+    top: 840px;
     font-size: 16px;
   }
 
+  @media (min-width: 1280px) {
+    top: 670px;
+    left: 75%;
+  }
+
   @media (min-width: 1640px) {
-    top: 780px;
+    top: 840px;
   }
 `;
