@@ -5,7 +5,7 @@ const addToFavoriteRecipes = createAsyncThunk(
   'recipes/addToFavoriteRecipes',
   async (id, thunkAPI) => {
     try {
-      const response = await axios.put(`/recipes/${id}`);
+      const response = await axios.put(`/recipes/favorite/${id}`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
