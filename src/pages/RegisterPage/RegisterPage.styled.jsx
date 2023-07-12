@@ -25,8 +25,8 @@ export const Container = styled.div`
     (min-resolution: 2dppx) {
     background-image: url(${order_sm_retina});
   }
-
-  @media screen and (min-width: 768px) {
+ 
+  @media all and (min-width: 768px) {
     /* height: 140vh; */
     background-image: url(${orger_md}), url(${rectangle_md});
     background-size: auto, 100% 55%;
@@ -38,7 +38,7 @@ export const Container = styled.div`
     background-image: url(${orger_md_retina});
   }
 
-  @media screen and (min-width: 1280px) {
+  @media all and (min-width: 1280px) {
     /* height: 100vh; */
     background-image: url(${orger_lg}), url(${rectangle_lg});
     background-position: bottom 170px left 110px, bottom 0 center;
