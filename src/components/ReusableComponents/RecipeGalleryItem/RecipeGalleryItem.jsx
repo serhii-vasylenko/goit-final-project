@@ -5,7 +5,7 @@ import { GalleryItem, Thumb, Title } from './RecipeGalleryItem.styled';
 const RecipeGalleryItem = ({ id, src, title }) => {
   return (
     <GalleryItem>
-      <Link to={`/recipes${id}`}>
+      <Link to={`/recipes/${id}`}>
         <Thumb>
           <img src={src} alt={title} />
           <Title>{title}</Title>
