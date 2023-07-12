@@ -16,7 +16,7 @@ const SearchForm = () => {
   const selectedOption = useSelector(selectSearchFilter);
 
   useEffect(() => {
-    const query = searchParams.get('query');
+    const query = searchParams.get('q');
     if (location.pathname === '/search' && query) {
       setSearchValue(query);
     }
@@ -34,7 +34,7 @@ const SearchForm = () => {
       const path = '/search';
       const query = `?q=${encodeURIComponent(trimmedValue)}`;
 
-      if (location.pathname === '/') {
+      if (location.pathname === '/main') {
         navigate({ pathname: path, search: query });
       }
       if (location.pathname === '/search' && selectedOption === 'title') {
