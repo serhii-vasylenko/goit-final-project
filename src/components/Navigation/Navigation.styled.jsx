@@ -7,7 +7,7 @@ display: ${props => props.nav ? 'flex' : 'none'};
 align-items: center;
 flex-direction: column;
 margin-top: ${props => props.nav ? '182px' : '0'};
-@media (min-width: 1260px) {
+@media (min-width: 1280px) {
     display: flex;
     flex-direction: row;
 }
@@ -40,7 +40,7 @@ letter-spacing: -0.36px;
 font-size: 24px;
 letter-spacing: -0.48px;
 }
-@media (min-width: 1260px) {
+@media (min-width: 1280px) {
 font-size: 14px;
 line-height: 22.4px;
 letter-spacing: 0px;

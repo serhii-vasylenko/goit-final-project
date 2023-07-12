@@ -1,22 +1,30 @@
 import styled from '@emotion/styled';
+import bgImgMob from "./images/blured-bg-mob.png"
+import bgImgTab from "./images/blured-bg-tab.png"
+import bgImgDesk from "./images/blured-bg-desk.png"
 
-export const MainContainer = styled.div`
-  min-width: 320px;
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 16px;
-  padding-left: 16px;
-  @media screen and (min-width: 375px) {
-    width: 375px;
-  }
+export const MainContainer = styled.main`
+display: block;
+width: 100%;
+padding-top: 21px;
+// padding-bottom: 100px;
+padding-bottom: 500px;
+background: url(${bgImgMob}) no-repeat;
+background-position: left -115px bottom -220px;
+background-size: 354px 404px;
+
   @media screen and (min-width: 768px) {
-    width: 768px;
-    padding-right: 32px;
-    padding-left: 32px;
+    padding-top: 18px;
+    background: url(${bgImgTab}) no-repeat;
+    background-position: left -190px bottom -175px;
+    background-size: 478px 507px;
+
   }
   @media screen and (min-width: 1280px) {
-    width: 1280px;
-    padding-right: 20px;
-    padding-left: 20px;
+    padding-top: 58px;
+    padding-bottom: 100px;
+    background: url(${bgImgDesk}) no-repeat;
+    background-position: left -200px bottom -520px;
+    background-size: 917px 1041px;
   }
-`;
+`

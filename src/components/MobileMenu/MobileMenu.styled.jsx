@@ -29,7 +29,7 @@ background-size: 585px 378px;
         padding: 18px 32px 32px 32px;
 
 }
-@media (min-width: 1260px) {
+@media (min-width: 1280px) {
         display: none;
 	}
 `
