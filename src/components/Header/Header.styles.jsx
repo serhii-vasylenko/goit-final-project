@@ -1,26 +1,28 @@
 import styled from "@emotion/styled";
 
 const HeaderEl = styled.header`
-position: absolute; // for absolute posithion
-top: 0;
-left: 50%;
-transform: translate(-50%, 0);
-z-index: 10px;
+// position: absolute; // for absolute posithion
+// top: 0;
+// left: 50%;
+// transform: translate(-50%, 0);
+// z-index: 10px;
 min-width: 320px;
 margin: 0 auto;
 padding: 0 16px;
-margin-top: 18px;
+padding-top: 18px;
 display: flex;
 align-items: center;
 @media (min-width: 375px) {
 		width: 375px;
 	}
 @media (min-width: 768px) {
-        padding: 0 32px;
+		padding: 0 32px;
+		padding-top: 18px;
 		width: 768px;
 	}
 	@media (min-width: 1280px) {
         padding: 0 20px;
+		padding-top: 18px;
 		width: 1280px;
 	}
 `
@@ -34,7 +36,7 @@ margin-right: 187px;
     height: 44px;
 		
 	}
-	@media (min-width: 1280px) {
+	@media (min-width: 1260px) {
 		margin-right: 187px;
 	}
 `
