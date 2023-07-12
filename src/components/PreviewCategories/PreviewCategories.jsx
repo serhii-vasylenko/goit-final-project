@@ -1,39 +1,39 @@
-import React, { useState, useEffect, useCallback, useLayoutEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+// import React, { useState, useEffect, useCallback, useLayoutEffect } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { selectMainPageRecipes } from 'redux/recipes/recipesSelector';
-import getMainPageRecipes from 'redux/recipes/operations/getMainPageRecipes';
+// import { selectMainPageRecipes } from 'redux/recipes/recipesSelector';
+// import getMainPageRecipes from 'redux/recipes/operations/getMainPageRecipes';
 
 const PreviewCategories = () => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const dispatch = useDispatch();
-  const categories = useSelector(selectMainPageRecipes);
+  // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  // const dispatch = useDispatch();
+  // const categories = useSelector(selectMainPageRecipes);
 
-  useEffect(() => {
-    dispatch(getMainPageRecipes());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getMainPageRecipes());
+  // }, [dispatch]);
 
-  useLayoutEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
+  // useLayoutEffect(() => {
+  //   const handleResize = () => {
+  //     setWindowWidth(window.innerWidth);
+  //   };
 
-    window.addEventListener('resize', handleResize);
+  //   window.addEventListener('resize', handleResize);
 
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener('resize', handleResize);
+  //   };
+  // }, []);
 
-  const filterRecipesByCategory = useCallback((category) => {
-    return categories.filter((recipe) => recipe.category === category);
-  }, [categories]);
+  // const filterRecipesByCategory = useCallback((category) => {
+  //   return categories.filter((recipe) => recipe.category === category);
+  // }, [categories]);
 
-  const breakfastRecipes = filterRecipesByCategory('Breakfast');
-  const miscellaneousRecipes = filterRecipesByCategory('Miscellaneous');
-  const chickenRecipes = filterRecipesByCategory('Chicken');
-  const dessertRecipes = filterRecipesByCategory('Dessert');
+  // const breakfastRecipes = filterRecipesByCategory('Breakfast');
+  // const miscellaneousRecipes = filterRecipesByCategory('Miscellaneous');
+  // const chickenRecipes = filterRecipesByCategory('Chicken');
+  // const dessertRecipes = filterRecipesByCategory('Dessert');
 
   return (
     <section>
