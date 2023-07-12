@@ -21,8 +21,8 @@ const RecipeSchema = Yup.object().shape({
     title: Yup.string().required('Please enter the recipe title').matches(/[а-яА-Яa-zA-Z]+/, 'Title must contain letters'),
     about: Yup.string().required('Please describe the recipe').matches(/[а-яА-Яa-zA-Z]+/, 'Describe must contain letters'),
     category: Yup.string()
-      .required('Please choose a category for your recipe')
-      .oneOf(category),
+      .required('Please choose a category for your recipe'),
+      // .oneOf(category),
     time: Yup.string().required('Please select the cooking time').oneOf(timeValidation),
     ingredients: Yup.array().of(
       Yup.object().shape({
