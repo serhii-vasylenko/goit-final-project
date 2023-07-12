@@ -9,7 +9,7 @@ bottom:18px;
  height: 29px;
  border: 1px solid tomato;
 
- @media (min-width: 1260px) {
+ @media (min-width: 1280px) {
         display: block;
         position: static;
 	}

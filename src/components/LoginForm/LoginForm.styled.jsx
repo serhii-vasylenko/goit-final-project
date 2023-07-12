@@ -19,6 +19,8 @@ export const Form = styled.form`
   background-color: var(--background-authForm-color);
 
   @media (min-width: 768px) {
+    width: 500px;
+
     top: 360px;
   }
   @media (min-width: 1280px) {
@@ -40,6 +42,10 @@ export const Title = styled.h2`
   color: var(--white-color);
   margin-top: 10px;
   margin-bottom: 35px;
+
+  @media (min-width: 768px) {
+    margin-left: 34px;
+  }
 
   @media (min-width: 1280px) {
     font-size: 28px;
@@ -72,6 +78,10 @@ export const LabelIcon = styled.svg`
   stroke: var(--white-color);
   opacity: 0.8;
 
+  position: absolute;
+  top: 15px;
+  left: 26px;
+
   stroke: ${props => {
     switch (props.ValidationState) {
       case 'correct':
@@ -83,18 +93,26 @@ export const LabelIcon = styled.svg`
     }
   }};
 
-  @media (min-width: 1280px) {
+  @media (min-width: 768px) {
     width: 24px;
     height: 24px;
+
+    top: 18px;
+    left: 46px;
+  }
+
+  @media (min-width: 1280px) {
+    top: 17px;
+    left: 46px;
   }
 `;
 
 export const ErrorIconStyled = styled(ErrorIcon)`
   position: absolute;
-  right: 20px;
-  top: 14px;
+  right: 25px;
+  top: 13px;
 
-  @media (min-width: 1280px) {
+  @media (min-width: 768px) {
     right: 55px;
     top: 20px;
   }
@@ -102,10 +120,10 @@ export const ErrorIconStyled = styled(ErrorIcon)`
 
 export const CorrectIconIconStyled = styled(CorrectIcon)`
   position: absolute;
-  right: 20px;
-  top: 14px;
+  right: 25px;
+  top: 13px;
 
-  @media (min-width: 1280px) {
+  @media (min-width: 768px) {
     right: 55px;
     top: 20px;
   }
@@ -128,7 +146,7 @@ export const Input = styled.input`
   margin-bottom: 3px;
 
   font-family: inherit;
-  font-size: 16px;
+  font-size: 14px;
   color: #ffffff;
   opacity: 0.9;
   border-radius: 6px;
@@ -145,13 +163,22 @@ export const Input = styled.input`
     opacity: 1;
   }
 
-  @media (min-width: 1280px) {
+  @media (min-width: 768px) {
     width: 400px;
     height: 59px;
+    font-size: 18px;
+    padding-left: 45px;
 
     &::placeholder {
       font-size: 18px;
     }
+  }
+
+  @media (min-width: 1280px) {
+    width: 400px;
+    height: 59px;
+    font-size: 16px;
+    padding-left: 47px;
   }
 
   border-color: ${props => {
@@ -168,11 +195,11 @@ export const Input = styled.input`
 
 export const ErrMessage = styled.span`
   color: #e74a3b;
-  margin-left: 7px;
+  margin-left: 17px;
   font-size: 14px;
 
-  @media (min-width: 1280px) {
-    margin-left: 28px;
+  @media (min-width: 768px) {
+    margin-left: 37px;
   }
 `;
 
@@ -190,8 +217,13 @@ export const BtnSubmit = styled.button`
   font-family: inherit;
   font-size: 16px;
 
+  @media (min-width: 768px) {
+    width: 400px;
+    height: 59px;
+  }
+
   @media (min-width: 1280px) {
-   width: 400px;
+    width: 400px;
     height: 59px;
     font-size: 18px;
   }

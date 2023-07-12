@@ -15,7 +15,7 @@ export const Title = styled.h1`
     padding-bottom: 6px;
     padding-top: 46px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     font-size: 44px;
     letter-spacing: -0.88px;
     padding-top: 44px;
@@ -48,7 +48,7 @@ export const RectangleSecond = styled(RectangleFirst)`
     left: 694px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     left: 1150px;
   }
 `;
@@ -72,7 +72,7 @@ export const Circle = styled.div`
     left: 405px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     left: 707px;
   }
 `;

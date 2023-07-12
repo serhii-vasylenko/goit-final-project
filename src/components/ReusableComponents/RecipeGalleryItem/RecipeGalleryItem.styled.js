@@ -2,11 +2,16 @@ import styled from '@emotion/styled';
 
 export const GalleryItem = styled.li`
   border-radius: 8px;
+  overflow: hidden;
 `;
 
 export const Thumb = styled.div`
   position: relative;
-  overflow: hidden;
+  height: 323px;
+
+  img {
+    height: 100%;
+  }
 `;
 
 export const Title = styled.h3`
@@ -25,7 +30,7 @@ export const Title = styled.h3`
   letter-spacing: -0.24px;
   color: var(--secondary-text-color);
 
-  background-color: rgba(47, 48, 58, 0.8);
+  background-color: #fff;
   border-radius: 8px;
 
   @media screen and (min-width: 768px) {
