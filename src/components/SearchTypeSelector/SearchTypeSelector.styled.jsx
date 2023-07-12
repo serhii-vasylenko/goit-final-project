@@ -9,7 +9,7 @@ export const StyledFormControl = styled(FormControl)`
     width: 175px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     width: 198px;
   }
 `;
@@ -38,7 +38,7 @@ export const SelectName = styled.p`
     font-size: 14px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     font-size: 18px;
   }
 `;

@@ -10,7 +10,7 @@ export const Card = styled.div`
     padding: 28px 24px;
     gap: 24px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     padding: 40px 40px;
     gap: 40px;
   }
@@ -23,7 +23,7 @@ export const ImageContainer = styled.div`
     min-width: 228px;
     min-height: 232px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     min-width: 318px;
     min-height: 324px;
   }
@@ -48,7 +48,7 @@ export const Title = styled.h3`
     font-size: 24px;
     margin-bottom: 28px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     margin-bottom: 50px;
   }
 `;
@@ -79,7 +79,7 @@ export const Trash = styled.div`
     right: 28px;
     top: 24px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     width: 44px;
     height: 44px;
     right: 40px;
@@ -94,7 +94,7 @@ export const Description = styled.p`
     font-size: 14px;
     width: calc(100% - 50px);
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     font-size: 18px;
     width: 100%;
   }
@@ -106,7 +106,7 @@ export const Time = styled.span`
   @media screen and (min-width: 768px) {
     font-size: 14px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
   }
 `;
 export const TitleContainer = styled.div`

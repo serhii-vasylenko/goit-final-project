@@ -19,9 +19,9 @@ align-items: center;
         padding: 0 32px;
 		width: 768px;
 	}
-	@media (min-width: 1260px) {
+	@media (min-width: 1280px) {
         padding: 0 20px;
-		width: 1260px;
+		width: 1280px;
 	}
 `
 
@@ -34,7 +34,7 @@ margin-right: 187px;
     height: 44px;
 		
 	}
-	@media (min-width: 1260px) {
+	@media (min-width: 1280px) {
 		margin-right: 187px;
 	}
 `

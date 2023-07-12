@@ -1,15 +1,15 @@
-import { MainEl } from 'components/Main/Main.styled';
+import { MainContainer } from 'components/MainContainer/MainContainer';
 import TitlePage from 'components/ReusableComponents/PageTitle/PageTitle';
 import SearchBar from 'components/SearchBar/SearchBar';
-import SearchedRecipesList from 'components/SearchedRecipesList/SearchedRecipesList'
+import SearchedRecipesList from 'components/SearchedRecipesList/SearchedRecipesList';
 
 const SearchPage = title => {
   return (
-    <MainEl>
+    <MainContainer>
       <TitlePage title="Search"></TitlePage>
       <SearchBar />
-      <SearchedRecipesList/>
-    </MainEl>
+      <SearchedRecipesList />
+    </MainContainer>
   );
 };
 
