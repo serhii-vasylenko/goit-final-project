@@ -55,18 +55,18 @@ const AddRecipeForm = () => {
 //     for(let [name, value] of formData) {
 //   alert(`${name} = ${value}`); // key1=value1, потом key2=value2
 // }
-    dispatch(recipeOperations.addOwnRecipe(formData));
+    // dispatch(recipeOperations.addOwnRecipe(formData));
     // setSubmitting(false);
 
     // resetForm();
   };
 
-  dispatch(recipeOperations.getMainPageRecipes());
+  // dispatch(recipeOperations.getMainPageRecipes());
 
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={RecipeSchema}
+      // validationSchema={RecipeSchema}
       onSubmit={handleSubmit}
     >
       <Form>
