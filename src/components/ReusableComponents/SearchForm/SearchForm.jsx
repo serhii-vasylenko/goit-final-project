@@ -79,7 +79,7 @@ const SearchForm = () => {
                 padX: 1.02,
                 padY: 1.63,
               }}
-              cofByMedia1440={{
+              cofByMedia1280={{
                 font: 1.2,
                 padX: 1.46,
                 padY: 1.63,

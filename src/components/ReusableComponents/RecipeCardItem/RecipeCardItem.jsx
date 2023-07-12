@@ -36,7 +36,7 @@ const RecipeCardItem = ({ _id, preview, title, description, time }) => {
           <FlexContainer>
             <Time>{convertMinutesToHours(Number(time))}</Time>
             <MainButton
-              cofByMedia1440={{ padX: 3, padY: 3.14, font: 1.6 }}
+              cofByMedia1280={{ padX: 3, padY: 3.14, font: 1.6 }}
               cofByMedia768={{ padX: 2, padY: 2.28, font: 1.4 }}
               fontSize="10px"
               padding={{
