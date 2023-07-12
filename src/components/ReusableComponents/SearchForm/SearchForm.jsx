@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useSearchParams, useNavigate, useLocation } from 'react-router-dom';
 
 import MainButton from '../MainButton/MainButton';
+import { showMessageToast } from '../ToastCustom/showToast';
 
 import { Input, InputWrapper, ButtonWrapper } from './SearchForm.styled';
 
@@ -45,7 +46,9 @@ const SearchForm = () => {
       ) {
         setSearchParams({ ingredient: trimmedValue });
       }
-      // console.log('searchParams in formSubmit:>> ', searchParams);
+    }
+    if (trimmedValue === '') {
+      showMessageToast('enter any word in');
     }
   };
 
@@ -59,7 +62,7 @@ const SearchForm = () => {
             value={searchValue}
             onChange={handleInputChange}
             placeholder="Enter the text"
-            autoComplete='off'
+            autoComplete="off"
           />
           <ButtonWrapper>
             <MainButton

@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { recipeOperations } from './operations';
+import {showErrorToast} from 'components/ReusableComponents/ToastCustom/showToast';
 
 const handlePending = state => {
   state.isLoading = true;
@@ -8,6 +9,8 @@ const handlePending = state => {
 const handleRejected = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
+
+  showErrorToast(action.payload)
 };
 
 const initialState = {
@@ -36,7 +39,7 @@ const recipesSlice = createSlice({
       .addCase(recipeOperations.getCategoryList.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.categoryList = action.payload;
+        state.categoryList = action.payload.data.recipe;
       })
       .addCase(recipeOperations.getCategoryList.rejected, handleRejected)
       .addCase(recipeOperations.getMainPageRecipes.pending, handlePending)
@@ -45,7 +48,7 @@ const recipesSlice = createSlice({
         (state, action) => {
           state.isLoading = false;
           state.error = null;
-          state.mainPageRecipes = action.payload;
+          state.mainPageRecipes = action.payload.data.recipe;
         }
       )
       .addCase(recipeOperations.getMainPageRecipes.rejected, handleRejected)
@@ -53,7 +56,7 @@ const recipesSlice = createSlice({
       .addCase(recipeOperations.getRecipesById.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.recipeById = action.payload;
+        state.recipeById = action.payload.data.recipe;
       })
       .addCase(recipeOperations.getRecipesById.rejected, handleRejected)
       .addCase(recipeOperations.getRecipesByTitle.pending, handlePending)
@@ -62,7 +65,7 @@ const recipesSlice = createSlice({
         (state, action) => {
           state.isLoading = false;
           state.error = null;
-          state.recipeByTitle = action.payload;
+          state.recipeByTitle = action.payload.data.recipe;
         }
       )
       .addCase(recipeOperations.getRecipesByTitle.rejected, handleRejected)
@@ -70,7 +73,7 @@ const recipesSlice = createSlice({
       .addCase(recipeOperations.getOwnRecipe.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.ownRecipes = action.payload;
+        state.ownRecipes = action.payload.data.recipe;
       })
       .addCase(recipeOperations.getOwnRecipe.rejected, handleRejected)
       .addCase(recipeOperations.deleteownRecipe.pending, handlePending)
@@ -78,7 +81,7 @@ const recipesSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         const index = state.ownRecipes.findIndex(
-          ownRecipe => ownRecipe.id === action.payload.id
+          ownRecipe => ownRecipe.id === action.payload.data.recipe.id
         );
         state.ownRecipes.splice(index, 1);
       })
@@ -87,7 +90,7 @@ const recipesSlice = createSlice({
       .addCase(recipeOperations.addOwnRecipe.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.ownRecipes = [...state.ownRecipes, action.payload];
+        state.ownRecipes = [...state.ownRecipes, action.payload.data.recipe];
       })
       .addCase(recipeOperations.addOwnRecipe.rejected, handleRejected);
   },
