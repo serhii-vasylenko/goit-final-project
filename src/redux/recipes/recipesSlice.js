@@ -20,6 +20,7 @@ const initialState = {
   recipeByTitle: [],
   recipeById: {},
   ownRecipes: [],
+  recipesByIngredient: [],
   favoriteRecipes: [],
   isLoading: false,
   error: null,
@@ -100,7 +101,17 @@ const recipesSlice = createSlice({
         state.error = null;
         state.favoriteRecipes = [...state.favoriteRecipes, action.payload.data.recipe];
       })
-      .addCase(recipeOperations.addOwnRecipe.rejected, handleRejected);
+      .addCase(recipeOperations.addToFavoriteRecipes.rejected, handleRejected)
+      .addCase(recipeOperations.getRecipesByIngredient.pending, handlePending)
+      .addCase(
+        recipeOperations.getRecipesByIngredient.fulfilled,
+        (state, action) => {
+          state.isLoading = false;
+          state.error = null;
+          state.recipesByIngredient = action.payload.data.recipe;
+        }
+      )
+      .addCase(recipeOperations.getRecipesByIngredient.rejected, handleRejected);
   },
 });
 
