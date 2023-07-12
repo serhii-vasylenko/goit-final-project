@@ -7,6 +7,8 @@ import getOwnRecipe from "./getOwnRecipe";
 import addOwnRecipe from "./addOwnRecipe";
 import addToFavoriteRecipes from "./addToFavoriteRecipes";
 import getRecipesByIngredient from "./getRecipesByIngredient";
+import deleteFromFavoriteRecipes from "./deleteFromFavoriteRecipes";
+import getRecipesByCategory from "./getRecipesByCategory";
 
  export const recipeOperations = {
     getCategoryList,
@@ -18,5 +20,7 @@ import getRecipesByIngredient from "./getRecipesByIngredient";
     addOwnRecipe,
     addToFavoriteRecipes,
     getRecipesByIngredient,
+    deleteFromFavoriteRecipes,
+    getRecipesByCategory,
 }
 
