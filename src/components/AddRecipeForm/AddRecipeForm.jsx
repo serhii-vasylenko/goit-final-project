@@ -29,7 +29,6 @@ const AddRecipeForm = () => {
   const [file, setFile] = useState(null);
 
   const {userId} = useSelector(selectUser)
-  console.log("🚀 ~ file: AddRecipeForm.jsx:31 ~ AddRecipeForm ~ userId:", userId)
   const dispatch = useDispatch();
 
   const handleFileChange = event => {
@@ -47,7 +46,7 @@ const AddRecipeForm = () => {
       time: values.time,
       ingredients: values.ingredients,
       instructions: values.preparation,
-      owner: userId,
+      // owner: userId,
     });
 
     const formData = new FormData();

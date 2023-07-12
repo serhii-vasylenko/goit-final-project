@@ -5,20 +5,21 @@ import cookTime from 'const/cookTime';
 
 
 const addRecipeValidationSchema = Yup.object().shape({
-    photo: Yup.mixed()
-    .required("You need to provide a file")
-    .test("fileSize", "The file is too large", (value) => {
-        // console.log("🚀 ~ file: AddRecipeForm.jsx:15 ~ .test ~ value:", value)
-        return value && value[0].size <= 2000000;
-    })
-    .test("type", "Only the following formats are accepted: .jpeg, .jpg, .bmp, .pdf and .doc", (value) => {
-        return value && (
-            value[0].type === "image/jpeg" ||
-            value[0].type === "image/bmp" ||
-            value[0].type === "image/png"
-        );
-    }),
-    title: Yup.string().required('Please enter the recipe title').matches(/[а-яА-Яa-zA-Z]+/, 'Title must contain letters'),
+  // photo: Yup.mixed()
+  //   .required("You need to provide a file")
+  //   .test("fileSize", "To limit the file size to a maximum of 3MB", (value) => {
+  //       return value.size <= 3000000;
+  //   })
+  //   .test("type", "Only the following formats are accepted: .jpeg, .jpg, .bmp, .png, .svg, and .webp", (value) => {
+  //     return value && (
+  //       value.type === "image/jpeg" ||
+  //       value.type === "image/bmp" ||
+  //       value.type === "image/png" ||
+  //       value.type === "image/svg+xml" ||
+  //       value.type === "image/webp"
+  //     );
+  //   })
+    // title: Yup.string().required('Please enter the recipe title').matches(/[а-яА-Яa-zA-Z]+/, 'Title must contain letters'),
     // about: Yup.string().required('Please describe the recipe').matches(/[а-яА-Яa-zA-Z]+/, 'Describe must contain letters'),
     // category: Yup.string()
     //   .required('Please choose a category for your recipe'),

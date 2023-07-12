@@ -2,7 +2,7 @@ import { Field, ErrorMessage, useFormikContext } from 'formik';
 import cookTime from 'const/cookTime';
 import { useSelector } from 'react-redux';
 import { selectCategoryList } from 'redux/recipes/recipesSelector';
-
+import FormError from 'components/ReusableComponents/FormError/FormError';
 import {
   ImgWrapper,
   DescriptionFields,
@@ -15,51 +15,57 @@ import {
   FieldLabel,
   ErrorMess,
 } from './RecipeDescriptionFields.styled';
+import { useState } from 'react';
 
 const RecipeDescriptionFields = ({ file, handleFileChange }) => {
-
+ 
   const categoryRecipes = useSelector(selectCategoryList);
-  const { errors } = useFormikContext();
-
+  const { setFieldValue, errors } = useFormikContext();
+  console.log(errors.title) 
   return (
     <DescriptionFields>
       <Field name="photo" type="file">
-        {({ field }) => (
-          <ImgWrapper>
-            <ImgLabel htmlFor={field.name}>
-              <InputFileThumb>
-                {file ? (
-                  <Image src={URL.createObjectURL(file)} alt="Uploaded" />
-                ) : (
-                  <p>Hello World!</p>
-                )}
-              </InputFileThumb>
-            </ImgLabel>
-            <input
-              {...field}
-              accept="image/*"
-              type="file"
-              id={field.name}
-              style={{ display: 'none' }}
-              onChange={event => {
-                field.onChange(event);
-                handleFileChange(event);
-              }}
-            />
-          </ImgWrapper>
-        )}
+        {({ field }) => {
+          return (
+            <ImgWrapper>
+              <ImgLabel htmlFor={field.name}>
+                <InputFileThumb>
+                  {file ? (
+                    <Image src={URL.createObjectURL(file)} alt="Uploaded" />
+                  ) : (
+                      <p>Hello World!</p>
+                    )}
+                </InputFileThumb>
+              </ImgLabel>
+              <input
+        
+                accept="image/*"
+                type="file"
+                id={field.name}
+                style={{ display: 'none' }}
+                onChange={event => {
+                  setFieldValue('photo', event.target.files[0])
+                  handleFileChange(event);
+                }}
+              />
+            </ImgWrapper>
+          )
+        }}
       </Field>
       <ErrorMessage name="photo" component="div" className="error-message" />
      <FieldWrapper>
-      <FieldContainer className={errors.title ? 'error' : ''}>
-      <FieldLabel htmlFor="title">Enter item title</FieldLabel>
+     <FieldContainer className={errors.title ? 'error' : ''}>
+      {
+      errors.title  ? <FormError name='title' /> : <FieldLabel htmlFor="title">Enter item title</FieldLabel>}
       <Input name="title" id="title" type="text"/>
-      <ErrorMess name="title" className="error-message" />
       </FieldContainer>
 
-
-      <Field name="about" type="text" placeholder="Enter about recipe"></Field>
-      <ErrorMessage name="about" component="div" className="error-message" />
+<FieldContainer className={errors.about ? 'error' : ''}>
+  {errors.about ? <FormError name="about" /> : <FieldLabel htmlFor="about">Enter about recipe</FieldLabel>}
+  <Input name="about" id="about" type="text" />
+</FieldContainer>
+      {/* <Field name="about" type="text" placeholder="Enter about recipe"></Field>
+      <ErrorMessage name="about" component="div" className="error-message" /> */}
 
       <Field name="category" as="select">
         <option value="">Select option</option>
