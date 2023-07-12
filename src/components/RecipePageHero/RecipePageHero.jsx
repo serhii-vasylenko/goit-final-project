@@ -2,10 +2,10 @@ import React from 'react'
 
 import { recipeHeroWrapper } from './RecipePageHero.styled'
 
-const RecipePageHero = () => {
+const RecipePageHero = ({children}) => {
   return (
      <>
-        <recipeHeroWrapper/>     
+        <recipeHeroWrapper>{children}<recipeHeroWrapper/>      
     </>
   )
 }
