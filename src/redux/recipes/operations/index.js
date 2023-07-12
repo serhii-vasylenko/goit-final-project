@@ -5,6 +5,7 @@ import getRecipesByTitle from "./getRecipesByTitle";
 import deleteownRecipe from "./deleteOwnRecipe";
 import getOwnRecipe from "./getOwnRecipe";
 import addOwnRecipe from "./addOwnRecipe";
+import addToFavoriteRecipes from "./addToFavoriteRecipes";
 
  export const recipeOperations = {
     getCategoryList,
@@ -14,5 +15,6 @@ import addOwnRecipe from "./addOwnRecipe";
     deleteownRecipe,
     getOwnRecipe,
     addOwnRecipe,
+    addToFavoriteRecipes,
 }
 
