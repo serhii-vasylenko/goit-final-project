@@ -25,7 +25,7 @@ export const Container = styled.div`
 
   // Завантаження звичайного фонового зображення для планшету
 
-  @media screen and (min-width: 768px) {
+  @media all and (min-width: 768px) {
     background-image: url(${salat_md});
 
     // Завантаження ретінізованого 2х фонового зображення
@@ -38,7 +38,7 @@ export const Container = styled.div`
 
   //Завантаження звичайного фонового зображення для десктопної версії
 
-  @media screen and (min-width: 1280px) {
+  @media all and (min-width: 1280px) {
     background-image: url(${salat_lg});
 
     // Завантаження ретінізованого 2х фонового зображення

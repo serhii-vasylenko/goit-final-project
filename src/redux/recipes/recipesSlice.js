@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { recipeOperations } from './operations';
+import {showErrorToast} from 'components/ReusableComponents/ToastCustom/showToast';
 
 const handlePending = state => {
   state.isLoading = true;
@@ -8,6 +9,8 @@ const handlePending = state => {
 const handleRejected = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
+
+  showErrorToast(action.payload)
 };
 
 const initialState = {
@@ -17,6 +20,8 @@ const initialState = {
   recipeByTitle: [],
   recipeById: {},
   ownRecipes: [],
+  recipesByIngredient: [],
+  favoriteRecipes: [],
   isLoading: false,
   error: null,
 };
@@ -89,7 +94,24 @@ const recipesSlice = createSlice({
         state.error = null;
         state.ownRecipes = [...state.ownRecipes, action.payload.data.recipe];
       })
-      .addCase(recipeOperations.addOwnRecipe.rejected, handleRejected);
+      .addCase(recipeOperations.addOwnRecipe.rejected, handleRejected)
+      .addCase(recipeOperations.addToFavoriteRecipes.pending, handlePending)
+      .addCase(recipeOperations.addToFavoriteRecipes.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.favoriteRecipes = [...state.favoriteRecipes, action.payload.data.recipe];
+      })
+      .addCase(recipeOperations.addToFavoriteRecipes.rejected, handleRejected)
+      .addCase(recipeOperations.getRecipesByIngredient.pending, handlePending)
+      .addCase(
+        recipeOperations.getRecipesByIngredient.fulfilled,
+        (state, action) => {
+          state.isLoading = false;
+          state.error = null;
+          state.recipesByIngredient = action.payload.data.recipe;
+        }
+      )
+      .addCase(recipeOperations.getRecipesByIngredient.rejected, handleRejected);
   },
 });
 
