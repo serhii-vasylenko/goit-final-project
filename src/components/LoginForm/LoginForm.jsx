@@ -11,7 +11,6 @@ import {
   Form,
   Input,
   Title,
-  LabelGroup,
   InputGroup,
   ErrorIconStyled,
   CorrectIconIconStyled,
@@ -19,7 +18,6 @@ import {
 } from './LoginForm.styled';
 import { signInSchema } from 'helpers/registerValidationShema';
 import { getStatus } from 'helpers/utils';
-
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -39,11 +37,11 @@ export const LoginForm = () => {
       password: '',
     },
 
-	 validationSchema: signInSchema,
+    validationSchema: signInSchema,
 
     onSubmit: values => {
       console.log('values', values);
-		
+
       dispatch(
         loginUser({
           email: values.email,
@@ -57,17 +55,6 @@ export const LoginForm = () => {
   return (
     <Form onSubmit={handleSubmit}>
       <Title>Sign In</Title>
-
-      <LabelGroup>
-        <LabelIcon ValidationState={getStatus(
-            errors.email,
-            touched.email,
-            isValid,
-            isSubmitting
-          )}>
-          <use href={`${sprite}#icon-mail-01`}></use>
-        </LabelIcon>
-      </LabelGroup>
 
       <InputGroup>
         <Input
@@ -84,6 +71,17 @@ export const LoginForm = () => {
             isSubmitting
           )}
         />
+        <LabelIcon
+          ValidationState={getStatus(
+            errors.email,
+            touched.email,
+            isValid,
+            isSubmitting
+          )}
+        >
+          <use href={`${sprite}#icon-mail-01`}></use>
+        </LabelIcon>
+
         <ErrMessage>
           {errors.email && touched.email ? <span>{errors.email}</span> : null}
         </ErrMessage>
@@ -93,17 +91,6 @@ export const LoginForm = () => {
           <CorrectIconIconStyled />
         ) : null}
       </InputGroup>
-
-      <LabelGroup>
-        <LabelIcon ValidationState={getStatus(
-            errors.password,
-            touched.password,
-            isValid,
-            isSubmitting
-          )}>
-          <use href={`${sprite}#icon-lock-02`}></use>
-        </LabelIcon>
-      </LabelGroup>
 
       <InputGroup>
         <Input
@@ -120,6 +107,17 @@ export const LoginForm = () => {
             isSubmitting
           )}
         />
+        <LabelIcon
+          ValidationState={getStatus(
+            errors.password,
+            touched.password,
+            isValid,
+            isSubmitting
+          )}
+        >
+          <use href={`${sprite}#icon-lock-02`}></use>
+        </LabelIcon>
+
         <ErrMessage>
           {errors.password && touched.password ? (
             <span>{errors.password}</span>

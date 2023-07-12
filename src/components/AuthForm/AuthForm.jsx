@@ -10,7 +10,6 @@ import {
   Form,
   Input,
   Title,
-  LabelGroup,
   InputGroup,
   ErrorIconStyled,
   CorrectIconIconStyled,
@@ -23,7 +22,6 @@ import {
   registrationSchema,
 } from 'helpers/registerValidationShema';
 import { getStatus } from 'helpers/utils';
-
 
 export const AuthForm = () => {
   const dispatch = useDispatch();
@@ -64,17 +62,6 @@ export const AuthForm = () => {
     <Form onSubmit={handleSubmit}>
       <Title>Registration</Title>
 
-      <LabelGroup>
-        <LabelIcon ValidationState={getStatus(
-            errors.name,
-            touched.name,
-            isValid,
-            isSubmitting
-          )}>
-          <use href={`${sprite}#icon-user-01`}></use>
-        </LabelIcon>
-      </LabelGroup>
-
       <InputGroup>
         <Input
           id="name"
@@ -91,6 +78,16 @@ export const AuthForm = () => {
             isSubmitting
           )}
         />
+        <LabelIcon
+          ValidationState={getStatus(
+            errors.name,
+            touched.name,
+            isValid,
+            isSubmitting
+          )}
+        >
+          <use href={`${sprite}#icon-user-01`}></use>
+        </LabelIcon>
         <ErrMessage>
           {errors.name && touched.name ? <span>{errors.name}</span> : null}
         </ErrMessage>
@@ -100,17 +97,6 @@ export const AuthForm = () => {
           <CorrectIconIconStyled />
         ) : null}
       </InputGroup>
-
-      <LabelGroup>
-        <LabelIcon ValidationState={getStatus(
-            errors.name,
-            touched.name,
-            isValid,
-            isSubmitting
-          )}>
-          <use href={`${sprite}#icon-mail-01`}></use>
-        </LabelIcon>
-      </LabelGroup>
 
       <InputGroup>
         <Input
@@ -128,6 +114,16 @@ export const AuthForm = () => {
             isSubmitting
           )}
         />
+        <LabelIcon
+          ValidationState={getStatus(
+            errors.email,
+            touched.email,
+            isValid,
+            isSubmitting
+          )}
+        >
+          <use href={`${sprite}#icon-mail-01`}></use>
+        </LabelIcon>
         <ErrMessage>
           {errors.email && touched.email ? <span>{errors.email}</span> : null}
         </ErrMessage>
@@ -137,17 +133,6 @@ export const AuthForm = () => {
           <CorrectIconIconStyled />
         ) : null}
       </InputGroup>
-
-      <LabelGroup>
-        <LabelIcon ValidationState={getStatus(
-            errors.name,
-            touched.name,
-            isValid,
-            isSubmitting
-          )}>
-          <use href={`${sprite}#icon-lock-02`}></use>
-        </LabelIcon>
-      </LabelGroup>
 
       <InputGroup>
         <Input
@@ -162,9 +147,22 @@ export const AuthForm = () => {
             errors.password,
             touched.password,
             isValid,
-            isSubmitting
+            isSubmitting,
+            checkPasswordSecure(values.password)
           )}
         />
+
+        <LabelIcon
+          ValidationState={getStatus(
+            errors.password,
+            touched.password,
+            isValid,
+            isSubmitting,
+            checkPasswordSecure(values.password)
+          )}
+        >
+          <use href={`${sprite}#icon-lock-02`}></use>
+        </LabelIcon>
 
         {values.password.length > 3 && checkPasswordSecure(values.password) && (
           <div>
@@ -184,6 +182,12 @@ export const AuthForm = () => {
               <WarnMessage>You password is little secure</WarnMessage>
             </div>
           )}
+        {!isValid &&
+        !isSubmitting &&
+        !errors.password &&
+        checkPasswordSecure(values.password) ? (
+          <CorrectIconIconStyled />
+        ) : null}
 
         <ErrMessage>
           {errors.password && touched.password ? (
