@@ -107,6 +107,7 @@ export const LoginForm = () => {
             isSubmitting
           )}
         />
+
         <LabelIcon
           ValidationState={getStatus(
             errors.password,
@@ -125,6 +126,7 @@ export const LoginForm = () => {
         </ErrMessage>
 
         {errors.password && touched.password ? <ErrorIconStyled /> : null}
+		  
         {!isValid && !isSubmitting && !errors.password ? (
           <CorrectIconIconStyled />
         ) : null}

@@ -88,11 +88,13 @@ export const AuthForm = () => {
         >
           <use href={`${sprite}#icon-user-01`}></use>
         </LabelIcon>
+
         <ErrMessage>
           {errors.name && touched.name ? <span>{errors.name}</span> : null}
         </ErrMessage>
 
         {errors.name && touched.name ? <ErrorIconStyled /> : null}
+
         {!isValid && !isSubmitting && !errors.name ? (
           <CorrectIconIconStyled />
         ) : null}
@@ -114,6 +116,7 @@ export const AuthForm = () => {
             isSubmitting
           )}
         />
+
         <LabelIcon
           ValidationState={getStatus(
             errors.email,
@@ -124,11 +127,13 @@ export const AuthForm = () => {
         >
           <use href={`${sprite}#icon-mail-01`}></use>
         </LabelIcon>
+
         <ErrMessage>
           {errors.email && touched.email ? <span>{errors.email}</span> : null}
         </ErrMessage>
 
         {errors.email && touched.email ? <ErrorIconStyled /> : null}
+
         {!isValid && !isSubmitting && !errors.email ? (
           <CorrectIconIconStyled />
         ) : null}
@@ -168,20 +173,21 @@ export const AuthForm = () => {
           <div>
             <CorrectIconIconStyled />
             <WarnMessage style={{ color: '#3CBC81' }}>
-              Password is secure
+              password is secure
             </WarnMessage>
           </div>
         )}
 
         {values.password.length > 0 &&
           !errors.password &&
-          !touched.password &&
+          //!touched.password &&
           !checkPasswordSecure(values.password) && (
             <div>
               <WarnIconIconStyled />
               <WarnMessage>You password is little secure</WarnMessage>
             </div>
           )}
+
         {!isValid &&
         !isSubmitting &&
         !errors.password &&
@@ -194,6 +200,7 @@ export const AuthForm = () => {
             <span>{errors.password}</span>
           ) : null}
         </ErrMessage>
+
         {errors.password && touched.password ? <ErrorIconStyled /> : null}
       </InputGroup>
 
