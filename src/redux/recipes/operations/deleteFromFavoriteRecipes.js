@@ -1,11 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from '../../../const/axiosBaseUrl';
 
-const addToFavoriteRecipes = createAsyncThunk(
-  'recipes/addToFavoriteRecipes',
+const deleteFromFavoriteRecipes = createAsyncThunk(
+  'recipes/deleteFromFavoriteRecipes',
   async (id, thunkAPI) => {
     try {
-      const response = await axios.put(`/recipes/favorite/${id}`);
+      const response = await axios.delete(`/recipes/favorite/${id}`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -13,4 +13,4 @@ const addToFavoriteRecipes = createAsyncThunk(
   }
 );
 
-export default addToFavoriteRecipes;
+export default deleteFromFavoriteRecipes;
