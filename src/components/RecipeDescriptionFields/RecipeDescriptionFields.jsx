@@ -1,25 +1,32 @@
-import { Field, ErrorMessage } from 'formik';
+import { Field, ErrorMessage, useFormikContext } from 'formik';
 import cookTime from 'const/cookTime';
 import { useSelector } from 'react-redux';
 import { selectCategoryList } from 'redux/recipes/recipesSelector';
 
 import {
-  Wrapper,
+  ImgWrapper,
   DescriptionFields,
   InputFileThumb,
   Image,
+  ImgLabel,
+  FieldWrapper,
+  Input,
+  FieldContainer,
+  FieldLabel,
+  ErrorMess,
 } from './RecipeDescriptionFields.styled';
 
 const RecipeDescriptionFields = ({ file, handleFileChange }) => {
 
   const categoryRecipes = useSelector(selectCategoryList);
+  const { errors } = useFormikContext();
 
   return (
     <DescriptionFields>
       <Field name="photo" type="file">
         {({ field }) => (
-          <Wrapper>
-            <label htmlFor={field.name}>
+          <ImgWrapper>
+            <ImgLabel htmlFor={field.name}>
               <InputFileThumb>
                 {file ? (
                   <Image src={URL.createObjectURL(file)} alt="Uploaded" />
@@ -27,7 +34,7 @@ const RecipeDescriptionFields = ({ file, handleFileChange }) => {
                   <p>Hello World!</p>
                 )}
               </InputFileThumb>
-            </label>
+            </ImgLabel>
             <input
               {...field}
               accept="image/*"
@@ -39,12 +46,18 @@ const RecipeDescriptionFields = ({ file, handleFileChange }) => {
                 handleFileChange(event);
               }}
             />
-          </Wrapper>
+          </ImgWrapper>
         )}
       </Field>
       <ErrorMessage name="photo" component="div" className="error-message" />
-      <Field name="title" type="text" placeholder="Enter item title"></Field>
-      <ErrorMessage name="title" component="div" className="error-message" />
+     <FieldWrapper>
+      <FieldContainer className={errors.title ? 'error' : ''}>
+      <FieldLabel htmlFor="title">Enter item title</FieldLabel>
+      <Input name="title" id="title" type="text"/>
+      <ErrorMess name="title" className="error-message" />
+      </FieldContainer>
+
+
       <Field name="about" type="text" placeholder="Enter about recipe"></Field>
       <ErrorMessage name="about" component="div" className="error-message" />
 
@@ -67,6 +80,7 @@ const RecipeDescriptionFields = ({ file, handleFileChange }) => {
         ))}
       </Field>
       <ErrorMessage name="time" component="div" className="error-message" />
+      </FieldWrapper>
     </DescriptionFields>
   );
 };

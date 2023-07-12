@@ -1,18 +1,33 @@
 import styled from '@emotion/styled';
-
-export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+import { Field, ErrorMessage } from 'formik';
 
 export const DescriptionFields = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 67px;
+`;
+
+export const ImgWrapper = styled.div`
+  width: 279px;
+  height: 268px;
+  margin-bottom: 32px;
+`;
+export const FieldWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
+
+export const ImgLabel = styled.label`
+  width: 279px;
+  height: 268px;
 `;
 
 export const InputFileThumb = styled.div`
-  width: 279px;
-  height: 268px;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,4 +46,35 @@ export const Image = styled.img`
   width: 100%;
   height: 100%;
   border-radius: 8px;
+`;
+
+export const FieldContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 40px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--input-border-color);
+  
+  &.error {
+    border-bottom-color: var(--error-color);
+  }
+`;
+
+export const Input = styled(Field)`
+font-size: 14px;
+border: none; 
+background-color: transparent;
+padding: 0;
+color: #000000;
+outline: none;
+`;
+
+export const FieldLabel = styled.label`
+  font-size: 16px;
+  color: #797979;
+  margin-bottom: 3px;
+`;
+
+export const ErrorMess = styled(ErrorMessage)`
+color: red;
 `;

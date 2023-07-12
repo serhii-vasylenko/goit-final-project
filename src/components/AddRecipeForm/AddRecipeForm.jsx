@@ -2,6 +2,7 @@ import { Formik, Form } from 'formik';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import addRecipeValidationSchema from 'helpers/addRecipeValidationSchema';
 import { selectUser } from 'redux/auth/selectors';
 import { recipeOperations } from 'redux/recipes/operations';
 import MainButton from '../ReusableComponents/MainButton/MainButton';
@@ -72,7 +73,7 @@ const AddRecipeForm = () => {
   return (
     <Formik
       initialValues={initialValues}
-      // validationSchema={RecipeSchema}
+      validationSchema={addRecipeValidationSchema}
       onSubmit={handleSubmit}
     >
       <Form>
