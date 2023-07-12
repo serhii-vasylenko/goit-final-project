@@ -27,4 +27,3 @@ background-size: 354px 404px;
     background-position: left -200px bottom -520px;
     background-size: 917px 1041px;
   }
-`
