@@ -1,10 +1,14 @@
 import { Formik, Form } from 'formik';
-import React, { useState} from 'react';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import MainButton from 'components/MainButton/MainButton';
+import { selectUser } from 'redux/auth/selectors';
+import { recipeOperations } from 'redux/recipes/operations';
+import MainButton from '../ReusableComponents/MainButton/MainButton';
 import RecipeDescriptionFields from 'components/RecipeDescriptionFields/RecipeDescriptionFields';
 import RecipeIngredientsFields from 'components/RecipeIngredientsFields/RecipeIngredientsFields';
 import RecipePreparationFields from 'components/RecipePreparationFields/RecipePreparationFields';
+
 
 const initialValues = {
   photo: '',
@@ -21,8 +25,11 @@ const initialValues = {
 };
 
 const AddRecipeForm = () => {
-  
   const [file, setFile] = useState(null);
+
+  const {userId} = useSelector(selectUser)
+  console.log("🚀 ~ file: AddRecipeForm.jsx:31 ~ AddRecipeForm ~ userId:", userId)
+  const dispatch = useDispatch();
 
   const handleFileChange = event => {
     const file = event.target.files[0];
@@ -39,9 +46,8 @@ const AddRecipeForm = () => {
       time: values.time,
       ingredients: values.ingredients,
       instructions: values.preparation,
+      owner: userId,
     });
-    
-   
 
     const formData = new FormData();
     formData.append('recipeImg', file);
@@ -52,10 +58,10 @@ const AddRecipeForm = () => {
     // formData.append('category', values.category);
     // formData.append('time', values.time);
     // setSubmitting(true);
-//     for(let [name, value] of formData) {
-//   alert(`${name} = ${value}`); // key1=value1, потом key2=value2
-// }
-    // dispatch(recipeOperations.addOwnRecipe(formData));
+    //     for(let [name, value] of formData) {
+    //   alert(`${name} = ${value}`); // key1=value1, потом key2=value2
+    // }
+    dispatch(recipeOperations.addOwnRecipe(formData));
     // setSubmitting(false);
 
     // resetForm();
