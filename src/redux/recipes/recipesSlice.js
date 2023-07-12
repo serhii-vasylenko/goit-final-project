@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { recipeOperations } from './operations';
+import {showErrorToast} from 'components/ReusableComponents/ToastCustom/showToast';
 
 const handlePending = state => {
   state.isLoading = true;
@@ -8,6 +9,8 @@ const handlePending = state => {
 const handleRejected = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
+
+  showErrorToast(action.payload)
 };
 
 const initialState = {
