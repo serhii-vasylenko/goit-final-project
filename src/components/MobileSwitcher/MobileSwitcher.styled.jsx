@@ -6,7 +6,7 @@ const MenuSwitcher = styled.div`
 display: block;
 width: 32px;
 height: 32px;
-	@media (min-width: 1260px) {
+	@media (min-width: 1280px) {
         display: none;
 	}
    
