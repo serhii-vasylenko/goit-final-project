@@ -25,7 +25,7 @@ padding: 44px 24px;
 @media (min-width: 768px) {
         padding: 50px 40px;
 }
-@media (min-width: 1260px) {
+@media (min-width: 1280px) {
     padding: 50px 50px;
 }
 `

@@ -4,7 +4,7 @@ import logo from '../../images/logo.svg'
 import { HeaderEl, Logo, Wrapper} from './Header.styles';
 import { Navigation } from 'components/Navigation/Navigation';
 import { UserLogo } from 'components/UserLogo/UserLogo';
-import { ThemeToggle } from 'components/ThemeToggler/ThemeToggler';
+// import { ThemeToggle } from 'components/ThemeToggler/ThemeToggler';
 import { MobileSwitcher } from 'components/MobileSwitcher/MobileSwitcher';
 import { MobileMenu } from 'components/MobileMenu/MobileMenu';
 export const Header = () => {
@@ -15,7 +15,7 @@ export const Header = () => {
             <Navigation/>
             <Wrapper>
                 <UserLogo />
-                <ThemeToggle />     
+                {/* <ThemeToggle />      */}
             </Wrapper>
             <MobileSwitcher nav={nav} setNav={setNav} />
             <MobileMenu nav={nav} setNav={setNav} />
