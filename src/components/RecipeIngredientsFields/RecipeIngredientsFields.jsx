@@ -53,7 +53,7 @@ const RecipeIngredientsFields = () => {
                 <div key={index}>
                   <Select
                     name={`ingredients[${index}].id`}
-                    options={nameIngredients}
+                    // options={nameIngredients}
                     onChange={selectedOption =>
                       handleIngredientChange(index, selectedOption)
                     }
