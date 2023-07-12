@@ -1,16 +1,19 @@
 import { Field, ErrorMessage } from 'formik';
-import { categoryRecipes, timeCook } from 'const/const';
+import cookTime from 'const/cookTime';
+import { useSelector } from 'react-redux';
+import { selectCategoryList } from 'redux/recipes/recipesSelector';
+
 import {
   Wrapper,
   DescriptionFields,
   InputFileThumb,
   Image,
 } from './RecipeDescriptionFields.styled';
-import CamIcon from 'components/CamIcon/CamIcon';
-import WrapCamIcon from 'components/WrapCamIcon/WrapCamIcon';
-
 
 const RecipeDescriptionFields = ({ file, handleFileChange }) => {
+
+  const categoryRecipes = useSelector(selectCategoryList);
+
   return (
     <DescriptionFields>
       <Field name="photo" type="file">
@@ -21,9 +24,7 @@ const RecipeDescriptionFields = ({ file, handleFileChange }) => {
                 {file ? (
                   <Image src={URL.createObjectURL(file)} alt="Uploaded" />
                 ) : (
-                  <WrapCamIcon>
-                    <CamIcon />
-                    </WrapCamIcon>
+                  <p>Hello World!</p>
                 )}
               </InputFileThumb>
             </label>
@@ -59,7 +60,7 @@ const RecipeDescriptionFields = ({ file, handleFileChange }) => {
 
       <Field name="time" as="select">
         <option value="">Select time</option>
-        {timeCook.map(({ id, time }) => (
+        {cookTime.map(({ id, time }) => (
           <option value={time} key={id}>
             {time}
           </option>
