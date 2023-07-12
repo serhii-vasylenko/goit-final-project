@@ -209,7 +209,7 @@ export const BtnSubmit = styled.button`
   background-color: #8baa36;
   border: 1px solid gray;
   border-radius: 6px;
-  width: 328px;
+  width: 280px;
   height: 54px;
   margin: 0 auto;
   color: var(--white-color);
@@ -219,7 +219,7 @@ export const BtnSubmit = styled.button`
   font-size: 16px;
 
   @media (min-width: 1280px) {
-    width: 448px;
+    width: 400px;
     height: 62px;
     font-size: 18px;
   }
