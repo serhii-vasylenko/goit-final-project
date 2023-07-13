@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 
 import RecipeGalleryItem from '../ReusableComponents/RecipeGalleryItem/RecipeGalleryItem';
-import SearchCapImage from '../SearchCap/SearhCap';
+import SearchCapImage from '../ReusableComponents/SearchCap/SearhCap';
 import {
   showErrorToast,
 } from '../ReusableComponents/ToastCustom/showToast';
@@ -32,13 +32,13 @@ const SearchedRecipesList = () => {
   const ingredient = searchParams.get('ing');
 
   useEffect(() => {
-      if (q && q !== '') {
-        dispatch(getRecipesByTitle(title));
-      }
-      if (ing && ing !== '') {
-        dispatch(getRecipesByIngredient(ingredient));
-      }
-  }, [ dispatch, q, ing, searchedList.length, title, ingredient]);
+    if (q && q !== '') {
+      dispatch(getRecipesByTitle(title));
+    }
+    if (ing && ing !== '') {
+      dispatch(getRecipesByIngredient(ingredient));
+    }
+  }, [dispatch, q, ing, searchedList.length, title, ingredient]);
 
   useEffect(() => {
     if (error) showErrorToast(error);
@@ -52,7 +52,7 @@ const SearchedRecipesList = () => {
             <RecipeGalleryItem key={id} src={preview} title={title} />
           ))
         ) : (
-          <SearchCapImage />
+          <SearchCapImage>Try looking for something else...</SearchCapImage>
         )}
       </List>
     </Section>
