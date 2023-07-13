@@ -93,7 +93,7 @@ export const HeroContainer = styled.div`
     padding-bottom: 202px;
   }
 
-  @media screen and (min-width: 1260px) {
+  @media screen and (min-width: 1280px) {
     gap: 68px;
     padding-top: 126px;
     padding-left: 20px;
@@ -110,7 +110,7 @@ export const FlexWrapper = styled.div`
     width: 362px;
   }
 
-  @media screen and (min-width: 1260px) {
+  @media screen and (min-width: 1280px) {
     width: 510px;
   }
 `;

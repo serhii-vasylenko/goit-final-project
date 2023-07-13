@@ -48,21 +48,21 @@ export const Button = styled.button`
     );
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     font-size: calc(
-      ${props => props.fontSize}*${props => props.cofByMedia1440.font}
+      ${props => props.fontSize}*${props => props.cofByMedia1280.font}
     );
     padding-top: calc(
-      ${props => props.padding.paddingTop}*${props => props.cofByMedia1440.padX}
+      ${props => props.padding.paddingTop}*${props => props.cofByMedia1280.padX}
     );
     padding-bottom: calc(
-      ${props => props.padding.paddingBottom}*${props => props.cofByMedia1440.padX}
+      ${props => props.padding.paddingBottom}*${props => props.cofByMedia1280.padX}
     );
     padding-left: calc(
-      ${props => props.padding.paddingLeft}*${props => props.cofByMedia1440.padY}
+      ${props => props.padding.paddingLeft}*${props => props.cofByMedia1280.padY}
     );
     padding-right: calc(
-      ${props => props.padding.paddingRight}*${props => props.cofByMedia1440.padY}
+      ${props => props.padding.paddingRight}*${props => props.cofByMedia1280.padY}
     );
   }
 `;

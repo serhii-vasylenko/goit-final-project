@@ -31,7 +31,7 @@ text-transform: capitalize;
 `
 const ItemLine = styled.span`
 position: absolute;
-bottom: 0;
+bottom: -1px;
 left: 0;
 display: block;
 width: 100%;

@@ -12,6 +12,8 @@
   --page-title-color: #001833;
   --background-color-circle: #22252a;
   --background-authForm-color: #2a2c36;
+  --input-border-color: #E0E0E0;
+  --error-color: #E74A3B;
 }
 :root[data-theme='light'] {
   --background-color: #fafafa;
@@ -71,7 +73,7 @@ ol {
   margin: 0;
   padding: 0;
 }
-img {
+img, svg {
   display: block;
   max-width: 100%;
   height: auto;

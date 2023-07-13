@@ -4,8 +4,7 @@ import { useParams } from "react-router";
 import getCategoryList from "redux/recipes/operations/getCategoryList";
 import { CategoryList } from "components/CategoryList/CategoryList";
 import PageTitle from "components/ReusableComponents/PageTitle/PageTitle";
-import { Container } from "./CategoriesPage.styled"; 
-import { MainEl } from "components/Main/Main.styled";
+import { MainContainer } from 'components/MainContainer/MainContainer';
 const categrs = ['beef', 'breakfast', 'chicken', 'dessert', 'goat', 'lamb', 'miscellaneous', 'pasta', 'pork', 'seafood', 'side']
 
 const CategoriesPage = () => {
@@ -25,14 +24,10 @@ const CategoriesPage = () => {
 
   console.log('current', currentCategory);
 
-  return <Container>
-    <MainEl>
+  return <MainContainer>
       <PageTitle title={'Categories'} />
       <CategoryList list={categrs} />
-    </MainEl>
-    
-    
-  </Container>
+    </MainContainer>
 };
 
 export default CategoriesPage;

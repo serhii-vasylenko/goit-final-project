@@ -7,8 +7,8 @@ const addOwnRecipe = createAsyncThunk(
     try {
       const response = await axios.post('/recipes/ownRecipes', data);
       return response.data;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

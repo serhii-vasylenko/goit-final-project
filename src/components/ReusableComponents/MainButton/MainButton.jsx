@@ -11,7 +11,7 @@ const MainButton = ({
   borderColor = 'transparent',
   borderRadius = '24px 44px',
   cofByMedia768 = { font: 1, padX: 1, padY: 1 },
-  cofByMedia1440 = { font: 1, padX: 1, padY: 1 },
+  cofByMedia1280 = { font: 1, padX: 1, padY: 1 },
   padding = {
     paddingTop: '12px',
     paddingBottom: '12px',
@@ -33,7 +33,7 @@ const MainButton = ({
       borderColor={borderColor}
       borderRadius={borderRadius}
       cofByMedia768={cofByMedia768}
-      cofByMedia1440={cofByMedia1440}
+      cofByMedia1280={cofByMedia1280}
       padding={padding}
       hoverStyles={hoverStyles}
       hoverParams={hoverParams}
@@ -60,7 +60,7 @@ MainButton.propTypes = {
     padY: PropTypes.number,
   }),
 
-  cofByMedia1440: PropTypes.exact({
+  cofByMedia1280: PropTypes.exact({
     font: PropTypes.number,
     padX: PropTypes.number,
     padY: PropTypes.number,
