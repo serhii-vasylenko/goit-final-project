@@ -84,7 +84,7 @@ const recipesSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         const index = state.ownRecipes.findIndex(
-          ownRecipe => ownRecipe.id === action.payload.data.recipe.id
+          ownRecipe => ownRecipe._id === action.payload.data.recipe._id
         );
         state.ownRecipes.splice(index, 1);
       })
@@ -108,7 +108,7 @@ const recipesSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         const index = state.favoriteRecipes.findIndex(
-          favoriteRecipe => favoriteRecipe.id === action.payload.data.recipe.id
+          favoriteRecipe => favoriteRecipe._id === action.payload.data.recipe._id
         );
         state.favoriteRecipes.splice(index, 1);
       })
