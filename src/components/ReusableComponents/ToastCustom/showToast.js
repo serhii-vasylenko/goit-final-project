@@ -1,6 +1,6 @@
 import { toast } from 'react-hot-toast';
 import ToastCustomIcon from './ToastCustom';
-import { getErrorMassage } from 'helpers/getErrorMessage';
+import { getErrorMassage } from '../../../helpers/getErrorMessage';
 
 export const showMessageToast = message => {
   toast.success(`${message}`, {
