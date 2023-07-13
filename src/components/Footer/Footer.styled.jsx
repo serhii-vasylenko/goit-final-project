@@ -1,11 +1,7 @@
 import styled from '@emotion/styled/macro';
 import bgImg from './images/bg-img.png';
-const FooterEl = styled.footer`
-  /* /* width: 100%;
-  /* height: 1px; */
-  /* display: flex;
-  flex-direction: column; */
-`;
+import { NavLink } from 'react-router-dom';
+const FooterEl = styled.footer``;
 
 const Wrapper = styled.div`
   background-color: #22252a;
@@ -43,10 +39,6 @@ const Top = styled.div`
 `;
 
 const Info = styled.div`
-  /* display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 9px; */
   @media (min-width: 768px) {
     display: flex;
     flex-direction: column;
@@ -110,7 +102,7 @@ const Title = styled.h2`
   }
 `;
 
-const LogoWrapper = styled.div`
+const LogoWrapper = styled(NavLink)`
   width: 44px;
   height: 44px;
   display: flex;
