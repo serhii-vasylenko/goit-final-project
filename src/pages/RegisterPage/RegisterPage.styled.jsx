@@ -15,39 +15,38 @@ import { NavLink } from 'react-router-dom';
 export const Container = styled.div`
   height: 100vh;
   background-repeat: no-repeat;
-  background-position: top 30px center, bottom 0 center;
-  background-size: auto, 100% 60%;
+  background-position: top 87px center, bottom 0 center;
+  background-size: 285px 250px, 100% 58%;
   background-image: url(${orger_sm}), url(${rectangle_sm});
 
-  //Завантаження ретінізованого 2х фонового зображення
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-    background-image: url(${order_sm_retina});
+    background-image: url(${order_sm_retina}), url(${rectangle_sm});
   }
 
   @media all and (min-width: 768px) {
+    background-position: top 100px center, bottom 0 center;
     background-image: url(${orger_md}), url(${rectangle_md});
-    background-size: auto, 100% 55%;
-  }
-  // Завантаження ретінізованого 2х фонового зображення
-  @media (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    background-image: url(${orger_md_retina});
+    background-size: 409px 359px, 100% 59%;
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(${orger_md_retina}), url(${rectangle_md});
+    }
   }
 
   @media all and (min-width: 1280px) {
-    /* height: 100vh; */
     background-image: url(${orger_lg}), url(${rectangle_lg});
     background-position: bottom 170px left 110px, bottom 0 center;
-    background-size: auto, 100% 40%;
-  }
+    background-size: 532px 468px, 100% 40%;
 
-  @media (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    background-image: url(${orger_lg_retina});
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(${orger_lg_retina}), url(${rectangle_lg});
+    }
   }
 `;
 
@@ -56,21 +55,21 @@ export const StyledLink = styled(NavLink)`
   text-decoration: underline;
   font-size: 14px;
   position: absolute;
-  top: 690px;
+  top: 670px;
   left: 50%;
   transform: translate(-50%, -50%);
 
   @media (min-width: 768px) {
-    top: 840px;
+    top: 965px;
     font-size: 16px;
   }
 
   @media (min-width: 1280px) {
-    top: 670px;
+    top: 620px;
     left: 75%;
   }
 
   @media (min-width: 1640px) {
-    top: 840px;
+    top: 810px;
   }
 `;

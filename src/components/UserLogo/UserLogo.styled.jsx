@@ -6,6 +6,7 @@ align-items: center;
 margin-right: 50px;
 `
 const ImgContainer = styled.div`
+position: relative;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -13,10 +14,12 @@ width: 44px;
 height: 44px;
 background-color: #D9D9D9;
 border-radius: 50px;
+overflow: hidden;
+
 `
 const UserImg = styled.img`
-width: 28px;
-height: 28px;
+width: 100%;
+height: 100%;
 `
 const UserName = styled.p`
 color: var(--primary-text-color);

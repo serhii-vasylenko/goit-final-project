@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 export const GalleryItem = styled.li`
   border-radius: 8px;
   overflow: hidden;
+  flex-basis: calc((100% - 42px)/4);
 `;
 
 export const Thumb = styled.div`

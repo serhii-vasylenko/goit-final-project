@@ -6,21 +6,21 @@ export const StyledLink = styled(NavLink)`
   text-decoration: underline;
   font-size: 14px;
   position: absolute;
-  top: 590px;
+  top: 605px;
   left: 50%;
   transform: translate(-50%, -50%);
 
   @media (min-width: 768px) {
-    top: 730px;
+    top: 910px;
     font-size: 16px;
   }
 
   @media (min-width: 1280px) {
-    top: 570px;
+    top: 565px;
     left: 75%;
   }
 
   @media (min-width: 1640px) {
-    top: 750px;
+    top: 730px;
   }
 `;

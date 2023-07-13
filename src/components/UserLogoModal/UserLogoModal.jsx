@@ -27,7 +27,7 @@ export const UserLogoModal = ({ isOpen, setIsOpen }) => {
         </Button>
         </Modal>
         <LogoutModal modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />
-        <UserInfoModal editIsOpen={editIsOpen} setEditIsOpen={setEditIsOpen} />
+        <UserInfoModal editIsOpen={editIsOpen} setEditIsOpen={setEditIsOpen} setIsOpen={setIsOpen} />
     </>
        
         

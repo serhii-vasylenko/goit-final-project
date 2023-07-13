@@ -6,7 +6,7 @@ import {
   UserImg,
   UserName,
 } from './UserLogo.styled';
-import defaultImg from '../../images/user-icon.svg';
+import defaultImg from '../../images/default-img.png';
 import { useSelector } from 'react-redux';
 import { selectAuth } from 'redux/auth/selectors';
 export const UserLogo = () => {

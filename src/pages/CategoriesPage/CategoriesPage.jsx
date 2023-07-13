@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { recipeOperations } from 'redux/recipes/operations';
 import { CategoryList } from "components/CategoryList/CategoryList";
-import { CategoryItemList } from "components/CategoryItemList/CategoryItemList";
+import { CategoryGallery } from "components/CategoryGallery/CategoryGallery";
 import PageTitle from "components/ReusableComponents/PageTitle/PageTitle";
-import { MainEl } from "components/Main/Main.styled";
+import { MainContainer } from "components/MainContainer/MainContainer";
 
 const CategoriesPage = () => {
   const [currentCategory, setCurrentCategory] = useState('beef')
@@ -22,11 +22,11 @@ const CategoriesPage = () => {
   }, [dispatch])
 
 
-  return <MainEl paddingBottom={'100px'}>
+  return <MainContainer>
       <PageTitle title={'Categories'} />
-    <CategoryList currentCategory={currentCategory} />
-    <CategoryItemList/>
-    </MainEl>
-};
+      <CategoryList currentCategory={currentCategory} />
+      <CategoryGallery/>
+    </MainContainer>
+}
 
 export default CategoriesPage;

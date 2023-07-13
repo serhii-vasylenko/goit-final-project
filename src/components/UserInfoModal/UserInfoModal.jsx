@@ -1,13 +1,21 @@
 import ReactDOM from 'react-dom';
-import { Backdrop, Modal, Text, Btn, CloseModal} from 'components/LogoutModal/LogoutModal.styled';
+import { Backdrop, Modal, CloseModal } from 'components/LogoutModal/LogoutModal.styled';
+import { ImgContainer, UserImg, SaveBtn, AddPhotoBtn, Plus, Field, UserIcon, Input, EditIcon, InputFile } from './UserInfoModal.styled';
 import { useCallback, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { selectAuth } from 'redux/auth/selectors';
+import defaultImg from '../../images/default-img.png';
 const modalRoot = document.getElementById('modal-root');
 
 
 export const UserInfoModal = ({ editIsOpen, setEditIsOpen }) => {
-    const onCloseClick = useCallback(() => {
-    document.body.classList.remove('modal-open');
-    setEditIsOpen(false);
+      const { user } = useSelector(selectAuth);
+
+    const onCloseClick = useCallback((e) => {
+        document.body.classList.remove('modal-open');
+        setEditIsOpen(false);
+        e.stopPropagation()
+
     }, [setEditIsOpen]);
 
     useEffect(() => {
@@ -20,15 +28,27 @@ export const UserInfoModal = ({ editIsOpen, setEditIsOpen }) => {
         return () => window.removeEventListener('keydown', close)
     }, [onCloseClick])
 
-   
-    
-
     return ReactDOM.createPortal(
-        <Backdrop className={editIsOpen ? 'open' : ' '} onClick={()=> onCloseClick()}>
-            <Modal onClick={e => { e.stopPropagation(); }}>
-                <CloseModal onClick={()=> onCloseClick()}/>
-                <Text>Are you sure you want to log out?</Text>
-                <Btn>Save changes</Btn>
+        <Backdrop className={editIsOpen ? 'open' : ' '} onClick={(e)=> onCloseClick(e)}>
+            <Modal onClick={e => { e.stopPropagation()}}>
+                <CloseModal onClick={() => onCloseClick()} />
+                <form>
+                     <div style={{position: 'relative'}}>
+                        <ImgContainer>
+                        <UserImg src={defaultImg} />
+                        </ImgContainer>
+                        <AddPhotoBtn>
+                            <Plus />
+                            <InputFile type='file'/>
+                        </AddPhotoBtn>
+                    </div>
+                    <Field >
+                        <UserIcon />
+                        <EditIcon/>
+                        <Input value={user.name} />
+                    </Field>
+                    <SaveBtn>Save changes</SaveBtn>
+               </form>
             </Modal>
         </Backdrop>
         ,
