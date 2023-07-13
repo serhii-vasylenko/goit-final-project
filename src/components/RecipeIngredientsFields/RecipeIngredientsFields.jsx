@@ -2,6 +2,7 @@ import { Field, FieldArray, ErrorMessage } from 'formik';
 import { useSelector } from 'react-redux';
 import { selectIngredientsList } from 'redux/ingredients/ingredientsSelector';
 import Counter from 'components/Counter/Counter';
+import ReactSelect from 'react-select';
 import { Container, Title, StyledSelect, Wrap } from './RecipeIngredientsFields.styled';
 
 
@@ -43,14 +44,14 @@ const RecipeIngredientsFields = () => {
               <Counter pop={pop} push={push} ingredients={ingredients} />
               {ingredients.map((ingredient, index) => (
                 <Wrap key={index}>
-                  <StyledSelect
+                  <ReactSelect
                   classNamePrefix='custom-select'
                     name={`ingredients[${index}].id`}
                     options={nameIngredients}
                     onChange={selectedOption =>
                       handleIngredientChange(index, selectedOption)
                     }
-                  ></StyledSelect>
+                  ></ReactSelect>
                   <ErrorMessage
                     name={`ingredients[${index}].id`}
                     component="div"
