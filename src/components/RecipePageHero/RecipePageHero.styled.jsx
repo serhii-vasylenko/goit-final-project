@@ -19,7 +19,8 @@ export const HeroContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
- 
+  margin-top: -61px;
+  margin-bottom: 32px;
 
   @media screen and (min-device-pixel-ratio: 2),
     screen and (min-resolution: 192dpi),
@@ -29,6 +30,7 @@ export const HeroContainer = styled.div`
 
   @media screen and (min-width: 768px) {
     height: 495px;
+    margin-bottom: 50px;
     background-image: url(${hero_tab_1});
 
     @media screen and (min-device-pixel-ratio: 2),

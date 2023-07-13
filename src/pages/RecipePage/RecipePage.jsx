@@ -1,25 +1,27 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
 
 import RecipePageHero from 'components/RecipePageHero/RecipePageHero';
 import RecipeInngredientsList from 'components/RecipeInngredientsList/RecipeInngredientsList';
 import RecipePreparation from 'components/RecipePreparation/RecipePreparation';
-import { HeaderList } from './RecipePage.styled';
-import { selectRecipeById } from 'redux/recipes/recipesSelector';
+import { selectError, selectRecipeById } from 'redux/recipes/recipesSelector';
 import getRecipesById from 'redux/recipes/operations/getRecipesById';
 import { MainContainer } from 'components/MainContainer/MainContainer';
 
 const RecipePage = () => {
+const dispatch = useDispatch()
+  const recipeInfo = useSelector(selectRecipeById);
+  const error = useSelector(selectError);
 
-  const { recipeId } = useParams();
-   const  recipeInfo  = useSelector(selectRecipeById);
+  const [fetched, setFetched] = useState(false);
   console.log(recipeInfo);
 
-  const dispatch = useDispatch()
+  
+   const { recipeId } = useParams();
 
   useEffect(() => {
-    dispatch(getRecipesById(recipeId));
+    dispatch(getRecipesById(recipeId)).then(setFetched(true));
  
   }, [dispatch, recipeId]);
 
@@ -31,20 +33,18 @@ const RecipePage = () => {
           title={recipeInfo.title}
           description={recipeInfo.description}
           time={recipeInfo.time}
-        />
+      />
+      {fetched && recipeInfo && !error && (
         <MainContainer>
-          <HeaderList>
-            <p>Ingredients</p>
-            <p>
-              Number
-              <span>Add to list</span>
-            </p>
-          </HeaderList>
-           {/* <RecipeInngredientsList
+           <RecipeInngredientsList
             ingredients={recipeInfo.ingredients}         
-          />   */}
-          {/* <RecipePreparation />  */}
+          />  
+          <RecipePreparation
+          instructions={recipeInfo.instructions}
+          image={recipeInfo.thumb} /> 
         </MainContainer>
+      )}
+        
       </div>
     
   );

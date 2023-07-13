@@ -2,56 +2,51 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectIngredientsList } from 'redux/ingredients/ingredientsSelector';
 import getIngredientsList from 'redux/ingredients/operations/getIngredientsList';
+import CustomCheckBox from './Checkbox';
 import {
   IngredientList,
   IngredientItem,
   ImageContainer,
   NameIngredient,
   IngredientMeasure,
-  ItemContainer,
-  TextContainer,
+  HeaderList,
+  ContainerList,
+  ContentWrap
 } from './RecipeInngredientsList.styled';
 
 const RecipeInngredientsList = ({ ingredients } ) => {
 
-
-//   const ingredientsList = useSelector(selectIngredientsList);
-//   const dispatch = useDispatch();
-
-//   useEffect(() => {
-//     dispatch(getIngredientsList());
-//   }, [dispatch]);
-   
-//    console.log(ingredientsList)
-
-
-
-
-
-
-  //  console.log(ingredients)
-   
- 
-
   return (
+    <ContainerList>
+    <HeaderList>
+            <p>Ingredients</p>
+            <p>
+              Number
+              <span>Add to list</span>
+            </p>
+          </HeaderList>
     <IngredientList>
       {ingredients.map(({ _id, measure, img, name, desc }) => {
         return (
           <IngredientItem key={`${measure}_${_id}`}>
-            <ItemContainer>
-              <ImageContainer>
-                <img src={img} alt="name" />
+           
+              <ContentWrap>
+                <ImageContainer>
+                  <img src={img} alt="name" />
               </ImageContainer>
-              <TextContainer>
-                <NameIngredient>{name}</NameIngredient>
-              </TextContainer>
+               <NameIngredient>{name}</NameIngredient>
+              </ContentWrap>
 
-              <IngredientMeasure>{measure}</IngredientMeasure>
-            </ItemContainer>
+              <ContentWrap>    
+                <IngredientMeasure>{measure}</IngredientMeasure>
+                <CustomCheckBox />
+              </ContentWrap>
+           
           </IngredientItem>
         );
       })}
     </IngredientList>
+    </ContainerList>    
   );
 };
 
