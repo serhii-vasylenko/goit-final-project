@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
 
@@ -14,27 +14,26 @@ const dispatch = useDispatch()
   const recipeInfo = useSelector(selectRecipeById);
   const error = useSelector(selectError);
 
-  const [fetched, setFetched] = useState(false);
   console.log(recipeInfo);
 
   
    const { recipeId } = useParams();
 
   useEffect(() => {
-    dispatch(getRecipesById(recipeId)).then(setFetched(true));
+    dispatch(getRecipesById(recipeId));
  
   }, [dispatch, recipeId]);
 
   return (
     
-      <div>
-        <RecipePageHero
-       
+    <div>
+      {recipeInfo && !error && (
+        <>
+          <RecipePageHero      
           title={recipeInfo.title}
           description={recipeInfo.description}
           time={recipeInfo.time}
-      />
-      {fetched && recipeInfo && !error && (
+      />     
         <MainContainer>
            <RecipeInngredientsList
             ingredients={recipeInfo.ingredients}         
@@ -43,8 +42,10 @@ const dispatch = useDispatch()
           instructions={recipeInfo.instructions}
           image={recipeInfo.thumb} /> 
         </MainContainer>
+        </>
+
       )}
-        
+              
       </div>
     
   );
