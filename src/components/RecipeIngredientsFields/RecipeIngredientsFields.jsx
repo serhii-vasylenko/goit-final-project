@@ -1,5 +1,7 @@
 import { Field, FieldArray, ErrorMessage } from 'formik';
 import Select from 'react-select';
+import Counter from 'components/Counter/Counter';
+import { Container, Title } from './RecipeIngredientsFields.styled';
 
 const ingredientsArr = [
   {
@@ -107,10 +109,10 @@ const nameIngredients = ingredientsArr.map(el => ({
 
 const RecipeIngredientsFields = () => {
   return (
-    <div>
-      <div>
-        <h2>Ingredients</h2>
-      </div>
+    <Container>
+      
+        <Title>Ingredients</Title>
+      
       <FieldArray validateOnChange name="ingredients">
         {fieldArrayProps => {
           const { push, pop, remove, form } = fieldArrayProps;
@@ -132,21 +134,7 @@ const RecipeIngredientsFields = () => {
 
           return (
             <div>
-              <div>
-                <button
-                  type="button"
-                  onClick={() => pop({ id: '', measure: '' })}
-                >
-                  -
-                </button>
-                <span>{ingredients.length}</span>
-                <button
-                  type="button"
-                  onClick={() => push({ id: '', measure: '' })}
-                >
-                  +
-                </button>
-              </div>
+              <Counter pop={pop} push={push} ingredients={ingredients} />
               {ingredients.map((ingredient, index) => (
                 <div key={index}>
                   <Select
@@ -189,7 +177,7 @@ const RecipeIngredientsFields = () => {
           );
         }}
       </FieldArray>
-    </div>
+    </Container>
   );
 };
 
