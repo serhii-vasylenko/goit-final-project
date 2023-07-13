@@ -17,7 +17,9 @@ import {
 const RecipeInngredientsList = ({ ingredients } ) => {
 
   return (
-    <ContainerList>
+  <>
+    {ingredients && (     
+      <ContainerList>
     <HeaderList>
             <p>Ingredients</p>
             <p>
@@ -26,7 +28,7 @@ const RecipeInngredientsList = ({ ingredients } ) => {
             </p>
           </HeaderList>
     <IngredientList>
-      {ingredients?.map(({ _id, measure, img, name, desc }) => {
+      {ingredients?.map(({ _id, measure, img, name}) => {
         return (
           <IngredientItem key={`${measure}_${_id}`}>
            
@@ -46,7 +48,10 @@ const RecipeInngredientsList = ({ ingredients } ) => {
         );
       })}
     </IngredientList>
-    </ContainerList>    
+    </ContainerList> 
+     
+    )}
+       </> 
   );
 };
 

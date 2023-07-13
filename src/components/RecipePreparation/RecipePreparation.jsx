@@ -14,8 +14,8 @@ import {
 
 const RecipePreparation = ({ instructions, image }) => {
 
-   let instructionsString = instructions.toString();
-   let res = instructionsString.split('\n');
+   let instructionsString = instructions?.toString();
+   let res = instructionsString?.split('\n');
 
    console.log(res);
 
@@ -32,7 +32,7 @@ const RecipePreparation = ({ instructions, image }) => {
       <div>
         <Title>Recipe Preparation</Title>
         <InstructionsList>
-          {filteredInstructions?.map((item, index) => (
+          {instructions && filteredInstructions?.map((item, index) => (
             <ListItem key={nanoid()}>
               <GreenCircle>{index + 1}</GreenCircle>
               {item}
