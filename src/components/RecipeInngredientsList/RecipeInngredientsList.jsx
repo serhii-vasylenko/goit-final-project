@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { selectIngredientsList } from 'redux/ingredients/ingredientsSelector';
-import getIngredientsList from 'redux/ingredients/operations/getIngredientsList';
+// import { useEffect } from 'react';
+// import { useSelector, useDispatch } from 'react-redux';
+// import { selectIngredientsList } from 'redux/ingredients/ingredientsSelector';
+// import getIngredientsList from 'redux/ingredients/operations/getIngredientsList';
 import CustomCheckBox from './Checkbox';
 import {
   IngredientList,
@@ -26,7 +26,7 @@ const RecipeInngredientsList = ({ ingredients } ) => {
             </p>
           </HeaderList>
     <IngredientList>
-      {ingredients.map(({ _id, measure, img, name, desc }) => {
+      {ingredients?.map(({ _id, measure, img, name, desc }) => {
         return (
           <IngredientItem key={`${measure}_${_id}`}>
            
