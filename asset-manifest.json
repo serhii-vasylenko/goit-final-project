@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/goit-final-project/static/css/main.1c034642.css",
-    "main.js": "/goit-final-project/static/js/main.aedaedb4.js",
-    "static/js/11.ba9b4267.chunk.js": "/goit-final-project/static/js/11.ba9b4267.chunk.js",
+    "main.js": "/goit-final-project/static/js/main.a3309364.js",
+    "static/js/11.472dc1a2.chunk.js": "/goit-final-project/static/js/11.472dc1a2.chunk.js",
     "static/js/215.a8807e4c.chunk.js": "/goit-final-project/static/js/215.a8807e4c.chunk.js",
-    "static/js/876.fbb54eb9.chunk.js": "/goit-final-project/static/js/876.fbb54eb9.chunk.js",
+    "static/js/876.068021df.chunk.js": "/goit-final-project/static/js/876.068021df.chunk.js",
     "static/js/212.62204a77.chunk.js": "/goit-final-project/static/js/212.62204a77.chunk.js",
-    "static/js/831.e23a8b52.chunk.js": "/goit-final-project/static/js/831.e23a8b52.chunk.js",
-    "static/js/603.88e3691b.chunk.js": "/goit-final-project/static/js/603.88e3691b.chunk.js",
+    "static/js/831.09c00c8f.chunk.js": "/goit-final-project/static/js/831.09c00c8f.chunk.js",
+    "static/js/603.e6ca90f0.chunk.js": "/goit-final-project/static/js/603.e6ca90f0.chunk.js",
     "static/js/809.ef421f2a.chunk.js": "/goit-final-project/static/js/809.ef421f2a.chunk.js",
     "static/js/430.c28e4bfe.chunk.js": "/goit-final-project/static/js/430.c28e4bfe.chunk.js",
     "static/js/463.b271153c.chunk.js": "/goit-final-project/static/js/463.b271153c.chunk.js",
@@ -78,6 +78,7 @@
     "static/media/toastImg.png": "/goit-final-project/static/media/toastImg.bea43f1e6b2fbfbce2ab.png",
     "static/media/hero-mobile-leaves-top.png": "/goit-final-project/static/media/hero-mobile-leaves-top.044637016be00b6a0872.png",
     "static/media/sprite.svg": "/goit-final-project/static/media/sprite.c10effca9650c772a2d8aed0ca2ffabd.svg",
+    "static/media/networks-sprite.svg": "/goit-final-project/static/media/networks-sprite.938db3dc4480e280d30ddde1041d6983.svg",
     "index.html": "/goit-final-project/index.html",
     "static/media/error.svg": "/goit-final-project/static/media/error.9dffa3c548a425b2581fb25922c3c0aa.svg",
     "static/media/clock.svg": "/goit-final-project/static/media/clock.5146b559adfd629e728ba916dba25f35.svg",
@@ -87,13 +88,13 @@
     "static/media/pick.svg": "/goit-final-project/static/media/pick.247b86d0e6a26346bf0885b5b0408bd8.svg",
     "static/media/user-icon.svg": "/goit-final-project/static/media/user-icon.8b04d065a66483f3095e819fac01e7d6.svg",
     "main.1c034642.css.map": "/goit-final-project/static/css/main.1c034642.css.map",
-    "main.aedaedb4.js.map": "/goit-final-project/static/js/main.aedaedb4.js.map",
-    "11.ba9b4267.chunk.js.map": "/goit-final-project/static/js/11.ba9b4267.chunk.js.map",
+    "main.a3309364.js.map": "/goit-final-project/static/js/main.a3309364.js.map",
+    "11.472dc1a2.chunk.js.map": "/goit-final-project/static/js/11.472dc1a2.chunk.js.map",
     "215.a8807e4c.chunk.js.map": "/goit-final-project/static/js/215.a8807e4c.chunk.js.map",
-    "876.fbb54eb9.chunk.js.map": "/goit-final-project/static/js/876.fbb54eb9.chunk.js.map",
+    "876.068021df.chunk.js.map": "/goit-final-project/static/js/876.068021df.chunk.js.map",
     "212.62204a77.chunk.js.map": "/goit-final-project/static/js/212.62204a77.chunk.js.map",
-    "831.e23a8b52.chunk.js.map": "/goit-final-project/static/js/831.e23a8b52.chunk.js.map",
-    "603.88e3691b.chunk.js.map": "/goit-final-project/static/js/603.88e3691b.chunk.js.map",
+    "831.09c00c8f.chunk.js.map": "/goit-final-project/static/js/831.09c00c8f.chunk.js.map",
+    "603.e6ca90f0.chunk.js.map": "/goit-final-project/static/js/603.e6ca90f0.chunk.js.map",
     "809.ef421f2a.chunk.js.map": "/goit-final-project/static/js/809.ef421f2a.chunk.js.map",
     "430.c28e4bfe.chunk.js.map": "/goit-final-project/static/js/430.c28e4bfe.chunk.js.map",
     "463.b271153c.chunk.js.map": "/goit-final-project/static/js/463.b271153c.chunk.js.map",
@@ -104,6 +105,6 @@
   },
   "entrypoints": [
     "static/css/main.1c034642.css",
-    "static/js/main.aedaedb4.js"
+    "static/js/main.a3309364.js"
   ]
 }
