@@ -28,7 +28,7 @@ export const Footer = () => {
             <Top>
               <Info>
                 <LogoTitle>
-                  <LogoWrapper>
+                  <LogoWrapper to="/">
                     <Logo fill="none">
                       <use href={`${sprite}#logo`}></use>
                     </Logo>
