@@ -15,18 +15,21 @@ import {
 } from './RecipeCardItem.styled';
 import { convertMinutesToHours } from 'helpers/time-formatter';
 import { useNavigate } from 'react-router-dom';
-const RecipeCardItem = ({ _id, preview, title, description, time }) => {
+import { useDispatch } from 'react-redux';
+import deleteownRecipe from 'redux/recipes/operations/deleteOwnRecipe';
+const RecipeCardItem = ({ _id, thumb, title, description, time }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   return (
     <>
       <Card>
         <ImageContainer>
-          <Image src={preview} />
+          <Image src={thumb} />
         </ImageContainer>
         <Info>
           <TitleContainer>
             <Title>{title}</Title>
-            <Trash onClick={() => console.log('sasadd')}>
+            <Trash onClick={() => dispatch(deleteownRecipe(_id))}>
               <TrashIcon width="24" height="24" fill="none">
                 <use href={`${sprite}#trash`}></use>
               </TrashIcon>
@@ -46,7 +49,7 @@ const RecipeCardItem = ({ _id, preview, title, description, time }) => {
                 paddingRight: '14px',
               }}
               nameButton="See recipe"
-              onClick={() => navigate(`/recipes/${_id.$oid}`)}
+              onClick={() => navigate(`/recipes/${_id}`)}
             ></MainButton>
           </FlexContainer>
         </Info>
