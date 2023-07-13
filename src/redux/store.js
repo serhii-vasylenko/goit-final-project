@@ -15,6 +15,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import { shoppingListApi } from './shopping-list/productsSlice';
 
 const enhancer = devToolsEnhancer();
 
@@ -30,13 +31,17 @@ const store = configureStore(
       auth: persistReducer(persistConfig, authSlice),
       recipes: recipesSlice,
       ingredients: ingredientsSlice,
+		[shoppingListApi.reducerPath]: shoppingListApi.reducer,
     },
-    middleware: getDefaultMiddleware =>
-      getDefaultMiddleware({
-        serializableCheck: {
-          ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-        },
-      }),
+    middleware: getDefaultMiddleware => [
+		...getDefaultMiddleware({
+			serializableCheck: {
+			  ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+			},
+		 }),
+		 shoppingListApi.middleware,
+
+	 ]
   },
   enhancer
 );
