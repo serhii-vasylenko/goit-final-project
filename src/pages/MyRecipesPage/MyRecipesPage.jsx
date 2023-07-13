@@ -29,7 +29,7 @@ const MyRecipesPage = () => {
 
   useLayoutEffect(() => {
     dispatch(getOwnRecipe(userId));
-  }, []);
+  }, [dispatch, userId]);
 
   return (
     <Section>
