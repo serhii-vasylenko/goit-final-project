@@ -5,7 +5,7 @@ export const CategoryItemList = () => {
     console.log(categoryItems);
     return <ul>
         {categoryItems.map(item => {
-            <li key={item._id}>
+           return <li key={item._id}>
                 {item.name}
             </li>
         })}

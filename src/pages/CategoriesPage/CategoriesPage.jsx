@@ -15,7 +15,7 @@ const CategoriesPage = () => {
   useEffect(() => {
     setCurrentCategory(categoryName)
     dispatch(recipeOperations.getRecipesByCategory(categoryName))
-  }, [categoryName])
+  }, [categoryName, dispatch])
 
   useEffect(() => {
 		dispatch(recipeOperations.getCategoryList())

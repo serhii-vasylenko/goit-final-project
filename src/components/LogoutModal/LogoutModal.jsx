@@ -37,7 +37,7 @@ export const LogoutModal = ({ modalIsOpen, setModalIsOpen }) => {
 
   return ReactDOM.createPortal(
     <Backdrop
-      className={modalIsOpen ? 'open' : ' '}
+      className={modalIsOpen ? 'open' : null}
       onClick={() => onCloseClick()}
     >
       <Modal

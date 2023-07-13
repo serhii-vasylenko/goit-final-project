@@ -4,7 +4,8 @@ const Categories = styled.ul`
 display: flex;
 align-items: center;
 padding-top: 100px;
-
+width: 100%;
+overflow: hidden;
 `
 const Category = styled.li`
 position: relative;
