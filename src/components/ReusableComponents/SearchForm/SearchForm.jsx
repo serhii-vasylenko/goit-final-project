@@ -44,7 +44,7 @@ const SearchForm = () => {
         location.pathname === '/search' &&
         selectedOption === 'ingredient'
       ) {
-        setSearchParams({ ingredient: trimmedValue });
+        setSearchParams({ ing: trimmedValue });
       }
     }
     if (trimmedValue === '') {

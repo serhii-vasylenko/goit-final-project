@@ -9,6 +9,7 @@ import {
 } from '../ReusableComponents/ToastCustom/showToast';
 
 import getRecipesByTitle from '../../redux/recipes/operations/getRecipesByTitle';
+import getRecipesByIngredient from '../../redux/recipes/operations/getRecipesByIngredient'
 import {
   selectRecipeByTitle,
   selectError,
@@ -25,20 +26,19 @@ const SearchedRecipesList = () => {
   // console.log('searchedList :>> ', searchedList);
 
   const params = Object.fromEntries(searchParams.entries());
-  const { q, ingredient } = params;
+  const { q, ing } = params;
 
-  const query = searchParams.get('q');
-  const ingred = searchParams.get('ingredient');
+  const title = searchParams.get('q');
+  const ingredient = searchParams.get('ing');
 
   useEffect(() => {
       if (q && q !== '') {
-        dispatch(getRecipesByTitle(query));
+        dispatch(getRecipesByTitle(title));
       }
-      if (ingredient && ingredient !== '') {
-        // функцию  притащить когда она будет
-        // dispatch(getRecipesByIngredient(ingred));
+      if (ing && ing !== '') {
+        dispatch(getRecipesByIngredient(ingredient));
       }
-  }, [ dispatch, q, ingredient, searchedList.length, query, ingred]);
+  }, [ dispatch, q, ing, searchedList.length, title, ingredient]);
 
   useEffect(() => {
     if (error) showErrorToast(error);
