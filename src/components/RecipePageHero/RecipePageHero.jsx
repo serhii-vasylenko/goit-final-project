@@ -1,7 +1,27 @@
-//import { recipeHeroWrapper } from './RecipePageHero.styled'
+import React from 'react';
 
-const RecipePageHero = ({children}) => {
-  //return <recipeHeroWrapper>{children}</recipeHeroWrapper>; 
-}
+import {
+  HeroContainer,
+  HeroTitle,
+  HeroText,
+  Button,
+  CookingTime,
+  ClockIcon,
+} from './RecipePageHero.styled';
 
-export default RecipePageHero
+
+const RecipePageHero = ({ title, description, time }) => {
+  return (
+    <HeroContainer>
+      <HeroTitle>{title}</HeroTitle>
+      <HeroText>{description}</HeroText>
+      <Button>Add to favorite recipes</Button>
+      <CookingTime>
+        <ClockIcon />
+        <span>{time} min </span>
+      </CookingTime>
+    </HeroContainer>
+  );
+};
+
+export default RecipePageHero;
