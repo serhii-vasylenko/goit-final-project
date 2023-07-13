@@ -25,7 +25,7 @@ const SigninPage = () => {
   return (
     <Container>
       <LoginForm />
-      <StyledLink to="/register">Register</StyledLink>
+      <StyledLink to="/register">Registration</StyledLink>
       <ToastContainer
         position="top-right"
         autoClose={6000}

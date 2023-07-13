@@ -11,24 +11,22 @@ import {
 
 export const Container = styled.div`
   height: 100vh;
+  padding-top: 274px;
 
   background-repeat: no-repeat;
   background-size: cover;
   background-image: url(${salat_sm});
 
-  //Завантаження ретінізованого 2х фонового зображення
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
     background-image: url(${salat_sm_retina});
   }
 
-  // Завантаження звичайного фонового зображення для планшету
-
   @media all and (min-width: 768px) {
     background-image: url(${salat_md});
+    padding-top: 342px;
 
-    // Завантаження ретінізованого 2х фонового зображення
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
@@ -36,12 +34,10 @@ export const Container = styled.div`
     }
   }
 
-  //Завантаження звичайного фонового зображення для десктопної версії
-
   @media all and (min-width: 1280px) {
     background-image: url(${salat_lg});
+    padding-top: 214px;
 
-    // Завантаження ретінізованого 2х фонового зображення
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
@@ -53,21 +49,13 @@ export const Container = styled.div`
 export const Logo = styled.img`
   width: 54px;
   height: 54px;
-  position: absolute;
-
-  top: 300px;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
 
   @media (min-width: 768px) {
     width: 68px;
     height: 68px;
-
-    top: 320px;
-  }
-
-  @media (min-width: 1280px) {
-    top: 230px;
   }
 `;
 
@@ -80,10 +68,9 @@ export const TextContainer = styled.div`
   justify-content: center;
   gap: 15px;
 
-  position: absolute;
-  top: 405px;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
   font-family: inherit;
   color: var(--white-color);
   font-family: inherit;
@@ -91,16 +78,12 @@ export const TextContainer = styled.div`
   @media (min-width: 768px) {
     width: 600px;
     height: 121px;
-
-    top: 455px;
     gap: 20px;
   }
 
   @media (min-width: 1280px) {
     width: 544px;
     height: 121px;
-
-    top: 360px;
   }
 `;
 
@@ -129,22 +112,12 @@ export const LinksContainer = styled.div`
   gap: 15px;
   width: 249px;
   height: 45px;
-
-  position: absolute;
-  top: 520px;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin-left: auto;
+  margin-right: auto;
 
   @media (min-width: 768px) {
     width: 380px;
     height: 67px;
-
-    top: 580px;
-    gap: 20px;
-  }
-
-  @media (min-width: 1280px) {
-    top: 490px;
   }
 `;
 
@@ -153,7 +126,6 @@ export const LinkStyled = styled(NavLink)`
   font-size: 14px;
   background-color: #8baa36;
 
-
   color: var(--white-color);
   border-radius: 24px 44px;
   border: 2px solid transparent;
@@ -161,7 +133,7 @@ export const LinkStyled = styled(NavLink)`
   &:focus,
   :hover {
     background-color: transparent;
-	 border-color: var(--white-color);
+    border-color: var(--white-color);
   }
 
   @media (min-width: 768px) {

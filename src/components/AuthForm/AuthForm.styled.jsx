@@ -13,7 +13,7 @@ export const Form = styled.form`
   padding: 15px 15px 30px 15px;
 
   position: absolute;
-  top: 250px;
+  top: 305px;
   left: 50%;
   transform: translate(-50%, 0);
 
@@ -23,7 +23,8 @@ export const Form = styled.form`
 
   @media (min-width: 768px) {
     width: 500px;
-    top: 360px;
+    padding: 50px 15px 50px 15px;
+    top: 444px;
   }
 
   @media (min-width: 1280px) {
@@ -35,7 +36,7 @@ export const Form = styled.form`
   }
 
   @media (min-width: 1640px) {
-    top: 30%;
+    top: 300px;
   }
 `;
 
@@ -45,6 +46,7 @@ export const Title = styled.h2`
   color: var(--white-color);
   margin-top: 10px;
   margin-bottom: 35px;
+  margin-left: 17px;
 
   @media (min-width: 768px) {
     margin-left: 34px;
@@ -55,8 +57,8 @@ export const Title = styled.h2`
     font-weight: 600;
 
     margin-top: 20px;
-    margin-bottom: 55px;
-    margin-left: 25px;
+    margin-bottom: 30px;
+    margin-left: 34px;
   }
 `;
 
@@ -137,8 +139,12 @@ export const WarnIconIconStyled = styled(WarnIcon)`
 export const InputGroup = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   position: relative;
+
+  @media (min-width: 768px) {
+    margin-bottom: 20px;
+  }
 `;
 
 export const Input = styled.input`
@@ -242,6 +248,7 @@ export const BtnSubmit = styled.button`
   @media (min-width: 768px) {
     width: 400px;
     height: 59px;
+    margin-top: 20px;
   }
 
   @media (min-width: 1280px) {
