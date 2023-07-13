@@ -7,4 +7,5 @@ export const selectRecipeById = state => state.recipes.recipeById;
 export const selectOwnRecipes= state => state.recipes.ownRecipes;
 export const selectFavoriteRecipes= state => state.recipes.favoriteRecipes;
 export const selectRecipesByIngredient= state => state.recipes.recipesByIngredient;
-export const selectRecipesByCategory= state => state.recipes.recipesByCategory;
+export const selectRecipesByCategory = state => state.recipes.recipesByCategory;
+export const selectError = state => state.recipes.error;

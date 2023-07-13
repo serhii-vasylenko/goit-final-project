@@ -4,16 +4,24 @@ import { useSearchParams } from 'react-router-dom';
 
 import RecipeGalleryItem from '../ReusableComponents/RecipeGalleryItem/RecipeGalleryItem';
 import SearchCapImage from '../SearchCap/SearhCap';
+import {
+  showErrorToast,
+} from '../ReusableComponents/ToastCustom/showToast';
 
 import getRecipesByTitle from '../../redux/recipes/operations/getRecipesByTitle';
-import { selectRecipeByTitle } from '../../redux/recipes/recipesSelector';
+import {
+  selectRecipeByTitle,
+  selectError,
+} from '../../redux/recipes/recipesSelector';
 
 import { Section, List } from './SearchRecipesList.styled';
+
 
 const SearchedRecipesList = () => {
   const [searchParams] = useSearchParams();
   const dispatch = useDispatch();
   const searchedList = useSelector(selectRecipeByTitle);
+  const error = useSelector(selectError);
   // console.log('searchedList :>> ', searchedList);
 
   const params = Object.fromEntries(searchParams.entries());
@@ -23,14 +31,18 @@ const SearchedRecipesList = () => {
   const ingred = searchParams.get('ingredient');
 
   useEffect(() => {
-    if (q && q !== '') {
-      dispatch(getRecipesByTitle(query));
-    }
-    if (ingredient && ingredient !== '') {
-      // функцию  притащить когда она будет
-      // dispatch(getRecipesByIngredient(ingred));
-    }
-  }, [dispatch, q, ingredient, searchedList.length, query, ingred]);
+      if (q && q !== '') {
+        dispatch(getRecipesByTitle(query));
+      }
+      if (ingredient && ingredient !== '') {
+        // функцию  притащить когда она будет
+        // dispatch(getRecipesByIngredient(ingred));
+      }
+  }, [ dispatch, q, ingredient, searchedList.length, query, ingred]);
+
+  useEffect(() => {
+    if (error) showErrorToast(error);
+  }, [error]);
 
   return (
     <Section>
