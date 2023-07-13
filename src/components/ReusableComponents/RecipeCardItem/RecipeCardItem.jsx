@@ -30,7 +30,7 @@ const RecipeCardItem = ({ _id, thumb, title, description, time }) => {
           <TitleContainer>
             <Title>{title}</Title>
             <Trash onClick={() => dispatch(deleteownRecipe(_id))}>
-              <TrashIcon width="24" height="24" fill="none">
+              <TrashIcon width="30" height="30" fill="none">
                 <use href={`${sprite}#trash`}></use>
               </TrashIcon>
             </Trash>
