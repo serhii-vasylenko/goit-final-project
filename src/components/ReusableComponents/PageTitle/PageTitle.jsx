@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import {
-  Wrapper,
+  Section,
   Title,
   RectangleFirst,
   RectangleSecond,
@@ -9,12 +9,12 @@ import {
 
 const PageTitle = ({ title }) => {
   return (
-    <Wrapper>
+    <Section>
       <Title>{title}</Title>
       <RectangleFirst />
       <RectangleSecond />
       <Circle />
-    </Wrapper>
+    </Section>
   );
 };
 

@@ -11,6 +11,7 @@ export const Button = styled.button`
   padding-bottom: ${props => props.padding.paddingBottom};
   padding-left: ${props => props.padding.paddingLeft};
   padding-right: ${props => props.padding.paddingRight};
+  font-family: ${props => props.fontFamily};
   cursor: pointer;
   
   &:hover {

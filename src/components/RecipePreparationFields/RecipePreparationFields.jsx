@@ -1,5 +1,6 @@
-import { Field, ErrorMessage, useFormikContext  } from 'formik';
+import { ErrorMessage, useFormikContext  } from 'formik';
 import React, { useState } from 'react';
+import { TitlePreparation, Container, TextArea } from './RecipePreparationFields.styled';
 
 const RecipePreparationFields = () => {
     
@@ -13,21 +14,19 @@ const RecipePreparationFields = () => {
 
     const updateArr = valueArr.length > 1 ? valueArr : [value];
     formik.setFieldValue('preparation', updateArr);
-
-    
   };
   return (
-    <div>
-      <h2>Recipe Preparation</h2>
-      <Field
+    <Container>
+      <TitlePreparation >Recipe Preparation</TitlePreparation >
+      <TextArea
         name="preparation"
         as="textarea"
         placeholder="Enter recipe"
         onChange={handleChange}
         value={textArea}
-      ></Field>
+      ></TextArea>
       <ErrorMessage name="preparation" component="div" className="error-message" />
-    </div>
+    </Container>
   );
 };
 

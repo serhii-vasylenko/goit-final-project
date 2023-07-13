@@ -7,6 +7,7 @@ export const DescriptionFields = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 67px;
+  padding-top: 97px;
 `;
 
 export const ImgWrapper = styled.div`

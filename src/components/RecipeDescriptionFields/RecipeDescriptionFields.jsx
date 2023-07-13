@@ -3,6 +3,7 @@ import cookTime from 'const/cookTime';
 import { useSelector } from 'react-redux';
 import { selectCategoryList } from 'redux/recipes/recipesSelector';
 import FormError from 'components/ReusableComponents/FormError/FormError';
+import sprite from '../../images/AddRecipePage/sprite.svg';
 import {
   ImgWrapper,
   DescriptionFields,
@@ -31,7 +32,10 @@ const RecipeDescriptionFields = ({ file, handleFileChange }) => {
                   {file ? (
                     <Image src={URL.createObjectURL(file)} alt="Uploaded" />
                   ) : (
-                      <p>Hello World!</p>
+                    <svg width={64} height={64}>
+                    <use href={`${sprite}#capture`} ></use>
+                    <use href={`${sprite}#photo-camera`} width={24} height={24} x={20} y={20}></use>
+                  </svg>
                     )}
                 </InputFileThumb>
               </ImgLabel>
