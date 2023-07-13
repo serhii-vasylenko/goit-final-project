@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useLayoutEffect, useRef } from 'react';
 
-import getOwnRecipe from 'redux/recipes/operations/getOwnRecipe';
+import getOwnRecipe from 'redux/recipes/operations/getOwnRecipes';
 import { selectUser } from 'redux/auth/selectors';
 import usePagination from 'hooks/usePagination';
 

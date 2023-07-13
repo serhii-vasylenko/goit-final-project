@@ -69,13 +69,13 @@ const recipesSlice = createSlice({
         }
       )
       .addCase(recipeOperations.getRecipesByTitle.rejected, handleRejected)
-      .addCase(recipeOperations.getOwnRecipe.pending, handlePending)
-      .addCase(recipeOperations.getOwnRecipe.fulfilled, (state, action) => {
+      .addCase(recipeOperations.getOwnRecipes.pending, handlePending)
+      .addCase(recipeOperations.getOwnRecipes.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
         state.ownRecipes = action.payload.data.recipe;
       })
-      .addCase(recipeOperations.getOwnRecipe.rejected, handleRejected)
+      .addCase(recipeOperations.getOwnRecipes.rejected, handleRejected)
       .addCase(recipeOperations.deleteownRecipe.pending, handlePending)
       .addCase(recipeOperations.deleteownRecipe.fulfilled, (state, action) => {
         state.isLoading = false;
@@ -93,6 +93,13 @@ const recipesSlice = createSlice({
         state.ownRecipes = [...state.ownRecipes, action.payload.data.recipe];
       })
       .addCase(recipeOperations.addOwnRecipe.rejected, handleRejected)
+      .addCase(recipeOperations.getFavoriteRecipes.pending, handlePending)
+      .addCase(recipeOperations.getFavoriteRecipes.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.favoriteRecipes =  action.payload.data.recipe;
+      })
+      .addCase(recipeOperations.getFavoriteRecipes.rejected, handleRejected)
       .addCase(recipeOperations.addToFavoriteRecipes.pending, handlePending)
       .addCase(recipeOperations.addToFavoriteRecipes.fulfilled, (state, action) => {
         state.isLoading = false;
