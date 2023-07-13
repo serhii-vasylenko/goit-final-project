@@ -15,7 +15,7 @@ const initialState = {
   mainPageRecipes: [],
   searchFilter: null,
   recipeByTitle: [],
-  recipeById: {},
+  recipeById: null,
   ownRecipes: [],
   recipesByIngredient: [],
   recipesByCategory: [],

@@ -3,12 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 
 import RecipeGalleryItem from '../ReusableComponents/RecipeGalleryItem/RecipeGalleryItem';
-import SearchCapImage from '../SearchCap/SearhCap';
+import SearchCapImage from '../ReusableComponents/SearchCap/SearhCap';
 import {
   showErrorToast,
 } from '../ReusableComponents/ToastCustom/showToast';
 
 import getRecipesByTitle from '../../redux/recipes/operations/getRecipesByTitle';
+import getRecipesByIngredient from '../../redux/recipes/operations/getRecipesByIngredient'
 import {
   selectRecipeByTitle,
   selectError,
@@ -25,20 +26,19 @@ const SearchedRecipesList = () => {
   // console.log('searchedList :>> ', searchedList);
 
   const params = Object.fromEntries(searchParams.entries());
-  const { q, ingredient } = params;
+  const { q, ing } = params;
 
-  const query = searchParams.get('q');
-  const ingred = searchParams.get('ingredient');
+  const title = searchParams.get('q');
+  const ingredient = searchParams.get('ing');
 
   useEffect(() => {
-      if (q && q !== '') {
-        dispatch(getRecipesByTitle(query));
-      }
-      if (ingredient && ingredient !== '') {
-        // функцию  притащить когда она будет
-        // dispatch(getRecipesByIngredient(ingred));
-      }
-  }, [ dispatch, q, ingredient, searchedList.length, query, ingred]);
+    if (q && q !== '') {
+      dispatch(getRecipesByTitle(title));
+    }
+    if (ing && ing !== '') {
+      dispatch(getRecipesByIngredient(ingredient));
+    }
+  }, [dispatch, q, ing, searchedList.length, title, ingredient]);
 
   useEffect(() => {
     if (error) showErrorToast(error);
@@ -52,7 +52,7 @@ const SearchedRecipesList = () => {
             <RecipeGalleryItem key={id} src={preview} title={title} />
           ))
         ) : (
-          <SearchCapImage />
+          <SearchCapImage>Try looking for something else...</SearchCapImage>
         )}
       </List>
     </Section>

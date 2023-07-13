@@ -77,6 +77,6 @@ export const Circle = styled.div`
   }
 `;
 
-export const Wrapper = styled.div`
+export const Section = styled.section`
   position: relative;
 `;

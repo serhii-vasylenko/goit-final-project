@@ -20,7 +20,7 @@ export const List = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 28px;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
 
   @media screen and (min-width: 768px) {

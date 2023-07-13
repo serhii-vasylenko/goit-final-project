@@ -9,7 +9,6 @@ import RecipeDescriptionFields from 'components/RecipeDescriptionFields/RecipeDe
 import RecipeIngredientsFields from 'components/RecipeIngredientsFields/RecipeIngredientsFields';
 import RecipePreparationFields from 'components/RecipePreparationFields/RecipePreparationFields';
 
-
 const initialValues = {
   photo: '',
   title: '',
@@ -44,30 +43,19 @@ const AddRecipeForm = () => {
       time: values.time,
       ingredients: values.ingredients,
       instructions: values.preparation,
-      // owner: userId,
     });
 
     const formData = new FormData();
     formData.append('recipeImg', file);
     formData.append('data', data);
-    // formData.append('photo', file, file.name);
-    // formData.append('title', values.title);
-    // formData.append('about', values.about);
-    // formData.append('category', values.category);
-    // formData.append('time', values.time);
     // setSubmitting(true);
-    //     for(let [name, value] of formData) {
-    //   alert(`${name} = ${value}`); // key1=value1, потом key2=value2
-    // }
     dispatch(recipeOperations.addOwnRecipe(formData));
     // setSubmitting(false);
-
     // resetForm();
   };
 
-  // dispatch(recipeOperations.getMainPageRecipes());
-
   return (
+    <section>
     <Formik
       initialValues={initialValues}
       validationSchema={addRecipeValidationSchema}
@@ -83,6 +71,7 @@ const AddRecipeForm = () => {
         <MainButton nameButton="Add" type={'submit'} />
       </Form>
     </Formik>
+    </section>
   );
 };
 

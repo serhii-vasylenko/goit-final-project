@@ -17,7 +17,7 @@ const CategoriesPage = lazy(() =>
 const AddRecipePage = lazy(() => import('pages/AddRecipePage/AddRecipePage'));
 const FavoritePage = lazy(() => import('pages/FavoritePage/FavoritePage'));
 const SearchPage = lazy(() => import('pages/SearchPage'));
-const MyRecipesPage = lazy(() => import('pages/MyRecipesPage'));
+const MyRecipesPage = lazy(() => import('pages/MyRecipesPage/MyRecipesPage'));
 const ShoppingListPage = lazy(() =>
   import('pages/ShoppingListPage/ShoppingListPage')
 );
@@ -63,7 +63,15 @@ const App = () => {
           />
           <Route path="categories/:categoryName" element={<CategoriesPage />} />
           <Route path="add" element={<AddRecipePage />} />
-          <Route path="my" element={<MyRecipesPage />} />
+          <Route
+            path="my"
+            element={
+              <PrivateRoute
+                redirectTo="/signin"
+                component={<MyRecipesPage />}
+              />
+            }
+          />
           <Route path="favorite" element={<FavoritePage />} />
           <Route
             path="shopping-list"
