@@ -17,15 +17,16 @@ export const Card = styled.div`
 `;
 export const ImageContainer = styled.div`
   border-radius: 8px;
-  min-width: 124px;
-  min-height: 124px;
+  flex-shrink: 0;
+  width: 124px;
+  height: 124px;
   @media screen and (min-width: 768px) {
-    min-width: 228px;
-    min-height: 232px;
+    width: 228px;
+    height: 232px;
   }
   @media screen and (min-width: 1280px) {
-    min-width: 318px;
-    min-height: 324px;
+    width: 318px;
+    height: 324px;
   }
 `;
 export const Image = styled.img`
@@ -54,17 +55,28 @@ export const Title = styled.h3`
 `;
 export const TrashIcon = styled.svg`
   stroke: #000;
+  transition: stroke var(--transition-duration) var(--timing-function);
+  width: 14px;
+  height: 14px;
+
+  @media screen and (min-width: 768px) {
+    width: 22px;
+    height: 22px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 24px;
+    height: 24px;
+  }
 `;
 export const Trash = styled.div`
+  width: 24px;
+  height: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* position: absolute;
-  width: 24px;
-  height: 24px;
-  right: 9px;
-  top: 14px; */
+  border-radius: 4px;
   background-color: #ebf3d4;
+  transition: background-color var(--transition-duration) var(--timing-function);
   cursor: pointer;
   &:hover {
     background-color: #8baa36;
@@ -73,6 +85,7 @@ export const Trash = styled.div`
       stroke: #fff;
     }
   }
+
   @media screen and (min-width: 768px) {
     width: 38px;
     height: 38px;
