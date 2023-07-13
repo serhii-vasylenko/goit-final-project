@@ -12,6 +12,7 @@ import getRecipesByTitle from '../../redux/recipes/operations/getRecipesByTitle'
 import getRecipesByIngredient from '../../redux/recipes/operations/getRecipesByIngredient'
 import {
   selectRecipeByTitle,
+  selectRecipesByIngredient,
   selectError,
 } from '../../redux/recipes/recipesSelector';
 
@@ -22,23 +23,25 @@ const SearchedRecipesList = () => {
   const [searchParams] = useSearchParams();
   const dispatch = useDispatch();
   const searchedList = useSelector(selectRecipeByTitle);
+  const serchedIngredList = useSelector(selectRecipesByIngredient);
   const error = useSelector(selectError);
-  // console.log('searchedList :>> ', searchedList);
+  console.log('searchedList :>> ', searchedList);
+  console.log('serchedIngredList :>> ', serchedIngredList);
 
   const params = Object.fromEntries(searchParams.entries());
-  const { q, ing } = params;
+  const { q, ingredient } = params;
 
   const title = searchParams.get('q');
-  const ingredient = searchParams.get('ing');
+  const ingred = searchParams.get('ingredient');
 
   useEffect(() => {
     if (q && q !== '') {
       dispatch(getRecipesByTitle(title));
     }
-    if (ing && ing !== '') {
-      dispatch(getRecipesByIngredient(ingredient));
+    if (ingredient && ingredient !== '') {
+      dispatch(getRecipesByIngredient(ingred));
     }
-  }, [dispatch, q, ing, searchedList.length, title, ingredient]);
+  }, [dispatch, q, ingredient, title, ingred, searchedList.length]);
 
   useEffect(() => {
     if (error) showErrorToast(error);
