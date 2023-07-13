@@ -22,6 +22,7 @@ const MainButton = ({
   hoverParams = { paramFirst: '#8BAA36' }, //додати кількість необхідних параметрів для ховеру(фокусу), якщо потрібно, тут не міняти
   focusStyles = { styleFirst: 'outline-color' }, //додати кількість якщо потрібно, тут не міняти
   focusParams = { paramFirst: '#8BAA36' }, //додати кількість  тут не міняти
+  fontFamily = 'Poppins',
   ...props
 }) => {
   return (
@@ -39,6 +40,7 @@ const MainButton = ({
       hoverParams={hoverParams}
       focusStyles={focusStyles}
       focusParams={focusParams}
+      fontFamily={fontFamily}
       {...props}
     >
       {nameButton}
@@ -75,6 +77,7 @@ MainButton.propTypes = {
   hoverParams: PropTypes.object,
   focusStyles: PropTypes.object,
   focusParam: PropTypes.object,
+  fontFamily: PropTypes.string,
 };
 
 export default MainButton;

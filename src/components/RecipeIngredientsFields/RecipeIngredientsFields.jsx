@@ -1,7 +1,6 @@
 import { Field, FieldArray, ErrorMessage } from 'formik';
 import { useSelector } from 'react-redux';
 import { selectIngredientsList } from 'redux/ingredients/ingredientsSelector';
-import Select from 'react-select';
 import Counter from 'components/Counter/Counter';
 import { Container, Title, StyledSelect, Wrap } from './RecipeIngredientsFields.styled';
 

@@ -17,13 +17,19 @@ export const Title = styled.h2`
 
 export const StyledSelect = styled(ReactSelect)`
   margin-right: 14px;
+  &:focus {
+    outline: 1px solid rgba(217, 217, 217, 1);
+  }
 
   .custom-select {
     &__control {
+      border: none; 
       border-radius: 6px;
-      box-shadow: none;
-      background-color: rgba(217, 217, 217, 0.1)
+      box-shadow: 0px 6.518518447875977px 7.8222222328186035px 0px
+        rgba(0, 0, 0, 0.03);
+      background-color: rgba(217, 217, 217, 0.157);
 
+   
     }
 
     &menu-is-open {
@@ -32,7 +38,6 @@ export const StyledSelect = styled(ReactSelect)`
       box-shadow: 0px 6.518518447875977px 7.8222222328186035px 0px
         rgba(0, 0, 0, 0.03);
       font-size: 14px;
-      
     }
 
     /* &__dropdown-indicator {
@@ -46,8 +51,8 @@ export const StyledSelect = styled(ReactSelect)`
 
     &__indicator {
       cursor: pointer;
-        color: #333333;
-        opacity: 0.3;
+      color: #333333;
+      opacity: 0.3;
       &:hover,
       &:focus {
         color: var(--accent-color);
