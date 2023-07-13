@@ -38,6 +38,45 @@ const ShoppingListItem = id => {
           {/* </button> */}
         </NumberContainer>
       </Item>
+
+		<Item>
+        <DescriptionContainer>
+          <ShoppingImageContainer>
+            <ShoppingImage src={defaultImage} alt=""></ShoppingImage>
+          </ShoppingImageContainer>
+
+          <ProductName>Avocado</ProductName>
+        </DescriptionContainer>
+
+        <NumberContainer>
+          <ProductQuantity>3</ProductQuantity>
+          {/* <button onClick={() => clickHandler(id)}> */}
+            <CrossIcon>
+              <use href={`${sprite}#icon-cross`}></use>
+            </CrossIcon>
+          {/* </button> */}
+        </NumberContainer>
+      </Item>
+
+		<Item>
+        <DescriptionContainer>
+          <ShoppingImageContainer>
+            <ShoppingImage src={defaultImage} alt=""></ShoppingImage>
+          </ShoppingImageContainer>
+
+          <ProductName>Avocado</ProductName>
+        </DescriptionContainer>
+
+        <NumberContainer>
+          <ProductQuantity>3</ProductQuantity>
+          {/* <button onClick={() => clickHandler(id)}> */}
+            <CrossIcon>
+              <use href={`${sprite}#icon-cross`}></use>
+            </CrossIcon>
+          {/* </button> */}
+        </NumberContainer>
+      </Item>
+
     </ul>
   );
 };

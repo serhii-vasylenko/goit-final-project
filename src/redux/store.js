@@ -42,8 +42,6 @@ const store = configureStore(
 		 shoppingListApi.middleware,
 
 	 ]
-      
-		
   },
   enhancer
 );

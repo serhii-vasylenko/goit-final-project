@@ -9,13 +9,22 @@ export const Item = styled.li`
   margin-left: auto;
   margin-right: auto;
 
+  &&:not(:last-child) {
+	border-bottom: 2px solid #e0e0e0;
+  } 
+ margin-top: 20px;
+
+
   @media screen and (min-width: 768px) {
     width: 704px;
     height: 140px;
+	 margin-top: 30px;
   }
   @media screen and (min-width: 1280px) {
     width: 1160px;
-    height: 97px;
+    height: 140px;
+
+	 margin-top: 40px;
   }
 `;
 
@@ -106,7 +115,8 @@ export const CrossIcon = styled.svg`
     margin-left: 80px;
   }
   @media screen and (min-width: 1280px) {
-    margin-left: 130px;
+    margin-left: 160px;
+	 margin-right: 10px;
   }
 `;
 

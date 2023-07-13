@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 
 export const ProductsHead = styled.div`
   margin-top: 40px;
-  margin-bottom: 30px;
   padding: 12px 8px 12px 8px;
   background-color: #8baa36;
   border-radius: 8px;
@@ -48,7 +47,7 @@ export const HeadContainer = styled.div`
 export const ShoppingList = styled.div`
   display: flex;
   flex-direction: column;
-  border-bottom: 2px solid #e0e0e0;
+ 
   padding-bottom: 14px;
   padding-left: 7px;
   padding-right: 7px;
