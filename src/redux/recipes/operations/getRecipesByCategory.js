@@ -5,7 +5,7 @@ const getRecipesByCategory = createAsyncThunk(
   'recipes/getRecipesByCategory',
   async (category, thunkAPI) => {
     try {
-      const response = await axios.get(`/recipes?category=${category}`);
+      const response = await axios.get(`/recipes/category/${category}`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
