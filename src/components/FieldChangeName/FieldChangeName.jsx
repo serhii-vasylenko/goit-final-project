@@ -9,7 +9,7 @@ export const FieldChangeName = ({setName}) => {
     return  <Field>
                 <UserIcon/>
                 <EditIcon/>
-                <Input value={value} name='name'
+                <Input value={value} name='name' type="text" minlength="2" maxlength="30" required
                     onChange={(e) => {
                         setValue(e.target.value);
                         setName(e.target.value)

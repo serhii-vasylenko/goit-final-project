@@ -8,9 +8,9 @@ const modalRoot = document.getElementById('modal-root');
 export const UserInfoModal = ({ editIsOpen, setEditIsOpen }) => {
 
     const onCloseClick = useCallback((e) => {
+        e.stopPropagation()
         document.body.classList.remove('modal-open');
         setEditIsOpen(false);
-        e.stopPropagation()
 
     }, [setEditIsOpen]);
 
@@ -27,8 +27,8 @@ export const UserInfoModal = ({ editIsOpen, setEditIsOpen }) => {
     return ReactDOM.createPortal(
         <Backdrop className={editIsOpen ? 'open' : ' '} onClick={(e)=> onCloseClick(e)}>
             <Modal onClick={e => { e.stopPropagation()}}>
-                <CloseModal onClick={() => onCloseClick()} />
-                <ChangeUserDataForm/>
+                <CloseModal onClick={(e) => onCloseClick(e)} />
+                <ChangeUserDataForm setEditIsOpen={setEditIsOpen} />
             </Modal>
         </Backdrop>
         ,

@@ -2,36 +2,41 @@ import { ImgContainer, UserImg, SaveBtn, AddPhotoBtn, Plus, InputFile } from './
 import defaultImg from '../../images/default-img.png';
 import { FieldChangeName } from 'components/FieldChangeName/FieldChangeName';
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectAuth } from 'redux/auth/selectors';
 import { changeUserName, uploadAvatar } from 'redux/auth/operations';
-export const ChangeUserDataForm = () => {
-    // const urerImg = useSelector()
-      const [file, setFile] = useState(null);
-      const [name, setName] = useState('');
-      const dispatch = useDispatch();
 
-    const handleFileChange = event => {
-        const file = event.target.files[0];
+export const ChangeUserDataForm = ({setEditIsOpen}) => {
+    const { user } = useSelector(selectAuth);
+    const [file, setFile] = useState(null);
+    const [name, setName] = useState(user.name);
+    const dispatch = useDispatch();
+
+    const handleFileChange = e => {
+        const file = e.target.files[0];
         setFile(file)
     };
-    const onFormSubmit = () => {
-        dispatch(changeUserName(name))
-        dispatch(uploadAvatar(file))
+    const onFormSubmit = (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('avatar', file);
+        dispatch(uploadAvatar(formData))
+        dispatch(changeUserName({ name: `${name}` }))
+        setEditIsOpen(false)
     }
 
-    return <form onSubmit={() => onFormSubmit()}>
-        
-                <div style={{position: 'relative'}}>
+    return <form onSubmit={e => onFormSubmit(e)}>
+            <div style={{position: 'relative'}}>
                 <ImgContainer>
                     {file ? ( <UserImg src={URL.createObjectURL(file)} alt="Uploaded" />) : (
-                    <UserImg src={defaultImg} />)}
+                    <UserImg src={user.avatarURL ? user.avatarURL : defaultImg} />)}
                 </ImgContainer>
                 <AddPhotoBtn>
                     <Plus />
-                    <InputFile type='file' name='photo' onChange={(e)=> handleFileChange(e)}/>
+                    <InputFile type='file' accept="image/*" onChange={(e)=> handleFileChange(e)}/>
                 </AddPhotoBtn>
             </div>
-        <FieldChangeName setName={setName} />
+            <FieldChangeName setName={setName} />
             <SaveBtn type='submit'>Save changes</SaveBtn>
         </form>
 }

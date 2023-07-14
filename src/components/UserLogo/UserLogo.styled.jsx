@@ -20,6 +20,7 @@ overflow: hidden;
 const UserImg = styled.img`
 width: 100%;
 height: 100%;
+object-fit: cover;
 `
 const UserName = styled.p`
 color: var(--primary-text-color);
