@@ -169,7 +169,7 @@ export const HeroImgWrapper = styled.div`
   }
 `;
 
-export const HeroImg = styled.img`
+export const HeroImg = styled.picture`
   width: 320px;
   height: 296px;
 
@@ -184,20 +184,32 @@ export const HeroImg = styled.img`
   }
 `;
 
-export const PointerImg = styled.img`
+export const PointerImg = styled.picture`
   position: absolute;
 
   @media screen and (min-width: 768px) {
     top: 289px;
     left: 145px;
-    width: 151px;
-    height: 100px;
   }
 
   @media screen and (min-width: 1280px) {
     top: 420px;
     left: 390px;
-    width: 200px;
-    height: 135px;
+  }
+
+  img {
+    @media screen and (min-width: 768px) {
+      top: 289px;
+      left: 145px;
+      width: 151px;
+      height: 100px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      top: 420px;
+      left: 390px;
+      width: 200px;
+      height: 135px;
+    }
   }
 `;
