@@ -1,4 +1,3 @@
-import { async } from "q"
 import React from "react"
 import { useSelector } from "react-redux"
 import { selectPopularRecipes } from "redux/recipes/recipesSelector"
