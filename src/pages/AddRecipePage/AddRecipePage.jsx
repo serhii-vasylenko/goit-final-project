@@ -13,6 +13,7 @@ const AddRecipePage = () => {
   useEffect(() => {
     dispatch(ingredientOperations.getIngredientsList());
     dispatch(recipeOperations.getCategoryList());
+    dispatch(recipeOperations.getPopularRecipes());
   }, [dispatch]);
 
   const ingredientsList = useSelector(selectIngredientsList);

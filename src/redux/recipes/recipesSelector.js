@@ -9,3 +9,5 @@ export const selectRecipesByIngredient= state => state.recipes.recipesByIngredie
 export const selectRecipesByCategory = state => state.recipes.recipesByCategory;
 export const selectError = state => state.recipes.error;
 export const selectIsLoading = state => state.recipes.isLoading;
+export const selectPopularRecipes = state => state.recipes.popularRecipes;
+
