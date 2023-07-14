@@ -5,7 +5,7 @@ import { useSelector } from "react-redux"
 export const CategoryList = ({currentCategory}) => {
     const categories = useSelector(selectCategoryList)
 
-    return <>
+    return <div style={{ overflow: 'hidden' }}>
         <Categories>
             {categories.map(item => {
                 return <Category key={item._id} className={item.name === currentCategory ? 'active' : null}>
@@ -17,5 +17,5 @@ export const CategoryList = ({currentCategory}) => {
             })}
         </Categories>
         <Line/>
-    </>
+    </div>
 }

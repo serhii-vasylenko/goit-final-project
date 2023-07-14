@@ -17,7 +17,7 @@ export const UserInfoModal = ({ editIsOpen, setEditIsOpen }) => {
     useEffect(() => {
         const close = (e) => {
             if (e.keyCode === 27) {
-            onCloseClick()
+            onCloseClick(e)
             }
         }
         window.addEventListener('keydown', close)
