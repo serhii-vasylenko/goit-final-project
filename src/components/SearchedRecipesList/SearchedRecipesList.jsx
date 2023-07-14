@@ -1,5 +1,7 @@
 import { useEffect, useLayoutEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useLocation } from 'react-router';
+import { useSearchParams } from 'react-router-dom';
 
 import RecipeGalleryItem from '../ReusableComponents/RecipeGalleryItem/RecipeGalleryItem';
 import SearchCapImage from '../ReusableComponents/SearchCap/SearhCap';
@@ -9,13 +11,12 @@ import {
   selectRecipeByTitle,
   selectRecipesByIngredient,
   selectError,
-} from '../../redux/recipes/recipesSelector';
-import getRecipesByTitle from 'redux/recipes/operations/getRecipesByTitle';
-import getRecipesByIngredient from 'redux/recipes/operations/getRecipesByIngredient';
+} from 'redux/search/searchSelector';
+import getRecipesByTitle from 'redux/search/operations/getRecipesByTitle';
+import getRecipesByIngredient from 'redux/search/operations/getRecipesByIngredient';
+import { resetRecipeByTitle, resetRecipeByIngredient } from 'redux/search/searchSlice';
 
 import { Section, List } from './SearchRecipesList.styled';
-import { useLocation } from 'react-router';
-import { useSearchParams } from 'react-router-dom';
 
 const SearchedRecipesList = () => {
   const searchedList = useSelector(selectRecipeByTitle);
@@ -24,10 +25,10 @@ const SearchedRecipesList = () => {
   console.log('searchedList :>> ', searchedList);
   console.log('serchedIngredList :>> ', serchedIngredList);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const cardsToShow = calculateCardsToShow(windowWidth);
   const location = useLocation();
   const dispatch = useDispatch();
   const [searchParams] = useSearchParams();
+  // const cardsToShow = calculateCardsToShow(windowWidth);
 
   useEffect(() => {
     if (error) showErrorToast(error);
@@ -41,9 +42,11 @@ const SearchedRecipesList = () => {
       const ingredient = searchParams.get('ing');
 
       if (q && q !== '') {
+        dispatch(resetRecipeByIngredient())
         dispatch(getRecipesByTitle(title));
       }
       if (ing && ing !== '') {
+        dispatch(resetRecipeByTitle())
         dispatch(getRecipesByIngredient(ingredient));
       }
     }
@@ -62,26 +65,27 @@ const SearchedRecipesList = () => {
     };
   }, []);
 
-  function calculateCardsToShow(width) {
-    if (width < 768) {
-      return 1;
-    } else if (width >= 768 && width < 1280) {
-      return 2;
-    } else {
-      return 4;
-    }
+  let visibleRecipes = searchedList
+    ? searchedList
+    : serchedIngredList.flatMap(obj => Object.values(obj)[0]);
+  console.log(
+    ' :>> ',
+    serchedIngredList
+      .filter(obj => obj.values !== undefined)
+      .flatMap(obj => obj.values)
+  );
+  
+  if (windowWidth >= 1280) {
+    visibleRecipes = searchedList.slice(0, 12);
   }
-  //  const visibleRecipes =
 
   return (
     <Section>
       <List>
-        {searchedList?.length && searchedList?.length !== 0 ? (
-          searchedList
-            .slice(0, cardsToShow)
-            .map(({ _id: id, title, preview }) => (
-              <RecipeGalleryItem key={id} id={id} title={title} src={preview} />
-            ))
+        {visibleRecipes?.length && visibleRecipes?.length !== 0 ? (
+          visibleRecipes.map(({ _id: id, title, preview }) => (
+            <RecipeGalleryItem key={id} id={id} title={title} src={preview} />
+          ))
         ) : (
           <SearchCapImage>Try looking for something else...</SearchCapImage>
         )}

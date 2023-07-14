@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from '../../../const/axiosBaseUrl';
 
 const getRecipesByIngredient = createAsyncThunk(
-  'recipes/getRecipesByIngredient',
+  'search/getRecipesByIngredient',
   async (ingredient, thunkAPI) => {
     console.log(' getRecipesByIngredient:>> ');
     try {

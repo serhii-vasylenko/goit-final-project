@@ -13,11 +13,8 @@ const handleRejected = (state, action) => {
 const initialState = {
   categoryList: [],
   mainPageRecipes: [],
-  searchFilter: null,
-  recipeByTitle: [],
   recipeById: null,
   ownRecipes: [],
-  recipesByIngredient: [],
   recipesByCategory: [],
   favoriteRecipes: [],
   isLoading: false,
@@ -59,16 +56,6 @@ const recipesSlice = createSlice({
         state.recipeById = action.payload.data.recipe;
       })
       .addCase(recipeOperations.getRecipesById.rejected, handleRejected)
-      .addCase(recipeOperations.getRecipesByTitle.pending, handlePending)
-      .addCase(
-        recipeOperations.getRecipesByTitle.fulfilled,
-        (state, action) => {
-          state.isLoading = false;
-          state.error = null;
-          state.recipeByTitle = action.payload.data.recipe;
-        }
-      )
-      .addCase(recipeOperations.getRecipesByTitle.rejected, handleRejected)
       .addCase(recipeOperations.getOwnRecipes.pending, handlePending)
       .addCase(recipeOperations.getOwnRecipes.fulfilled, (state, action) => {
         state.isLoading = false;
@@ -117,16 +104,6 @@ const recipesSlice = createSlice({
         state.favoriteRecipes.splice(index, 1);
       })
       .addCase(recipeOperations.deleteFromFavoriteRecipes.rejected, handleRejected)
-      .addCase(recipeOperations.getRecipesByIngredient.pending, handlePending)
-      .addCase(
-        recipeOperations.getRecipesByIngredient.fulfilled,
-        (state, action) => {
-          state.isLoading = false;
-          state.error = null;
-          state.recipesByIngredient = action.payload.data.recipe;
-        }
-      )
-      .addCase(recipeOperations.getRecipesByIngredient.rejected, handleRejected)
       .addCase(recipeOperations.getRecipesByCategory.pending, handlePending)
       .addCase(
         recipeOperations.getRecipesByCategory.fulfilled,
