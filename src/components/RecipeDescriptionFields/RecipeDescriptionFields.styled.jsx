@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Field} from 'formik';
+import { Field } from 'formik';
 
 export const DescriptionFields = styled.div`
   display: flex;
@@ -10,10 +10,15 @@ export const DescriptionFields = styled.div`
   padding-top: 97px;
 `;
 
-export const ImgWrapper = styled.div`
+export const PhotoFieldWrapper = styled.div`
   width: 279px;
-  height: 268px;
   margin-bottom: 32px;
+  text-align: center;
+`;
+
+export const ImgWrapper = styled.div`
+  height: 268px;
+  /* margin-bottom: 32px; */
 `;
 export const FieldWrapper = styled.div`
   display: flex;
@@ -50,35 +55,42 @@ export const Image = styled.img`
 `;
 
 export const FieldContainer = styled.div`
-position:relative;
+  position: relative;
   display: flex;
   flex-direction: column;
   height: 40px;
   margin-bottom: 24px;
   border-bottom: 1px solid var(--input-border-color);
-  
+
   &.error {
     border-bottom-color: var(--error-color);
   }
 `;
 
 export const Input = styled(Field)`
-font-size: 14px;
-border: none; 
-background-color: transparent;
-padding: 0;
-color: #000000;
-height: 100%;
-outline: none;
+  font-size: 14px;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  color: #000000;
+  height: 100%;
+  outline: none;
+  padding-top: 23px;
 `;
 
 export const FieldLabel = styled.label`
-position: absolute;
-top: 0;
-left: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
   font-size: 16px;
   color: #797979;
   pointer-events: none;
-  /* margin-bottom: 3px; */
+`;
 
+export const SelectField = styled(Field)`
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 85px;
+  border: none;
 `;

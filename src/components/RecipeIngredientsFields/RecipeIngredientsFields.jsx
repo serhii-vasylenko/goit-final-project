@@ -14,6 +14,7 @@ import {
 } from './RecipeIngredientsFields.styled';
 
 const RecipeIngredientsFields = () => {
+
   const ingredientsList = useSelector(selectIngredientsList);
 
   const nameIngredients = ingredientsList.map(el => ({
@@ -35,6 +36,7 @@ const RecipeIngredientsFields = () => {
           const handleIngredientChange = (index, selectedOption) => {
             const newIngredients = [...ingredients];
             newIngredients[index].id = selectedOption.value;
+            
             setFieldValue('ingredients', newIngredients);
           };
 
@@ -43,6 +45,8 @@ const RecipeIngredientsFields = () => {
             newIngredients[index].measure = value;
             setFieldValue('ingredients', newIngredients);
           };
+
+    
 
           return (
             <div>
@@ -56,17 +60,20 @@ const RecipeIngredientsFields = () => {
                     onChange={selectedOption =>
                       handleIngredientChange(index, selectedOption)
                     }
+          
                   ></StyledSelect>
-                  <ErrorMessage
-                    name={`ingredients[${index}].id`}
-                    component="div"
-                    className="error-message"
-                  />
+                    <ErrorMessage
+                      name={`ingredients[${index}].id`}
+                      component="div"
+                      className="error-message"
+                    />
+                  
                   <Field
                     name={`ingredients[${index}].measure`}
                     type="text"
                     value={ingredients[index].measure || ''}
                     onChange={event => {
+                      console.log()
                       handleCountChange(index, event.target.value);
                     }}
                   ></Field>
@@ -74,7 +81,7 @@ const RecipeIngredientsFields = () => {
                     name={`ingredients[${index}].measure`}
                     component="div"
                     className="error-message"
-                  />
+                  /> 
                   <Button
                     type="button"
                     onClick={() => {

@@ -66,7 +66,7 @@ export const StyledSelect = styled(ReactSelect)`
 `;
 
 export const Wrap = styled.div`
-  display: flex;
+  /* display: flex; */
 `;
 
 export const Button = styled.button`

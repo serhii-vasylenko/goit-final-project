@@ -6,18 +6,13 @@ import {
   TextArea,
 } from './RecipePreparationFields.styled';
 import FormError from 'components/ReusableComponents/FormError/FormError';
+import { hasError } from 'helpers/hasError';
 
 const RecipePreparationFields = () => {
   const [textArea, setTextArea] = useState(['']);
 
   const formik = useFormikContext();
   const { errors, touched } = formik;
-  
-  const hasError = (field) => {
-    const error = getIn(errors, field);
-    const touch = getIn(touched, field);
-    return touch && error;
-  };  
 
   const handleChange = event => {
     const value = event.target.value;
@@ -38,7 +33,7 @@ const RecipePreparationFields = () => {
         placeholder="Enter recipe"
         onChange={handleChange}
         value={textArea}
-        className={errors.preparation ? 'error' : ''}
+        className={hasError('preparation', getIn, errors, touched) ? 'error' : ''}
       />
       {errors.preparation && <FormError name="preparation" />}
     </Container>

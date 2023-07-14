@@ -1,4 +1,4 @@
-import { Field, ErrorMessage, useFormikContext } from 'formik';
+import { Field, ErrorMessage, useFormikContext, getIn } from 'formik';
 import cookTime from 'const/cookTime';
 import { useSelector } from 'react-redux';
 import { selectCategoryList } from 'redux/recipes/recipesSelector';
@@ -14,91 +14,99 @@ import {
   Input,
   FieldContainer,
   FieldLabel,
+  PhotoFieldWrapper,
+  SelectField,
 } from './RecipeDescriptionFields.styled';
+import { hasError } from 'helpers/hasError';
 
 const RecipeDescriptionFields = ({ file, handleFileChange }) => {
- 
   const categoryRecipes = useSelector(selectCategoryList);
-  const { setFieldValue, errors } = useFormikContext();
- 
+  const { setFieldValue, errors, touched } = useFormikContext();
+
   return (
     <DescriptionFields>
-      <Field name="photo" type="file">
-        {({ field }) => {
-          return (
-            <ImgWrapper>
-              <ImgLabel htmlFor={field.name}>
-                <InputFileThumb>
-                  {file ? (
-                    <Image src={URL.createObjectURL(file)} alt="Uploaded" />
-                  ) : (
-                    <svg width={64} height={64}>
-                    <use href={`${sprite}#capture`} ></use>
-                    <use href={`${sprite}#photo-camera`} width={24} height={24} x={20} y={20}></use>
-                  </svg>
+      <PhotoFieldWrapper>
+        <Field name="photo" type="file">
+          {({ field }) => {
+            return (
+              <ImgWrapper>
+                <ImgLabel htmlFor={field.name}>
+                  <InputFileThumb>
+                    {file ? (
+                      <Image src={URL.createObjectURL(file)} alt="Uploaded" />
+                    ) : (
+                      <svg width={64} height={64}>
+                        <use href={`${sprite}#capture`}></use>
+                        <use
+                          href={`${sprite}#photo-camera`}
+                          width={24}
+                          height={24}
+                          x={20}
+                          y={20}
+                        ></use>
+                      </svg>
                     )}
-                </InputFileThumb>
-              </ImgLabel>
-              <input
+                  </InputFileThumb>
+                </ImgLabel>
+                <input
+                  accept="image/*"
+                  type="file"
+                  id={field.name}
+                  style={{ display: 'none' }}
+                  onChange={event => {
+                    setFieldValue('photo', event.target.files[0]);
+                    handleFileChange(event);
+                  }}
+                />
+              </ImgWrapper>
+            );
+          }}
+        </Field>
+        <FormError name="photo" />
+      </PhotoFieldWrapper>
+
+      <FieldWrapper>
+        <FieldContainer
+          className={hasError('title', getIn, errors, touched) ? 'error' : ''}
+        >
+          <FieldLabel htmlFor="title">Enter item title</FieldLabel>
+          <Input name="title" id="title" type="text" />
+          <FormError name="title" />
+        </FieldContainer>
+
+        <FieldContainer
+          className={hasError('about', getIn, errors, touched) ? 'error' : ''}
+        >
+          <FieldLabel htmlFor="about">Enter about recipe</FieldLabel>
+          <Input name="about" id="about" type="text" />
+          <FormError name="about" />
+        </FieldContainer>
         
-                accept="image/*"
-                type="file"
-                id={field.name}
-                style={{ display: 'none' }}
-                onChange={event => {
-                  setFieldValue('photo', event.target.files[0])
-                  handleFileChange(event);
-                }}
-              />
-            </ImgWrapper>
-          )
-        }}
-      </Field>
-     <ErrorMessage name="photo" component="div" className="error-message" />
-
-     <FieldWrapper>
-     
-      <FieldContainer className={errors.title ? 'error' : ''}>
-      
-       <FieldLabel htmlFor="title">Enter item title</FieldLabel>
-      <Input name="title" id="title" type="text"/>
-      <FormError name='title' />
-      </FieldContainer> 
-      
-      
-      <FormError name='about' />
-      <FieldContainer className={errors.about ? 'error' : ''}>
-        <FieldLabel htmlFor="about">Enter about recipe</FieldLabel>
-      <Input name="about" id="about" type="text"/>
-      </FieldContainer> 
-
-      {/* <FieldContainer className={errors.about ? 'error' : ''}>
-        <FieldLabel htmlFor="about">Enter about recipe</FieldLabel>
-        <Input name="about" id="about" type="text" />
+        <FieldContainer
+          className={hasError('category', getIn, errors, touched) ? 'error' : ''}
+        >
+          <FieldLabel htmlFor="category">Category</FieldLabel>
+        <SelectField name="category" as="select">
+          <option value="">Select option</option>
+          {categoryRecipes.map(({ _id, name }) => (
+            <option value={name} key={_id}>
+              {name}
+            </option>
+          ))}
+        </SelectField>
+        <FormError name="category" />
+        </FieldContainer>
         
-      </FieldContainer>
-      <FormError name="about" component="div" />  */}
-    
-      <Field name="category" as="select">
-        <option value="">Select option</option>
-        {categoryRecipes.map(({ _id, name }) => (
-          <option value={name} key={_id}>
-            {name}
-          </option>
-        ))}
-      </Field>
-      <ErrorMessage name="category" component="div" className="error-message" />
 
-      <Field name="time" as="select">
-        <option value="">Select time</option>
-        {cookTime.map(({ id, time }) => (
-          <option value={time} key={id}>
-            {`${time} min`}
-          </option>
-        ))}
-      </Field>
-      <ErrorMessage name="time" component="div" className="error-message" />
-
+        <Field name="time" as="select">
+          <option value="">Select time</option>
+          {cookTime.map(({ id, time }) => (
+            <option value={time} key={id}>
+              {`${time} min`}
+            </option>
+          ))}
+        </Field>
+        <ErrorMessage name="time" component="div" className="error-message" />
       </FieldWrapper>
     </DescriptionFields>
   );
