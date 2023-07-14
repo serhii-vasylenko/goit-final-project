@@ -24,7 +24,7 @@ export const LogoutModal = ({ modalIsOpen, setModalIsOpen }) => {
   useEffect(() => {
     const close = e => {
       if (e.keyCode === 27) {
-        onCloseClick();
+        onCloseClick(e);
 
       }
     };
@@ -48,14 +48,14 @@ export const LogoutModal = ({ modalIsOpen, setModalIsOpen }) => {
           e.stopPropagation();
         }}
       >
-        <CloseModal onClick={() => onCloseClick()} />
+        <CloseModal onClick={(e) => onCloseClick(e)} />
         <Text>Are you sure you want to log out?</Text>
         <BtnList>
           <li>
             <BtnLogout to="/" onClick={handleLogout}>Log out</BtnLogout>
           </li>
           <li>
-            <Btn className="cancel" onClick={() => onCloseClick()}>
+            <Btn className="cancel" onClick={(e) => onCloseClick(e)}>
               Cancel
             </Btn>
           </li>

@@ -5,7 +5,6 @@ display: flex;
 align-items: center;
 padding-top: 100px;
 width: 100%;
-overflow: hidden;
 `
 const Category = styled.li`
 position: relative;
@@ -33,11 +32,15 @@ transition: color var(--transition-duration) var(--timing-function);
 `
 const ItemLine = styled.span`
 position: absolute;
-bottom: -1px;
+bottom: -1px;;
 left: 0;
+z-index: 5px;
 display: block;
 width: 100%;
 background-color: currentColor;
+height: 0px;
+transition: height var(--transition-duration) var(--timing-function);
+
 `
 const Line = styled.span`
 display: block;
