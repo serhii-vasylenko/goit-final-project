@@ -88,3 +88,15 @@ export const refreshUser = createAsyncThunk(
       }
     }
   );
+
+  export const subscribeUser = createAsyncThunk(
+    'auth/subscribeUser',
+    async (_, thunkAPI) => {
+      try {
+        const response = await axios.patch('/users/subscribe');
+        return response.data;
+      } catch (error) {
+        return thunkAPI.rejectWithValue(error.message);
+      }
+    }
+  );

@@ -7,12 +7,13 @@ import {
   refreshUser,
   uploadAvatar,
   changeUserName,
+  subscribeUser,
 } from 'redux/auth/operations';
 
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
-    user: { name: null, email: null, avatarUrl: null, userId: null },
+    user: { name: null, email: null, avatarUrl: null, userId: null, subscribe: null },
     token: null,
     isLoggedIn: false,
     isRefreshing: false,
@@ -81,6 +82,18 @@ const authSlice = createSlice({
       state.user = { ...state.user, name: action.payload.data.user.name };
     });
     builder.addCase(changeUserName.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    });
+    builder.addCase(subscribeUser.pending, state => {
+      state.loading = true;
+      state.error = null;
+    });
+    builder.addCase(subscribeUser.fulfilled, (state, action) => {
+      state.loading = false;
+      state.user = { ...state.user, subscribe: action.payload.data.subscribe };
+    });
+    builder.addCase(subscribeUser.rejected, (state, action) => {
       state.loading = false;
       state.error = action.payload;
     });

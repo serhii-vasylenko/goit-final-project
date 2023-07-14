@@ -144,7 +144,8 @@ const recipesSlice = createSlice({
         (state, action) => {
           state.isLoading = false;
           state.error = null;
-          state.popularRecipes = action.payload.data.recipes;
+          state.popularRecipes = action.payload.data.recipe;
+          
         }
       )
       .addCase(recipeOperations.getPopularRecipes.rejected, handleRejected);
