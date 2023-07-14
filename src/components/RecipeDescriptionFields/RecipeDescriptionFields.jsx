@@ -1,6 +1,6 @@
 import { Field, ErrorMessage, useFormikContext } from 'formik';
 import cookTime from 'const/cookTime';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { selectCategoryList } from 'redux/recipes/recipesSelector';
 import FormError from 'components/ReusableComponents/FormError/FormError';
 import sprite from '../../images/AddRecipePage/sprite.svg';
