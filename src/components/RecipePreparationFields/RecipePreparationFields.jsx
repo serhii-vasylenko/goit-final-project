@@ -1,4 +1,4 @@
-import { useFormikContext } from 'formik';
+import { useFormikContext, getIn } from 'formik';
 import React, { useState } from 'react';
 import {
   TitlePreparation,
@@ -11,7 +11,13 @@ const RecipePreparationFields = () => {
   const [textArea, setTextArea] = useState(['']);
 
   const formik = useFormikContext();
-  const { errors } = formik;
+  const { errors, touched } = formik;
+  
+  const hasError = (field) => {
+    const error = getIn(errors, field);
+    const touch = getIn(touched, field);
+    return touch && error;
+  };  
 
   const handleChange = event => {
     const value = event.target.value;
@@ -34,7 +40,7 @@ const RecipePreparationFields = () => {
         value={textArea}
         className={errors.preparation ? 'error' : ''}
       />
-      <FormError name="preparation" />
+      {errors.preparation && <FormError name="preparation" />}
     </Container>
   );
 };
