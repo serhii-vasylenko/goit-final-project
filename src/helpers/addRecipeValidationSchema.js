@@ -1,7 +1,5 @@
 import * as Yup from 'yup';
 import cookTime from 'const/cookTime';
-import { useSelector } from 'react-redux';
-import { selectCategoryList } from 'redux/recipes/recipesSelector';
 
 const timeValidation = cookTime.map(el => el.time);
 

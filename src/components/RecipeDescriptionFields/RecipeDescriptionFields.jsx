@@ -57,11 +57,15 @@ const RecipeDescriptionFields = ({ file, handleFileChange }) => {
      <ErrorMessage name="photo" component="div" className="error-message" />
 
      <FieldWrapper>
-     <FormError name='title' />
+     
       <FieldContainer className={errors.title ? 'error' : ''}>
+      
        <FieldLabel htmlFor="title">Enter item title</FieldLabel>
       <Input name="title" id="title" type="text"/>
+      <FormError name='title' />
       </FieldContainer> 
+      
+      
       <FormError name='about' />
       <FieldContainer className={errors.about ? 'error' : ''}>
         <FieldLabel htmlFor="about">Enter about recipe</FieldLabel>
