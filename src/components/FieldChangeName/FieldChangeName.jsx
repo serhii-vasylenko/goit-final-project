@@ -6,6 +6,7 @@ import { selectAuth } from 'redux/auth/selectors';
 export const FieldChangeName = ({setName}) => {
     const { user } = useSelector(selectAuth);
     const [value, setValue] = useState(user.name || '');
+  
     return  <Field>
                 <UserIcon/>
                 <EditIcon/>
