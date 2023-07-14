@@ -31,6 +31,7 @@ const AddRecipeForm = () => {
   const handleFileChange = event => {
     const file = event.target.files[0];
     setFile(file);
+    console.log(file);
   };
 
   const handleSubmit = (values, { resetForm, setSubmitting }) => {

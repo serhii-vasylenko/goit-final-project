@@ -4,7 +4,6 @@ import RecipeGalleryItem from "components/ReusableComponents/RecipeGalleryItem/R
 import { Gallery } from "./CategoryGallery.styled";
 export const CategoryGallery = () => {
     const categoryItems = useSelector(selectRecipesByCategory)
-    console.log('gallery', categoryItems);
     return <Gallery>
         {categoryItems?.map(({ _id: id, title, preview }) => {
             let recipePhoto = '';

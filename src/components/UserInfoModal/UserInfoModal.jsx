@@ -1,20 +1,16 @@
 import ReactDOM from 'react-dom';
 import { Backdrop, Modal, CloseModal } from 'components/LogoutModal/LogoutModal.styled';
-import { ImgContainer, UserImg, SaveBtn, AddPhotoBtn, Plus, Field, UserIcon, Input, EditIcon, InputFile } from './UserInfoModal.styled';
 import { useCallback, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { selectAuth } from 'redux/auth/selectors';
-import defaultImg from '../../images/default-img.png';
+import { ChangeUserDataForm } from 'components/ChangeUserDataForm/ChangeUserDataForm';
 const modalRoot = document.getElementById('modal-root');
 
 
 export const UserInfoModal = ({ editIsOpen, setEditIsOpen }) => {
-      const { user } = useSelector(selectAuth);
 
     const onCloseClick = useCallback((e) => {
+        e.stopPropagation()
         document.body.classList.remove('modal-open');
         setEditIsOpen(false);
-        e.stopPropagation()
 
     }, [setEditIsOpen]);
 
@@ -31,24 +27,8 @@ export const UserInfoModal = ({ editIsOpen, setEditIsOpen }) => {
     return ReactDOM.createPortal(
         <Backdrop className={editIsOpen ? 'open' : ' '} onClick={(e)=> onCloseClick(e)}>
             <Modal onClick={e => { e.stopPropagation()}}>
-                <CloseModal onClick={() => onCloseClick()} />
-                <form>
-                     <div style={{position: 'relative'}}>
-                        <ImgContainer>
-                        <UserImg src={defaultImg} />
-                        </ImgContainer>
-                        <AddPhotoBtn>
-                            <Plus />
-                            <InputFile type='file'/>
-                        </AddPhotoBtn>
-                    </div>
-                    <Field >
-                        <UserIcon />
-                        <EditIcon/>
-                        <Input value={user.name} />
-                    </Field>
-                    <SaveBtn>Save changes</SaveBtn>
-               </form>
+                <CloseModal onClick={(e) => onCloseClick(e)} />
+                <ChangeUserDataForm setEditIsOpen={setEditIsOpen} />
             </Modal>
         </Backdrop>
         ,
