@@ -4,7 +4,7 @@ import { selectPopularRecipes } from "redux/recipes/recipesSelector"
 
 const PopularRecipes = () => {
      const popularRecipes = useSelector(selectPopularRecipes);
-     const intoProduction = popularRecipes.slice(3);
+     const intoProduction = popularRecipes.slice(4);
      console.log("🚀 ~ file: PopularRecipe.jsx:9 ~ PopularRecipes ~ intoProduction:", intoProduction)
      
      return (
