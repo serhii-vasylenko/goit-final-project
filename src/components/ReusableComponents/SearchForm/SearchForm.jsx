@@ -57,6 +57,12 @@ const SearchForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
+    const params = Object.fromEntries(searchParams.entries());
+    const { q, ing } = params;
+
+    const title = searchParams.get('q');
+    const ingredient = searchParams.get('ing');
+
     if (searchValue === '') {
       setSearchParams({});
       showMessageToast('enter any word in');
@@ -68,12 +74,6 @@ const SearchForm = () => {
         state: { from: '/main' },
       });
     }
-
-    const params = Object.fromEntries(searchParams.entries());
-    const { q, ing } = params;
-
-    const title = searchParams.get('q');
-    const ingredient = searchParams.get('ing');
 
     if (q && q !== '') {
       dispatch(getRecipesByTitle(title));
@@ -100,8 +100,8 @@ const SearchForm = () => {
               nameButton="Search"
               fontSize="14px"
               padding={{
-                paddingTop: '16px',
-                paddingBottom: '16px',
+                paddingTop: '13px',
+                paddingBottom: '13px',
                 paddingLeft: '32px',
                 paddingRight: '32px',
               }}
@@ -112,7 +112,7 @@ const SearchForm = () => {
               }}
               cofByMedia1280={{
                 font: 1.2,
-                padX: 1.46,
+                padX: 1.52,
                 padY: 1.63,
               }}
               bgColor={location.pathname === '/' ? '#22252A' : '#8BAA36'}
