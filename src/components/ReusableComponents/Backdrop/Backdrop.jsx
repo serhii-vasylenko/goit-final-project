@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
-import { Backdrop, Modal, Text, BtnList, Btn, CloseModal, BtnLogout } from './LogoutModal.styled';
+// import { Backdrop, Modal, Text, BtnList, Btn, CloseModal, BtnLogout } from './LogoutModal.styled';
 import { useCallback, useEffect } from 'react';
 const modalRoot = document.getElementById('modal-root');
 
@@ -24,10 +24,10 @@ export const Backdrop = ({ modalIsOpen, setModalIsOpen }) => {
     
 
     return ReactDOM.createPortal(
-        <Backdrop className={modalIsOpen ? 'open' : ' '} onClick={()=> onCloseClick()}>
+        // <Backdrop className={modalIsOpen ? 'open' : ' '} onClick={()=> onCloseClick()}>
            
-        </Backdrop>
-        ,
+        // </Backdrop>
+        // ,
         modalRoot
     )
 }

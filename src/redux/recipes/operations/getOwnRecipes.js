@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from '../../../const/axiosBaseUrl';
 
-const getOwnRecipe = createAsyncThunk(
-  'recipes/getOwnRecipe',
+const getOwnRecipes = createAsyncThunk(
+  'recipes/getOwnRecipes',
   async (id, thunkAPI) => {
     try {
       const response = await axios.get(`/recipes/ownRecipes/${id}`);
@@ -13,4 +13,4 @@ const getOwnRecipe = createAsyncThunk(
   }
 );
 
-export default getOwnRecipe;
+export default getOwnRecipes;
