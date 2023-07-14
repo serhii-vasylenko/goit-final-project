@@ -14,15 +14,18 @@ import { logoutUser } from 'redux/auth/operations';
 const modalRoot = document.getElementById('modal-root');
 
 export const LogoutModal = ({ modalIsOpen, setModalIsOpen }) => {
-  const onCloseClick = useCallback(() => {
+  const onCloseClick = useCallback((e) => {
     document.body.classList.remove('modal-open');
     setModalIsOpen(false);
+    e.stopPropagation()
+
   }, [setModalIsOpen]);
 
   useEffect(() => {
     const close = e => {
       if (e.keyCode === 27) {
         onCloseClick();
+
       }
     };
     window.addEventListener('keydown', close);
@@ -37,8 +40,8 @@ export const LogoutModal = ({ modalIsOpen, setModalIsOpen }) => {
 
   return ReactDOM.createPortal(
     <Backdrop
-      className={modalIsOpen ? 'open' : ' '}
-      onClick={() => onCloseClick()}
+      className={modalIsOpen ? 'open' : null}
+      onClick={(e) => onCloseClick(e)}
     >
       <Modal
         onClick={e => {

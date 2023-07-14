@@ -1,15 +1,16 @@
-import { useState } from "react"
 import { Link } from "react-router-dom"
+import { selectCategoryList } from "redux/recipes/recipesSelector"
 import { Categories, Category, Line, ItemLine } from "./CategoryList.styled"
-export const CategoryList = ({list}) => {
-    const [activeCategory, setActiveCategory] = useState(null)
+import { useSelector } from "react-redux"
+export const CategoryList = ({currentCategory}) => {
+    const categories = useSelector(selectCategoryList)
 
     return <>
         <Categories>
-            {list.map(item => {
-                return <Category onClick={() => setActiveCategory(item)} className={item === activeCategory ? 'active' : ' '}>
-                    <Link to={`/categories/${item}`}>
-                        {item}
+            {categories.map(item => {
+                return <Category key={item._id} className={item.name === currentCategory ? 'active' : null}>
+                    <Link to={`/categories/${item.name}`}>
+                        {item.name}
                         <ItemLine />
                     </Link>
                 </Category>

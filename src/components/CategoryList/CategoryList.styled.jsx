@@ -4,7 +4,8 @@ const Categories = styled.ul`
 display: flex;
 align-items: center;
 padding-top: 100px;
-
+width: 100%;
+overflow: hidden;
 `
 const Category = styled.li`
 position: relative;
@@ -14,6 +15,7 @@ font-weight: 400;
 line-height: 1;
 padding-bottom: 27px;
 text-transform: capitalize;
+transition: color var(--transition-duration) var(--timing-function);
 
 &:not(:last-child){
     margin-right: 55px;

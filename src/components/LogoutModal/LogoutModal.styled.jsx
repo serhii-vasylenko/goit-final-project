@@ -76,10 +76,13 @@ font-family: inherit;
 color: var(--primary-text-color);
 background: #D9D9D9;
 border: 1px solid transparent;
+transition: all var(--transition-duration) var(--timing-function);
 
 &:hover{
-    color: var(--white-color);
-    background: var(--accent-color);
+    color: #23262A;
+    background: var(--white-color);
+    border: 1px solid #23262A;
+
 }
 
 @media (min-width: 768px) {
@@ -102,11 +105,11 @@ font-family: inherit;
 color: var(--white-color);
 background: var(--accent-color);
 border: 1px solid transparent;
+transition: all var(--transition-duration) var(--timing-function);
 
 &:hover{
-    color: var(--accent-color);
-    background: transparent;
-    border: 1px solid var(--accent-color);
+    color: var(--white-color);
+    background: #22252A;
 }
 @media (min-width: 768px) {
         padding: 18px 39px;

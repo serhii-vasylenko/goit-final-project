@@ -12,8 +12,8 @@
   --page-title-color: #001833;
   --background-color-circle: #22252a;
   --background-authForm-color: #2a2c36;
-  --input-border-color: #E0E0E0;
-  --error-color: #E74A3B;
+  --input-border-color: #e0e0e0;
+  --error-color: #e74a3b;
 }
 :root[data-theme='light'] {
   --background-color: #fafafa;
@@ -41,6 +41,11 @@ html {
   background: var(--background-color);
   color: var(--primary-text-color);
 }
+
+body.modal-open {
+  overflow: hidden;
+}
+
 #root {
   min-height: 100%;
   display: flex;
@@ -73,7 +78,8 @@ ol {
   margin: 0;
   padding: 0;
 }
-img, svg {
+img,
+svg {
   display: block;
   /* max-width: 100%; */
   height: auto;

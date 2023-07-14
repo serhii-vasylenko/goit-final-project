@@ -4,15 +4,7 @@ export const GalleryItem = styled.li`
   margin-bottom: ${props => props.marginBottom || '0px'};
   border-radius: 8px;
   overflow: hidden;
-
-  @media screen and (min-width: 768px) {
-    margin-bottom: 0px;
-    flex-basis: calc((100% - 32px) / 2);
-  }
-
-  @media screen and (min-width: 1280px) {
-    flex-basis: calc((100% - 42px) / 4);
-  }
+  flex-basis: calc((100% - 42px)/4);
 `;
 
 export const Thumb = styled.div`

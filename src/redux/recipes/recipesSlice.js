@@ -133,7 +133,7 @@ const recipesSlice = createSlice({
         (state, action) => {
           state.isLoading = false;
           state.error = null;
-          state.recipesByCategory = action.payload.data.recipe;
+          state.recipesByCategory = action.payload.data.recipes;
         }
       )
       .addCase(recipeOperations.getRecipesByCategory.rejected, handleRejected);
