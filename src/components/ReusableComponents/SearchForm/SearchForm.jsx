@@ -16,38 +16,50 @@ const SearchForm = () => {
   const location = useLocation();
   const selectedOption = useSelector(selectSearchFilter);
 
+  // useEffect(() => {
+  //   const query = searchParams.get('q');
+  //   if (location.pathname === '/search' && query) {
+  //     setSearchValue(query);
+  //   }
+  // }, [location.pathname, searchParams]);
   useEffect(() => {
-    const query = searchParams.get('q');
-    if (location.pathname === '/search' && query) {
-      setSearchValue(query);
+    if (location.pathname === '/search' && selectedOption === 'title') {
+      setSearchParams({ q: searchValue });
+    } else if (
+      location.pathname === '/search' &&
+      selectedOption === 'ingredient'
+    ) {
+      setSearchParams({ ing: searchValue });
     }
-  }, [location.pathname, searchParams]);
+  }, [location.pathname, selectedOption, searchValue, setSearchParams]);
 
   const handleInputChange = e => {
-    setSearchValue(e.target.value);
+    const trimmedValue = e.target.value.trim();
+    setSearchValue(trimmedValue);
   };
+
 
   const handleSubmit = e => {
     e.preventDefault();
-    const trimmedValue = searchValue.trim();
 
-    if (trimmedValue !== '') {
+    if (searchValue !== '') {
       const path = '/search';
-      const query = `?q=${encodeURIComponent(trimmedValue)}`;
+      const query = `?q=${encodeURIComponent(searchValue)}`;
 
       if (location.pathname === '/main') {
         navigate({ pathname: path, search: query });
       }
       if (location.pathname === '/search' && selectedOption === 'title') {
-        setSearchParams({ q: trimmedValue });
+        setSearchParams({ q: searchValue });
       } else if (
         location.pathname === '/search' &&
         selectedOption === 'ingredient'
       ) {
-        setSearchParams({ ingredient: trimmedValue });
+        setSearchParams({ ing: searchValue });
       }
     }
-    if (trimmedValue === '') {
+    if (searchValue === '') {
+      setSearchParams({});
       showMessageToast('enter any word in');
     }
   };

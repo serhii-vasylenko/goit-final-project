@@ -4,12 +4,10 @@ import { useSearchParams } from 'react-router-dom';
 
 import RecipeGalleryItem from '../ReusableComponents/RecipeGalleryItem/RecipeGalleryItem';
 import SearchCapImage from '../ReusableComponents/SearchCap/SearhCap';
-import {
-  showErrorToast,
-} from '../ReusableComponents/ToastCustom/showToast';
+import { showErrorToast } from '../ReusableComponents/ToastCustom/showToast';
 
 import getRecipesByTitle from '../../redux/recipes/operations/getRecipesByTitle';
-import getRecipesByIngredient from '../../redux/recipes/operations/getRecipesByIngredient'
+import getRecipesByIngredient from '../../redux/recipes/operations/getRecipesByIngredient';
 import {
   selectRecipeByTitle,
   selectRecipesByIngredient,
@@ -18,9 +16,8 @@ import {
 
 import { Section, List } from './SearchRecipesList.styled';
 
-
 const SearchedRecipesList = () => {
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const dispatch = useDispatch();
   const searchedList = useSelector(selectRecipeByTitle);
   const serchedIngredList = useSelector(selectRecipesByIngredient);
@@ -29,19 +26,22 @@ const SearchedRecipesList = () => {
   console.log('serchedIngredList :>> ', serchedIngredList);
 
   const params = Object.fromEntries(searchParams.entries());
-  const { q, ingredient } = params;
+  const { q, ing } = params;
 
   const title = searchParams.get('q');
-  const ingred = searchParams.get('ingredient');
+  const ingredient = searchParams.get('ing');
 
   useEffect(() => {
     if (q && q !== '') {
       dispatch(getRecipesByTitle(title));
     }
-    if (ingredient && ingredient !== '') {
-      dispatch(getRecipesByIngredient(ingred));
+    if (ing && ing !== '') {
+      dispatch(getRecipesByIngredient(ingredient));
     }
-  }, [dispatch, q, ingredient, title, ingred, searchedList.length]);
+    if (title === '' || ingredient === '') {
+      setSearchParams({});
+    }
+  }, [dispatch, q, ing, title, ingredient, searchedList.length]);
 
   useEffect(() => {
     if (error) showErrorToast(error);
