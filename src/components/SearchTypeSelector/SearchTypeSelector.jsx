@@ -35,7 +35,6 @@ const SearchTypeSelector = () => {
     setSelectedValue(value);
     dispatch(selectOption(value));
   };
-  // console.log('selectedOption :>> ', selectedOption);
 
   return (
     <>

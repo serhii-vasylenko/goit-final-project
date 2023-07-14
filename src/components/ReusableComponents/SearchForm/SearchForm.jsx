@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useCallback, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useSearchParams, useNavigate, useLocation } from 'react-router-dom';
 
 import MainButton from '../MainButton/MainButton';
@@ -8,6 +8,8 @@ import { showMessageToast } from '../ToastCustom/showToast';
 import { Input, InputWrapper, ButtonWrapper } from './SearchForm.styled';
 
 import { selectSearchFilter } from 'redux/recipes/recipesSelector';
+import getRecipesByTitle from 'redux/recipes/operations/getRecipesByTitle';
+import getRecipesByIngredient from 'redux/recipes/operations/getRecipesByIngredient';
 
 const SearchForm = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -15,40 +17,69 @@ const SearchForm = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const selectedOption = useSelector(selectSearchFilter);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const query = searchParams.get('q');
-    if (location.pathname === '/search' && query) {
+    if (location.state && location.state.from === '/main') {
+      const query = searchParams.get('q');
       setSearchValue(query);
     }
-  }, [location.pathname, searchParams]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const updateQueryString = useCallback(() => {
+    if (location.pathname === '/search' && searchValue !== '') {
+      switch (selectedOption) {
+        case 'title':
+          setSearchParams({ q: searchValue });
+          break;
+        case 'ingredient':
+          setSearchParams({ ing: searchValue });
+          break;
+        default:
+          break;
+      }
+    }
+    if (searchValue === '') {
+      setSearchParams({});
+    }
+  }, [location.pathname, searchValue, selectedOption, setSearchParams]);
+
+  useEffect(() => {
+    updateQueryString();
+  }, [updateQueryString]);
 
   const handleInputChange = e => {
-    setSearchValue(e.target.value);
+    const trimmedValue = e.target.value.trim();
+    setSearchValue(trimmedValue);
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    const trimmedValue = searchValue.trim();
 
-    if (trimmedValue !== '') {
-      const path = '/search';
-      const query = `?q=${encodeURIComponent(trimmedValue)}`;
-
-      if (location.pathname === '/main') {
-        navigate({ pathname: path, search: query });
-      }
-      if (location.pathname === '/search' && selectedOption === 'title') {
-        setSearchParams({ q: trimmedValue });
-      } else if (
-        location.pathname === '/search' &&
-        selectedOption === 'ingredient'
-      ) {
-        setSearchParams({ ing: trimmedValue });
-      }
-    }
-    if (trimmedValue === '') {
+    if (searchValue === '') {
+      setSearchParams({});
       showMessageToast('enter any word in');
+      return;
+    }
+
+    if (location.pathname === '/main' && searchValue !== '') {
+      navigate(`/search?q=${searchValue}`, {
+        state: { from: '/main' },
+      });
+    }
+
+    const params = Object.fromEntries(searchParams.entries());
+    const { q, ing } = params;
+
+    const title = searchParams.get('q');
+    const ingredient = searchParams.get('ing');
+
+    if (q && q !== '') {
+      dispatch(getRecipesByTitle(title));
+    }
+    if (ing && ing !== '') {
+      dispatch(getRecipesByIngredient(ingredient));
     }
   };
 

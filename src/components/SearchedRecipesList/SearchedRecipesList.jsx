@@ -1,48 +1,31 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useSearchParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import RecipeGalleryItem from '../ReusableComponents/RecipeGalleryItem/RecipeGalleryItem';
 import SearchCapImage from '../ReusableComponents/SearchCap/SearhCap';
-import {
-  showErrorToast,
-} from '../ReusableComponents/ToastCustom/showToast';
+import { showErrorToast } from '../ReusableComponents/ToastCustom/showToast';
 
-import getRecipesByTitle from '../../redux/recipes/operations/getRecipesByTitle';
-import getRecipesByIngredient from '../../redux/recipes/operations/getRecipesByIngredient'
 import {
   selectRecipeByTitle,
+  selectRecipesByIngredient,
   selectError,
 } from '../../redux/recipes/recipesSelector';
 
 import { Section, List } from './SearchRecipesList.styled';
 
-
 const SearchedRecipesList = () => {
-  const [searchParams] = useSearchParams();
-  const dispatch = useDispatch();
   const searchedList = useSelector(selectRecipeByTitle);
+  const serchedIngredList = useSelector(selectRecipesByIngredient);
   const error = useSelector(selectError);
-  // console.log('searchedList :>> ', searchedList);
+  console.log('searchedList :>> ', searchedList);
+  console.log('serchedIngredList :>> ', serchedIngredList);
 
-  const params = Object.fromEntries(searchParams.entries());
-  const { q, ing } = params;
-
-  const title = searchParams.get('q');
-  const ingredient = searchParams.get('ing');
-
-  useEffect(() => {
-    if (q && q !== '') {
-      dispatch(getRecipesByTitle(title));
-    }
-    if (ing && ing !== '') {
-      dispatch(getRecipesByIngredient(ingredient));
-    }
-  }, [dispatch, q, ing, searchedList.length, title, ingredient]);
 
   useEffect(() => {
     if (error) showErrorToast(error);
   }, [error]);
+
+  //  const visibleRecipes = 
 
   return (
     <Section>
