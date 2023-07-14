@@ -32,6 +32,13 @@ export const LogoutModal = ({ modalIsOpen, setModalIsOpen }) => {
     return () => window.removeEventListener('keydown', close);
   }, [onCloseClick]);
 
+  useEffect(() => {
+    if (modalIsOpen) {
+      return;
+    }
+    document.body.classList.remove('modal-open');
+  }, [modalIsOpen]);
+
   const dispatch = useDispatch();
 
   const handleLogout = () => {
