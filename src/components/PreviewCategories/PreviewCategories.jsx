@@ -1,10 +1,12 @@
-import React, { useEffect, useCallback } from 'react';
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import RecipeGallery from 'components/RecipeGallery/RecipeGallery';
 import { MainContainer } from 'components/MainContainer/MainContainer';
 import MainButton from 'components/ReusableComponents/MainButton/MainButton';
+import Loader from 'components/ReusableComponents/Loader/Loader';
+import { showMessageToast } from 'components/ReusableComponents/ToastCustom/showToast';
 import ErrorBanner from './ErrorBanner/ErrorBanner';
 
 import {
@@ -25,7 +27,7 @@ import getMainPageRecipes from 'redux/recipes/operations/getMainPageRecipes';
 const PreviewCategories = () => {
   const dispatch = useDispatch();
   const categories = useSelector(selectMainPageRecipes);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
@@ -33,54 +35,42 @@ const PreviewCategories = () => {
     dispatch(getMainPageRecipes());
   }, [dispatch]);
 
-  const filterRecipesByCategory = useCallback(
-    category => {
-      return categories.filter(recipe => recipe.category === category);
-    },
-    [categories]
-  );
+  const recipesByCategories = useMemo(() => {
+    const categoriesType = ['Breakfast', 'Miscellaneous', 'Chicken', 'Dessert'];
+    let filterRecipesByCategory = [];
 
-  const breakfastRecipes = filterRecipesByCategory('Breakfast');
-  const miscellaneousRecipes = filterRecipesByCategory('Miscellaneous');
-  const chickenRecipes = filterRecipesByCategory('Chicken');
-  const dessertRecipes = filterRecipesByCategory('Dessert');
+    if (categories) {
+      categoriesType.forEach(category => {
+        const filteredRecipes = categories.filter(
+          recipe => recipe.category === category
+        );
+
+        filterRecipesByCategory.push({ category, recipes: filteredRecipes });
+      });
+    } else {
+      showMessageToast('oops...please refresh the page');
+    }
+
+    return filterRecipesByCategory;
+  }, [categories]);
 
   return (
     <PreviewCategoriesSection>
       <MainContainer>
-        {isLoading && <p>LOADING....</p>}
+        {isLoading && <Loader />}
         {!isLoading && !categories && <ErrorBanner />}
         {!isLoading && categories && !error && (
           <>
             <PreviewCategoriesList>
-              <PreviewCategoriesListItem>
-                <GalleryTitle>Breakfast</GalleryTitle>
-                <RecipeGallery category={breakfastRecipes} />
-                <SeeCategoryBtn to={'/categories/breakfast'}>
-                  See all
-                </SeeCategoryBtn>
-              </PreviewCategoriesListItem>
-              <PreviewCategoriesListItem>
-                <GalleryTitle>Miscellaneous</GalleryTitle>
-                <RecipeGallery category={miscellaneousRecipes} />
-                <SeeCategoryBtn to={'/categories/miscellaneous'}>
-                  See all
-                </SeeCategoryBtn>
-              </PreviewCategoriesListItem>
-              <PreviewCategoriesListItem>
-                <GalleryTitle>Chicken</GalleryTitle>
-                <RecipeGallery category={chickenRecipes} />
-                <SeeCategoryBtn to={'/categories/chicken'}>
-                  See all
-                </SeeCategoryBtn>
-              </PreviewCategoriesListItem>
-              <PreviewCategoriesListItem>
-                <GalleryTitle>Desserts</GalleryTitle>
-                <RecipeGallery category={dessertRecipes} />
-                <SeeCategoryBtn to={'/categories/dessert'}>
-                  See all
-                </SeeCategoryBtn>
-              </PreviewCategoriesListItem>
+              {recipesByCategories.map(({ category, recipes }) => (
+                <PreviewCategoriesListItem key={category}>
+                  <GalleryTitle>{category}</GalleryTitle>
+                  <RecipeGallery category={recipes} />
+                  <SeeCategoryBtn to={`/categories/${category.toLowerCase()}`}>
+                    See all
+                  </SeeCategoryBtn>
+                </PreviewCategoriesListItem>
+              ))}
             </PreviewCategoriesList>
             <MainButton
               nameButton="Other categories"
@@ -98,12 +88,23 @@ const PreviewCategories = () => {
               }}
               cofByMedia768={{ font: 1.14, padX: 1.43, padY: 1.625 }}
               cofByMedia1280={{ font: 1.14, padX: 1.43, padY: 1.625 }}
-              hoverStyles={{ styleFirst: 'background-color ' }}
-              hoverParams={{ paramFirst: '#8BAA36' }}
+              hoverStyles={{
+                styleFirst: 'background-color ',
+                styleSecond: 'color',
+              }}
+              hoverParams={{ paramFirst: '#8BAA36', paramSecond: '#FAFAFA' }}
+              focusStyles={{
+                styleFirst: 'background-color ',
+                styleSecond: 'color',
+              }}
+              focusParams={{ paramFirst: '#8BAA36', paramSecond: '#FAFAFA' }}
               style={{
-                fontFamily: 'inherit',
+                display: 'flex',
+                maxWidth: '242px',
+                marginLeft: 'auto',
+                marginRight: 'auto',
                 borderStyle: 'solid',
-                fontWeight: '400'
+                fontWeight: '400',
               }}
               onClick={() => navigate('/categories/beef')}
             />
