@@ -47,18 +47,20 @@ const PreviewCategories = () => {
 
         filterRecipesByCategory.push({ category, recipes: filteredRecipes });
       });
-    } else {
+    } 
+    
+    if (error){
       showMessageToast('oops...please refresh the page');
     }
 
     return filterRecipesByCategory;
-  }, [categories]);
+  }, [categories, error]);
 
   return (
     <PreviewCategoriesSection>
       <MainContainer>
         {isLoading && <Loader />}
-        {!isLoading && !categories && <ErrorBanner />}
+        {!isLoading && error && <ErrorBanner />}
         {!isLoading && categories && !error && (
           <>
             <PreviewCategoriesList>
