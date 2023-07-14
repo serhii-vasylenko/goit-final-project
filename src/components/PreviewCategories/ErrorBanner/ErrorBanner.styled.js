@@ -11,10 +11,10 @@ export const TextWrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 14px;
-  max-width: 206px;
+  max-width: 210px;
 
   @media screen and (min-width: 768px) {
-    max-width: 428px;
+    max-width: 500px;
     margin-bottom: 32px;
   }
 `;
