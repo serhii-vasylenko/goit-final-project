@@ -23,7 +23,6 @@ import DesktopBg2x from 'images/mainPage/images/hero-desktop@2x.png';
 
 export const HeroSection = styled.section`
   max-width: 375px;
-  /* height: 713px; */
   margin-left: auto;
   margin-right: auto;
 
@@ -87,7 +86,6 @@ export const HeroContainer = styled.div`
   @media screen and (min-width: 768px) {
     display: flex;
     align-items: center;
-    /* gap: 4px; */
     padding-top: 159px;
     padding-left: 38px;
     padding-bottom: 202px;
