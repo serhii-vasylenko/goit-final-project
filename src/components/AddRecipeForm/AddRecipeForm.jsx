@@ -56,7 +56,6 @@ const AddRecipeForm = () => {
   };
 
   return (
-    <section>
     <Formik
       initialValues={initialValues}
       validationSchema={addRecipeValidationSchema}
@@ -72,7 +71,6 @@ const AddRecipeForm = () => {
         <MainButton nameButton="Add" type={'submit'} />
       </Form>
     </Formik>
-    </section>
   );
 };
 
