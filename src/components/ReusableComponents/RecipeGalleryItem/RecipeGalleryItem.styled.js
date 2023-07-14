@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 export const GalleryItem = styled.li`
+  margin-bottom: ${props => props.marginBottom || '0px'};
   border-radius: 8px;
   overflow: hidden;
   flex-basis: calc((100% - 42px)/4);
@@ -11,6 +12,7 @@ export const Thumb = styled.div`
   height: 323px;
 
   img {
+    width: 100%;
     height: 100%;
   }
 `;

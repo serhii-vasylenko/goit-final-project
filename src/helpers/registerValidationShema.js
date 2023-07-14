@@ -31,3 +31,10 @@ export const signInSchema = yup.object().shape({
     .min(3, 'Must be more than 3 characters')
     .required('password is required'),
 });
+
+export const subscribeSchema = yup.object().shape({
+  email: yup
+    .string()
+    .email('Invalid email address')
+    .required('email is required'),
+});

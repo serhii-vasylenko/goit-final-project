@@ -17,11 +17,19 @@ export const Button = styled.button`
   &:hover {
     ${props => props.hoverStyles.styleFirst} : ${props =>
       props.hoverParams.paramFirst};
+       ${props => props.hoverStyles.styleSecond} : ${props =>
+      props.hoverParams.paramSecond};
+       ${props => props.hoverStyles.styleThird} : ${props =>
+      props.hoverParams.paramThird};
   }
 
   &:focus {
     ${props => props.focusStyles.styleFirst}: ${props =>
       props.focusParams.paramFirst};
+     ${props => props.hoverStyles.styleSecond} : ${props =>
+      props.hoverParams.paramSecond};
+       ${props => props.hoverStyles.styleThird} : ${props =>
+      props.hoverParams.paramThird};
   }
 
   &:active {
