@@ -22,15 +22,14 @@ import DesktopBg from 'images/mainPage/images/hero-desktop.png';
 import DesktopBg2x from 'images/mainPage/images/hero-desktop@2x.png';
 
 export const HeroSection = styled.section`
-  max-width: 375px;
-  /* height: 713px; */
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 
   background-image: url(${MobileBgLeavesBottom}), url(${MobileBg}),
     url(${MobileBgLeavesTop});
   background-size: 375 auto, 337px auto, 39px 184px;
-  background-position: 0px 54px, right 38px, left top;
+  background-position: right 54px, right 38px, left top;
   background-repeat: no-repeat;
 
   //Завантаження ретінізованого 2х фонового зображення
@@ -42,7 +41,6 @@ export const HeroSection = styled.section`
   }
 
   @media screen and (min-width: 768px) {
-    max-width: 768px;
     height: 640px;
     margin-top: -64px;
 
@@ -61,7 +59,6 @@ export const HeroSection = styled.section`
   }
 
   @media screen and (min-width: 1280px) {
-    max-width: 1280px;
     height: 800px;
 
     background-image: url(${DesktopBgLeavesBottom}), url(${DesktopBg}),
@@ -79,21 +76,26 @@ export const HeroSection = styled.section`
 `;
 
 export const HeroContainer = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+
   @media screen and (max-width: 767px) {
+    max-width: 375px;
     padding: 68px 27.5px 83px 27.5px;
     text-align: center;
   }
 
   @media screen and (min-width: 768px) {
+    max-width: 768px;
     display: flex;
     align-items: center;
-    /* gap: 4px; */
     padding-top: 159px;
     padding-left: 38px;
     padding-bottom: 202px;
   }
 
   @media screen and (min-width: 1280px) {
+    max-width: 1280px;
     gap: 68px;
     padding-top: 126px;
     padding-left: 20px;
@@ -171,7 +173,7 @@ export const HeroImgWrapper = styled.div`
   }
 `;
 
-export const HeroImg = styled.img`
+export const HeroImg = styled.picture`
   width: 320px;
   height: 296px;
 
@@ -186,20 +188,32 @@ export const HeroImg = styled.img`
   }
 `;
 
-export const PointerImg = styled.img`
+export const PointerImg = styled.picture`
   position: absolute;
 
   @media screen and (min-width: 768px) {
     top: 289px;
     left: 145px;
-    width: 151px;
-    height: 100px;
   }
 
   @media screen and (min-width: 1280px) {
     top: 420px;
     left: 390px;
-    width: 200px;
-    height: 135px;
+  }
+
+  img {
+    @media screen and (min-width: 768px) {
+      top: 289px;
+      left: 145px;
+      width: 151px;
+      height: 100px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      top: 420px;
+      left: 390px;
+      width: 200px;
+      height: 135px;
+    }
   }
 `;

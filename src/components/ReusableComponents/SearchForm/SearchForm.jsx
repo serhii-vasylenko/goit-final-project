@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useCallback, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useSearchParams, useNavigate, useLocation } from 'react-router-dom';
 
 import MainButton from '../MainButton/MainButton';
@@ -7,7 +7,10 @@ import { showMessageToast } from '../ToastCustom/showToast';
 
 import { Input, InputWrapper, ButtonWrapper } from './SearchForm.styled';
 
-import { selectSearchFilter } from 'redux/recipes/recipesSelector';
+import { selectSearchFilter } from 'redux/search/searchSelector';
+import getRecipesByTitle from 'redux/search/operations/getRecipesByTitle';
+import getRecipesByIngredient from 'redux/search/operations/getRecipesByIngredient';
+import { resetRecipeByTitle, resetRecipeByIngredient } from 'redux/search/searchSlice';
 
 const SearchForm = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -15,40 +18,71 @@ const SearchForm = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const selectedOption = useSelector(selectSearchFilter);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const query = searchParams.get('q');
-    if (location.pathname === '/search' && query) {
+    if (location.state && location.state.from === '/main') {
+      const query = searchParams.get('q');
       setSearchValue(query);
     }
-  }, [location.pathname, searchParams]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const updateQueryString = useCallback(() => {
+    if (location.pathname === '/search' && searchValue !== '') {
+      switch (selectedOption) {
+        case 'title':
+          setSearchParams({ q: searchValue });
+          break;
+        case 'ingredient':
+          setSearchParams({ ing: searchValue });
+          break;
+        default:
+          break;
+      }
+    }
+    if (searchValue === '') {
+      setSearchParams({});
+    }
+  }, [location.pathname, searchValue, selectedOption, setSearchParams]);
+
+  useEffect(() => {
+    updateQueryString();
+  }, [updateQueryString]);
 
   const handleInputChange = e => {
-    setSearchValue(e.target.value);
+    const trimmedValue = e.target.value.trim();
+    setSearchValue(trimmedValue);
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    const trimmedValue = searchValue.trim();
 
-    if (trimmedValue !== '') {
-      const path = '/search';
-      const query = `?q=${encodeURIComponent(trimmedValue)}`;
+    const params = Object.fromEntries(searchParams.entries());
+    const { q, ing } = params;
 
-      if (location.pathname === '/main') {
-        navigate({ pathname: path, search: query });
-      }
-      if (location.pathname === '/search' && selectedOption === 'title') {
-        setSearchParams({ q: trimmedValue });
-      } else if (
-        location.pathname === '/search' &&
-        selectedOption === 'ingredient'
-      ) {
-        setSearchParams({ ing: trimmedValue });
-      }
-    }
-    if (trimmedValue === '') {
+    const title = searchParams.get('q');
+    const ingredient = searchParams.get('ing');
+
+    if (searchValue === '') {
+      setSearchParams({});
       showMessageToast('enter any word in');
+      return;
+    }
+
+    if (location.pathname === '/main' && searchValue !== '') {
+      navigate(`/search?q=${searchValue}`, {
+        state: { from: '/main' },
+      });
+    }
+
+    if (q && q !== '') {
+      dispatch(resetRecipeByIngredient());
+      dispatch(getRecipesByTitle(title));
+    }
+    if (ing && ing !== '') {
+      dispatch(resetRecipeByTitle());
+      dispatch(getRecipesByIngredient(ingredient));
     }
   };
 
@@ -69,8 +103,8 @@ const SearchForm = () => {
               nameButton="Search"
               fontSize="14px"
               padding={{
-                paddingTop: '16px',
-                paddingBottom: '16px',
+                paddingTop: '13px',
+                paddingBottom: '13px',
                 paddingLeft: '32px',
                 paddingRight: '32px',
               }}
@@ -81,7 +115,7 @@ const SearchForm = () => {
               }}
               cofByMedia1280={{
                 font: 1.2,
-                padX: 1.46,
+                padX: 1.52,
                 padY: 1.63,
               }}
               bgColor={location.pathname === '/' ? '#22252A' : '#8BAA36'}

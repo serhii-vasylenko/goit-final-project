@@ -9,9 +9,10 @@ import { MainContainer } from 'components/MainContainer/MainContainer';
 import Paginator from 'components/ReusableComponents/Paginator/Paginator';
 import Loader from 'components/ReusableComponents/Loader/Loader';
 import RecipeCardItem from 'components/ReusableComponents/RecipeCardItem/RecipeCardItem';
-import EmptyDataInfo from 'components/ReusableComponents/EmptyDataInfo/EmptyDataInfo';
 
-import { List, Section, Title } from './MyRecipiesPage.styled';
+import { EmptyInfo, List, Section, Title } from './MyRecipiesPage.styled';
+import SearchCapImage from 'components/ReusableComponents/SearchCap/SearhCap';
+import deleteownRecipe from 'redux/recipes/operations/deleteOwnRecipe';
 
 const MyRecipesPage = () => {
   const { userId } = useSelector(selectUser);
@@ -25,6 +26,10 @@ const MyRecipesPage = () => {
   const handleChange = (e, p) => {
     data.jump(p);
     listRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const onDeleteHandler = id => {
+    dispatch(deleteownRecipe(id));
   };
 
   useLayoutEffect(() => {
@@ -43,7 +48,11 @@ const MyRecipesPage = () => {
           <>
             <List ref={listRef}>
               {data.currentData().map(recipe => (
-                <RecipeCardItem key={recipe._id} {...recipe} />
+                <RecipeCardItem
+                  key={recipe._id}
+                  onDeleteHandler={onDeleteHandler}
+                  {...recipe}
+                />
               ))}
             </List>
             <Paginator
@@ -53,7 +62,11 @@ const MyRecipesPage = () => {
             />
           </>
         ) : (
-          <EmptyDataInfo>You don't have any saved recipes yet.</EmptyDataInfo>
+          <EmptyInfo>
+            <SearchCapImage>
+              You don't have any saved recipes yet.
+            </SearchCapImage>
+          </EmptyInfo>
         )}
       </MainContainer>
     </Section>

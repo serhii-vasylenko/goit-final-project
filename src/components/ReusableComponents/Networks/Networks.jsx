@@ -1,5 +1,5 @@
 import { NetworkList, Link } from './Networks.styled';
-import sprite from 'images/networks-sprite.svg';
+import sprite from 'images/icons/networks-sprite.svg';
 
 const Networks = ({
   //пропси для розмірів іконок

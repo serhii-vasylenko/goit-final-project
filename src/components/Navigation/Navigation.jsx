@@ -8,7 +8,7 @@ export const Navigation = ({ nav, setNav }) => {
         <nav>
             <NavList nav={nav} onClick={() => onListClick()}>
                 <NavItem> 
-                    <NavLinkEl to={'/categories/:categoryName'}>
+                    <NavLinkEl to={'/categories/Beef'}>
                         Categories   
                     </NavLinkEl>
                     </NavItem>

@@ -15,11 +15,15 @@ import {
 } from './RecipeCardItem.styled';
 import { convertMinutesToHours } from 'helpers/time-formatter';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import deleteownRecipe from 'redux/recipes/operations/deleteOwnRecipe';
-const RecipeCardItem = ({ _id, thumb, title, description, time }) => {
+const RecipeCardItem = ({
+  _id,
+  thumb,
+  title,
+  description,
+  time,
+  onDeleteHandler,
+}) => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   return (
     <>
       <Card>
@@ -29,7 +33,7 @@ const RecipeCardItem = ({ _id, thumb, title, description, time }) => {
         <Info>
           <TitleContainer>
             <Title>{title}</Title>
-            <Trash onClick={() => dispatch(deleteownRecipe(_id))}>
+            <Trash onClick={() => onDeleteHandler(_id)}>
               <TrashIcon width="30" height="30" fill="none">
                 <use href={`${sprite}#trash`}></use>
               </TrashIcon>

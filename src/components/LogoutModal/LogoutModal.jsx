@@ -14,20 +14,30 @@ import { logoutUser } from 'redux/auth/operations';
 const modalRoot = document.getElementById('modal-root');
 
 export const LogoutModal = ({ modalIsOpen, setModalIsOpen }) => {
-  const onCloseClick = useCallback(() => {
+  const onCloseClick = useCallback((e) => {
     document.body.classList.remove('modal-open');
     setModalIsOpen(false);
+    e.stopPropagation()
+
   }, [setModalIsOpen]);
 
   useEffect(() => {
     const close = e => {
       if (e.keyCode === 27) {
-        onCloseClick();
+        onCloseClick(e);
+
       }
     };
     window.addEventListener('keydown', close);
     return () => window.removeEventListener('keydown', close);
   }, [onCloseClick]);
+
+  useEffect(() => {
+    if (modalIsOpen) {
+      return;
+    }
+    document.body.classList.remove('modal-open');
+  }, [modalIsOpen]);
 
   const dispatch = useDispatch();
 
@@ -37,22 +47,22 @@ export const LogoutModal = ({ modalIsOpen, setModalIsOpen }) => {
 
   return ReactDOM.createPortal(
     <Backdrop
-      className={modalIsOpen ? 'open' : ' '}
-      onClick={() => onCloseClick()}
+      className={modalIsOpen ? 'open' : null}
+      onClick={(e) => onCloseClick(e)}
     >
       <Modal
         onClick={e => {
           e.stopPropagation();
         }}
       >
-        <CloseModal onClick={() => onCloseClick()} />
+        <CloseModal onClick={(e) => onCloseClick(e)} />
         <Text>Are you sure you want to log out?</Text>
         <BtnList>
           <li>
             <BtnLogout to="/" onClick={handleLogout}>Log out</BtnLogout>
           </li>
           <li>
-            <Btn className="cancel" onClick={() => onCloseClick()}>
+            <Btn className="cancel" onClick={(e) => onCloseClick(e)}>
               Cancel
             </Btn>
           </li>

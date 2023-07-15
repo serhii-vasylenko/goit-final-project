@@ -33,7 +33,7 @@ const NotFoundPage = () => {
           <Title>We are sorry,</Title>
           <Text>but the page you were looking for can’t be found..</Text>
         </TextWrapper>
-      </Container>
+      </Container>      
     </Section>
   );
 };

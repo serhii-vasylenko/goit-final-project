@@ -34,4 +34,8 @@ export const TextArea = styled(Field)`
   &:focus {
     outline: 1px solid rgba(217, 217, 217, 1);
   }
+
+  &.error {
+    border: 1px solid var(--error-color);
+  }
 `;

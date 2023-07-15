@@ -12,10 +12,10 @@ width: 161px;
 padding: 18px;
 border-radius: 8px;
 border: 1px solid var(--accent-color);
-transform: translate(-90px, -196px);
+transform: translate(-90px, -140px);
 transition: transform var(--transition-duration) var(--timing-function);
 &.active {
-    transform: translate(-90px, 58px); 
+    transform: translate(-90px, 78px); 
 }
 @media (min-width: 768px) {
     width: 177px;
@@ -52,6 +52,9 @@ color: var(--white-color);
 border: none;
 cursor: pointer;
 border-radius: 24px 44px;
+&:hover{
+    background: #22252A;
+}
 `
 const ArrowIcon = styled(FiArrowRight)`
 width: 18px;

@@ -1,15 +1,16 @@
 import getCategoryList from './getCategoryList';
 import getMainPageRecipes from './getMainPageRecipes';
 import getRecipesById from './getRecipesById';
-import getRecipesByTitle from './getRecipesByTitle';
+import getRecipesByTitle from '../../search/operations/getRecipesByTitle';
 import deleteownRecipe from './deleteOwnRecipe';
 import getOwnRecipes from './getOwnRecipes';
 import addOwnRecipe from './addOwnRecipe';
 import addToFavoriteRecipes from './addToFavoriteRecipes';
-import getRecipesByIngredient from './getRecipesByIngredient';
+import getRecipesByIngredient from '../../search/operations/getRecipesByIngredient';
 import deleteFromFavoriteRecipes from './deleteFromFavoriteRecipes';
 import getRecipesByCategory from './getRecipesByCategory';
 import getFavoriteRecipes from './getFavoriteRecipes';
+import getPopularRecipes from './getPopularRecipes';
 
 export const recipeOperations = {
   getCategoryList,
@@ -24,4 +25,5 @@ export const recipeOperations = {
   deleteFromFavoriteRecipes,
   getRecipesByCategory,
   getFavoriteRecipes,
+  getPopularRecipes,
 };

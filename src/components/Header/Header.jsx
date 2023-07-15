@@ -7,6 +7,7 @@ import { UserLogo } from 'components/UserLogo/UserLogo';
 // import { ThemeToggle } from 'components/ThemeToggler/ThemeToggler';
 import { MobileSwitcher } from 'components/MobileSwitcher/MobileSwitcher';
 import { MobileMenu } from 'components/MobileMenu/MobileMenu';
+import ThemeToggler from 'components/ThemeToggler/ThemeToggler';
 export const Header = () => {
     const [nav, setNav] = useState(false);
     return (
@@ -16,8 +17,9 @@ export const Header = () => {
             <Wrapper>
                 <UserLogo />
                 {/* <ThemeToggle />      */}
+                <MobileSwitcher nav={nav} setNav={setNav} />
+                <ThemeToggler/>
             </Wrapper>
-            <MobileSwitcher nav={nav} setNav={setNav} />
             <MobileMenu nav={nav} setNav={setNav} />
         </HeaderEl >)
 }

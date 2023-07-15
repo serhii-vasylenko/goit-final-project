@@ -103,7 +103,7 @@ export const ProductQuantity = styled.div`
 export const CrossIcon = styled.svg`
   width: 14px;
   height: 14px;
-  stroke: black;
+  stroke: var(--primary-text-color);
   margin-right: 10px;
   margin-left: 60px;
 
@@ -115,8 +115,8 @@ export const CrossIcon = styled.svg`
     margin-left: 80px;
   }
   @media screen and (min-width: 1280px) {
-    margin-left: 160px;
-	 margin-right: 10px;
+    margin-left: 153px;
+	 margin-right: 15px;
   }
 `;
 
@@ -126,7 +126,7 @@ export const DescriptionContainer = styled.div`
 
 export const NumberContainer = styled.div`
   display: flex;
-  /* justify-content: space-between; */
+ 
   @media screen and (min-width: 1280px) {
   }
 `;

@@ -6,20 +6,22 @@ import {
   UserImg,
   UserName,
 } from './UserLogo.styled';
-import defaultImg from '../../images/user-icon.svg';
+import defaultImg from '../../images/default-img.png';
 import { useSelector } from 'react-redux';
 import { selectAuth } from 'redux/auth/selectors';
+
 export const UserLogo = () => {
   const [isOpen, setIsOpen] = useState(false);
   const onModalClick = () => {
     setIsOpen(!isOpen);
   };
 
-  const { user, isLoggedIn } = useSelector(selectAuth);
+  const { user, isLoggedIn } = useSelector(selectAuth)
+  
   return (
     <UserWrapper onClick={() => onModalClick()}>
       <ImgContainer>
-        <UserImg src={defaultImg} />
+        {user.avatarURL ? <UserImg src={user.avatarURL} /> : <UserImg src={defaultImg} />}
       </ImgContainer>
       {isLoggedIn ? (
         <UserName>{user.name}</UserName>

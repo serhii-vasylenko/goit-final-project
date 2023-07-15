@@ -1,46 +1,47 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 const Categories = styled.ul`
-display: flex;
-align-items: center;
-padding-top: 100px;
-
-`
+  display: flex;
+  align-items: center;
+  padding-top: 100px;
+  width: 100%;
+`;
 const Category = styled.li`
-position: relative;
-color: #BDBDBD;
-font-size: 18px;
-font-weight: 400;
-line-height: 1;
-padding-bottom: 27px;
-text-transform: capitalize;
+  position: relative;
+  color: #bdbdbd;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1;
+  padding-bottom: 27px;
+  text-transform: capitalize;
+  transition: color var(--transition-duration) var(--timing-function);
 
-&:not(:last-child){
+  &:not(:last-child) {
     margin-right: 55px;
-
-}
-&:hover,
-&.active{
+  }
+  &:hover,
+  &.active {
     color: var(--accent-color);
-    & span{
-    height: 2px;
-}
-}
-
-}
-`
+    & span {
+      height: 2px;
+    }
+  }
+`;
 const ItemLine = styled.span`
-position: absolute;
-bottom: -1px;
-left: 0;
-display: block;
-width: 100%;
-background-color: currentColor;
-`
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  z-index: 5px;
+  display: block;
+  width: 100%;
+  background-color: currentColor;
+  height: 0px;
+  transition: height var(--transition-duration) var(--timing-function);
+`;
 const Line = styled.span`
-display: block;
-width: 1240px;
-height: 1px;
-background: #E0E0E0;
-`
-export{Categories, Category, Line, ItemLine}
+  display: block;
+  width: 1240px;
+  height: 1px;
+  background: #e0e0e0;
+`;
+export { Categories, Category, Line, ItemLine };

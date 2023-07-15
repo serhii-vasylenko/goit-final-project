@@ -2,7 +2,9 @@ import { configureStore } from '@reduxjs/toolkit';
 import { devToolsEnhancer } from '@redux-devtools/extension';
 import authSlice from 'redux/auth/authSlice';
 import recipesSlice from './recipes/recipesSlice';
+import searchSlice from './search/searchSlice';
 import ingredientsSlice from './ingredients/ingredientsSlice';
+import themeSlice from './theme/themeSlice';
 
 import {
   persistStore,
@@ -25,23 +27,29 @@ const persistConfig = {
   whitelist: ['token'],
 };
 
+const themePersistConfig = {
+  key: 'theme',
+  storage,
+};
+
 const store = configureStore(
   {
     reducer: {
       auth: persistReducer(persistConfig, authSlice),
       recipes: recipesSlice,
+      search: searchSlice,
       ingredients: ingredientsSlice,
-		[shoppingListApi.reducerPath]: shoppingListApi.reducer,
+      [shoppingListApi.reducerPath]: shoppingListApi.reducer,
+      theme: persistReducer(themePersistConfig, themeSlice),
     },
     middleware: getDefaultMiddleware => [
-		...getDefaultMiddleware({
-			serializableCheck: {
-			  ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-			},
-		 }),
-		 shoppingListApi.middleware,
-
-	 ]
+      ...getDefaultMiddleware({
+        serializableCheck: {
+          ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        },
+      }),
+      shoppingListApi.middleware,
+    ],
   },
   enhancer
 );

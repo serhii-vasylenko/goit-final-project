@@ -1,33 +1,33 @@
-import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router";
-import getCategoryList from "redux/recipes/operations/getCategoryList";
+import { useDispatch } from "react-redux";
+import { Suspense, useEffect, useState } from "react";
+import { Outlet, useParams } from "react-router";
+import { recipeOperations } from 'redux/recipes/operations';
 import { CategoryList } from "components/CategoryList/CategoryList";
 import PageTitle from "components/ReusableComponents/PageTitle/PageTitle";
-import { MainContainer } from 'components/MainContainer/MainContainer';
-const categrs = ['beef', 'breakfast', 'chicken', 'dessert', 'goat', 'lamb', 'miscellaneous', 'pasta', 'pork', 'seafood', 'side']
+import { MainContainer } from "components/MainContainer/MainContainer";
 
 const CategoriesPage = () => {
   const [currentCategory, setCurrentCategory] = useState('beef')
   const { categoryName } = useParams();
-  const categories = useSelector(state => state.recipes.categoryList)
-  console.log(categories);
   const dispatch = useDispatch();
 
   useEffect(() => {
     setCurrentCategory(categoryName)
-  }, [categoryName])
+    dispatch(recipeOperations.getRecipesByCategory(categoryName))
+  }, [categoryName, dispatch])
 
   useEffect(() => {
-		dispatch(getCategoryList())
+		dispatch(recipeOperations.getCategoryList())
   }, [dispatch])
 
-  console.log('current', currentCategory);
 
   return <MainContainer>
       <PageTitle title={'Categories'} />
-      <CategoryList list={categrs} />
+    <CategoryList currentCategory={currentCategory} />
+    <Suspense>
+        <Outlet />
+    </Suspense>
     </MainContainer>
-};
+}
 
 export default CategoriesPage;

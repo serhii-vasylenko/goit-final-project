@@ -23,13 +23,11 @@ export const StyledSelect = styled(ReactSelect)`
 
   .custom-select {
     &__control {
-      border: none; 
+      border: none;
       border-radius: 6px;
       box-shadow: 0px 6.518518447875977px 7.8222222328186035px 0px
         rgba(0, 0, 0, 0.03);
       background-color: rgba(217, 217, 217, 0.157);
-
-   
     }
 
     &menu-is-open {
@@ -68,5 +66,25 @@ export const StyledSelect = styled(ReactSelect)`
 `;
 
 export const Wrap = styled.div`
-  display: flex;
+  /* display: flex; */
+`;
+
+export const Button = styled.button`
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:active {
+    transform: scale(1.01);
+  }
+`;
+
+export const SVG = styled.svg`
+  stroke: #333333;
+  &:hover,
+  &:focus {
+    stroke: var(--accent-color);
+  }
+
+  transition: stroke var(--transition-duration) var(--timing-function);
 `;

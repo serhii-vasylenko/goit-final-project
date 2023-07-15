@@ -12,8 +12,11 @@
   --page-title-color: #001833;
   --background-color-circle: #22252a;
   --background-authForm-color: #2a2c36;
-  --input-border-color: #E0E0E0;
-  --error-color: #E74A3B;
+  --input-border-color: #e0e0e0;
+  --error-color: #e74a3b;
+  --background-color: #fafafa;
+  --primary-text-color: #23262a;
+  --secondary-text-color: #3e4462;
 }
 :root[data-theme='light'] {
   --background-color: #fafafa;
@@ -22,6 +25,24 @@
 }
 
 :root[data-theme='dark'] {
+  --background-color: #1e1f28;
+  --primary-text-color: #fafafa;
+  --secondary-text-color: #fafafa;
+}
+
+.dark {
+  --accent-color: #8aa936;
+  --white-color: #fafafa;
+  --transition-duration: 250ms;
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --background-color: #fafafa;
+  --primary-text-color: #23262a;
+  --secondary-text-color: #3e4462;
+  --page-title-color: #FAFAFA;
+  --background-color-circle: #22252a;
+  --background-authForm-color: #2a2c36;
+  --input-border-color: #e0e0e0;
+  --error-color: #e74a3b;
   --background-color: #1e1f28;
   --primary-text-color: #fafafa;
   --secondary-text-color: #fafafa;
@@ -41,6 +62,11 @@ html {
   background: var(--background-color);
   color: var(--primary-text-color);
 }
+
+body.modal-open {
+  overflow: hidden;
+}
+
 #root {
   min-height: 100%;
   display: flex;
@@ -73,7 +99,8 @@ ol {
   margin: 0;
   padding: 0;
 }
-img, svg {
+img,
+svg {
   display: block;
   /* max-width: 100%; */
   height: auto;

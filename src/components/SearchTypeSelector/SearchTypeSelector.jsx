@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
 
-import { selectSearchFilter } from 'redux/recipes/recipesSelector';
+import { selectSearchFilter } from 'redux/search/searchSelector';
 
 import {
   StyledFormControl,
@@ -26,7 +26,7 @@ const SearchTypeSelector = () => {
   }, [dispatch, selectedOption, selectedValue]);
 
   const selectOption = selectedOption => ({
-    type: 'recipes/setSearchFilter',
+    type: 'search/setSearchFilter',
     payload: selectedOption,
   });
 
@@ -35,7 +35,6 @@ const SearchTypeSelector = () => {
     setSelectedValue(value);
     dispatch(selectOption(value));
   };
-  // console.log('selectedOption :>> ', selectedOption);
 
   return (
     <>
