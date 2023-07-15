@@ -1,4 +1,23 @@
 import styled from '@emotion/styled';
+import PageTitle from 'components/ReusableComponents/PageTitle/PageTitle';
+
+export const Section = styled.section`
+  padding: 12px 0 100px;
+
+  @media (min-width: 768px) {
+    padding: 20px 0 200px;
+  }
+  @media (min-width: 1280px) {
+    padding: 55px 0 100px;
+  }
+`;
+
+export const Title = styled(PageTitle)`
+  margin-bottom: 50px;
+  @media (min-width: 768px) {
+    margin-bottom: 100px;
+  }
+`;
 
 export const ProductsHead = styled.div`
   margin-top: 40px;
