@@ -7,9 +7,10 @@ import { showMessageToast } from '../ToastCustom/showToast';
 
 import { Input, InputWrapper, ButtonWrapper } from './SearchForm.styled';
 
-import { selectSearchFilter } from 'redux/recipes/recipesSelector';
-import getRecipesByTitle from 'redux/recipes/operations/getRecipesByTitle';
-import getRecipesByIngredient from 'redux/recipes/operations/getRecipesByIngredient';
+import { selectSearchFilter } from 'redux/search/searchSelector';
+import getRecipesByTitle from 'redux/search/operations/getRecipesByTitle';
+import getRecipesByIngredient from 'redux/search/operations/getRecipesByIngredient';
+import { resetRecipeByTitle, resetRecipeByIngredient } from 'redux/search/searchSlice';
 
 const SearchForm = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -76,9 +77,11 @@ const SearchForm = () => {
     }
 
     if (q && q !== '') {
+      dispatch(resetRecipeByIngredient());
       dispatch(getRecipesByTitle(title));
     }
     if (ing && ing !== '') {
+      dispatch(resetRecipeByTitle());
       dispatch(getRecipesByIngredient(ingredient));
     }
   };

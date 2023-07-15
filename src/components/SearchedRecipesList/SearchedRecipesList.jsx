@@ -1,5 +1,7 @@
-import { useEffect, useLayoutEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useLocation } from 'react-router';
+import { useSearchParams } from 'react-router-dom';
 
 import RecipeGalleryItem from '../ReusableComponents/RecipeGalleryItem/RecipeGalleryItem';
 import SearchCapImage from '../ReusableComponents/SearchCap/SearhCap';
@@ -9,25 +11,28 @@ import {
   selectRecipeByTitle,
   selectRecipesByIngredient,
   selectError,
-} from '../../redux/recipes/recipesSelector';
-import getRecipesByTitle from 'redux/recipes/operations/getRecipesByTitle';
-import getRecipesByIngredient from 'redux/recipes/operations/getRecipesByIngredient';
+} from 'redux/search/searchSelector';
+import getRecipesByTitle from 'redux/search/operations/getRecipesByTitle';
+import getRecipesByIngredient from 'redux/search/operations/getRecipesByIngredient';
+import {
+  resetRecipeByTitle,
+  resetRecipeByIngredient,
+} from 'redux/search/searchSlice';
 
 import { Section, List } from './SearchRecipesList.styled';
-import { useLocation } from 'react-router';
-import { useSearchParams } from 'react-router-dom';
 
 const SearchedRecipesList = () => {
   const searchedList = useSelector(selectRecipeByTitle);
   const serchedIngredList = useSelector(selectRecipesByIngredient);
   const error = useSelector(selectError);
-  console.log('searchedList :>> ', searchedList);
-  console.log('serchedIngredList :>> ', serchedIngredList);
+  // console.log('searchedList :>> ', searchedList);
+  // console.log('serchedIngredList :>> ', serchedIngredList);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const cardsToShow = calculateCardsToShow(windowWidth);
+  const [visibleRecipes, setVisibleRecipes] = useState([]);
+
+  const [searchParams] = useSearchParams();
   const location = useLocation();
   const dispatch = useDispatch();
-  const [searchParams] = useSearchParams();
 
   useEffect(() => {
     if (error) showErrorToast(error);
@@ -41,9 +46,11 @@ const SearchedRecipesList = () => {
       const ingredient = searchParams.get('ing');
 
       if (q && q !== '') {
+        dispatch(resetRecipeByIngredient());
         dispatch(getRecipesByTitle(title));
       }
       if (ing && ing !== '') {
+        dispatch(resetRecipeByTitle());
         dispatch(getRecipesByIngredient(ingredient));
       }
     }
@@ -54,31 +61,28 @@ const SearchedRecipesList = () => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
-
     window.addEventListener('resize', handleResize);
-
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
 
-  function calculateCardsToShow(width) {
-    if (width < 768) {
-      return 1;
-    } else if (width >= 768 && width < 1280) {
-      return 2;
-    } else {
-      return 4;
-    }
-  }
-  //  const visibleRecipes =
+  const visibleRecipeList = useCallback(() => {
+    let visibleList =
+      searchedList.length > 0 ? searchedList : serchedIngredList.map(i => i);
+    setVisibleRecipes(visibleList);
+  }, [searchedList, serchedIngredList]);
+
+  useEffect(() => {
+    visibleRecipeList();
+  }, [visibleRecipeList]);
 
   return (
     <Section>
       <List>
-        {searchedList?.length && searchedList?.length !== 0 ? (
-          searchedList
-            .slice(0, cardsToShow)
+        {visibleRecipes?.length && visibleRecipes?.length !== 0 ? (
+          visibleRecipes
+            .slice(0, windowWidth >= 1280 ? 12 : visibleRecipes.length)
             .map(({ _id: id, title, preview }) => (
               <RecipeGalleryItem key={id} id={id} title={title} src={preview} />
             ))

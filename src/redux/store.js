@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { devToolsEnhancer } from '@redux-devtools/extension';
 import authSlice from 'redux/auth/authSlice';
 import recipesSlice from './recipes/recipesSlice';
+import searchSlice from './search/searchSlice';
 import ingredientsSlice from './ingredients/ingredientsSlice';
 import themeSlice from './theme/themeSlice';
 
@@ -36,6 +37,7 @@ const store = configureStore(
     reducer: {
       auth: persistReducer(persistConfig, authSlice),
       recipes: recipesSlice,
+      search: searchSlice,
       ingredients: ingredientsSlice,
       [shoppingListApi.reducerPath]: shoppingListApi.reducer,
       theme: persistReducer(themePersistConfig, themeSlice),
