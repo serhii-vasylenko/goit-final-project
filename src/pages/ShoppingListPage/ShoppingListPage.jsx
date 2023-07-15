@@ -2,7 +2,9 @@ import PageTitle from 'components/ReusableComponents/PageTitle/PageTitle';
 import {
   HeadContainer,
   ProductsHead,
+  Section,
   ShoppingList,
+  Title,
 } from './ShoppingList.styled';
 import { MainContainer } from 'components/MainContainer/MainContainer';
 import ShoppingListItem from 'components/ShoppingListItem/ShoppingListItem';
@@ -14,8 +16,11 @@ const ShoppingListPage = () => {
   
 
   return (
+	<Section>
+
+	
     <MainContainer>
-      <PageTitle title="Shopping list"></PageTitle>
+      <Title title="Shopping list"></Title>
 
       <ProductsHead>
         <div>Products</div>
@@ -35,6 +40,7 @@ const ShoppingListPage = () => {
           ))}
       </ShoppingList> */}
     </MainContainer>
+	 </Section>
   );
 };
 export default ShoppingListPage;
