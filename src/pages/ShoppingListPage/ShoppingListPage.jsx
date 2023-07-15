@@ -1,4 +1,4 @@
-import PageTitle from 'components/ReusableComponents/PageTitle/PageTitle';
+//import PageTitle from 'components/ReusableComponents/PageTitle/PageTitle';
 import {
   HeadContainer,
   ProductsHead,
