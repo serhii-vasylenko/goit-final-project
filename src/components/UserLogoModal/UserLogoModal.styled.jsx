@@ -52,6 +52,9 @@ color: var(--white-color);
 border: none;
 cursor: pointer;
 border-radius: 24px 44px;
+&:hover{
+    background: #22252A;
+}
 `
 const ArrowIcon = styled(FiArrowRight)`
 width: 18px;

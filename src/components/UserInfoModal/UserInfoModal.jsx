@@ -17,12 +17,19 @@ export const UserInfoModal = ({ editIsOpen, setEditIsOpen }) => {
     useEffect(() => {
         const close = (e) => {
             if (e.keyCode === 27) {
-            onCloseClick()
+            onCloseClick(e)
             }
         }
         window.addEventListener('keydown', close)
         return () => window.removeEventListener('keydown', close)
     }, [onCloseClick])
+
+    useEffect(() => {
+        if (editIsOpen) {
+          return;
+        }
+        document.body.classList.remove('modal-open');
+      }, [editIsOpen]);
 
     return ReactDOM.createPortal(
         <Backdrop className={editIsOpen ? 'open' : ' '} onClick={(e)=> onCloseClick(e)}>

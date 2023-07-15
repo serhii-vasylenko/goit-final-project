@@ -1,19 +1,35 @@
-// import { useState, useEffect} from "react";
-import { Toggle } from "./ThemeToggle.styled"
-export const ThemeToggle = ({nav}) => {
- 
-    // const[theme, setTheme] = useState('light')
-	// useEffect(() => {
-	// 	document.documentElement.dataset.theme = theme;
-	// 	localStorage.setItem('theme', theme);
-	// }, [theme]);
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  TogglerWrapper,
+  Swithcher,
+  Label,
+  Cyrcle,
+} from './ThemeToggler.styled';
+import { selectTheme } from 'redux/theme/selectors';
+import { setTheme } from 'redux/theme/themeSlice';
 
-	// const handleChange = () => {
-    //     setTheme(theme === 'dark' ? 'light' : 'dark')
-    // };
-    
-    return <Toggle nav={nav}>
-        Toggle
-    </Toggle>
-}
+const ThemeToggler = () => {
+  const dispatch = useDispatch();
+  const stateTheme = useSelector(selectTheme);
 
+  const handleToggleTheme = () => {
+    const newTheme = stateTheme === 'light' ? 'dark' : 'light';
+    dispatch(setTheme(newTheme));
+    document.body.classList.toggle('dark');
+  };
+
+  return (
+    <TogglerWrapper>
+      <Label mode={stateTheme}>
+        <Swithcher
+          type="checkbox"
+          checked={stateTheme === 'dark'}
+          onChange={handleToggleTheme}
+        />
+        <Cyrcle />
+      </Label>
+    </TogglerWrapper>
+  );
+};
+
+export default ThemeToggler;

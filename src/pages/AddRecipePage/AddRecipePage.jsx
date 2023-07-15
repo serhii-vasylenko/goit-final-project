@@ -6,6 +6,8 @@ import { MainContainer } from 'components/MainContainer/MainContainer';
 import AddRecipeForm from 'components/AddRecipeForm/AddRecipeForm';
 import PageTitle from 'components/ReusableComponents/PageTitle/PageTitle';
 import { selectIngredientsList } from 'redux/ingredients/ingredientsSelector';
+import PopularRecipes from 'components/PopularRecipe/PopularRecipe';
+import { Section } from './AddRecipePage.styled';
 
 const AddRecipePage = () => {
   const dispatch = useDispatch();
@@ -13,6 +15,7 @@ const AddRecipePage = () => {
   useEffect(() => {
     dispatch(ingredientOperations.getIngredientsList());
     dispatch(recipeOperations.getCategoryList());
+    dispatch(recipeOperations.getPopularRecipes());
   }, [dispatch]);
 
   const ingredientsList = useSelector(selectIngredientsList);
@@ -20,8 +23,12 @@ const AddRecipePage = () => {
   return (
     
     <MainContainer>
+      <Section>
       <PageTitle title={'Add recipe'} />
      {ingredientsList && <AddRecipeForm />}
+     </Section>
+     <PopularRecipes/>
+     
     </MainContainer>
   );
 };

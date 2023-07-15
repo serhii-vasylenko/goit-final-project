@@ -16,8 +16,8 @@ export const UserLogo = () => {
     setIsOpen(!isOpen);
   };
 
-  const { user, isLoggedIn } = useSelector(selectAuth);
-  console.log(user);
+  const { user, isLoggedIn } = useSelector(selectAuth)
+  
   return (
     <UserWrapper onClick={() => onModalClick()}>
       <ImgContainer>

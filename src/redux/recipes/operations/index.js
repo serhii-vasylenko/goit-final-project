@@ -10,6 +10,7 @@ import getRecipesByIngredient from '../../search/operations/getRecipesByIngredie
 import deleteFromFavoriteRecipes from './deleteFromFavoriteRecipes';
 import getRecipesByCategory from './getRecipesByCategory';
 import getFavoriteRecipes from './getFavoriteRecipes';
+import getPopularRecipes from './getPopularRecipes';
 
 export const recipeOperations = {
   getCategoryList,
@@ -24,4 +25,5 @@ export const recipeOperations = {
   deleteFromFavoriteRecipes,
   getRecipesByCategory,
   getFavoriteRecipes,
+  getPopularRecipes,
 };

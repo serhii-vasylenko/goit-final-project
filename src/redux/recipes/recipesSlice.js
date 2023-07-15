@@ -13,8 +13,12 @@ const handleRejected = (state, action) => {
 const initialState = {
   categoryList: [],
   mainPageRecipes: [],
+  searchFilter: null,
+  recipeByTitle: [],
   recipeById: null,
   ownRecipes: [],
+  popularRecipes: [],
+  recipesByIngredient: [],
   recipesByCategory: [],
   favoriteRecipes: [],
   isLoading: false,
@@ -113,7 +117,18 @@ const recipesSlice = createSlice({
           state.recipesByCategory = action.payload.data.recipes;
         }
       )
-      .addCase(recipeOperations.getRecipesByCategory.rejected, handleRejected);
+      .addCase(recipeOperations.getRecipesByCategory.rejected, handleRejected)
+      .addCase(recipeOperations.getPopularRecipes.pending, handlePending)
+      .addCase(
+        recipeOperations.getPopularRecipes.fulfilled,
+        (state, action) => {
+          state.isLoading = false;
+          state.error = null;
+          state.popularRecipes = action.payload.data.recipe;
+          
+        }
+      )
+      .addCase(recipeOperations.getPopularRecipes.rejected, handleRejected);
   },
 });
 
