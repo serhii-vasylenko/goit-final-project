@@ -2,12 +2,12 @@ import React, { useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import RecipeGallery from 'components/RecipeGallery/RecipeGallery';
+import RecipeGallery from 'components/RecipeGallery';
 import { MainContainer } from 'components/MainContainer/MainContainer';
 import MainButton from 'components/ReusableComponents/MainButton/MainButton';
 import Loader from 'components/ReusableComponents/Loader/Loader';
 import { showMessageToast } from 'components/ReusableComponents/ToastCustom/showToast';
-import ErrorBanner from './ErrorBanner/ErrorBanner';
+import ErrorBanner from './ErrorBanner';
 
 import {
   PreviewCategoriesSection,
