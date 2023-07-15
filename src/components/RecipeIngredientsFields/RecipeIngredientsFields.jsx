@@ -1,9 +1,9 @@
-import { Field, FieldArray, ErrorMessage } from 'formik';
+import { FieldArray} from 'formik';
 import { useSelector } from 'react-redux';
 import { selectIngredientsList } from 'redux/ingredients/ingredientsSelector';
 import Counter from 'components/Counter/Counter';
 import sprite from '../../images/AddRecipePage/sprite.svg';
-// import ReactSelect from 'react-select';
+import FormError from 'components/ReusableComponents/FormError/FormError';
 import {
   Container,
   Title,
@@ -11,6 +11,10 @@ import {
   Wrap,
   Button,
   SVG,
+  MeasureField,
+  SelectContainer,
+  MeasureFieldContainer,
+  
 } from './RecipeIngredientsFields.styled';
 
 const RecipeIngredientsFields = () => {
@@ -52,24 +56,25 @@ const RecipeIngredientsFields = () => {
             <div>
               <Counter pop={pop} push={push} ingredients={ingredients} />
               {ingredients.map((ingredient, index) => (
-                <Wrap key={index}>
-            //!!!!------------------------------------      
+                <Wrap key={index}> 
+                <SelectContainer>   
                   <StyledSelect
                     classNamePrefix="custom-select"
                     name={`ingredients[${index}].id`}
+                    placeholder={''}
                     options={nameIngredients}
                     onChange={selectedOption =>
                       handleIngredientChange(index, selectedOption)
                     }
           
-                  ></StyledSelect>
-                    <ErrorMessage
+                  />
+                    <FormError
                       name={`ingredients[${index}].id`}
-                      component="div"
-                      className="error-message"
-                    />
-         //!!!!!-------------------------------------         
-                  <Field
+                    /> 
+                    </SelectContainer>
+
+                    <MeasureFieldContainer>    
+                  <MeasureField
                     name={`ingredients[${index}].measure`}
                     type="text"
                     value={ingredients[index].measure || ''}
@@ -77,12 +82,12 @@ const RecipeIngredientsFields = () => {
                       console.log()
                       handleCountChange(index, event.target.value);
                     }}
-                  ></Field>
-                  <ErrorMessage
+                  />
+                  <FormError
                     name={`ingredients[${index}].measure`}
-                    component="div"
-                    className="error-message"
                   /> 
+                  </MeasureFieldContainer>
+
                   <Button
                     type="button"
                     onClick={() => {
@@ -93,6 +98,7 @@ const RecipeIngredientsFields = () => {
                       <use href={`${sprite}#delete-button`}></use>
                     </SVG>
                   </Button>
+
                 </Wrap>
               ))}
             </div>

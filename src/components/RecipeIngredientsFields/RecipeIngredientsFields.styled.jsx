@@ -1,5 +1,6 @@
 import ReactSelect from 'react-select';
 import styled from '@emotion/styled';
+import { Field } from 'formik';
 
 export const Container = styled.div`
   position: relative;
@@ -14,12 +15,14 @@ export const Title = styled.h2`
   letter-spacing: -0.48px;
   margin-bottom: 24px;
 `;
+export const SelectContainer = styled.div`
+  margin-right: 14px;
+  width: 194px;
+`;
 
 export const StyledSelect = styled(ReactSelect)`
-  margin-right: 14px;
-  &:focus {
-    outline: 1px solid rgba(217, 217, 217, 1);
-  }
+  font-family: 'Poppins';
+  cursor: pointer;
 
   .custom-select {
     &__control {
@@ -28,20 +31,56 @@ export const StyledSelect = styled(ReactSelect)`
       box-shadow: 0px 6.518518447875977px 7.8222222328186035px 0px
         rgba(0, 0, 0, 0.03);
       background-color: rgba(217, 217, 217, 0.157);
+
+      color: #23262a;
+      font-size: 14px;
+      line-height: 1;
+      cursor: text;
+
+      /* &:hover {
+        &__indicator {
+          display: block;
+        }
+      } */
     }
 
-    &menu-is-open {
-      border-radius: 6px;
-      background: #fff;
+    &__menu {
+      padding: 4px 4px 4px 18px;
       box-shadow: 0px 6.518518447875977px 7.8222222328186035px 0px
         rgba(0, 0, 0, 0.03);
-      font-size: 14px;
+      border: none;
+      border-radius: 6px;
     }
 
-    /* &__dropdown-indicator {
-      width: 18px;
-      fill: var(--accent-color);
-    } */
+    &__menu-is-open {
+      /* background: #ffffff; */
+    }
+
+    &__menu-list {
+      border: none;
+      height: calc(6 * 20px + 10px);
+    }
+    &__value-container {
+      padding: 12px 8px;
+    }
+    &__option {
+      margin: 6px 0;
+      padding: 0 3px;
+
+      font-size: 12px;
+      color: #000000;
+      letter-spacing: -0.24px;
+      opacity: 0.5;
+      cursor: pointer;
+    }
+
+    &__option--is-focused {
+      background-color: rgba(139, 170, 54, 0.2);
+    }
+
+    &__option--is-selected {
+      background-color: var(--accent-color);
+    }
 
     &__indicator-separator {
       display: none;
@@ -49,24 +88,64 @@ export const StyledSelect = styled(ReactSelect)`
 
     &__indicator {
       cursor: pointer;
-      color: #333333;
-      opacity: 0.3;
+      color: var(--accent-color);
+
       &:hover,
       &:focus {
-        color: var(--accent-color);
-        opacity: 1;
+        transform: scale(1.1);
       }
 
-      &:active {
-        transform: scale(1.01);
-      }
       transition: stroke var(--transition-duration) var(--timing-function);
+    }
+
+    &__menu-list::-webkit-scrollbar {
+      width: 4px;
+      height: 0px;
+    }
+    &__menu-list::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    &__menu-list::-webkit-scrollbar-thumb {
+      padding: 4px 0;
+      border-radius: 12px;
+      background: #e7e5e5;
+      cursor: pointer;
+    }
+    &__menu-list::-webkit-scrollbar-thumb:hover {
+      background: var(--accent-color);
     }
   }
 `;
 
+export const MeasureFieldContainer = styled.div`
+  width: 84px;
+  margin-right: 33px;
+`;
+
+export const MeasureField = styled(Field)`
+  /* height: 100%; */
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0px 6.518518447875977px 7.8222222328186035px 0px
+    rgba(0, 0, 0, 0.03);
+  background-color: rgba(217, 217, 217, 0.157);
+
+  color: #000;
+  font-size: 14px;
+  line-height: 1;
+  cursor: text;
+
+  color: #23262a;
+  font-family: Poppins;
+  font-size: 14px;
+
+  letter-spacing: -0.28px;
+  padding: 16px 12px;
+`;
+
 export const Wrap = styled.div`
-  /* display: flex; */
+  display: flex;
+  margin-bottom: 18px;
 `;
 
 export const Button = styled.button`

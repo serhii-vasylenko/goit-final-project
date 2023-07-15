@@ -15,12 +15,18 @@ import {
   FieldContainer,
   FieldLabel,
   PhotoFieldWrapper,
-  SelectField,
+  Select,
 } from './RecipeDescriptionFields.styled';
 import { hasError } from 'helpers/hasError';
 
 const RecipeDescriptionFields = ({ file, handleFileChange }) => {
   const categoryRecipes = useSelector(selectCategoryList);
+  const categories = categoryRecipes.map(el => ({
+    value: el._id,
+    label: el.name,
+  }));
+
+ 
   const { setFieldValue, errors, touched } = useFormikContext();
 
   return (
@@ -81,22 +87,29 @@ const RecipeDescriptionFields = ({ file, handleFileChange }) => {
           <Input name="about" id="about" type="text" />
           <FormError name="about" />
         </FieldContainer>
-        
+
         <FieldContainer
-          className={hasError('category', getIn, errors, touched) ? 'error' : ''}
+          className={
+            hasError('category', getIn, errors, touched) ? 'error' : ''
+          }
         >
           <FieldLabel htmlFor="category">Category</FieldLabel>
-        <SelectField name="category" as="select">
-          <option value="">Select option</option>
-          {categoryRecipes.map(({ _id, name }) => (
-            <option value={name} key={_id}>
-              {name}
-            </option>
-          ))}
-        </SelectField>
-        <FormError name="category" />
+          
+          <Select
+            name="category"
+            as="select"
+            options={categories}
+            classNamePrefix="custom-select"
+          >
+            {categoryRecipes.map(({ _id, name }) => (
+              <option value={name} key={_id}>
+                {name}
+              </option>
+            ))}
+          </Select>
+          
+          <FormError name="category" />
         </FieldContainer>
-        
 
         <Field name="time" as="select">
           <option value="">Select time</option>

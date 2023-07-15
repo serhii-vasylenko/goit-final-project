@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Field } from 'formik';
+import { StyledSelect } from 'components/RecipeIngredientsFields/RecipeIngredientsFields.styled';
 
 export const DescriptionFields = styled.div`
   display: flex;
@@ -68,6 +69,7 @@ export const FieldContainer = styled.div`
 `;
 
 export const Input = styled(Field)`
+  font-family: 'Poppins';
   font-size: 14px;
   border: none;
   background-color: transparent;
@@ -87,10 +89,57 @@ export const FieldLabel = styled.label`
   pointer-events: none;
 `;
 
-export const SelectField = styled(Field)`
+// export const SelectField = styled(Field)`
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+//   background-color: transparent;
+//   border: none;
+// `;
+
+export const Select = styled(StyledSelect)`
   position: absolute;
-  top: 0;
+  top: 4px;
   right: 0;
-  width: 85px;
-  border: none;
+  height: 20px;
+
+  .custom-select {
+    
+    &__control {
+       border: 1px solid black;
+      /* border-radius: 6px; */
+      box-shadow: none;
+      background-color: var(--background-color);
+      
+       color: #23262a;
+      font-size: 12px;
+      line-height: 1;
+      cursor: text;
+    }
+
+    /* &__menu {
+      padding: 4px 4px 4px 14px;
+    } */
+
+    /* &__menu-is-open {
+      border-radius: 6px;
+      background: #ffffff;
+      box-shadow: 0px 6.518518447875977px 7.8222222328186035px 0px
+        rgba(0, 0, 0, 0.03);
+    } */
+
+    &__menu-list {
+      height: calc(6 * 18px + 8px);
+    }
+    &__value-container {
+      padding: 0px 8px;
+    }
+    &__option {
+      margin: 4px 0;
+    }
+
+    &__indicator {
+          padding: 0;
+        }
+  }
 `;

@@ -24,8 +24,8 @@ const addRecipeValidationSchema = Yup.object().shape({
     time: Yup.string().required('Please select the cooking time').oneOf(timeValidation),
     ingredients: Yup.array().of(
       Yup.object().shape({
-        ingredient: Yup.string().required('Please select an ingredient'),  //.oneOf(category),
-        count: Yup.string().required('Please enter the count'),
+        id: Yup.string().required('Please select an ingredient'),  //.oneOf(category),
+        measure: Yup.string().required('Please enter the count'),
       })
     ),
     preparation: Yup.array()
@@ -39,6 +39,6 @@ const addRecipeValidationSchema = Yup.object().shape({
           value.every(val => val && val.length > 0)
         );
       }),
-  });
+  }); 
 
   export default addRecipeValidationSchema;
