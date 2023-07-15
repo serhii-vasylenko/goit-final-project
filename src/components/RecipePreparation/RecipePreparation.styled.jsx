@@ -5,25 +5,21 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 0 16px;
-  margin-bottom: 100px;
+  padding: 0 16px 100px 16px;
 
   @media screen and (min-width: 768px) {
-    width: 704px;
-    padding: 0 32px;
-    margin-bottom: 200px;
+    padding: 0 32px 200px 32px;
   }
 
   @media screen and (min-width: 1280px) {
     width: 1240px;
     display: flex;
     gap: 50px;
-    flex-direction: row;
-    align-items: center;
-    margin: auto;
-    margin-bottom: 200px;
+    flex-direction: row;  
   }
 `;
+
+
 export const Title = styled.h2`
   font-weight: 600;
   font-size: 24px;
@@ -62,6 +58,7 @@ export const ListItem = styled.li`
   }
 
   @media screen and (min-width: 1280px) {
+    max-width: 757px;
   }
 `;
 
@@ -79,9 +76,8 @@ export const GreenCircle = styled.div`
 `;
 
 export const ImageWrapper = styled.div`
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
+  /* width: 100%;
+  height: auto; */
   @media screen and (min-width: 768px) {
     max-width: 433px;
   }
@@ -90,6 +86,6 @@ export const ImageWrapper = styled.div`
 export const ImageRecipe = styled.img`
   display: block;
   object-fit: contain;
-  overflow: hidden;
+  width:100%;
   border-radius: 8px;
 `;
