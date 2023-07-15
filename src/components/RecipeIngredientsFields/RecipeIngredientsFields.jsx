@@ -53,6 +53,7 @@ const RecipeIngredientsFields = () => {
               <Counter pop={pop} push={push} ingredients={ingredients} />
               {ingredients.map((ingredient, index) => (
                 <Wrap key={index}>
+            //!!!!------------------------------------      
                   <StyledSelect
                     classNamePrefix="custom-select"
                     name={`ingredients[${index}].id`}
@@ -67,7 +68,7 @@ const RecipeIngredientsFields = () => {
                       component="div"
                       className="error-message"
                     />
-                  
+         //!!!!!-------------------------------------         
                   <Field
                     name={`ingredients[${index}].measure`}
                     type="text"
