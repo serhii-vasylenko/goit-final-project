@@ -22,14 +22,14 @@ import DesktopBg from 'images/mainPage/images/hero-desktop.png';
 import DesktopBg2x from 'images/mainPage/images/hero-desktop@2x.png';
 
 export const HeroSection = styled.section`
-  max-width: 375px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 
   background-image: url(${MobileBgLeavesBottom}), url(${MobileBg}),
     url(${MobileBgLeavesTop});
   background-size: 375 auto, 337px auto, 39px 184px;
-  background-position: 0px 54px, right 38px, left top;
+  background-position: right 54px, right 38px, left top;
   background-repeat: no-repeat;
 
   //Завантаження ретінізованого 2х фонового зображення
@@ -41,7 +41,6 @@ export const HeroSection = styled.section`
   }
 
   @media screen and (min-width: 768px) {
-    max-width: 768px;
     height: 640px;
     margin-top: -64px;
 
@@ -60,7 +59,6 @@ export const HeroSection = styled.section`
   }
 
   @media screen and (min-width: 1280px) {
-    max-width: 1280px;
     height: 800px;
 
     background-image: url(${DesktopBgLeavesBottom}), url(${DesktopBg}),
@@ -78,12 +76,17 @@ export const HeroSection = styled.section`
 `;
 
 export const HeroContainer = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+
   @media screen and (max-width: 767px) {
+    max-width: 375px;
     padding: 68px 27.5px 83px 27.5px;
     text-align: center;
   }
 
   @media screen and (min-width: 768px) {
+    max-width: 768px;
     display: flex;
     align-items: center;
     padding-top: 159px;
@@ -92,6 +95,7 @@ export const HeroContainer = styled.div`
   }
 
   @media screen and (min-width: 1280px) {
+    max-width: 1280px;
     gap: 68px;
     padding-top: 126px;
     padding-left: 20px;
