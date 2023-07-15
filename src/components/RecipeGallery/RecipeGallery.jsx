@@ -1,6 +1,6 @@
 import React, { useState, useLayoutEffect } from 'react';
 
-import RecipeGalleryItem from 'components/ReusableComponents/RecipeGalleryItem/RecipeGalleryItem';
+import RecipeGalleryItem from 'components/ReusableComponents/RecipeGalleryItem';
 import { RecipeGalleryList } from './RecipeGallery.styled';
 
 const RecipeGallery = ({ category }) => {

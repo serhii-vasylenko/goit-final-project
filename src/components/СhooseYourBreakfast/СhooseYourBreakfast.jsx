@@ -12,7 +12,7 @@ const СhooseYourBreakfast = () => (
       <AdviceDescAccent>Delicious and healthy way</AdviceDescAccent> to enjoy a
       variety of fresh ingredients in one satisfying meal
     </AdviceDesc>
-    <StyledLink to="/recipes/breakfast">
+    <StyledLink to="/categories/breakfast">
       See recipes
       <Icon />
     </StyledLink>
