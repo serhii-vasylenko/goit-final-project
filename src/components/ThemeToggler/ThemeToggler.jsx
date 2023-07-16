@@ -15,7 +15,6 @@ const ThemeToggler = () => {
   const handleToggleTheme = () => {
     const newTheme = stateTheme === 'light' ? 'dark' : 'light';
     dispatch(setTheme(newTheme));
-    document.body.classList.toggle('dark');
   };
 
   return (

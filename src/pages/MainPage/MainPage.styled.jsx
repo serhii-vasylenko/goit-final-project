@@ -148,7 +148,9 @@ export const HeroTitle = styled.h1`
 `;
 
 export const HeroTitleAccent = styled.span`
-  color: var(--accent-color);
+  
+
+  color: ${props => props.theme.colors.primary};
 `;
 
 export const HeroDescription = styled.p`
