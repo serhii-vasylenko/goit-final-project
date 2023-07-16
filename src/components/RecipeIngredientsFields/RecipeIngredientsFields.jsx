@@ -10,7 +10,7 @@ import {
   StyledSelect,
   Wrap,
   Button,
-  SVG,
+  Svg,
   MeasureField,
   SelectContainer,
   MeasureFieldContainer,
@@ -26,13 +26,14 @@ const RecipeIngredientsFields = () => {
     label: el.name,
   }));
 
+
   return (
     <Container>
       <Title>Ingredients</Title>
 
       <FieldArray validateOnChange name="ingredients">
         {fieldArrayProps => {
-          const { push, pop, remove, form } = fieldArrayProps;
+          const { push, remove, form } = fieldArrayProps;
 
           const { values, setFieldValue } = form;
           const { ingredients } = values;
@@ -49,12 +50,13 @@ const RecipeIngredientsFields = () => {
             setFieldValue('ingredients', newIngredients);
           };
 
+
           return (
             <div>
-              <Counter pop={pop} push={push} ingredients={ingredients} />
+              <Counter remove={remove} push={push} ingredients={ingredients} />
               {ingredients.map((ingredient, index) => (
                 <Wrap key={index}> 
-                <SelectContainer>   
+                <SelectContainer>
                   <StyledSelect
                     classNamePrefix="custom-select"
                     name={`ingredients[${index}].id`}
@@ -63,10 +65,10 @@ const RecipeIngredientsFields = () => {
                     onChange={selectedOption =>
                       handleIngredientChange(index, selectedOption)
                     }
-          
+                    
                   />
                     <FormError
-                      name={`ingredients[${index}].id`}
+                      name={`ingredients[${index}].id`} style={{marginTop: '5px'}}
                     /> 
                     </SelectContainer>
 
@@ -80,7 +82,7 @@ const RecipeIngredientsFields = () => {
                     }}
                   />
                   <FormError
-                    name={`ingredients[${index}].measure`}
+                    name={`ingredients[${index}].measure`} style={{marginTop: '5px'}}
                   /> 
                   </MeasureFieldContainer>
 
@@ -90,9 +92,9 @@ const RecipeIngredientsFields = () => {
                       remove(index);
                     }}
                   >
-                    <SVG width={18} height={18}>
+                    <Svg width={18} height={18}>
                       <use href={`${sprite}#delete-button`}></use>
-                    </SVG>
+                    </Svg>
                   </Button>
 
                 </Wrap>

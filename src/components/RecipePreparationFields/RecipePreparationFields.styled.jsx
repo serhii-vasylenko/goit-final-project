@@ -22,7 +22,7 @@ export const TextArea = styled(Field)`
   padding: 10px 16px;
 
   color: #23262a;
-  font-family: Poppins;
+  font-family: 'Poppins';
   font-size: 14px;
   letter-spacing: -0.28px;
 
@@ -31,11 +31,13 @@ export const TextArea = styled(Field)`
     opacity: 0.5;
   }
 
-  &:focus {
+  &:focus,
+  &:hover {
     outline: 1px solid rgba(217, 217, 217, 1);
   }
 
   &.error {
     border: 1px solid var(--error-color);
   }
+
 `;

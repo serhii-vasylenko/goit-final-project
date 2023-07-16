@@ -1,9 +1,13 @@
 import { Field, useFormikContext, getIn } from 'formik';
-import cookTime from 'const/cookTime';
 import { useSelector } from 'react-redux';
-import { selectCategoryList } from 'redux/recipes/recipesSelector';
+
+import cookTime from 'const/cookTime';
 import FormError from 'components/ReusableComponents/FormError/FormError';
 import sprite from '../../images/AddRecipePage/sprite.svg';
+
+import { selectCategoryList } from 'redux/recipes/recipesSelector';
+import { hasError } from 'helpers/hasError';
+import { convertMinutesToHours } from 'helpers/time-formatter';
 import {
   ImgWrapper,
   DescriptionFields,
@@ -17,7 +21,7 @@ import {
   PhotoFieldWrapper,
   Select,
 } from './RecipeDescriptionFields.styled';
-import { hasError } from 'helpers/hasError';
+
 
 const RecipeDescriptionFields = ({ file, handleFileChange }) => {
   const categoryRecipes = useSelector(selectCategoryList);
@@ -28,7 +32,7 @@ const RecipeDescriptionFields = ({ file, handleFileChange }) => {
 
   const time = cookTime.map(el => ({
     value: el.time,
-    label: `${el.time} min`,
+    label: convertMinutesToHours(el.time) 
   }));
 
   const { setFieldValue, errors, touched } = useFormikContext();
@@ -132,12 +136,12 @@ const RecipeDescriptionFields = ({ file, handleFileChange }) => {
             as="select"
             options={time}
             classNamePrefix="custom-select"
-            defaultValue={'Select time'}
             onChange={event => setFieldValue('time', event.value)}
+            isSearchable={false}
           >
             {cookTime.map(({ id, time }) => (
               <option value={time} key={id}>
-                {time}
+                 {time} 
               </option>
             ))}
           </Select>

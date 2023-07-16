@@ -1,5 +1,5 @@
 import ReactSelect from 'react-select';
-import styled from '@emotion/styled';
+import styled from '@emotion/styled/macro';
 import { Field } from 'formik';
 
 export const Container = styled.div`
@@ -14,29 +14,45 @@ export const Title = styled.h2`
   line-height: 1;
   letter-spacing: -0.48px;
   margin-bottom: 24px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 36px;
+  }
 `;
 export const SelectContainer = styled.div`
   margin-right: 14px;
-  width: 194px;
+  min-width: 194px;
+
+  @media screen and (min-width: 768px) {
+    margin-right: 32px;
+    min-width: 398px;
+  }
 `;
 
 export const StyledSelect = styled(ReactSelect)`
-  cursor: pointer;
+  border-radius: 6px;
+  /* &:hover,
+  &:focus {
+    border: 1px solid rgba(217, 217, 217, 1);
+  }
+   */
 
   .custom-select {
     &__control {
       font-family: 'Poppins';
       border: none;
-      border-radius: 6px;
+
       box-shadow: 0px 6.518518447875977px 7.8222222328186035px 0px
         rgba(0, 0, 0, 0.03);
       background-color: rgba(217, 217, 217, 0.157);
       font-size: 14px;
       line-height: 1;
       cursor: text;
+
+      @media screen and (min-width: 768px) {
+        font-size: 18px;
+      }
     }
-
-
 
     &__menu {
       padding: 4px 4px 4px 18px;
@@ -57,6 +73,13 @@ export const StyledSelect = styled(ReactSelect)`
     &__value-container {
       padding: 12px 8px;
     }
+
+    &__single-value {
+      color: #23262a;
+      line-height: 1;
+      letter-spacing: -0.28px;
+    }
+
     &__option {
       margin: 6px 0;
       padding: 0 3px;
@@ -66,6 +89,10 @@ export const StyledSelect = styled(ReactSelect)`
       letter-spacing: -0.24px;
       opacity: 0.5;
       cursor: pointer;
+
+      @media screen and (min-width: 768px) {
+        font-size: 14px;
+      }
     }
 
     &__option--is-focused {
@@ -82,7 +109,7 @@ export const StyledSelect = styled(ReactSelect)`
 
     &__indicator {
       cursor: pointer;
-      
+
       color: var(--accent-color);
 
       &:hover,
@@ -90,8 +117,6 @@ export const StyledSelect = styled(ReactSelect)`
         transform: scale(1.1);
       }
 
-      
-  
       transition: stroke var(--transition-duration) var(--timing-function);
     }
 
@@ -111,35 +136,51 @@ export const StyledSelect = styled(ReactSelect)`
     &__menu-list::-webkit-scrollbar-thumb:hover {
       background: var(--accent-color);
     }
-
-
   }
 `;
 
 export const MeasureFieldContainer = styled.div`
-  width: 84px;
   margin-right: 33px;
+  width: 84px;
+
+  @media screen and (min-width: 768px) {
+    margin-right: 157px;
+    width: 97px;
+  }
 `;
 
 export const MeasureField = styled(Field)`
-  /* height: 100%; */
+  outline: none;
+  width: 84px;
+  height: 54px;
+  padding-left: 10px;
   border: none;
   border-radius: 6px;
   box-shadow: 0px 6.518518447875977px 7.8222222328186035px 0px
     rgba(0, 0, 0, 0.03);
   background-color: rgba(217, 217, 217, 0.157);
 
-  color: #000;
+  color: #23262a;
   font-size: 14px;
   line-height: 1;
+  letter-spacing: -0.28px;
+
+  font-family: 'Poppins';
+  color: #23262a;
+
+  /* padding: 16px 12px; */
   cursor: text;
 
-  color: #23262a;
-  font-family: 'Poppins';
-  font-size: 14px;
+  &:focus,
+  &:hover {
+    border: 1px solid rgba(217, 217, 217, 1);
+  }
 
-  letter-spacing: -0.28px;
-  padding: 16px 12px;
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    height: 59px;
+    width: 97px;
+  }
 `;
 
 export const Wrap = styled.div`
@@ -147,7 +188,20 @@ export const Wrap = styled.div`
   margin-bottom: 18px;
 `;
 
+export const Svg = styled.svg`
+  stroke: #333333;
+
+  @media screen and (min-width: 768px) {
+    width: 20px;
+    height: 20px;
+  }
+
+  transition: stroke var(--transition-duration) var(--timing-function);
+`;
+
 export const Button = styled.button`
+  padding: 0;
+  outline: none;
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -155,14 +209,18 @@ export const Button = styled.button`
   &:active {
     transform: scale(1.01);
   }
-`;
 
-export const SVG = styled.svg`
-  stroke: #333333;
-  &:hover,
-  &:focus {
-    stroke: var(--accent-color);
+  &:hover {
+    ${Svg} {
+      stroke: var(--accent-color);
+    }
   }
 
-  transition: stroke var(--transition-duration) var(--timing-function);
+  &:focus {
+    border: 1px solid rgba(217, 217, 217, 1);
+    border-radius: 4px;
+    ${Svg} {
+      stroke: var(--accent-color);
+    }
+  }
 `;
