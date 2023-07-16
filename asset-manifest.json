@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/goit-final-project/static/css/main.4bda112d.css",
-    "main.js": "/goit-final-project/static/js/main.dfec3262.js",
+    "main.js": "/goit-final-project/static/js/main.f5328ebf.js",
     "static/js/990.219dd484.chunk.js": "/goit-final-project/static/js/990.219dd484.chunk.js",
     "static/js/215.85256a8f.chunk.js": "/goit-final-project/static/js/215.85256a8f.chunk.js",
-    "static/js/372.b566520d.chunk.js": "/goit-final-project/static/js/372.b566520d.chunk.js",
-    "static/js/438.c8003e4b.chunk.js": "/goit-final-project/static/js/438.c8003e4b.chunk.js",
+    "static/js/372.d76e0fc4.chunk.js": "/goit-final-project/static/js/372.d76e0fc4.chunk.js",
+    "static/js/438.21fb4696.chunk.js": "/goit-final-project/static/js/438.21fb4696.chunk.js",
     "static/js/561.8b186146.chunk.js": "/goit-final-project/static/js/561.8b186146.chunk.js",
-    "static/js/762.524e74fd.chunk.js": "/goit-final-project/static/js/762.524e74fd.chunk.js",
+    "static/js/762.b2407b4f.chunk.js": "/goit-final-project/static/js/762.b2407b4f.chunk.js",
     "static/js/809.59ea710c.chunk.js": "/goit-final-project/static/js/809.59ea710c.chunk.js",
     "static/js/430.337e42be.chunk.js": "/goit-final-project/static/js/430.337e42be.chunk.js",
     "static/js/463.b271153c.chunk.js": "/goit-final-project/static/js/463.b271153c.chunk.js",
@@ -15,7 +15,7 @@
     "static/js/246.7c812888.chunk.js": "/goit-final-project/static/js/246.7c812888.chunk.js",
     "static/js/66.d3aa9a87.chunk.js": "/goit-final-project/static/js/66.d3aa9a87.chunk.js",
     "static/js/278.2dc004bf.chunk.js": "/goit-final-project/static/js/278.2dc004bf.chunk.js",
-    "static/js/795.69be05a0.chunk.js": "/goit-final-project/static/js/795.69be05a0.chunk.js",
+    "static/js/574.d7c6e211.chunk.js": "/goit-final-project/static/js/574.d7c6e211.chunk.js",
     "static/media/salat_lg_retina@2x.jpg": "/goit-final-project/static/media/salat_lg_retina@2x.1a2b9cff51350c28af1f.jpg",
     "static/media/salat_md_retina@2x.jpg": "/goit-final-project/static/media/salat_md_retina@2x.2b37ec8891eafb8cf665.jpg",
     "static/media/recipe_hero_desk@2x.jpg": "/goit-final-project/static/media/recipe_hero_desk@2x.70b4befad4aa32ba8728.jpg",
@@ -84,13 +84,13 @@
     "static/media/correct.svg": "/goit-final-project/static/media/correct.2c20cfce5010676dc2acf065541b3183.svg",
     "static/media/pick.svg": "/goit-final-project/static/media/pick.247b86d0e6a26346bf0885b5b0408bd8.svg",
     "main.4bda112d.css.map": "/goit-final-project/static/css/main.4bda112d.css.map",
-    "main.dfec3262.js.map": "/goit-final-project/static/js/main.dfec3262.js.map",
+    "main.f5328ebf.js.map": "/goit-final-project/static/js/main.f5328ebf.js.map",
     "990.219dd484.chunk.js.map": "/goit-final-project/static/js/990.219dd484.chunk.js.map",
     "215.85256a8f.chunk.js.map": "/goit-final-project/static/js/215.85256a8f.chunk.js.map",
-    "372.b566520d.chunk.js.map": "/goit-final-project/static/js/372.b566520d.chunk.js.map",
-    "438.c8003e4b.chunk.js.map": "/goit-final-project/static/js/438.c8003e4b.chunk.js.map",
+    "372.d76e0fc4.chunk.js.map": "/goit-final-project/static/js/372.d76e0fc4.chunk.js.map",
+    "438.21fb4696.chunk.js.map": "/goit-final-project/static/js/438.21fb4696.chunk.js.map",
     "561.8b186146.chunk.js.map": "/goit-final-project/static/js/561.8b186146.chunk.js.map",
-    "762.524e74fd.chunk.js.map": "/goit-final-project/static/js/762.524e74fd.chunk.js.map",
+    "762.b2407b4f.chunk.js.map": "/goit-final-project/static/js/762.b2407b4f.chunk.js.map",
     "809.59ea710c.chunk.js.map": "/goit-final-project/static/js/809.59ea710c.chunk.js.map",
     "430.337e42be.chunk.js.map": "/goit-final-project/static/js/430.337e42be.chunk.js.map",
     "463.b271153c.chunk.js.map": "/goit-final-project/static/js/463.b271153c.chunk.js.map",
@@ -98,10 +98,10 @@
     "246.7c812888.chunk.js.map": "/goit-final-project/static/js/246.7c812888.chunk.js.map",
     "66.d3aa9a87.chunk.js.map": "/goit-final-project/static/js/66.d3aa9a87.chunk.js.map",
     "278.2dc004bf.chunk.js.map": "/goit-final-project/static/js/278.2dc004bf.chunk.js.map",
-    "795.69be05a0.chunk.js.map": "/goit-final-project/static/js/795.69be05a0.chunk.js.map"
+    "574.d7c6e211.chunk.js.map": "/goit-final-project/static/js/574.d7c6e211.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4bda112d.css",
-    "static/js/main.dfec3262.js"
+    "static/js/main.f5328ebf.js"
   ]
 }
