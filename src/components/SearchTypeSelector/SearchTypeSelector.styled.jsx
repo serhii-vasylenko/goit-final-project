@@ -28,7 +28,7 @@ export const SelectWrapper = styled.div`
 
 export const SelectName = styled.p`
   align-self: center;
-  color: #001833;
+  color: var(--page-title-color);
   font-size: 12px;
   font-weight: 500;
   line-height: 1.33;

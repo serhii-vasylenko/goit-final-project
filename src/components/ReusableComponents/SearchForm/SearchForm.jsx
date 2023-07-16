@@ -118,10 +118,17 @@ const SearchForm = () => {
                 padX: 1.52,
                 padY: 1.63,
               }}
-              bgColor={location.pathname === '/' ? '#22252A' : '#8BAA36'}
+              bgColor={
+                location.pathname === '/'
+                  ? 'var(--background-color-circle)'
+                  : '#8BAA36'
+              }
               hoverStyles={{ styleFirst: 'background-color' }}
               hoverParams={{
-                paramFirst: location.pathname === '/' ? '#8BAA36' : '#22252A',
+                paramFirst:
+                  location.pathname === '/'
+                    ? '#8BAA36'
+                    : 'var(--background-color-circle)',
               }}
             />
           </ButtonWrapper>
