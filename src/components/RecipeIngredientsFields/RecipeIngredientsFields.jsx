@@ -40,7 +40,6 @@ const RecipeIngredientsFields = () => {
           const handleIngredientChange = (index, selectedOption) => {
             const newIngredients = [...ingredients];
             newIngredients[index].id = selectedOption.value;
-            
             setFieldValue('ingredients', newIngredients);
           };
 
@@ -49,8 +48,6 @@ const RecipeIngredientsFields = () => {
             newIngredients[index].measure = value;
             setFieldValue('ingredients', newIngredients);
           };
-
-    
 
           return (
             <div>
@@ -79,7 +76,6 @@ const RecipeIngredientsFields = () => {
                     type="text"
                     value={ingredients[index].measure || ''}
                     onChange={event => {
-                      console.log()
                       handleCountChange(index, event.target.value);
                     }}
                   />

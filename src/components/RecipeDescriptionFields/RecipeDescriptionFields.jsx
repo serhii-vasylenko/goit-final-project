@@ -1,4 +1,4 @@
-import { Field, ErrorMessage, useFormikContext, getIn } from 'formik';
+import { Field, useFormikContext, getIn } from 'formik';
 import cookTime from 'const/cookTime';
 import { useSelector } from 'react-redux';
 import { selectCategoryList } from 'redux/recipes/recipesSelector';
@@ -26,8 +26,13 @@ const RecipeDescriptionFields = ({ file, handleFileChange }) => {
     label: el.name,
   }));
 
- 
+  const time = cookTime.map(el => ({
+    value: el.time,
+    label: `${el.time} min`,
+  }));
+
   const { setFieldValue, errors, touched } = useFormikContext();
+
 
   return (
     <DescriptionFields>
@@ -100,6 +105,10 @@ const RecipeDescriptionFields = ({ file, handleFileChange }) => {
             as="select"
             options={categories}
             classNamePrefix="custom-select"
+            isSearchable={false}
+            
+            onChange={event => setFieldValue('category', event.label)
+            }
           >
             {categoryRecipes.map(({ _id, name }) => (
               <option value={name} key={_id}>
@@ -108,10 +117,36 @@ const RecipeDescriptionFields = ({ file, handleFileChange }) => {
             ))}
           </Select>
           
-          <FormError name="category" />
+          <FormError name="category" style={{ position: 'absolute', bottom: '-14px' }}  />
         </FieldContainer>
+        
+        <FieldContainer
+          className={
+            hasError('time', getIn, errors, touched) ? 'error' : ''
+          }
+        >
+          <FieldLabel htmlFor="time">Cooking time</FieldLabel>
+          
+          <Select
+            name="time"
+            as="select"
+            options={time}
+            classNamePrefix="custom-select"
+            defaultValue={'Select time'}
+            onChange={event => setFieldValue('time', event.value)}
+          >
+            {cookTime.map(({ id, time }) => (
+              <option value={time} key={id}>
+                {time}
+              </option>
+            ))}
+          </Select>
+          
+          <FormError name="time" style={{ position: 'absolute', bottom: '-14px' }}/>
+        </FieldContainer>
+        
 
-        <Field name="time" as="select">
+        {/* <Field name="time" as="select">
           <option value="">Select time</option>
           {cookTime.map(({ id, time }) => (
             <option value={time} key={id}>
@@ -119,7 +154,7 @@ const RecipeDescriptionFields = ({ file, handleFileChange }) => {
             </option>
           ))}
         </Field>
-        <ErrorMessage name="time" component="div" className="error-message" />
+        <ErrorMessage name="time" component="div" className="error-message" /> */}
       </FieldWrapper>
     </DescriptionFields>
   );

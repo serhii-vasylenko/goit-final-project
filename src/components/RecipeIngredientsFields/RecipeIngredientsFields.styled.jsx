@@ -21,28 +21,22 @@ export const SelectContainer = styled.div`
 `;
 
 export const StyledSelect = styled(ReactSelect)`
-  font-family: 'Poppins';
   cursor: pointer;
 
   .custom-select {
     &__control {
+      font-family: 'Poppins';
       border: none;
       border-radius: 6px;
       box-shadow: 0px 6.518518447875977px 7.8222222328186035px 0px
         rgba(0, 0, 0, 0.03);
       background-color: rgba(217, 217, 217, 0.157);
-
-      color: #23262a;
       font-size: 14px;
       line-height: 1;
       cursor: text;
-
-      /* &:hover {
-        &__indicator {
-          display: block;
-        }
-      } */
     }
+
+
 
     &__menu {
       padding: 4px 4px 4px 18px;
@@ -88,6 +82,7 @@ export const StyledSelect = styled(ReactSelect)`
 
     &__indicator {
       cursor: pointer;
+      
       color: var(--accent-color);
 
       &:hover,
@@ -95,6 +90,8 @@ export const StyledSelect = styled(ReactSelect)`
         transform: scale(1.1);
       }
 
+      
+  
       transition: stroke var(--transition-duration) var(--timing-function);
     }
 
@@ -114,6 +111,8 @@ export const StyledSelect = styled(ReactSelect)`
     &__menu-list::-webkit-scrollbar-thumb:hover {
       background: var(--accent-color);
     }
+
+
   }
 `;
 
@@ -136,7 +135,7 @@ export const MeasureField = styled(Field)`
   cursor: text;
 
   color: #23262a;
-  font-family: Poppins;
+  font-family: 'Poppins';
   font-size: 14px;
 
   letter-spacing: -0.28px;

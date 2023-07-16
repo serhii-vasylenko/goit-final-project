@@ -39,6 +39,6 @@ const addRecipeValidationSchema = Yup.object().shape({
           value.every(val => val && val.length > 0)
         );
       }),
-  }); 
+  });   
 
   export default addRecipeValidationSchema;

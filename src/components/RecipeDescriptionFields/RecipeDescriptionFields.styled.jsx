@@ -19,7 +19,6 @@ export const PhotoFieldWrapper = styled.div`
 
 export const ImgWrapper = styled.div`
   height: 268px;
-  /* margin-bottom: 32px; */
 `;
 export const FieldWrapper = styled.div`
   display: flex;
@@ -89,44 +88,39 @@ export const FieldLabel = styled.label`
   pointer-events: none;
 `;
 
-// export const SelectField = styled(Field)`
-//   position: absolute;
-//   top: 0;
-//   right: 0;
-//   background-color: transparent;
-//   border: none;
-// `;
-
 export const Select = styled(StyledSelect)`
   position: absolute;
   top: 4px;
   right: 0;
-  height: 20px;
 
   .custom-select {
-    
     &__control {
-       border: 1px solid black;
-      /* border-radius: 6px; */
       box-shadow: none;
       background-color: var(--background-color);
-      
-       color: #23262a;
+      min-height: 20px;
+      min-width: 87px;
       font-size: 12px;
       line-height: 1;
       cursor: text;
+      font-weight: 500;
     }
 
-    /* &__menu {
-      padding: 4px 4px 4px 14px;
-    } */
+    &__input-container {
+      padding: 1px;
+      margin: 0;
+      
+    }
 
-    /* &__menu-is-open {
-      border-radius: 6px;
-      background: #ffffff;
-      box-shadow: 0px 6.518518447875977px 7.8222222328186035px 0px
-        rgba(0, 0, 0, 0.03);
-    } */
+    &__menu {
+      width: 123px;
+      top: 15px;
+      right: 5px;
+
+      padding: 4px 4px 4px 14px;
+    }
+
+    &__menu-is-open {
+    }
 
     &__menu-list {
       height: calc(6 * 18px + 8px);
@@ -139,7 +133,7 @@ export const Select = styled(StyledSelect)`
     }
 
     &__indicator {
-          padding: 0;
-        }
+      padding: 0;
+    }
   }
 `;
