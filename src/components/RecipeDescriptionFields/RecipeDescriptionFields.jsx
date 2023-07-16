@@ -1,9 +1,13 @@
-import { Field, ErrorMessage, useFormikContext, getIn } from 'formik';
-import cookTime from 'const/cookTime';
+import { Field, useFormikContext, getIn } from 'formik';
 import { useSelector } from 'react-redux';
-import { selectCategoryList } from 'redux/recipes/recipesSelector';
+
+import cookTime from 'const/cookTime';
 import FormError from 'components/ReusableComponents/FormError/FormError';
 import sprite from '../../images/AddRecipePage/sprite.svg';
+
+import { selectCategoryList } from 'redux/recipes/recipesSelector';
+import { hasError } from 'helpers/hasError';
+import { convertMinutesToHours } from 'helpers/time-formatter';
 import {
   ImgWrapper,
   DescriptionFields,
@@ -15,13 +19,24 @@ import {
   FieldContainer,
   FieldLabel,
   PhotoFieldWrapper,
-  SelectField,
+  Select,
 } from './RecipeDescriptionFields.styled';
-import { hasError } from 'helpers/hasError';
+
 
 const RecipeDescriptionFields = ({ file, handleFileChange }) => {
   const categoryRecipes = useSelector(selectCategoryList);
+  const categories = categoryRecipes.map(el => ({
+    value: el._id,
+    label: el.name,
+  }));
+
+  const time = cookTime.map(el => ({
+    value: el.time,
+    label: convertMinutesToHours(el.time) 
+  }));
+
   const { setFieldValue, errors, touched } = useFormikContext();
+
 
   return (
     <DescriptionFields>
@@ -81,24 +96,61 @@ const RecipeDescriptionFields = ({ file, handleFileChange }) => {
           <Input name="about" id="about" type="text" />
           <FormError name="about" />
         </FieldContainer>
-        
+
         <FieldContainer
-          className={hasError('category', getIn, errors, touched) ? 'error' : ''}
+          className={
+            hasError('category', getIn, errors, touched) ? 'error' : ''
+          }
         >
           <FieldLabel htmlFor="category">Category</FieldLabel>
-        <SelectField name="category" as="select">
-          <option value="">Select option</option>
-          {categoryRecipes.map(({ _id, name }) => (
-            <option value={name} key={_id}>
-              {name}
-            </option>
-          ))}
-        </SelectField>
-        <FormError name="category" />
+          
+          <Select
+            name="category"
+            as="select"
+            options={categories}
+            classNamePrefix="custom-select"
+            isSearchable={false}
+            
+            onChange={event => setFieldValue('category', event.label)
+            }
+          >
+            {categoryRecipes.map(({ _id, name }) => (
+              <option value={name} key={_id}>
+                {name}
+              </option>
+            ))}
+          </Select>
+          
+          <FormError name="category" style={{ position: 'absolute', bottom: '-14px' }}  />
+        </FieldContainer>
+        
+        <FieldContainer
+          className={
+            hasError('time', getIn, errors, touched) ? 'error' : ''
+          }
+        >
+          <FieldLabel htmlFor="time">Cooking time</FieldLabel>
+          
+          <Select
+            name="time"
+            as="select"
+            options={time}
+            classNamePrefix="custom-select"
+            onChange={event => setFieldValue('time', event.value)}
+            isSearchable={false}
+          >
+            {cookTime.map(({ id, time }) => (
+              <option value={time} key={id}>
+                 {time} 
+              </option>
+            ))}
+          </Select>
+          
+          <FormError name="time" style={{ position: 'absolute', bottom: '-14px' }}/>
         </FieldContainer>
         
 
-        <Field name="time" as="select">
+        {/* <Field name="time" as="select">
           <option value="">Select time</option>
           {cookTime.map(({ id, time }) => (
             <option value={time} key={id}>
@@ -106,7 +158,7 @@ const RecipeDescriptionFields = ({ file, handleFileChange }) => {
             </option>
           ))}
         </Field>
-        <ErrorMessage name="time" component="div" className="error-message" />
+        <ErrorMessage name="time" component="div" className="error-message" /> */}
       </FieldWrapper>
     </DescriptionFields>
   );

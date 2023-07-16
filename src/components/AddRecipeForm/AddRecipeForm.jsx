@@ -68,7 +68,7 @@ const AddRecipeForm = () => {
         />
         <RecipeIngredientsFields />
         <RecipePreparationFields />
-        <MainButton nameButton="Add" type={'submit'} />
+        <MainButton nameButton="Add" type={'submit'} cofByMedia768 = {{ font: 1, padX: 1.17, padY: 1.333 }} cofByMedia1280 = {{ font: 1, padX: 1.17, padY: 1.333 }}/>
       </Form>
     </Formik>
   );
