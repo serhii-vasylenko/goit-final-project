@@ -156,6 +156,10 @@ export const Select = styled(StyledSelect)`
 
     &__menu-list {
       height: calc(6 * 18px + 8px);
+
+      /* @media screen and (min-width: 768px) {
+        height: calc(6 * 22px + 20px);
+      } */
     }
     &__value-container {
       padding: 0px 8px;

@@ -4,10 +4,18 @@ import { Title } from 'components/RecipeIngredientsFields/RecipeIngredientsField
 
 export const TitlePreparation = styled(Title)`
   margin-bottom: 24px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 32px;
+  }
 `;
 
 export const Container = styled.div`
   margin-bottom: 18px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 32px;
+  }
 `;
 
 export const TextArea = styled(Field)`
@@ -40,4 +48,8 @@ export const TextArea = styled(Field)`
     border: 1px solid var(--error-color);
   }
 
+  @media screen and (min-width: 768px) {
+    width: 505px;
+  height: 224px;
+  }
 `;

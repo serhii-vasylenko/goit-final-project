@@ -30,20 +30,19 @@ export const SelectContainer = styled.div`
 `;
 
 export const StyledSelect = styled(ReactSelect)`
-  border-radius: 6px;
-  /* &:hover,
+ 
+  &:hover,
   &:focus {
     border: 1px solid rgba(217, 217, 217, 1);
+    border-radius: 6px;
   }
-   */
+  
 
   .custom-select {
     &__control {
       font-family: 'Poppins';
       border: none;
-
-      box-shadow: 0px 6.518518447875977px 7.8222222328186035px 0px
-        rgba(0, 0, 0, 0.03);
+      border-radius: 6px;
       background-color: rgba(217, 217, 217, 0.157);
       font-size: 14px;
       line-height: 1;
@@ -140,24 +139,22 @@ export const StyledSelect = styled(ReactSelect)`
 `;
 
 export const MeasureFieldContainer = styled.div`
-  margin-right: 33px;
-  width: 84px;
+  margin-right: 8px;
+  width: 109px;
 
   @media screen and (min-width: 768px) {
-    margin-right: 157px;
-    width: 97px;
+    margin-right: 40px;
+    width: 214px;
   }
 `;
 
 export const MeasureField = styled(Field)`
   outline: none;
-  width: 84px;
+  width: 109px;
   height: 54px;
-  padding-left: 10px;
+  padding: 0 0 0 5px;
   border: none;
   border-radius: 6px;
-  box-shadow: 0px 6.518518447875977px 7.8222222328186035px 0px
-    rgba(0, 0, 0, 0.03);
   background-color: rgba(217, 217, 217, 0.157);
 
   color: #23262a;
@@ -179,7 +176,7 @@ export const MeasureField = styled(Field)`
   @media screen and (min-width: 768px) {
     font-size: 18px;
     height: 59px;
-    width: 97px;
+    width: 214px;
   }
 `;
 

@@ -1,4 +1,4 @@
-import { FieldArray} from 'formik';
+import { FieldArray } from 'formik';
 import { useSelector } from 'react-redux';
 import { selectIngredientsList } from 'redux/ingredients/ingredientsSelector';
 import Counter from 'components/Counter/Counter';
@@ -14,18 +14,15 @@ import {
   MeasureField,
   SelectContainer,
   MeasureFieldContainer,
-  
 } from './RecipeIngredientsFields.styled';
 
 const RecipeIngredientsFields = () => {
-
   const ingredientsList = useSelector(selectIngredientsList);
 
   const nameIngredients = ingredientsList.map(el => ({
     value: el._id,
     label: el.name,
   }));
-
 
   return (
     <Container>
@@ -50,40 +47,41 @@ const RecipeIngredientsFields = () => {
             setFieldValue('ingredients', newIngredients);
           };
 
-
           return (
             <div>
               <Counter remove={remove} push={push} ingredients={ingredients} />
               {ingredients.map((ingredient, index) => (
-                <Wrap key={index}> 
-                <SelectContainer>
-                  <StyledSelect
-                    classNamePrefix="custom-select"
-                    name={`ingredients[${index}].id`}
-                    placeholder={''}
-                    options={nameIngredients}
-                    onChange={selectedOption =>
-                      handleIngredientChange(index, selectedOption)
-                    }
-                    
-                  />
+                <Wrap key={index}>
+                  <SelectContainer>
+                    <StyledSelect
+                      classNamePrefix="custom-select"
+                      name={`ingredients[${index}].id`}
+                      placeholder={''}
+                      options={nameIngredients}
+                      onChange={selectedOption =>
+                        handleIngredientChange(index, selectedOption)
+                      }
+                    />
                     <FormError
-                      name={`ingredients[${index}].id`} style={{marginTop: '5px'}}
-                    /> 
-                    </SelectContainer>
+                      name={`ingredients[${index}].id`}
+                      style={{ marginTop: '5px' }}
+                    />
+                  </SelectContainer>
 
-                    <MeasureFieldContainer>    
-                  <MeasureField
-                    name={`ingredients[${index}].measure`}
-                    type="text"
-                    value={ingredients[index].measure || ''}
-                    onChange={event => {
-                      handleCountChange(index, event.target.value);
-                    }}
-                  />
-                  <FormError
-                    name={`ingredients[${index}].measure`} style={{marginTop: '5px'}}
-                  /> 
+                  <MeasureFieldContainer>
+                    <MeasureField
+                      name={`ingredients[${index}].measure`}
+                      type="text"
+                      value={ingredients[index].measure || ''}
+                      onChange={event => {
+                        handleCountChange(index, event.target.value);
+                      }}
+                      placeholder={'Enter measure'}
+                    />
+                    <FormError
+                      name={`ingredients[${index}].measure`}
+                      style={{ marginTop: '5px' }}
+                    />
                   </MeasureFieldContainer>
 
                   <Button
@@ -96,7 +94,6 @@ const RecipeIngredientsFields = () => {
                       <use href={`${sprite}#delete-button`}></use>
                     </Svg>
                   </Button>
-
                 </Wrap>
               ))}
             </div>

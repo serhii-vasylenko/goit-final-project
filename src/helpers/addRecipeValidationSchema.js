@@ -25,7 +25,7 @@ const addRecipeValidationSchema = Yup.object().shape({
     ingredients: Yup.array().of(
       Yup.object().shape({
         id: Yup.string().required('Please select an ingredient'),  //.oneOf(category),
-        measure: Yup.string().required('Please enter the count'),
+        measure: Yup.string().required('Please enter the measure'),
       })
     ),
     preparation: Yup.array()
