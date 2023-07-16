@@ -25,8 +25,7 @@ const SearchedRecipesList = () => {
   const searchedList = useSelector(selectRecipeByTitle);
   const serchedIngredList = useSelector(selectRecipesByIngredient);
   const error = useSelector(selectError);
-  // console.log('searchedList :>> ', searchedList);
-  // console.log('serchedIngredList :>> ', serchedIngredList);
+
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [visibleRecipes, setVisibleRecipes] = useState([]);
 
@@ -69,13 +68,16 @@ const SearchedRecipesList = () => {
 
   const visibleRecipeList = useCallback(() => {
     let visibleList =
-      searchedList.length > 0 ? searchedList : serchedIngredList.map(i => i);
+      searchedList?.length > 0
+        ? searchedList
+        : serchedIngredList?.map(i => i);
     setVisibleRecipes(visibleList);
   }, [searchedList, serchedIngredList]);
 
   useEffect(() => {
     visibleRecipeList();
   }, [visibleRecipeList]);
+  // console.log('visibleRecipes :>> ', visibleRecipes);
 
   return (
     <Section>

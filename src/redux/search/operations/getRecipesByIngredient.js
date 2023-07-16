@@ -6,7 +6,9 @@ const getRecipesByIngredient = createAsyncThunk(
   async (ingredient, thunkAPI) => {
     // console.log(' getRecipesByIngredient:>> ');
     try {
-      const response = await axios.get(`/ingredients?ing=${ingredient}`);
+      const response = await axios.get(
+        `/ingredients?ing=${ingredient}`
+      );
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
