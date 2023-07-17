@@ -51,8 +51,6 @@ const shoppingListSlice = createSlice({
         state.isLoading = false;
         state.error = null;
 
-		  console.log('state', state.shoppingList)
-
         const index = state.shoppingList.findIndex(
           product => (product._id === action.payload.data.shoppingList.ingredientId)
         );
