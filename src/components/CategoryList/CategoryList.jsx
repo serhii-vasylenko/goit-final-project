@@ -31,7 +31,7 @@ export const CategoryList = ({ currentCategory }) => {
           return (
             <Category
               key={item._id}
-              className={item.name.toLowerCase() === currentCategory ? 'active' : null}
+              className={item.name.toLowerCase() === currentCategory.toLowerCase() ? 'active' : null}
               onClick={event => handleScroll(event, index)}
             >
               <Link to={`/categories/${item.name}`}>{item.name}</Link>
