@@ -15,6 +15,11 @@ export const darkTheme = {
     secondaryTextColor: '#fafafa',
     footerBGColor: '#8BAA36',
     privacyColor: '#fafafa',
+    recipeCardBgColor: '#2A2C36',
+    recipeCardDeleteBgColor: '#1e1f28',
+    recipeCardDeleteColor: '#fff',
+    recipeCardDescriptionColor: '#fafafa99',
+    paginationBgHoverColor: '#8aa936',
     categoriesListBGColor: '#2a2c36',
   },
   transforms: {
