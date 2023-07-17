@@ -51,7 +51,7 @@ const ShoppingListPage = () => {
 
             <ShoppingList>
               {data.data.shoppingList.map(product => (
-                <Item key={product._id}>
+                <Item key={product._id + Math.random()}>
                   {<ShoppingListItem product={product} />}
                 </Item>
               ))}

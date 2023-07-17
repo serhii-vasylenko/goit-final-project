@@ -30,7 +30,7 @@ export const shoppingListApi = createApi({
 
     deleteProduct: builder.mutation({
       query: id => ({
-        url: `shopping-list/remove-ingredient`,
+        url: `ingredients/shopping-list/remove-ingredient`,
         method: 'POST',
         body: id,
       }),

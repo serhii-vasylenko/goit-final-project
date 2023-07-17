@@ -17,9 +17,16 @@ import { showMessageToast } from 'components/ReusableComponents/ToastCustom/show
 const ShoppingListItem = ({ product }) => {
   const [deleteProduct] = useDeleteProductMutation();
 
-  const clickHandler = productId => {
+  const clickHandler = product => {
     showMessageToast('Product`s deleted!');
-    deleteProduct({});
+    deleteProduct({
+		ingredientId: product._id,
+		recipeId: product.recipeId,
+		measure: product.measure
+	 });
+	 console.log({ingredientId: product._id,
+		recipeId: product.recipeId,
+		measure: product.measure})
   };
   return (
     <Item>
@@ -35,8 +42,8 @@ const ShoppingListItem = ({ product }) => {
       </DescriptionContainer>
 
       <NumberContainer>
-        <ProductQuantity></ProductQuantity>
-        <DeleteBtn onClick={() => clickHandler(product._id)}>
+        <ProductQuantity>{product.measure}</ProductQuantity>
+        <DeleteBtn onClick={() => clickHandler(product)}>
           <CrossIcon>
             <use href={`${sprite}#icon-cross`}></use>
           </CrossIcon>
