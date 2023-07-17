@@ -4,7 +4,17 @@ const Categories = styled.ul`
   display: flex;
   align-items: center;
   padding-top: 100px;
-  width: 100%;
+  /* width:100%; */
+
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 const Category = styled.li`
   position: relative;
@@ -19,29 +29,28 @@ const Category = styled.li`
   &:not(:last-child) {
     margin-right: 55px;
   }
+
   &:hover,
-  &.active {
+  &:focus {
     color: var(--accent-color);
-    & span {
-      height: 2px;
-    }
+  }
+
+  &.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: var(--accent-color);
   }
 `;
-const ItemLine = styled.span`
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  z-index: 5px;
-  display: block;
-  width: 100%;
-  background-color: currentColor;
-  height: 0px;
-  transition: height var(--transition-duration) var(--timing-function);
-`;
+
 const Line = styled.span`
   display: block;
   width: 1240px;
   height: 1px;
   background: #e0e0e0;
 `;
-export { Categories, Category, Line, ItemLine };
+export { Categories, Category, Line };
