@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 export const NetworkList = styled.ul`
   display: flex;
-  justify-content: center;
+  justify-content: ${props => props.flex || 'center'};
   gap: 14px;
 
   @media screen and (min-width: 768px) {
