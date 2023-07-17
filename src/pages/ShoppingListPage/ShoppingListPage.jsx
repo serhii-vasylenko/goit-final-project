@@ -1,6 +1,7 @@
 import {
   HeadContainer,
   Item,
+  NotFound,
   ProductsHead,
   Section,
   ShoppingList,
@@ -13,7 +14,7 @@ import { useGetProductsQuery } from 'redux/shopping-list/productsSlice';
 import SearchCapImage from 'components/ReusableComponents/SearchCap/SearhCap';
 
 const ShoppingListPage = () => {
-  const { data, error} = useGetProductsQuery();
+  const { data, error } = useGetProductsQuery();
 
   if (!data) {
     return;
@@ -34,9 +35,11 @@ const ShoppingListPage = () => {
         <Title title="Shopping list"></Title>
 
         {data && data.data.shoppingList.length <= 0 && (
-          <SearchCapImage>
-            There are not any products in your shopping-list
-          </SearchCapImage>
+          <NotFound>
+            <SearchCapImage>
+              There are not any products in your shopping-list
+            </SearchCapImage>
+          </NotFound>
         )}
 
         {data && data.data.shoppingList.length > 0 && (

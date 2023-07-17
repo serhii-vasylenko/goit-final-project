@@ -86,3 +86,11 @@ export const Item = styled.li`
     border-bottom: 2px solid #e0e0e0;
   }
 `;
+
+export const NotFound = styled.div`
+  margin-top: 50px;
+
+  @media (min-width: 768px) {
+    margin-top: 100px;
+  }
+`;
