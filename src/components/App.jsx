@@ -103,13 +103,12 @@ const App = () => {
             <Route path="favorite" element={<FavoritePage />} />
             <Route
               path="shopping-list"
-				  element={<ShoppingListPage />}
-            //   element={
-            //     <PrivateRoute
-            //       redirectTo="/signin"
-            //       component={<ShoppingListPage />}
-            //     />
-            //   }
+              element={
+                <PrivateRoute
+                  redirectTo="/signin"
+                  component={<ShoppingListPage />}
+                />
+              }
             />
             <Route path="search" element={<SearchPage />} />
             <Route path="/recipes/:recipeId" element={<RecipePage />} />
