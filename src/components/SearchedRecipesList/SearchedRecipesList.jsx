@@ -1,15 +1,28 @@
-import { useEffect, useLayoutEffect, useState, useCallback } from 'react';
+import {
+  useEffect,
+  useLayoutEffect,
+  useState,
+  useCallback,
+  useRef,
+} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router';
 import { useSearchParams } from 'react-router-dom';
+import usePagination from 'hooks/usePagination';
 
+import Loader from '../ReusableComponents/Loader/Loader';
 import RecipeGalleryItem from '../ReusableComponents/RecipeGalleryItem/RecipeGalleryItem';
 import SearchCapImage from '../ReusableComponents/SearchCap/SearhCap';
-import { showErrorToast } from '../ReusableComponents/ToastCustom/showToast';
+import {
+  showErrorToast,
+  showMessageToast,
+} from '../ReusableComponents/ToastCustom/showToast';
+import Paginator from '../ReusableComponents/Paginator/Paginator';
 
 import {
   selectRecipeByTitle,
   selectRecipesByIngredient,
+  selectIsLoading,
   selectError,
 } from 'redux/search/searchSelector';
 import getRecipesByTitle from 'redux/search/operations/getRecipesByTitle';
@@ -24,6 +37,7 @@ import { Section, List } from './SearchRecipesList.styled';
 const SearchedRecipesList = () => {
   const searchedList = useSelector(selectRecipeByTitle);
   const serchedIngredList = useSelector(selectRecipesByIngredient);
+  const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -32,6 +46,15 @@ const SearchedRecipesList = () => {
   const [searchParams] = useSearchParams();
   const location = useLocation();
   const dispatch = useDispatch();
+
+  const listRef = useRef(null);
+  const PER_PAGE = 6;
+  const data = usePagination(visibleRecipes, PER_PAGE);
+
+  const handleChange = (e, p) => {
+    data.jump(p);
+    listRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   useEffect(() => {
     if (error) showErrorToast(error);
@@ -68,32 +91,50 @@ const SearchedRecipesList = () => {
 
   const visibleRecipeList = useCallback(() => {
     let visibleList =
-      searchedList?.length > 0
-        ? searchedList
-        : serchedIngredList?.map(i => i);
+      searchedList?.length > 0 ? searchedList : serchedIngredList?.map(i => i);
     setVisibleRecipes(visibleList);
   }, [searchedList, serchedIngredList]);
 
   useEffect(() => {
     visibleRecipeList();
   }, [visibleRecipeList]);
-  // console.log('visibleRecipes :>> ', visibleRecipes);
 
   return (
     <Section>
-      <List>
-        {visibleRecipes?.length && visibleRecipes?.length !== 0 ? (
-          visibleRecipes
-            .slice(0, windowWidth >= 1280 ? 12 : visibleRecipes.length)
-            .map(({ _id: id, title, preview }) => (
-              <RecipeGalleryItem key={id} id={id} title={title} src={preview} />
-            ))
-        ) : (
-          <SearchCapImage>Try looking for something else...</SearchCapImage>
-        )}
-      </List>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          {(windowWidth >= 1280 ? visibleRecipes : data.currentData)?.length ||
+          0 ? (
+            <List ref={listRef}>
+              {(windowWidth >= 1280 ? visibleRecipes : data.currentData)
+                .slice(
+                  0,
+                  windowWidth >= 1280
+                    ? 12
+                    : (windowWidth >= 1280 ? visibleRecipes : data.currentData)
+                        .length
+                )
+                .map(({ _id: id, title, preview }) => (
+                  <RecipeGalleryItem
+                    key={id}
+                    id={id}
+                    title={title}
+                    src={preview}
+                  />
+                ))}
+            </List>
+          ) : (
+            <SearchCapImage>Try looking for something else...</SearchCapImage>
+          )}
+          {windowWidth < 1280 && (
+            <Paginator count={data.count} handleChange={handleChange} />
+          )}
+        </>
+      )}
     </Section>
   );
-};
+}
 
 export default SearchedRecipesList;
