@@ -24,6 +24,7 @@ const initialState = {
     totalPages: 0,
     perPage: 0,
   },
+  currentAddedOwnRecipe: '',
   popularRecipes: [],
   recipesByIngredient: [],
   recipesByCategory: [],
@@ -101,6 +102,7 @@ const recipesSlice = createSlice({
           ...state.ownRecipes.recipe,
           action.payload.data.recipe,
         ];
+        state.currentAddedOwnRecipe = action.payload.data.recipe._id;
       })
       .addCase(recipeOperations.addOwnRecipe.rejected, handleRejected)
       .addCase(recipeOperations.getFavoriteRecipes.pending, handlePending)
