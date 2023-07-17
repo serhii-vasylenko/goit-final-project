@@ -61,10 +61,6 @@ export const StyledSelect = styled(ReactSelect)`
       border-radius: 6px;
     }
 
-    &__menu-is-open {
-      /* background: #ffffff; */
-    }
-
     &__menu-list {
       border: none;
       height: calc(6 * 20px + 10px);
@@ -177,6 +173,10 @@ export const MeasureField = styled(Field)`
     font-size: 18px;
     height: 59px;
     width: 214px;
+  }
+
+  &.error {
+    border: 1px solid var(--error-color);
   }
 `;
 
