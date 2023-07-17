@@ -1,9 +1,4 @@
-// import { useEffect, useState } from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
-
-// import { useDispatch } from 'react-redux';
-// import {useGetProductsQuery, useAddProductMutation} from '../../redux/shopping-list/productsSlice'
-
+import { useAddProductMutation, useGetProductsQuery, useDeleteProductMutation } from 'redux/shopping-list/productsSlice';
 import CustomCheckBox from './Checkbox';
 import {
   IngredientList,
@@ -17,10 +12,49 @@ import {
   Image,
 } from './RecipeInngredientsList.styled';
 
-const RecipeInngredientsList = ({ ingredients }) => {
+const RecipeInngredientsList = ({ ingredients, recipeId }) => {
 
-  // const { data: shoppingList } = useGetProductsQuery()
+  const { _id, measure, name, img } = ingredients;
+
+  const { data } = useGetProductsQuery();
+  // const [deleteProduct] = useDeleteProductMutation();
+  const [addProduct] = useAddProductMutation();
+
+  // function getIngredient(id) {
+  //   if (shoppingList.length !== 0) {
+  //     const ingredientId = shoppingList?.some(ingredient => ingredient.recipeId === id);
+  //     return ingredientId;
+  //   }
+  //   return false;
+  // };
+
+  // const inShoppingList = getIngredient(recipeId);
+
+   const toggleToShoppingList = (ingredients) => {
+    // if (inShoppingList) {
+    //   const ingredient = shoppingList.find(item => {
+    //     return item.recipeId === recipeId;
+    //   });
+    //   deleteProduct(ingredient._id);
+    //   return;
+    // }
+   
+      addProduct({
+        measure,
+        name,
+        img,
+        recipeId,
+      })
+    ;
+    return;
+  };
+
+  // console.log(data.data.shoppingList)
   // const [addProduct] = useAddProductMutation();
+
+  //   const clickHandler = ingredients => {
+  //     addProduct({ ingredientId: _id, recipeId: _id, measure: measure });
+  //   };
 
   return (
     <>
@@ -42,10 +76,10 @@ const RecipeInngredientsList = ({ ingredients }) => {
                     <NameIngredient>{name}</NameIngredient>
                   </ContentWrap>
 
-              <ContentWrap>    
+              <ContentWrapMeasure>    
                 <IngredientMeasure>{measure}</IngredientMeasure>
-                <CustomCheckBox id={_id} measure={measure}/>
-              </ContentWrap>
+                    <CustomCheckBox clickHandler={toggleToShoppingList} />
+              </ContentWrapMeasure>
            
           </IngredientItem>
         );

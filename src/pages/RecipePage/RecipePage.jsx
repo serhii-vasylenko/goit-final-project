@@ -36,7 +36,8 @@ const dispatch = useDispatch()
       />     
         <MainContainer>
            <RecipeInngredientsList
-            ingredients={recipeInfo.ingredients}         
+              ingredients={recipeInfo.ingredients}   
+             recipeId={recipeId}  
           />  
           <RecipePreparation
           instructions={recipeInfo.instructions}
