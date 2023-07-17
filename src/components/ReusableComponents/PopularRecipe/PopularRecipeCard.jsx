@@ -10,7 +10,7 @@ import {
 
 const PopularRecipe = ({ _id, title, description, thumb }) => {
   return (
-    <Recipe to={`recipes/${_id}`}>
+    <Recipe to={`/recipes/${_id}`}>
       <ImageWrapper>
         <Image src={thumb} />
       </ImageWrapper>
