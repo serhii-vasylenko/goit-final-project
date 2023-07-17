@@ -140,14 +140,13 @@ export const Select = styled(StyledSelect)`
 
   .custom-select {
     &__control {
-      box-shadow: none;
       background-color: var(--background-color);
       min-height: 20px;
       min-width: 87px;
       font-size: 12px;
       line-height: 1;
-      cursor: pointer;
       font-weight: 500;
+      cursor: pointer;
 
       @media screen and (min-width: 768px) {
         font-size: 14px;
@@ -161,28 +160,25 @@ export const Select = styled(StyledSelect)`
     }
 
     &__menu {
+      padding: 4px 4px 4px 14px;
       width: 123px;
       top: 15px;
       right: 5px;
-
-      padding: 4px 4px 4px 14px;
-    }
-
-    &__menu-is-open {
     }
 
     &__menu-list {
-      height: calc(6 * 18px + 8px);
+      height: calc(6 * 27px + 6px);
 
-      /* @media screen and (min-width: 768px) {
+      @media screen and (min-width: 768px) {
         height: calc(6 * 22px + 20px);
-      } */
+      }
     }
     &__value-container {
       padding: 0px 8px;
     }
     &__option {
-      margin: 4px 0;
+      padding: 3px 0;
+      gap: 4px;
     }
 
     &__indicator {
