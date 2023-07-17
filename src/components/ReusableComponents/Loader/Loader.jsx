@@ -1,7 +1,11 @@
-import { StyledLoader } from './Loader.styled';
+import { LoaderWrapper, StyledLoader } from './Loader.styled';
 
 const Loader = () => {
-  return <StyledLoader size={70} />;
+  return (
+    <LoaderWrapper>
+      <StyledLoader height={70} width={70} visible={true} />
+    </LoaderWrapper>
+  );
 };
 
 export default Loader;

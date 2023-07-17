@@ -15,8 +15,11 @@ import MainButton from 'components/ReusableComponents/MainButton/MainButton';
 import { useFormik } from 'formik';
 import { subscribeSchema } from 'helpers/registerValidationShema';
 import { getStatus } from 'helpers/utils';
+import { useDispatch } from 'react-redux';
+import { subscribeUser } from 'redux/auth/operations';
 
 const SubscribeForm = () => {
+  const dispatch = useDispatch();
   const {
     values,
     errors,
@@ -32,7 +35,7 @@ const SubscribeForm = () => {
     },
     validationSchema: subscribeSchema,
     onSubmit: values => {
-      console.log('values', values);
+      dispatch(subscribeUser(values));
       resetForm();
     },
   });

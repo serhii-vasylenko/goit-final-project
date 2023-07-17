@@ -4,9 +4,8 @@ import { NavLink } from 'react-router-dom';
 export const Recipe = styled(NavLink)`
   width: 343px;
   padding-bottom: 13px;
-  border: 1px solid #7070702b;
+  border-bottom: 1px solid #7070702b;
   display: flex;
-  gap: 12px;
 
   @media (min-width: 768px) {
     width: 336px;
@@ -21,6 +20,7 @@ export const Recipe = styled(NavLink)`
 export const ImageWrapper = styled.div`
   width: 104px;
   height: 85px;
+  margin-right: 12px;
   flex-shrink: 0;
   border-radius: 8px;
 
@@ -35,7 +35,7 @@ export const ImageWrapper = styled.div`
 
 export const Image = styled.img`
   height: 100%;
-  height: 100%;
+  width: 100%;
   object-fit: cover;
   border-radius: 8px;
 `;

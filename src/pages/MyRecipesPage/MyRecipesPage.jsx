@@ -3,37 +3,43 @@ import { useLayoutEffect, useRef } from 'react';
 
 import getOwnRecipe from 'redux/recipes/operations/getOwnRecipes';
 import { selectUser } from 'redux/auth/selectors';
-import usePagination from 'hooks/usePagination';
 
 import { MainContainer } from 'components/MainContainer/MainContainer';
-import Paginator from 'components/ReusableComponents/Paginator/Paginator';
 import Loader from 'components/ReusableComponents/Loader/Loader';
 import RecipeCardItem from 'components/ReusableComponents/RecipeCardItem/RecipeCardItem';
 
 import { EmptyInfo, List, Section, Title } from './MyRecipiesPage.styled';
 import SearchCapImage from 'components/ReusableComponents/SearchCap/SearhCap';
-import deleteownRecipe from 'redux/recipes/operations/deleteOwnRecipe';
+import deleteOwnRecipe from 'redux/recipes/operations/deleteOwnRecipe';
+import getOwnRecipes from 'redux/recipes/operations/getOwnRecipes';
+import Pagination from 'components/ReusableComponents/Pagination/Pagination';
 
 const MyRecipesPage = () => {
   const { userId } = useSelector(selectUser);
   const { isLoading, error, ownRecipes } = useSelector(state => state.recipes);
   const listRef = useRef(null);
   const dispatch = useDispatch();
-  const PER_PAGE = 3;
 
-  const data = usePagination(ownRecipes, PER_PAGE);
-
-  const handleChange = (e, p) => {
-    data.jump(p);
+  const handleChange = num => {
     listRef.current?.scrollIntoView({ behavior: 'smooth' });
+    dispatch(getOwnRecipe({ id: userId, page: num }));
   };
 
   const onDeleteHandler = id => {
-    dispatch(deleteownRecipe(id));
+    dispatch(deleteOwnRecipe(id)).then(() =>
+      dispatch(
+        getOwnRecipes({
+          page:
+            (ownRecipes.totalOwnRecipes - 1) % ownRecipes.perPage === 0
+              ? ownRecipes.currentPage - 1
+              : ownRecipes.currentPage,
+        })
+      )
+    );
   };
 
   useLayoutEffect(() => {
-    dispatch(getOwnRecipe(userId));
+    dispatch(getOwnRecipe({ id: userId, page: 1 }));
   }, [dispatch, userId]);
 
   return (
@@ -44,10 +50,10 @@ const MyRecipesPage = () => {
           <Loader />
         ) : error ? (
           <div>{error}</div>
-        ) : ownRecipes.length ? (
+        ) : ownRecipes.recipe.length ? (
           <>
             <List ref={listRef}>
-              {data.currentData().map(recipe => (
+              {ownRecipes.recipe.map(recipe => (
                 <RecipeCardItem
                   key={recipe._id}
                   onDeleteHandler={onDeleteHandler}
@@ -55,10 +61,11 @@ const MyRecipesPage = () => {
                 />
               ))}
             </List>
-            <Paginator
-              count={data.count}
-              page={data.page()}
-              handleChange={handleChange}
+            <Pagination
+              currentPage={ownRecipes.currentPage}
+              pageSize={ownRecipes.perPage}
+              totalCount={ownRecipes.totalOwnRecipes}
+              onPageChange={handleChange}
             />
           </>
         ) : (

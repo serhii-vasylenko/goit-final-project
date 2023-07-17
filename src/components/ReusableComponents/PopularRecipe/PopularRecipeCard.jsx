@@ -6,7 +6,7 @@ import {
   Info,
   Recipe,
   Title,
-} from './PopularRecipe.styled';
+} from './PopularRecipeCard.styled';
 
 const PopularRecipe = ({ _id, title, description, thumb }) => {
   return (
