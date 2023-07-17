@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from '../../../const/axiosBaseUrl';
 
-const deleteownRecipe= createAsyncThunk(
-  'recipes/deleteownRecipe',
+const deleteOwnRecipe = createAsyncThunk(
+  'recipes/deleteOwnRecipe',
   async (id, thunkAPI) => {
     try {
       const response = await axios.delete(`/recipes/ownRecipes/${id}`);
@@ -13,4 +13,4 @@ const deleteownRecipe= createAsyncThunk(
   }
 );
 
-export default deleteownRecipe;
+export default deleteOwnRecipe;

@@ -1,11 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useLayoutEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
-import { selectUser } from 'redux/auth/selectors';
-import usePagination from 'hooks/usePagination';
-
+import Pagination from 'components/ReusableComponents/Pagination/Pagination';
 import { MainContainer } from 'components/MainContainer/MainContainer';
-import Paginator from 'components/ReusableComponents/Paginator/Paginator';
 import Loader from 'components/ReusableComponents/Loader/Loader';
 import RecipeCardItem from 'components/ReusableComponents/RecipeCardItem/RecipeCardItem';
 
@@ -15,28 +12,33 @@ import SearchCapImage from 'components/ReusableComponents/SearchCap/SearhCap';
 import deleteFromFavoriteRecipes from 'redux/recipes/operations/deleteFromFavoriteRecipes';
 
 const FavoritePage = () => {
-  const { userId } = useSelector(selectUser);
   const { isLoading, error, favoriteRecipes } = useSelector(
     state => state.recipes
   );
   const listRef = useRef(null);
   const dispatch = useDispatch();
-  const PER_PAGE = 3;
 
-  const data = usePagination(favoriteRecipes, PER_PAGE);
-
-  const handleChange = (e, p) => {
-    data.jump(p);
+  const handleChange = num => {
     listRef.current?.scrollIntoView({ behavior: 'smooth' });
+    dispatch(getFavoriteRecipes({ page: num }));
   };
 
-  const onDeleteHandler = id => {
-    dispatch(deleteFromFavoriteRecipes(id));
+  const onDeleteHandler = async id => {
+    dispatch(deleteFromFavoriteRecipes(id)).then(() =>
+      dispatch(
+        getFavoriteRecipes({
+          page:
+            (favoriteRecipes.totalFavorites - 1) % favoriteRecipes.perPage === 0
+              ? favoriteRecipes.currentPage - 1
+              : favoriteRecipes.currentPage,
+        })
+      )
+    );
   };
 
-  useLayoutEffect(() => {
-    dispatch(getFavoriteRecipes());
-  }, [dispatch, userId]);
+  useEffect(() => {
+    dispatch(getFavoriteRecipes({ page: 1 }));
+  }, [dispatch]);
 
   return (
     <Section>
@@ -46,10 +48,10 @@ const FavoritePage = () => {
           <Loader />
         ) : error ? (
           <div>{error}</div>
-        ) : favoriteRecipes.length ? (
+        ) : favoriteRecipes.recipe.length ? (
           <>
             <List ref={listRef}>
-              {data.currentData().map(recipe => (
+              {favoriteRecipes.recipe.map(recipe => (
                 <RecipeCardItem
                   key={recipe._id}
                   onDeleteHandler={onDeleteHandler}
@@ -57,10 +59,12 @@ const FavoritePage = () => {
                 />
               ))}
             </List>
-            <Paginator
-              count={data.count}
-              page={data.page()}
-              handleChange={handleChange}
+
+            <Pagination
+              currentPage={favoriteRecipes.currentPage}
+              pageSize={favoriteRecipes.perPage}
+              totalCount={favoriteRecipes.totalFavorites}
+              onPageChange={handleChange}
             />
           </>
         ) : (
