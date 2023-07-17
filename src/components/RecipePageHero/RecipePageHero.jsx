@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import {
@@ -11,9 +10,9 @@ import {
   ClockIcon,
 } from './RecipePageHero.styled';
 import { selectFavoriteRecipes, selectOwnRecipes } from 'redux/recipes/recipesSelector';
-import getFavoriteRecipes from 'redux/recipes/operations/getFavoriteRecipes';
 import addToFavoriteRecipes from 'redux/recipes/operations/addToFavoriteRecipes';
 import deleteFromFavoriteRecipes from 'redux/recipes/operations/deleteFromFavoriteRecipes';
+import { showErrorToast, showMessageToast } from 'components/ReusableComponents/ToastCustom/showToast';
 
 const RecipePageHero = ({ title, description, time }) => {
 const { recipeId } = useParams();
@@ -22,34 +21,29 @@ const { recipeId } = useParams();
   const favoriteRecipes = useSelector(selectFavoriteRecipes);
   const ownRecipes = useSelector(selectOwnRecipes);
 
-  // console.log(favoriteRecipes);
-  //  console.log(ownRecipes);
-
-  useEffect(() => {
-    dispatch(getFavoriteRecipes());
-  },[dispatch])
-
-  const isFavorite = favoriteRecipes.find(favorite => favorite._id === recipeId);
+  const isFavorite = favoriteRecipes.recipe.find(favorite => favorite._id === recipeId);
+  console.log(isFavorite)
 
   const toggleFavorite = async () => {
     try {
       if (!isFavorite) {
-       await dispatch(addToFavoriteRecipes(recipeId));
+        await dispatch(addToFavoriteRecipes(recipeId));
+        showMessageToast(`Recipe is added to the list of favorites`)
       } else {
-       await dispatch(deleteFromFavoriteRecipes(recipeId));
+        await dispatch(deleteFromFavoriteRecipes(recipeId));
+        // showMessageToast(`Recipe ${title} is removed from the list of favorites`);
       }
     } catch (error) {
       console.log(error);
+      showErrorToast();
     }
   };
-
-
 
   return (
     <HeroContainer>
       <HeroTitle>{title}</HeroTitle>
       <HeroText>{description}</HeroText>
-      {favoriteRecipes && ownRecipes && (<Button type="button" onClick={toggleFavorite}>{
+      {favoriteRecipes.recipe && ownRecipes.recipe && (<Button type="button" onClick={toggleFavorite}>{
         isFavorite ? 'Remove from favorite recipes' : 'Add to favorite recipes'
       }
       </Button>

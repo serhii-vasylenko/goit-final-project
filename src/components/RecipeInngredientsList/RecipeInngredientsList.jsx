@@ -1,5 +1,5 @@
-import { useAddProductMutation, useGetProductsQuery, useDeleteProductMutation } from 'redux/shopping-list/productsSlice';
-// import CustomCheckBox from './Checkbox';
+// import { useAddProductMutation, useGetProductsQuery, useDeleteProductMutation } from 'redux/shopping-list/productsSlice';
+
 import {
   IngredientList,
   IngredientItem,
@@ -15,12 +15,13 @@ import {
 
 const RecipeInngredientsList = ({ ingredients, recipeId }) => {
 
-  const { _id, measure, name, img } = ingredients;
+  // const { _id, measure, name, img } = ingredients;
 
   // const { data: shoppingList } = useGetProductsQuery();
   // const [deleteProduct] = useDeleteProductMutation();
   // const [addProduct] = useAddProductMutation();
 
+  // console.log(shoppingList)
 
   return (
     <>
