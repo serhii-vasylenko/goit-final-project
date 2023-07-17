@@ -127,9 +127,9 @@ const SearchedRecipesList = () => {
           ) : (
             <SearchCapImage>Try looking for something else...</SearchCapImage>
           )}
-          {windowWidth < 1280 && (
+          {/* {windowWidth < 1280 && (
             <Paginator count={data.count} handleChange={handleChange} />
-          )}
+          )} */}
         </>
       )}
     </Section>

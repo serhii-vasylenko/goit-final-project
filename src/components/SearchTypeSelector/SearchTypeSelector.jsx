@@ -11,6 +11,8 @@ import {
   SelectName,
   StyledSelect,
   StyledMenuItem,
+  Select,
+  Option
 } from './SearchTypeSelector.styled';
 
 const SearchTypeSelector = () => {
@@ -25,12 +27,15 @@ const SearchTypeSelector = () => {
     }
   }, [dispatch, selectedOption, selectedValue]);
 
-  const selectOption = selectedOption => ({
-    type: 'search/setSearchFilter',
-    payload: selectedOption,
-  });
+  const selectOption = selectedOption => {
+    return {
+      type: 'search/setSearchFilter',
+      payload: selectedOption
+    };
+  };
 
-  const handleChange = e => {
+
+  const handleOptionChange = e => {
     const value = e.target.value;
     setSelectedValue(value);
     dispatch(selectOption(value));
@@ -40,7 +45,11 @@ const SearchTypeSelector = () => {
     <>
       <SelectWrapper>
         <SelectName> Search by:</SelectName>
-        <StyledFormControl
+        <Select value={selectedOption} onChange={handleOptionChange}>
+          <Option value="title">Title</Option>
+          <Option value="ingredient">Ingredient</Option>
+        </Select>
+        {/* <StyledFormControl
           sx={{
             m: 1,
             minWidth: 120,
@@ -63,7 +72,7 @@ const SearchTypeSelector = () => {
             <StyledMenuItem value="title">Title</StyledMenuItem>
             <StyledMenuItem value="ingredient">Ingredients</StyledMenuItem>
           </StyledSelect>
-        </StyledFormControl>
+        </StyledFormControl> */}
       </SelectWrapper>
     </>
   );
