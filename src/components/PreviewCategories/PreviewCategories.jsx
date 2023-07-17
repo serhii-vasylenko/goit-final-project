@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import RecipeGallery from 'components/RecipeGallery';
 import { MainContainer } from 'components/MainContainer/MainContainer';
 import MainButton from 'components/ReusableComponents/MainButton/MainButton';
-import Loader from 'components/ReusableComponents/Loader/Loader';
+import Loader from 'components/ReusableComponents/Loader';
 import { showMessageToast } from 'components/ReusableComponents/ToastCustom/showToast';
 import ErrorBanner from './ErrorBanner';
 
@@ -47,20 +47,18 @@ const PreviewCategories = () => {
 
         filterRecipesByCategory.push({ category, recipes: filteredRecipes });
       });
-    } 
-    
-    if (error){
-      showMessageToast('oops...please refresh the page');
+    } else {
+      showMessageToast('oops...something went wrong');
     }
 
     return filterRecipesByCategory;
-  }, [categories, error]);
+  }, [categories]);
 
   return (
     <PreviewCategoriesSection>
       <MainContainer>
         {isLoading && <Loader />}
-        {!isLoading && error && <ErrorBanner />}
+        {!isLoading && !categories && <ErrorBanner />}
         {!isLoading && categories && !error && (
           <>
             <PreviewCategoriesList>

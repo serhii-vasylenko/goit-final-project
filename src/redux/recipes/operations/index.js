@@ -2,7 +2,7 @@ import getCategoryList from './getCategoryList';
 import getMainPageRecipes from './getMainPageRecipes';
 import getRecipesById from './getRecipesById';
 import getRecipesByTitle from '../../search/operations/getRecipesByTitle';
-import deleteownRecipe from './deleteOwnRecipe';
+import deleteOwnRecipe from './deleteOwnRecipe';
 import getOwnRecipes from './getOwnRecipes';
 import addOwnRecipe from './addOwnRecipe';
 import addToFavoriteRecipes from './addToFavoriteRecipes';
@@ -17,7 +17,7 @@ export const recipeOperations = {
   getMainPageRecipes,
   getRecipesById,
   getRecipesByTitle,
-  deleteownRecipe,
+  deleteOwnRecipe,
   getOwnRecipes,
   addOwnRecipe,
   addToFavoriteRecipes,

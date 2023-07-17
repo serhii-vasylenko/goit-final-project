@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { recipeOperations } from './operations';
+import { showMessageToast } from 'components/ReusableComponents/ToastCustom/showToast';
 
 const handlePending = state => {
   state.isLoading = true;
@@ -16,11 +17,23 @@ const initialState = {
   searchFilter: null,
   recipeByTitle: [],
   recipeById: null,
-  ownRecipes: [],
+  ownRecipes: {
+    recipe: [],
+    currentPage: 0,
+    totalOwnRecipes: 0,
+    totalPages: 0,
+    perPage: 0,
+  },
   popularRecipes: [],
   recipesByIngredient: [],
   recipesByCategory: [],
-  favoriteRecipes: [],
+  favoriteRecipes: {
+    recipe: [],
+    currentPage: 0,
+    totalFavorites: 0,
+    totalPages: 0,
+    perPage: 0,
+  },
   isLoading: false,
   error: null,
 };
@@ -64,50 +77,76 @@ const recipesSlice = createSlice({
       .addCase(recipeOperations.getOwnRecipes.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.ownRecipes = action.payload.data.recipe;
+        state.ownRecipes = action.payload.data;
       })
       .addCase(recipeOperations.getOwnRecipes.rejected, handleRejected)
-      .addCase(recipeOperations.deleteownRecipe.pending, handlePending)
-      .addCase(recipeOperations.deleteownRecipe.fulfilled, (state, action) => {
+      .addCase(recipeOperations.deleteOwnRecipe.pending, handlePending)
+      .addCase(recipeOperations.deleteOwnRecipe.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        const index = state.ownRecipes.findIndex(
+        const index = state.ownRecipes.recipe.findIndex(
           ownRecipe => ownRecipe._id === action.payload.data.recipe._id
         );
-        state.ownRecipes.splice(index, 1);
+        state.ownRecipes.recipe.splice(index, 1);
+        showMessageToast(
+          'Recipe was successfully deleted from your collection.'
+        );
       })
-      .addCase(recipeOperations.deleteownRecipe.rejected, handleRejected)
+      .addCase(recipeOperations.deleteOwnRecipe.rejected, handleRejected)
       .addCase(recipeOperations.addOwnRecipe.pending, handlePending)
       .addCase(recipeOperations.addOwnRecipe.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.ownRecipes = [...state.ownRecipes, action.payload.data.recipe];
+        state.ownRecipes.recipe = [
+          ...state.ownRecipes.recipe,
+          action.payload.data.recipe,
+        ];
       })
       .addCase(recipeOperations.addOwnRecipe.rejected, handleRejected)
       .addCase(recipeOperations.getFavoriteRecipes.pending, handlePending)
-      .addCase(recipeOperations.getFavoriteRecipes.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
-        state.favoriteRecipes =  action.payload.data.recipe;
-      })
+      .addCase(
+        recipeOperations.getFavoriteRecipes.fulfilled,
+        (state, action) => {
+          state.isLoading = false;
+          state.error = null;
+          state.favoriteRecipes = action.payload.data;
+        }
+      )
       .addCase(recipeOperations.getFavoriteRecipes.rejected, handleRejected)
       .addCase(recipeOperations.addToFavoriteRecipes.pending, handlePending)
-      .addCase(recipeOperations.addToFavoriteRecipes.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
-        state.favoriteRecipes = [...state.favoriteRecipes, action.payload.data.recipe];
-      })
+      .addCase(
+        recipeOperations.addToFavoriteRecipes.fulfilled,
+        (state, action) => {
+          state.isLoading = false;
+          state.error = null;
+          state.favoriteRecipes.recipe = [
+            ...state.favoriteRecipes.recipe,
+            action.payload.data.recipe,
+          ];
+        }
+      )
       .addCase(recipeOperations.addToFavoriteRecipes.rejected, handleRejected)
-      .addCase(recipeOperations.deleteFromFavoriteRecipes.pending, handlePending)
-      .addCase(recipeOperations.deleteFromFavoriteRecipes.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
-        const index = state.favoriteRecipes.findIndex(
-          favoriteRecipe => favoriteRecipe._id === action.payload.data.recipe._id
-        );
-        state.favoriteRecipes.splice(index, 1);
-      })
-      .addCase(recipeOperations.deleteFromFavoriteRecipes.rejected, handleRejected)
+      .addCase(
+        recipeOperations.deleteFromFavoriteRecipes.pending,
+        handlePending
+      )
+      .addCase(
+        recipeOperations.deleteFromFavoriteRecipes.fulfilled,
+        (state, action) => {
+          state.isLoading = false;
+          state.error = null;
+          const index = state.favoriteRecipes.recipe.findIndex(
+            favoriteRecipe =>
+              favoriteRecipe._id === action.payload.data.recipe._id
+          );
+          state.favoriteRecipes.recipe.splice(index, 1);
+          showMessageToast('Recipe was successfully deleted from favorites.');
+        }
+      )
+      .addCase(
+        recipeOperations.deleteFromFavoriteRecipes.rejected,
+        handleRejected
+      )
       .addCase(recipeOperations.getRecipesByCategory.pending, handlePending)
       .addCase(
         recipeOperations.getRecipesByCategory.fulfilled,
@@ -125,7 +164,6 @@ const recipesSlice = createSlice({
           state.isLoading = false;
           state.error = null;
           state.popularRecipes = action.payload.data.recipe;
-          
         }
       )
       .addCase(recipeOperations.getPopularRecipes.rejected, handleRejected);

@@ -3,9 +3,11 @@ import axios from '../../../const/axiosBaseUrl';
 
 const getOwnRecipes = createAsyncThunk(
   'recipes/getOwnRecipes',
-  async (id, thunkAPI) => {
+  async (data, thunkAPI) => {
     try {
-      const response = await axios.get(`/recipes/ownRecipes/${id}`);
+      const response = await axios.get(
+        `/recipes/ownRecipes/${data.id}?page=${data.page}`
+      );
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

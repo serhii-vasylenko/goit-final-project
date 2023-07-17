@@ -22,4 +22,10 @@ export const Link = styled(NavLink)`
   font-weight: 500;
   line-height: 1.3;
   color: var(--white-color);
+  display: inline-block;
+
+  transition: scale var(--timing-function) var(--transition-duration);
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
