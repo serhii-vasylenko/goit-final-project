@@ -8,7 +8,7 @@ export const Input = styled.input`
   background-color: #ffffff;
   border-radius: 24px 44px;
   border: 1px solid #f0f0f0;
-  color: #23262a;
+  color: var(--primary-text-color);
   font-size: 12px;
   line-height: 1.2;
 
@@ -18,7 +18,7 @@ export const Input = styled.input`
   :focus,
   :active {
     border: 1px solid rgba(35, 38, 42, 0.2);
-    outline:  rgba(35, 38, 42, 0.2);
+    outline: rgba(35, 38, 42, 0.2);
   }
 
   ::placeholder {
