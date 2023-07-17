@@ -29,16 +29,17 @@ export const PhotoFieldWrapper = styled.div`
 export const ImgWrapper = styled.div`
   width: 279px;
   height: 268px;
-`;
-export const FieldWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+
+  @media screen and (min-width: 1280px) {
+    width: 357px;
+    height: 344px;
+  }
 `;
 
+
 export const ImgLabel = styled.label`
-  width: 279px;
-  height: 268px;
+  /* width: 279px;
+  height: 268px; */
 `;
 
 export const InputFileThumb = styled.div`
@@ -64,6 +65,16 @@ export const Image = styled.img`
   border-radius: 8px;
 `;
 
+export const FieldWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  @media screen and (min-width: 1280px) {
+    width: 393px;
+  }
+`;
+
 export const FieldContainer = styled.div`
   position: relative;
   display: flex;
@@ -84,6 +95,12 @@ export const FieldContainer = styled.div`
     :not(:last-child) {
       margin-bottom: 32px;
     }
+  }
+
+   @media screen and (min-width: 1280px) {
+    :not(:last-child) {
+      margin-bottom: 40px;
+    } 
   }
 `;
 
