@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/goit-final-project/static/css/main.1a3255d7.css",
-    "main.js": "/goit-final-project/static/js/main.fc5c0b7d.js",
+    "main.js": "/goit-final-project/static/js/main.77df4851.js",
     "static/js/193.0aaa3db4.chunk.js": "/goit-final-project/static/js/193.0aaa3db4.chunk.js",
     "static/js/215.b7f8d7df.chunk.js": "/goit-final-project/static/js/215.b7f8d7df.chunk.js",
-    "static/js/751.18923c67.chunk.js": "/goit-final-project/static/js/751.18923c67.chunk.js",
+    "static/js/785.43b8c219.chunk.js": "/goit-final-project/static/js/785.43b8c219.chunk.js",
     "static/js/438.ffed3cf7.chunk.js": "/goit-final-project/static/js/438.ffed3cf7.chunk.js",
     "static/js/871.1d9a1640.chunk.js": "/goit-final-project/static/js/871.1d9a1640.chunk.js",
     "static/js/762.2f07b25f.chunk.js": "/goit-final-project/static/js/762.2f07b25f.chunk.js",
@@ -71,8 +71,8 @@
     "static/media/hero-tablet@2x.png": "/goit-final-project/static/media/hero-tablet@2x.3f6e8668cccbfa3d59b3.png",
     "static/media/hero-mobile@2x.png": "/goit-final-project/static/media/hero-mobile@2x.4a1adfa4c1c744b110cc.png",
     "static/media/toastImg.png": "/goit-final-project/static/media/toastImg.bea43f1e6b2fbfbce2ab.png",
+    "static/media/sprite.svg": "/goit-final-project/static/media/sprite.1dcf13cce62677cfe98e7fdc2b8e0a7e.svg",
     "static/media/hero-mobile-leaves-top.png": "/goit-final-project/static/media/hero-mobile-leaves-top.044637016be00b6a0872.png",
-    "static/media/sprite.svg": "/goit-final-project/static/media/sprite.621d1cf85f7aeed90666e3323bba8f71.svg",
     "static/media/networks-sprite.svg": "/goit-final-project/static/media/networks-sprite.938db3dc4480e280d30ddde1041d6983.svg",
     "index.html": "/goit-final-project/index.html",
     "static/media/error.svg": "/goit-final-project/static/media/error.9dffa3c548a425b2581fb25922c3c0aa.svg",
@@ -82,10 +82,10 @@
     "static/media/correct.svg": "/goit-final-project/static/media/correct.2c20cfce5010676dc2acf065541b3183.svg",
     "static/media/pick.svg": "/goit-final-project/static/media/pick.247b86d0e6a26346bf0885b5b0408bd8.svg",
     "main.1a3255d7.css.map": "/goit-final-project/static/css/main.1a3255d7.css.map",
-    "main.fc5c0b7d.js.map": "/goit-final-project/static/js/main.fc5c0b7d.js.map",
+    "main.77df4851.js.map": "/goit-final-project/static/js/main.77df4851.js.map",
     "193.0aaa3db4.chunk.js.map": "/goit-final-project/static/js/193.0aaa3db4.chunk.js.map",
     "215.b7f8d7df.chunk.js.map": "/goit-final-project/static/js/215.b7f8d7df.chunk.js.map",
-    "751.18923c67.chunk.js.map": "/goit-final-project/static/js/751.18923c67.chunk.js.map",
+    "785.43b8c219.chunk.js.map": "/goit-final-project/static/js/785.43b8c219.chunk.js.map",
     "438.ffed3cf7.chunk.js.map": "/goit-final-project/static/js/438.ffed3cf7.chunk.js.map",
     "871.1d9a1640.chunk.js.map": "/goit-final-project/static/js/871.1d9a1640.chunk.js.map",
     "762.2f07b25f.chunk.js.map": "/goit-final-project/static/js/762.2f07b25f.chunk.js.map",
@@ -98,6 +98,6 @@
   },
   "entrypoints": [
     "static/css/main.1a3255d7.css",
-    "static/js/main.fc5c0b7d.js"
+    "static/js/main.77df4851.js"
   ]
 }
