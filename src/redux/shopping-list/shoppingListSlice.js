@@ -30,7 +30,6 @@ const shoppingListSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.shoppingList = action.payload.data.shoppingList;
-		  console.log('STATE', state.shoppingList)
       })
       .addCase(getShoppingList.rejected, handleRejected)
 
@@ -57,8 +56,6 @@ const shoppingListSlice = createSlice({
         const index = state.shoppingList.findIndex(
           product => (product._id === action.payload.data.shoppingList.ingredientId)
         );
-
-		  console.log("index", index)
         state.shoppingList.splice(index, 1);
       })
       .addCase(removeFromShoppingList.rejected, handleRejected);
