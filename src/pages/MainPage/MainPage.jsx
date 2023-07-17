@@ -70,7 +70,7 @@ const MainPage = () => {
             {isMobile && <SearchForm />}
           </FlexWrapper>
           <HeroImgWrapper>
-            <HeroImg className={isLoading ? 'loading' : ''}>
+            <HeroImg>
               <source
                 media="(min-width: 1280px)"
                 srcSet={`${DesktopDish}, ${DesktopDishRetina} 2x`}
