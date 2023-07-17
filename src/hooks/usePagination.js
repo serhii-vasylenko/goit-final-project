@@ -1,21 +1,23 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function usePagination(data, itemsPerPage) {
   const [currentPage, setCurrentPage] = useState(1);
+  const [visibleData, setVisibleData] = useState([]);
+
   const count = Math.ceil(data.length / itemsPerPage);
 
-  function currentData() {
+  useEffect(() => {
     const begin = (currentPage - 1) * itemsPerPage;
     const end = begin + itemsPerPage;
-    return data.slice(begin, end);
-  }
+    setVisibleData(data.slice(begin, end));
+  }, [data, currentPage, itemsPerPage]);
 
   function next() {
     setCurrentPage(currentPage => Math.min(currentPage + 1, count));
   }
 
   function prev() {
-    setCurrentPage(currentPage => Math.max(currentPage - 1, 1));
+    setCurrentPage(currentPage => Math.max(currentPage - 1, count));
   }
 
   function jump(page) {
@@ -23,14 +25,7 @@ function usePagination(data, itemsPerPage) {
     setCurrentPage(currentPage => Math.min(pageNumber, count));
   }
 
-  function page() {
-    if (currentPage > count) {
-      setCurrentPage(prevState => prevState - 1);
-    }
-    return currentPage;
-  }
-
-  return { next, prev, jump, currentData, page, count };
+  return { next, prev, jump, currentData: visibleData, count };
 }
 
 export default usePagination;

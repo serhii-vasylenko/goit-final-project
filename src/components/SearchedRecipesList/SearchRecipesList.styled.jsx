@@ -3,16 +3,15 @@ import styled from '@emotion/styled';
 export const Section = styled.section`
   text-align: center;
   padding-top: 22px;
-  padding-bottom: 40px;
+  padding-bottom: 100px;
 
   @media screen and (min-width: 768px) {
     padding-top: 20px;
-    padding-bottom: 50px;
+    padding-bottom: 200px;
   }
 
   @media screen and (min-width: 1280px) {
     padding-top: 45px;
-    padding-bottom: 90px;
   }
 `;
 
@@ -23,6 +22,7 @@ export const List = styled.ul`
   gap: 28px;
   align-items: center;
   justify-content: center;
+  margin-bottom: 50px;
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
