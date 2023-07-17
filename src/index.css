@@ -1,88 +1,87 @@
-@import 'normalize.css'; /* bring in normalize.css styles */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import "normalize.css"; /* bring in normalize.css styles */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
 :root {
-  --accent-color: #8aa936;
-  --white-color: #fafafa;
-  --transition-duration: 250ms;
-  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  --background-color: #fafafa;
-  --primary-text-color: #23262a;
-  --secondary-text-color: #3e4462;
-  --page-title-color: #001833;
-  --background-color-circle: #22252a;
-  --background-authForm-color: #2a2c36;
-  --input-border-color: #e0e0e0;
-  --error-color: #e74a3b;
-  --background-color: #fafafa;
-  --primary-text-color: #23262a;
-  --secondary-text-color: #3e4462;
+	--accent-color: #8aa936;
+	--white-color: #fafafa;
+	--transition-duration: 250ms;
+	--timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	--background-color: #fafafa;
+	--primary-text-color: #23262a;
+	--secondary-text-color: #3e4462;
+	--page-title-color: #001833;
+	--background-color-circle: #22252a;
+	--background-authForm-color: #2a2c36;
+	--input-border-color: #e0e0e0;
+	--error-color: #e74a3b;
+	--background-color: #fafafa;
+	--primary-text-color: #23262a;
+	--secondary-text-color: #3e4462;
 }
-:root[data-theme='light'] {
-  --background-color: #fafafa;
-  --primary-text-color: #23262a;
-  --secondary-text-color: #3e4462;
+:root[data-theme="light"] {
+	--background-color: #fafafa;
+	--primary-text-color: #23262a;
+	--secondary-text-color: #3e4462;
 }
 
-:root[data-theme='dark'] {
-  --background-color: #1e1f28;
-  --primary-text-color: #fafafa;
-  --secondary-text-color: #fafafa;
+:root[data-theme="dark"] {
+	--background-color: #1e1f28;
+	--primary-text-color: #fafafa;
+	--secondary-text-color: #fafafa;
 }
 
 .dark {
-  --accent-color: #8aa936;
-  --white-color: #fafafa;
-  --transition-duration: 250ms;
-  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  --background-color: #fafafa;
-  --primary-text-color: #23262a;
-  --secondary-text-color: #3e4462;
-  --page-title-color: #FAFAFA;
-  --background-color-circle: #22252a;
-  --background-authForm-color: #2a2c36;
-  --input-border-color: #e0e0e0;
-  --error-color: #e74a3b;
-  --background-color: #1e1f28;
-  --primary-text-color: #fafafa;
-  --secondary-text-color: #fafafa;
+	--accent-color: #8aa936;
+	--white-color: #fafafa;
+	--transition-duration: 250ms;
+	--timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	--background-color: #fafafa;
+	--primary-text-color: #23262a;
+	--secondary-text-color: #3e4462;
+	--page-title-color: #fafafa;
+	--background-color-circle: #22252a;
+	--background-authForm-color: #2a2c36;
+	--input-border-color: #e0e0e0;
+	--error-color: #e74a3b;
+	--background-color: #1e1f28;
+	--primary-text-color: #fafafa;
+	--secondary-text-color: #fafafa;
 }
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 body,
 html {
-  height: 100%;
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background: var(--background-color);
-  color: var(--primary-text-color);
+	height: 100%;
+	margin: 0;
+	font-family: "Poppins", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background: var(--background-color);
+	color: var(--primary-text-color);
 }
 
 body.modal-open {
-  overflow: hidden;
+	overflow: hidden;
 }
 
 #root {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
 }
 main {
-  flex: 1 1 auto;
+	flex: 1 1 auto;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 ul {
-  list-style: none;
+	list-style: none;
 }
 
 h1,
@@ -92,21 +91,27 @@ h4,
 h5,
 h6,
 p {
-  margin: 0;
+	margin: 0;
 }
 ul,
 ol {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 img,
 svg {
-  display: block;
-  /* max-width: 100%; */
-  height: auto;
+	display: block;
+	max-width: 100%;
+	height: auto;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+	color: inherit;
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+	padding: 0;
+	margin: 0;
 }

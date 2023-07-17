@@ -220,6 +220,7 @@ export const BtnSubmit = styled.button`
 
   font-family: inherit;
   font-size: 16px;
+  cursor: pointer;
 
   @media (min-width: 768px) {
     width: 400px;
