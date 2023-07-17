@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 const FooterEl = styled.footer``;
 
 const Wrapper = styled.div`
-  background-color: #22252a;
+  background-color: ${({theme}) => theme.colors.footerBGColor};
   display: flex;
   flex-direction: column;
   padding: 28px 0 18px;
@@ -130,6 +130,9 @@ const PrivacyContainer = styled.div`
   background: url(${bgImg}) no-repeat;
   background-position: right -30px bottom -150px;
   background-size: 404px 496px;
+
+  background-color: ${({theme}) => theme.colors.backgroundColor};
+  color: ${({theme}) => theme.colors.privacyColor};
 `;
 const PrivacyTextBold = styled.p`
   font-weight: 500;

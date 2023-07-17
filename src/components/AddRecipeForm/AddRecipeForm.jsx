@@ -1,9 +1,15 @@
 import { Formik, Form } from 'formik';
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router';
 
 import addRecipeValidationSchema from 'helpers/addRecipeValidationSchema';
 import { recipeOperations } from 'redux/recipes/operations';
+import { selectError, selectCurrentAddedOwnRecipe } from 'redux/recipes/recipesSelector';
+import {
+  showMessageToast,
+  showErrorToast,
+} from 'components/ReusableComponents/ToastCustom/showToast';
 import MainButton from '../ReusableComponents/MainButton/MainButton';
 import RecipeDescriptionFields from 'components/RecipeDescriptionFields/RecipeDescriptionFields';
 import RecipeIngredientsFields from 'components/RecipeIngredientsFields/RecipeIngredientsFields';
@@ -26,6 +32,11 @@ const initialValues = {
 const AddRecipeForm = () => {
   const [file, setFile] = useState(null);
 
+  const navigate = useNavigate();
+
+  const currentAddedOwnRecipe = useSelector(selectCurrentAddedOwnRecipe);
+  const error = useSelector(selectError);
+
   const dispatch = useDispatch();
 
   const handleFileChange = event => {
@@ -34,7 +45,7 @@ const AddRecipeForm = () => {
     console.log(file);
   };
 
-  const handleSubmit = (values, { resetForm, setSubmitting }) => {
+  const handleSubmit = async (values, { resetForm, setSubmitting }) => {
     console.log(values);
 
     const data = JSON.stringify({
@@ -49,10 +60,21 @@ const AddRecipeForm = () => {
     const formData = new FormData();
     formData.append('recipeImg', file);
     formData.append('data', data);
-    // setSubmitting(true);
-    dispatch(recipeOperations.addOwnRecipe(formData));
-    // setSubmitting(false);
+
+    await dispatch(recipeOperations.addOwnRecipe(formData));
+
+    if (error) {
+      showErrorToast('Oops... Something went wrong.');
+      return;
+    }
+
+    showMessageToast('Congratulations! You have added a recipe.');
     // resetForm();
+
+    if (currentAddedOwnRecipe){
+      console.log(currentAddedOwnRecipe);
+    navigate(`recipes/${currentAddedOwnRecipe}`);
+  }
   };
 
   return (
@@ -68,7 +90,12 @@ const AddRecipeForm = () => {
         />
         <RecipeIngredientsFields />
         <RecipePreparationFields />
-        <MainButton nameButton="Add" type={'submit'} cofByMedia768 = {{ font: 1, padX: 1.17, padY: 1.333 }} cofByMedia1280 = {{ font: 1, padX: 1.17, padY: 1.333 }}/>
+        <MainButton
+          nameButton="Add"
+          type={'submit'}
+          cofByMedia768={{ font: 1, padX: 1.17, padY: 1.333 }}
+          cofByMedia1280={{ font: 1, padX: 1.17, padY: 1.333 }}
+        />
       </Form>
     </Formik>
   );

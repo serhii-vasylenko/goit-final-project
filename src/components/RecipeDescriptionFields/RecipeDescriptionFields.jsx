@@ -110,7 +110,7 @@ const RecipeDescriptionFields = ({ file, handleFileChange }) => {
             options={categories}
             classNamePrefix="custom-select"
             isSearchable={false}
-            
+              
             onChange={event => setFieldValue('category', event.label)
             }
           >

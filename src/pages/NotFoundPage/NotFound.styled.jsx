@@ -26,7 +26,7 @@ export const TextWrapper = styled.div`
 export const Title = styled.h2`
   margin-bottom: 8px;
 
-  font-weight: 600;
+  font-weight: ${({theme}) => theme.fontWeights.semibold};
   font-size: 18px;
   line-height: 20px;
 
@@ -37,7 +37,7 @@ export const Title = styled.h2`
 `;
 
 export const Text = styled.p`
-  font-weight: 400;
+  font-weight: ${({theme}) => theme.fontWeights.regular};
   font-size: 14px;
   line-height: 18px;
 

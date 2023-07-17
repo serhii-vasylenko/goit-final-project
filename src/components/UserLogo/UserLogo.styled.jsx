@@ -30,7 +30,7 @@ height: 100%;
 object-fit: cover;
 `
 const UserName = styled.p`
-color: var(--primary-text-color);
+color: ${({theme}) => theme.colors.primaryTextColor};
 font-size: 12px;
 font-weight: 600;
 line-height: 170%;
