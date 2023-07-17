@@ -20,6 +20,7 @@ export const darkTheme = {
     recipeCardDeleteColor: '#fff',
     recipeCardDescriptionColor: '#fafafa99',
     paginationBgHoverColor: '#8aa936',
+    categoriesListBGColor: '#2a2c36',
   },
   transforms: {
     transitionDuration: '250ms',
