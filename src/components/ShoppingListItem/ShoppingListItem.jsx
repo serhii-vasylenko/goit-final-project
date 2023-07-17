@@ -1,3 +1,8 @@
+import { useDispatch } from 'react-redux';
+
+import { removeFromShoppingList } from 'redux/shopping-list/operations';
+import { showMessageToast } from 'components/ReusableComponents/ToastCustom/showToast';
+
 import sprite from '../../images/sprite.svg';
 import defaultImage from '../../images/shoppingListPage/avocado.png';
 import {
@@ -11,23 +16,22 @@ import {
   ShoppingImage,
   ShoppingImageContainer,
 } from './ShoppingListItem.styled';
-import { useDeleteProductMutation } from 'redux/shopping-list/productsSlice';
-import { showMessageToast } from 'components/ReusableComponents/ToastCustom/showToast';
 
 const ShoppingListItem = ({ product }) => {
-  const [deleteProduct] = useDeleteProductMutation();
+  const dispatch = useDispatch();
 
   const clickHandler = product => {
-    showMessageToast('Product`s deleted!');
-    deleteProduct({
-		ingredientId: product._id,
-		recipeId: product.recipeId,
-		measure: product.measure
-	 });
-	 console.log({ingredientId: product._id,
-		recipeId: product.recipeId,
-		measure: product.measure})
+    showMessageToast('Product was deleted from your shopping-list.');
+
+    dispatch(
+      removeFromShoppingList({
+        ingredientId: product._id,
+        recipeId: product.recipeId,
+        measure: product.measure,
+      })
+    );
   };
+
   return (
     <Item>
       <DescriptionContainer>

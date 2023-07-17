@@ -1,3 +1,14 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { nanoid } from 'nanoid';
+
+import { MainContainer } from 'components/MainContainer/MainContainer';
+import ShoppingListItem from 'components/ShoppingListItem/ShoppingListItem';
+import SearchCapImage from 'components/ReusableComponents/SearchCap/SearhCap';
+import { selectShoppingList } from 'redux/shopping-list/selectors';
+import { getShoppingList } from 'redux/shopping-list/operations';
+
 import {
   HeadContainer,
   Item,
@@ -7,34 +18,21 @@ import {
   ShoppingList,
   Title,
 } from './ShoppingList.styled';
-import { MainContainer } from 'components/MainContainer/MainContainer';
-import { showErrorToast } from 'components/ReusableComponents/ToastCustom/showToast';
-import ShoppingListItem from 'components/ShoppingListItem/ShoppingListItem';
-import { useGetProductsQuery } from 'redux/shopping-list/productsSlice';
-import SearchCapImage from 'components/ReusableComponents/SearchCap/SearhCap';
 
 const ShoppingListPage = () => {
-  const { data, error } = useGetProductsQuery();
+  const dispatch = useDispatch();
+  const shoppingList = useSelector(selectShoppingList);
 
-  if (!data) {
-    return;
-  }
-
-  if (data) {
-    console.log('Shopping-list', data);
-  }
-
-  if (error) {
-    showErrorToast(error);
-  }
+  useEffect(() => {
+    dispatch(getShoppingList());
+  }, [dispatch]);
 
   return (
     <Section>
-      {/* {isLoading && <Loader />} */}
       <MainContainer>
         <Title title="Shopping list"></Title>
 
-        {data && data.data.shoppingList.length <= 0 && (
+        {shoppingList.length <= 0 && (
           <NotFound>
             <SearchCapImage>
               There are not any products in your shopping-list
@@ -42,7 +40,7 @@ const ShoppingListPage = () => {
           </NotFound>
         )}
 
-        {data && data.data.shoppingList.length > 0 && (
+        {shoppingList.length > 0 && (
           <>
             <ProductsHead>
               <div>Products</div>
@@ -53,8 +51,8 @@ const ShoppingListPage = () => {
             </ProductsHead>
 
             <ShoppingList>
-              {data.data.shoppingList.map(product => (
-                <Item key={product._id + Math.random()}>
+              {shoppingList.map(product => (
+                <Item key={nanoid()}>
                   {<ShoppingListItem product={product} />}
                 </Item>
               ))}

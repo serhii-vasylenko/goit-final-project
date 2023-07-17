@@ -52,7 +52,7 @@ export const ProductsHead = styled.div`
 
 export const HeadContainer = styled.div`
   display: flex;
-  gap: 20px;
+  gap: 37px;
 
   @media screen and (min-width: 768px) {
     gap: 50px;
