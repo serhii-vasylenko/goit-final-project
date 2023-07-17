@@ -16,6 +16,8 @@ export const darkTheme = {
     footerBGColor: '#8BAA36',
     privacyColor: '#fafafa',
     categoriesListBGColor: '#2a2c36',
+    togglerBGColor: '#8BAA36',
+    mobileMenuBGColor: '#1E1F28',
   },
   transforms: {
     transitionDuration: '250ms',
