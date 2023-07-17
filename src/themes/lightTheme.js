@@ -14,7 +14,8 @@ export const lightTheme = {
     primaryTextColor: '#23262a',
     secondaryTextColor: '#3e4462',
     footerBGColor: '#22252a',
-    privacyColor: '#22252a'
+    privacyColor: '#22252a',
+    categoriesListBGColor: '#ebf3d4',
   },
   transforms: {
     transitionDuration: '250ms',

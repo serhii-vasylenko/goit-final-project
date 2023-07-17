@@ -15,6 +15,7 @@ export const darkTheme = {
     secondaryTextColor: '#fafafa',
     footerBGColor: '#8BAA36',
     privacyColor: '#fafafa',
+    categoriesListBGColor: '#2a2c36',
   },
   transforms: {
     transitionDuration: '250ms',
