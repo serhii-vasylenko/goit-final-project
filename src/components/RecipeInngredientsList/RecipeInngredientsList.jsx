@@ -18,31 +18,9 @@ import {
 } from './RecipeInngredientsList.styled';
 
 const RecipeInngredientsList = ({ ingredients }) => {
-  // const [shopList, setShopList] = useState([]);
-  // // const dispatch = useDispatch()
+
   // const { data: shoppingList } = useGetProductsQuery()
   // const [addProduct] = useAddProductMutation();
-
-  // const addToShopList = (e, _id) => {
-  //   e.preventDefault();
-  //   if(ingredients._id) {
-  //      addProduct()
-  //   }
-   
-    
-  // }
-
-  // useEffect(() => {
-  //   setShopList(shoppingList)
-  // },[shoppingList])
-
-  // console.log(shoppingList)
- 
-  // const addToList = (ingredient, id) => {
-  //   const { name, _id, measure, title } = ingredients; 
-  //   addProduct()
-  // }
-
 
   return (
     <>

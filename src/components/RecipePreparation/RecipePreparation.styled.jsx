@@ -19,13 +19,12 @@ export const Container = styled.div`
   }
 `;
 
-
 export const Title = styled.h2`
   font-weight: 600;
   font-size: 24px;
   line-height: 1;
   margin-bottom: 28px;
-  color: #3E4462;
+  color: var(--secondary-text-color);
   @media screen and (min-width: 768px) {
     letter-spacing: -0.24px;
   }
@@ -47,7 +46,7 @@ export const ListItem = styled.li`
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: -0.02em;
-  color: #000000;
+  color: var(--primary-text-color);
   display: flex;
   gap: 14px;
   align-items: flex-start;
@@ -70,14 +69,13 @@ export const GreenCircle = styled.div`
   align-items: center;
   padding: 0 7px;
   border-radius: 50%;
-  background-color: #8baa36;
-  color: #ffffff;
+  background-color: var(--accent-color);
+  color: var(--white-color);
   flex-shrink: 0;
 `;
 
 export const ImageWrapper = styled.div`
-  /* width: 100%;
-  height: auto; */
+
   @media screen and (min-width: 768px) {
     max-width: 433px;
   }

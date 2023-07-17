@@ -6,17 +6,6 @@ const CustomCheckBox = ({ ingredients, addToShopList }) => {
   
   // const { _id, name, title, measure } = ingredients;
 
-//   const [deleteProduct] = useDeleteProductMutation();
-//   const [addProduct] = useAddProductMutation();
-
-//   const inShoppingList = shoppingList.data.find((product) => product.title === title);
-  
-//   const handleChange = (id) => {
-//     if (inShoppingList) {
-// addProduct(id)
-//     }
-//     deleteProduct(id)
-//   }
 
   return (
     <CheckBox

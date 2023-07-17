@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import checked from '../../images/pick.svg';
+import checked from '../../images/icons/pick.svg';
 
 export const ContainerList = styled.div`
   width: 100%;
@@ -27,11 +27,11 @@ export const HeaderList = styled.div`
   justify-content: space-between;
   border-radius: 8px;
   height: 42px;
-  width:100%;
+  width: 100%;
   padding: 0 14px;
   margin-bottom: 24px;
-  color: #FAFAFA;
-  background-color: #8BAA36;
+  color: var(--white-color);
+  background-color: var(--accent-color);
 
   @media screen and (min-width: 768px) {
     height: 58px;
@@ -46,14 +46,14 @@ export const HeaderList = styled.div`
   }
 
   p {
-    font-weight:600;
+    font-weight: 600;
     font-size: 10px;
     line-height: normal;
     letter-spacing: 0.3px;
 
     @media screen and (min-width: 768px) {
       font-size: 18px;
-       letter-spacing: 0.54px;
+      letter-spacing: 0.54px;
     }
   }
 
@@ -152,7 +152,7 @@ export const NameIngredient = styled.p`
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: -0.24px;
-  color: #3e4462;
+  color: var(--secondary-text-color);
   overflow: hidden;
   width: 99px;
 
@@ -162,14 +162,14 @@ export const NameIngredient = styled.p`
     width: 206px;
   }
 
-    @media screen and (min-width: 1240px) {
+  @media screen and (min-width: 1240px) {
     width: 545px;
   }
 `;
 
 export const IngredientMeasure = styled.span`
   display: block;
-  background: #8baa36;
+  background: var(--accent-color);
   border-radius: 4px;
   padding: 4px;
   min-width: 37px;
@@ -178,7 +178,7 @@ export const IngredientMeasure = styled.span`
   font-size: 10px;
   line-height: 1.5;
   text-align: center;
-  color: #fafafa;
+  color: var(--white-color);
   overflow: hidden;
 
   @media screen and (min-width: 768px) {
