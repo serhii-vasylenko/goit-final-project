@@ -1,7 +1,8 @@
 import sprite from '../../images/sprite.svg';
 import defaultImage from '../../images/shoppingListPage/avocado.png';
 import {
-	CrossIcon,
+  CrossIcon,
+  DeleteBtn,
   DescriptionContainer,
   Item,
   NumberContainer,
@@ -10,74 +11,38 @@ import {
   ShoppingImage,
   ShoppingImageContainer,
 } from './ShoppingListItem.styled';
+import { useDeleteProductMutation } from 'redux/shopping-list/productsSlice';
+import { showMessageToast } from 'components/ReusableComponents/ToastCustom/showToast';
 
-// import { useDeleteProductMutation } from 'redux/shopping-list/productsSlice';
+const ShoppingListItem = ({ product }) => {
+  const [deleteProduct] = useDeleteProductMutation();
 
-const ShoppingListItem = id => {
-//   const [deleteProduct, { isLoading }] = useDeleteProductMutation();
-//   const clickHandler = () => {
-//     deleteProduct(id);
-//   };
+  const clickHandler = productId => {
+    showMessageToast('Product`s deleted!');
+    deleteProduct({});
+  };
   return (
-    <ul>
-      <Item>
-        <DescriptionContainer>
-          <ShoppingImageContainer>
-            <ShoppingImage src={defaultImage} alt=""></ShoppingImage>
-          </ShoppingImageContainer>
+    <Item>
+      <DescriptionContainer>
+        <ShoppingImageContainer>
+          <ShoppingImage
+            src={product.img ? product.img : defaultImage}
+            alt={product.name}
+          ></ShoppingImage>
+        </ShoppingImageContainer>
 
-          <ProductName>Avocado</ProductName>
-        </DescriptionContainer>
+        <ProductName>{product.name}</ProductName>
+      </DescriptionContainer>
 
-        <NumberContainer>
-          <ProductQuantity>3</ProductQuantity>
-          {/* <button onClick={() => clickHandler(id)}> */}
-            <CrossIcon>
-              <use href={`${sprite}#icon-cross`}></use>
-            </CrossIcon>
-          {/* </button> */}
-        </NumberContainer>
-      </Item>
-
-		<Item>
-        <DescriptionContainer>
-          <ShoppingImageContainer>
-            <ShoppingImage src={defaultImage} alt=""></ShoppingImage>
-          </ShoppingImageContainer>
-
-          <ProductName>Avocado</ProductName>
-        </DescriptionContainer>
-
-        <NumberContainer>
-          <ProductQuantity>3</ProductQuantity>
-          {/* <button onClick={() => clickHandler(id)}> */}
-            <CrossIcon>
-              <use href={`${sprite}#icon-cross`}></use>
-            </CrossIcon>
-          {/* </button> */}
-        </NumberContainer>
-      </Item>
-
-		<Item>
-        <DescriptionContainer>
-          <ShoppingImageContainer>
-            <ShoppingImage src={defaultImage} alt=""></ShoppingImage>
-          </ShoppingImageContainer>
-
-          <ProductName>Avocado</ProductName>
-        </DescriptionContainer>
-
-        <NumberContainer>
-          <ProductQuantity>3</ProductQuantity>
-          {/* <button onClick={() => clickHandler(id)}> */}
-            <CrossIcon>
-              <use href={`${sprite}#icon-cross`}></use>
-            </CrossIcon>
-          {/* </button> */}
-        </NumberContainer>
-      </Item>
-
-    </ul>
+      <NumberContainer>
+        <ProductQuantity></ProductQuantity>
+        <DeleteBtn onClick={() => clickHandler(product._id)}>
+          <CrossIcon>
+            <use href={`${sprite}#icon-cross`}></use>
+          </CrossIcon>
+        </DeleteBtn>
+      </NumberContainer>
+    </Item>
   );
 };
 export default ShoppingListItem;

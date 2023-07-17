@@ -41,7 +41,7 @@ export const HeroSection = styled.section`
   }
 
   @media screen and (min-width: 768px) {
-    height: 640px;
+    /* height: 640px; */
     margin-top: -64px;
 
     background-image: url(${TabletBgLeavesBottom}), url(${TabletBg}),
@@ -59,7 +59,7 @@ export const HeroSection = styled.section`
   }
 
   @media screen and (min-width: 1280px) {
-    height: 800px;
+    /* height: 800px; */
 
     background-image: url(${DesktopBgLeavesBottom}), url(${DesktopBg}),
       url(${DesktopBgLeavesTop});
@@ -91,7 +91,7 @@ export const HeroContainer = styled.div`
     align-items: center;
     padding-top: 159px;
     padding-left: 38px;
-    padding-bottom: 202px;
+    padding-bottom: 130px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -99,7 +99,7 @@ export const HeroContainer = styled.div`
     gap: 68px;
     padding-top: 126px;
     padding-left: 20px;
-    padding-bottom: 235px;
+    padding-bottom: 135px;
   }
 `;
 
@@ -118,7 +118,7 @@ export const FlexWrapper = styled.div`
 `;
 
 export const HeroTitle = styled.h1`
-  color: var(--backgraund-color-circle);
+  color: ${({ theme }) => theme.colors.primaryTextColor};
   font-size: 60px;
   font-style: normal;
   font-weight: 400;
@@ -140,10 +140,17 @@ export const HeroTitle = styled.h1`
 
     margin-bottom: 14px;
   }
+
+  ${({theme}) => {
+    // console.log(props);
+    console.log(theme);
+  }}
 `;
 
 export const HeroTitleAccent = styled.span`
-  color: var(--accent-color);
+  
+
+  color: ${props => props.theme.colors.primary};
 `;
 
 export const HeroDescription = styled.p`

@@ -42,21 +42,19 @@ const RecipeInngredientsList = ({ ingredients }) => {
                     <NameIngredient>{name}</NameIngredient>
                   </ContentWrap>
 
-                  <ContentWrapMeasure>
-                    <IngredientMeasure>{measure}</IngredientMeasure>
-                    <CustomCheckBox
-                      // shoppingList={shoppingList}
-                      // addToShopList={addToShopList}
-                      ingredients={ingredients}
-                    />
-                  </ContentWrapMeasure>
-                </IngredientItem>
-              );
-            })}
-          </IngredientList>
-        </ContainerList>
-      )}
-    </>
+              <ContentWrap>    
+                <IngredientMeasure>{measure}</IngredientMeasure>
+                <CustomCheckBox id={_id} measure={measure}/>
+              </ContentWrap>
+           
+          </IngredientItem>
+        );
+      })}
+    </IngredientList>
+    </ContainerList> 
+     
+    )}
+       </> 
   );
 };
 

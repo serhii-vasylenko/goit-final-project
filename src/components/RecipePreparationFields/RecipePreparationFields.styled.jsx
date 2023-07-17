@@ -4,10 +4,18 @@ import { Title } from 'components/RecipeIngredientsFields/RecipeIngredientsField
 
 export const TitlePreparation = styled(Title)`
   margin-bottom: 24px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 32px;
+  }
 `;
 
 export const Container = styled.div`
   margin-bottom: 18px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 32px;
+  }
 `;
 
 export const TextArea = styled(Field)`
@@ -22,7 +30,7 @@ export const TextArea = styled(Field)`
   padding: 10px 16px;
 
   color: #23262a;
-  font-family: Poppins;
+  font-family: 'Poppins';
   font-size: 14px;
   letter-spacing: -0.28px;
 
@@ -31,11 +39,17 @@ export const TextArea = styled(Field)`
     opacity: 0.5;
   }
 
-  &:focus {
+  &:focus,
+  &:hover {
     outline: 1px solid rgba(217, 217, 217, 1);
   }
 
   &.error {
     border: 1px solid var(--error-color);
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 505px;
+  height: 224px;
   }
 `;

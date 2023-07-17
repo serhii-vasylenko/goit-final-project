@@ -1,7 +1,7 @@
-import { Container, Button, Span, SVG, Wrap } from './Counter.styled';
+import { Container, Button, Span, Svg, Wrap } from './Counter.styled';
 import sprite from '../../images/AddRecipePage/sprite.svg';
 
-const Counter = ({ pop, push, ingredients }) => {
+const Counter = ({ remove, push, ingredients }) => {
   return (
     <Container>
       <Wrap>
@@ -9,19 +9,19 @@ const Counter = ({ pop, push, ingredients }) => {
           type="button"
           onClick={() => {
             if (ingredients.length > 1) {
-              pop({ id: '', measure: '' });
+              remove(ingredients.length - 1);
             }
           }}
         >
-          <SVG width={14} height={14}>
+          <Svg width={14} height={14}>
             <use href={`${sprite}#minus`}></use>
-          </SVG>
+          </Svg>
         </Button>
         <Span>{ingredients.length}</Span>
         <Button type="button" onClick={() => push({ id: '', measure: '' })}>
-          <SVG width={14} height={14}>
+          <Svg width={14} height={14}>
             <use href={`${sprite}#plus`}></use>
-          </SVG>
+          </Svg>
         </Button>
       </Wrap>
     </Container>

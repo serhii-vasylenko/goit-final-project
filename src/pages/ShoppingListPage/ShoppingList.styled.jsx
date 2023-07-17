@@ -39,13 +39,12 @@ export const ProductsHead = styled.div`
   color: var(--white-color);
 
   @media screen and (min-width: 768px) {
-   
     font-size: 18px;
     width: 704px;
     height: 58px;
   }
   @media screen and (min-width: 1280px) {
-	 padding:18px 35px 18px 35px;
+    padding: 18px 35px 18px 35px;
     width: 1240px;
     height: 60px;
   }
@@ -66,7 +65,7 @@ export const HeadContainer = styled.div`
 export const ShoppingList = styled.div`
   display: flex;
   flex-direction: column;
- 
+
   padding-bottom: 14px;
   padding-left: 7px;
   padding-right: 7px;
@@ -74,11 +73,16 @@ export const ShoppingList = styled.div`
   font-family: inherit;
   font-size: 10px;
   font-weight: 500;
-  
 
   @media screen and (min-width: 768px) {
     font-size: 10px;
   }
   @media screen and (min-width: 1280px) {
+  }
+`;
+
+export const Item = styled.li`
+  &&:not(:last-child) {
+    border-bottom: 2px solid #e0e0e0;
   }
 `;

@@ -140,7 +140,4 @@ export const LinkStyled = styled(NavLink)`
     font-size: 16px;
     padding: 22px 48px 22px 48px;
   }
-
-  @media (min-width: 1280px) {
-  }
 `;

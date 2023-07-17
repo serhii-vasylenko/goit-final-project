@@ -45,6 +45,7 @@ export const Title = styled.h3`
   line-height: 1;
   font-weight: 500;
   margin-bottom: 14px;
+
   @media screen and (min-width: 768px) {
     font-size: 24px;
     margin-bottom: 28px;
