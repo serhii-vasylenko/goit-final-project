@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import { useSelector } from 'react-redux';
 import { selectPopularRecipes } from 'redux/recipes/recipesSelector';
 import { truncateString } from 'helpers/truncateString';
@@ -8,9 +8,12 @@ import NoPopularRecipes from 'components/NotPopularRecipe/NoPopularRecipes';
 import { List, Item } from './PopularRecipes.styled';
 
 const PopularRecipes = () => {
- 
+
   const popularRecipes = useSelector(selectPopularRecipes);
-  const recipesForRender = [...popularRecipes].sort(randomSort).slice(0, 4);
+
+  const recipesForRender = useMemo(() => {
+   return [...popularRecipes].sort(randomSort).slice(0, 4);
+  }, [popularRecipes]);
 
   return (
     <>
