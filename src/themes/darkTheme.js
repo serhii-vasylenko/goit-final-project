@@ -21,6 +21,8 @@ export const darkTheme = {
     recipeCardDescriptionColor: '#fafafa99',
     paginationBgHoverColor: '#8aa936',
     categoriesListBGColor: '#2a2c36',
+    togglerBGColor: '#8BAA36',
+    mobileMenuBGColor: '#1E1F28',
   },
   transforms: {
     transitionDuration: '250ms',

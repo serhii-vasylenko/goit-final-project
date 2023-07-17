@@ -21,6 +21,8 @@ export const lightTheme = {
     recipeCardDescriptionColor: '#23262A',
     paginationBgHoverColor: '#EBF3D4',
     categoriesListBGColor: '#ebf3d4',
+    togglerBGColor: '#EFEFEF',
+    mobileMenuBGColor: '#EBF3D4',
   },
   transforms: {
     transitionDuration: '250ms',
