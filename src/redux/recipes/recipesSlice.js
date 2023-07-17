@@ -17,6 +17,7 @@ const initialState = {
   recipeByTitle: [],
   recipeById: null,
   ownRecipes: [],
+  currentAddedOwnRecipe: '',
   popularRecipes: [],
   recipesByIngredient: [],
   recipesByCategory: [],
@@ -82,32 +83,52 @@ const recipesSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.ownRecipes = [...state.ownRecipes, action.payload.data.recipe];
+        state.currentAddedOwnRecipe = action.payload.data.recipe._id;
       })
       .addCase(recipeOperations.addOwnRecipe.rejected, handleRejected)
       .addCase(recipeOperations.getFavoriteRecipes.pending, handlePending)
-      .addCase(recipeOperations.getFavoriteRecipes.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
-        state.favoriteRecipes =  action.payload.data.recipe;
-      })
+      .addCase(
+        recipeOperations.getFavoriteRecipes.fulfilled,
+        (state, action) => {
+          state.isLoading = false;
+          state.error = null;
+          state.favoriteRecipes = action.payload.data.recipe;
+        }
+      )
       .addCase(recipeOperations.getFavoriteRecipes.rejected, handleRejected)
       .addCase(recipeOperations.addToFavoriteRecipes.pending, handlePending)
-      .addCase(recipeOperations.addToFavoriteRecipes.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
-        state.favoriteRecipes = [...state.favoriteRecipes, action.payload.data.recipe];
-      })
+      .addCase(
+        recipeOperations.addToFavoriteRecipes.fulfilled,
+        (state, action) => {
+          state.isLoading = false;
+          state.error = null;
+          state.favoriteRecipes = [
+            ...state.favoriteRecipes,
+            action.payload.data.recipe,
+          ];
+        }
+      )
       .addCase(recipeOperations.addToFavoriteRecipes.rejected, handleRejected)
-      .addCase(recipeOperations.deleteFromFavoriteRecipes.pending, handlePending)
-      .addCase(recipeOperations.deleteFromFavoriteRecipes.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
-        const index = state.favoriteRecipes.findIndex(
-          favoriteRecipe => favoriteRecipe._id === action.payload.data.recipe._id
-        );
-        state.favoriteRecipes.splice(index, 1);
-      })
-      .addCase(recipeOperations.deleteFromFavoriteRecipes.rejected, handleRejected)
+      .addCase(
+        recipeOperations.deleteFromFavoriteRecipes.pending,
+        handlePending
+      )
+      .addCase(
+        recipeOperations.deleteFromFavoriteRecipes.fulfilled,
+        (state, action) => {
+          state.isLoading = false;
+          state.error = null;
+          const index = state.favoriteRecipes.findIndex(
+            favoriteRecipe =>
+              favoriteRecipe._id === action.payload.data.recipe._id
+          );
+          state.favoriteRecipes.splice(index, 1);
+        }
+      )
+      .addCase(
+        recipeOperations.deleteFromFavoriteRecipes.rejected,
+        handleRejected
+      )
       .addCase(recipeOperations.getRecipesByCategory.pending, handlePending)
       .addCase(
         recipeOperations.getRecipesByCategory.fulfilled,
@@ -125,7 +146,6 @@ const recipesSlice = createSlice({
           state.isLoading = false;
           state.error = null;
           state.popularRecipes = action.payload.data.recipe;
-          
         }
       )
       .addCase(recipeOperations.getPopularRecipes.rejected, handleRejected);
