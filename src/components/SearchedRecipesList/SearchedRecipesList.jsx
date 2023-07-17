@@ -15,7 +15,6 @@ import RecipeGalleryItem from '../ReusableComponents/RecipeGalleryItem/RecipeGal
 import SearchCapImage from '../ReusableComponents/SearchCap/SearhCap';
 import {
   showErrorToast,
-  showMessageToast,
 } from '../ReusableComponents/ToastCustom/showToast';
 import Paginator from '../ReusableComponents/Paginator/Paginator';
 
