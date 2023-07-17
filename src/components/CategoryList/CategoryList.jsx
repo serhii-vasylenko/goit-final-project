@@ -1,13 +1,14 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { selectCategoryList } from 'redux/recipes/recipesSelector';
-import { Categories, Category, Line} from './CategoryList.styled';
+import { Categories, Category, Line } from './CategoryList.styled';
 import { useSelector } from 'react-redux';
+
 export const CategoryList = ({ currentCategory }) => {
   const categories = useSelector(selectCategoryList);
   const containerRef = useRef(null);
 
-  const handleScroll = (event, index)  => {
+  const handleScroll = (event, index) => {
     const container = containerRef.current;
     const category = container.children[index];
 
@@ -31,11 +32,9 @@ export const CategoryList = ({ currentCategory }) => {
             <Category
               key={item._id}
               className={item.name === currentCategory ? 'active' : null}
-              onClick={(event) => handleScroll(event, index)}
+              onClick={event => handleScroll(event, index)}
             >
-              <Link to={`/categories/${item.name}`}>
-                {item.name}
-              </Link>
+              <Link to={`/categories/${item.name}`}>{item.name}</Link>
             </Category>
           );
         })}
