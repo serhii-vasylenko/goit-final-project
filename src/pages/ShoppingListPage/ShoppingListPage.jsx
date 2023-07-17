@@ -1,4 +1,3 @@
-import FormError from 'components/ReusableComponents/FormError/FormError';
 import {
   HeadContainer,
   Item,
@@ -11,14 +10,18 @@ import { MainContainer } from 'components/MainContainer/MainContainer';
 import { showErrorToast } from 'components/ReusableComponents/ToastCustom/showToast';
 import ShoppingListItem from 'components/ShoppingListItem/ShoppingListItem';
 import { useGetProductsQuery } from 'redux/shopping-list/productsSlice';
-import Loader from 'components/ReusableComponents/Loader/Loader';
+import SearchCapImage from 'components/ReusableComponents/SearchCap/SearhCap';
 
 const ShoppingListPage = () => {
-  const { data, error, isLoading } = useGetProductsQuery();
+  const { data, error} = useGetProductsQuery();
 
-    if (data) {
-      console.log('Shopping-list', data);
-    }
+  if (!data) {
+    return;
+  }
+
+  if (data) {
+    console.log('Shopping-list', data);
+  }
 
   if (error) {
     showErrorToast(error);
@@ -26,32 +29,34 @@ const ShoppingListPage = () => {
 
   return (
     <Section>
-      {isLoading && <Loader />}
+      {/* {isLoading && <Loader />} */}
       <MainContainer>
         <Title title="Shopping list"></Title>
 
-        <ProductsHead>
-          <div>Products</div>
-          <HeadContainer>
-            <div>Number</div>
-            <div>Remove</div>
-          </HeadContainer>
-        </ProductsHead>
-
-        {data && data.data.shoppingList.length === 0 && (
-          <FormError>
+        {data && data.data.shoppingList.length <= 0 && (
+          <SearchCapImage>
             There are not any products in your shopping-list
-          </FormError>
+          </SearchCapImage>
         )}
 
         {data && data.data.shoppingList.length > 0 && (
-          <ShoppingList>
-            {data.data.shoppingList.map(product => (
-              <Item key={product._id}>
-                {<ShoppingListItem product={product} />}
-              </Item>
-            ))}
-          </ShoppingList>
+          <>
+            <ProductsHead>
+              <div>Products</div>
+              <HeadContainer>
+                <div>Number</div>
+                <div>Remove</div>
+              </HeadContainer>
+            </ProductsHead>
+
+            <ShoppingList>
+              {data.data.shoppingList.map(product => (
+                <Item key={product._id}>
+                  {<ShoppingListItem product={product} />}
+                </Item>
+              ))}
+            </ShoppingList>
+          </>
         )}
       </MainContainer>
     </Section>
