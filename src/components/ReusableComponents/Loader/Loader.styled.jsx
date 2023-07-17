@@ -1,24 +1,18 @@
 import styled from '@emotion/styled';
-// import CircularProgress from '@mui/material/CircularProgress';
+import { Oval } from 'react-loader-spinner';
 
-// export const StyledLoader = styled(CircularProgress)`
-//   display: block;
-//   margin: 50px auto 0;
-//   color: var(--accent-color);
-
-//   @media (min-width: 768px) {
-//     margin-top: 100px;
-//   }
-// `;
-
-export const StyledLoader = styled.div`
-  /* display: block; */
-  width: 50px;
-  height: 50px;
-  margin: 50px auto 0;
-  color: var(--accent-color);
+export const LoaderWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
 
   @media (min-width: 768px) {
     margin-top: 100px;
   }
+`;
+
+export const StyledLoader = styled(Oval)`
+  height: 70px;
+  width: 70px;
+  color: var(--accent-color);
 `;

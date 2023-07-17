@@ -41,7 +41,6 @@ export const HeroSection = styled.section`
   }
 
   @media screen and (min-width: 768px) {
-    /* height: 640px; */
     margin-top: -64px;
 
     background-image: url(${TabletBgLeavesBottom}), url(${TabletBg}),
@@ -59,8 +58,6 @@ export const HeroSection = styled.section`
   }
 
   @media screen and (min-width: 1280px) {
-    /* height: 800px; */
-
     background-image: url(${DesktopBgLeavesBottom}), url(${DesktopBg}),
       url(${DesktopBgLeavesTop});
     background-size: 909px auto, 775px 625px, 107px 390px;
@@ -118,7 +115,7 @@ export const FlexWrapper = styled.div`
 `;
 
 export const HeroTitle = styled.h1`
-  color: ${({ theme }) => theme.colors.primaryTextColor};
+  color:  var(--primary-text-color);
   font-size: 60px;
   font-style: normal;
   font-weight: 400;
@@ -140,16 +137,9 @@ export const HeroTitle = styled.h1`
 
     margin-bottom: 14px;
   }
-
-  ${({theme}) => {
-    // console.log(props);
-    console.log(theme);
-  }}
 `;
 
 export const HeroTitleAccent = styled.span`
-  
-
   color: ${props => props.theme.colors.primary};
 `;
 

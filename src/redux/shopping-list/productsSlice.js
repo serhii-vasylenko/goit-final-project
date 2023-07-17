@@ -19,7 +19,6 @@ export const shoppingListApi = createApi({
       providesTags: ['ShoppingList'],
     }),
 
-
     addProduct: builder.mutation({
       query: values => ({
         url: '/ingredients/shopping-list/add-ingredient',
@@ -29,12 +28,11 @@ export const shoppingListApi = createApi({
       invalidatesTags: ['ShoppingList'],
     }),
 
-	
     deleteProduct: builder.mutation({
       query: id => ({
         url: `shopping-list/remove-ingredient`,
         method: 'POST',
-		  body: id,
+        body: id,
       }),
       invalidatesTags: ['ShoppingList'],
     }),

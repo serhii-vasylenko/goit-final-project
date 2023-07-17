@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { showMessageToast } from 'components/ReusableComponents/ToastCustom/showToast';
 import { toast } from 'react-toastify';
 import {
   registerUser,
@@ -13,32 +14,38 @@ import {
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
-    user: { name: null, email: null, avatarUrl: null, userId: null, subscribe: null },
+    user: {
+      name: null,
+      email: null,
+      avatarUrl: null,
+      userId: null,
+      subscribe: null,
+    },
     token: null,
     isLoggedIn: false,
     isRefreshing: false,
-	 fetchError: null,
+    fetchError: null,
   },
   extraReducers: builder => {
     builder.addCase(registerUser.fulfilled, (state, actions) => {
-		console.log('Payload', actions.payload)
+      console.log('Payload', actions.payload);
       state.user = actions.payload.data.user;
       state.token = actions.payload.data.token;
       state.isLoggedIn = true;
-		state.fetchError = null;
+      state.fetchError = null;
       toast.info(`Successfully registered`);
     });
-	 builder.addCase(registerUser.rejected, (state, action) => {
+    builder.addCase(registerUser.rejected, (state, action) => {
       state.fetchError = action.payload;
     });
     builder.addCase(loginUser.fulfilled, (state, actions) => {
       state.user = actions.payload.data.user;
       state.token = actions.payload.data.token;
       state.isLoggedIn = true;
-		state.fetchError = null;
+      state.fetchError = null;
       toast.info(`Successfully logged in`);
     });
-	 builder.addCase(loginUser.rejected, (state, action) => {
+    builder.addCase(loginUser.rejected, (state, action) => {
       state.fetchError = action.payload;
     });
     builder.addCase(logoutUser.fulfilled, state => {
@@ -91,7 +98,8 @@ const authSlice = createSlice({
     });
     builder.addCase(subscribeUser.fulfilled, (state, action) => {
       state.loading = false;
-      state.user = { ...state.user, subscribe: action.payload.data.subscribe };
+      state.user = { ...state.user, subscribe: true };
+      showMessageToast(action.payload.message);
     });
     builder.addCase(subscribeUser.rejected, (state, action) => {
       state.loading = false;

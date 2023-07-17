@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from '@emotion/styled/macro';
 import { ReactComponent as ErrorIcon } from '../../images/registrationPage/icons/error.svg';
 import { ReactComponent as CorrectIcon } from '../../images/registrationPage/icons/correct.svg';
 export const Subscribe = styled.div`
@@ -55,32 +55,6 @@ export const Form = styled.form`
   }
 `;
 
-export const Label = styled.label`
-  position: relative;
-  display: flex;
-  gap: 12px;
-  padding: 13px 13px;
-  border: 1px solid var(--input-border-color);
-  border-color: ${props => {
-    switch (props.ValidationState) {
-      case 'correct':
-        return '#3CBC81';
-      case 'error':
-        return '#E74A3B';
-      default:
-        return '#E0E0E0';
-    }
-  }};
-  border-radius: 6px;
-
-  @media (min-width: 768px) {
-    width: 259px;
-  }
-  @media (min-width: 1280px) {
-    width: 100%;
-  }
-`;
-
 export const Icon = styled.svg`
   stroke: ${props => {
     switch (props.ValidationState) {
@@ -89,7 +63,7 @@ export const Icon = styled.svg`
       case 'error':
         return '#E74A3B';
       default:
-        return '#fafafa';
+        return '#fafafa7f';
     }
   }};
   width: 15px;
@@ -123,6 +97,57 @@ export const CorrectIconIconStyled = styled(CorrectIcon)`
   }
 `;
 
+export const Label = styled.label`
+  position: relative;
+  display: flex;
+  gap: 12px;
+  padding: 13px 13px;
+  border: 1px solid;
+  border-color: ${props => {
+    switch (props.ValidationState) {
+      case 'correct':
+        return '#3CBC81';
+      case 'error':
+        return '#E74A3B';
+      default:
+        return '#fafafa7f';
+    }
+  }};
+  border-radius: 6px;
+
+  @media (min-width: 768px) {
+    width: 259px;
+  }
+  @media (min-width: 1280px) {
+    width: 100%;
+  }
+
+  &:hover,
+  &:focus-within {
+    border-color: ${props => {
+      switch (props.ValidationState) {
+        case 'correct':
+          return '#3CBC81';
+        case 'error':
+          return '#E74A3B';
+        default:
+          return '#fafafa';
+      }
+    }};
+    ${Icon} {
+      stroke: ${props => {
+        switch (props.ValidationState) {
+          case 'correct':
+            return '#3CBC81';
+          case 'error':
+            return '#E74A3B';
+          default:
+            return '#fafafa';
+        }
+      }};
+    }
+  }
+`;
 export const Input = styled.input`
   background-color: transparent;
   border: none;

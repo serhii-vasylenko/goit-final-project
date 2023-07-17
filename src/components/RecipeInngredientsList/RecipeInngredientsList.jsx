@@ -41,7 +41,7 @@ const RecipeInngredientsList = ({ ingredients } ) => {
 
               <ContentWrap>    
                 <IngredientMeasure>{measure}</IngredientMeasure>
-                <CustomCheckBox />
+                <CustomCheckBox id={_id} measure={measure}/>
               </ContentWrap>
            
           </IngredientItem>
