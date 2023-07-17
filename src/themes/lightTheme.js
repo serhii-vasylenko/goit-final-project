@@ -14,7 +14,12 @@ export const lightTheme = {
     primaryTextColor: '#23262a',
     secondaryTextColor: '#3e4462',
     footerBGColor: '#22252a',
-    privacyColor: '#22252a'
+    privacyColor: '#22252a',
+    recipeCardBgColor: '#fff',
+    recipeCardDeleteBgColor: '#EBF3D4',
+    recipeCardDeleteColor: '#000',
+    recipeCardDescriptionColor: '#23262A',
+    paginationBgHoverColor: '#EBF3D4',
   },
   transforms: {
     transitionDuration: '250ms',
