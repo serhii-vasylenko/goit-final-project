@@ -1,5 +1,5 @@
 import { useAddProductMutation, useGetProductsQuery, useDeleteProductMutation } from 'redux/shopping-list/productsSlice';
-import CustomCheckBox from './Checkbox';
+// import CustomCheckBox from './Checkbox';
 import {
   IngredientList,
   IngredientItem,
@@ -10,51 +10,17 @@ import {
   ContentWrap,
   ContentWrapMeasure,
   Image,
+  CheckBox
 } from './RecipeInngredientsList.styled';
 
 const RecipeInngredientsList = ({ ingredients, recipeId }) => {
 
   const { _id, measure, name, img } = ingredients;
 
-  const { data } = useGetProductsQuery();
+  // const { data: shoppingList } = useGetProductsQuery();
   // const [deleteProduct] = useDeleteProductMutation();
-  const [addProduct] = useAddProductMutation();
-
-  // function getIngredient(id) {
-  //   if (shoppingList.length !== 0) {
-  //     const ingredientId = shoppingList?.some(ingredient => ingredient.recipeId === id);
-  //     return ingredientId;
-  //   }
-  //   return false;
-  // };
-
-  // const inShoppingList = getIngredient(recipeId);
-
-   const toggleToShoppingList = (ingredients) => {
-    // if (inShoppingList) {
-    //   const ingredient = shoppingList.find(item => {
-    //     return item.recipeId === recipeId;
-    //   });
-    //   deleteProduct(ingredient._id);
-    //   return;
-    // }
-   
-      addProduct({
-        measure,
-        name,
-        img,
-        recipeId,
-      })
-    ;
-    return;
-  };
-
-  // console.log(data.data.shoppingList)
   // const [addProduct] = useAddProductMutation();
 
-  //   const clickHandler = ingredients => {
-  //     addProduct({ ingredientId: _id, recipeId: _id, measure: measure });
-  //   };
 
   return (
     <>
@@ -76,13 +42,16 @@ const RecipeInngredientsList = ({ ingredients, recipeId }) => {
                     <NameIngredient>{name}</NameIngredient>
                   </ContentWrap>
 
-              <ContentWrapMeasure>    
-                <IngredientMeasure>{measure}</IngredientMeasure>
-                    <CustomCheckBox clickHandler={toggleToShoppingList} />
-              </ContentWrapMeasure>
-           
-          </IngredientItem>
-        );
+                  <ContentWrapMeasure>
+                    <IngredientMeasure>{measure}</IngredientMeasure>
+                    <CheckBox
+                      recipeId={recipeId}
+                      type="checkbox"
+                      ingredient={{ _id, measure, img, name }}
+                    />
+                  </ContentWrapMeasure>
+                </IngredientItem>
+              );
       })}
     </IngredientList>
     </ContainerList> 

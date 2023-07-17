@@ -14,9 +14,6 @@ const dispatch = useDispatch()
   const recipeInfo = useSelector(selectRecipeById);
   const error = useSelector(selectError);
 
-  // console.log(recipeInfo);
-
-  
    const { recipeId } = useParams();
 
   useEffect(() => {
