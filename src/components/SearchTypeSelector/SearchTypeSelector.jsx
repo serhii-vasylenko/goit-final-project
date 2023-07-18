@@ -1,43 +1,27 @@
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
-import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
-
-import { selectSearchFilter } from 'redux/search/searchSelector';
-
-import {
-  StyledFormControl,
-  SelectWrapper,
-  SelectName,
-  StyledSelect,
-  StyledMenuItem,
-  Select,
-  Option
-} from './SearchTypeSelector.styled';
+import SelectCustom from './SelectCustom';
+import { SelectWrapper, SelectName } from './SearchTypeSelector.styled';
 
 const SearchTypeSelector = () => {
   const dispatch = useDispatch();
-  const selectedOption = useSelector(selectSearchFilter);
-  const [selectedValue, setSelectedValue] = useState(selectedOption || 'title');
 
   useEffect(() => {
-    if (selectedOption !== null) return;
-    if (selectedOption === null) {
-      dispatch(selectOption(selectedValue));
-    }
-  }, [dispatch, selectedOption, selectedValue]);
+    return () => {
+      dispatch(selectOption('Title'));
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const selectOption = selectedOption => {
     return {
       type: 'search/setSearchFilter',
-      payload: selectedOption
+      payload: selectedOption,
     };
   };
 
-
-  const handleOptionChange = e => {
-    const value = e.target.value;
-    setSelectedValue(value);
+  const handleOptionChange = value => {
     dispatch(selectOption(value));
   };
 
@@ -45,34 +29,10 @@ const SearchTypeSelector = () => {
     <>
       <SelectWrapper>
         <SelectName> Search by:</SelectName>
-        <Select value={selectedOption} onChange={handleOptionChange}>
-          <Option value="title">Title</Option>
-          <Option value="ingredient">Ingredient</Option>
-        </Select>
-        {/* <StyledFormControl
-          sx={{
-            m: 1,
-            minWidth: 120,
-            '& .MuiOutlinedInput-notchedOutline': {
-              border: 'none',
-            },
-          }}
-          size="small"
-          margin="normal"
-          focused={false}
-        >
-          <StyledSelect
-            value={selectedValue}
-            name="select"
-            onChange={handleChange}
-            IconComponent={props => (
-              <KeyboardArrowDown sx={{ fill: '#8BAA36' }} {...props} />
-            )}
-          >
-            <StyledMenuItem value="title">Title</StyledMenuItem>
-            <StyledMenuItem value="ingredient">Ingredients</StyledMenuItem>
-          </StyledSelect>
-        </StyledFormControl> */}
+        <SelectCustom
+          options={['Title', 'Ingredient']}
+          onChange={handleOptionChange}
+        />
       </SelectWrapper>
     </>
   );

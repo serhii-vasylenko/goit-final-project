@@ -10,7 +10,10 @@ import { Input, InputWrapper, ButtonWrapper } from './SearchForm.styled';
 import { selectSearchFilter } from 'redux/search/searchSelector';
 import getRecipesByTitle from 'redux/search/operations/getRecipesByTitle';
 import getRecipesByIngredient from 'redux/search/operations/getRecipesByIngredient';
-import { resetRecipeByTitle, resetRecipeByIngredient } from 'redux/search/searchSlice';
+import {
+  resetRecipeByTitle,
+  resetRecipeByIngredient,
+} from 'redux/search/searchSlice';
 
 const SearchForm = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -31,10 +34,10 @@ const SearchForm = () => {
   const updateQueryString = useCallback(() => {
     if (location.pathname === '/search' && searchValue !== '') {
       switch (selectedOption) {
-        case 'title':
+        case 'Title':
           setSearchParams({ q: searchValue });
           break;
-        case 'ingredient':
+        case 'Ingredient':
           setSearchParams({ ing: searchValue });
           break;
         default:
@@ -51,12 +54,19 @@ const SearchForm = () => {
   }, [updateQueryString]);
 
   const handleInputChange = e => {
-    const trimmedValue = e.target.value.trim();
-    setSearchValue(trimmedValue);
+    const trimvalue = e.target.value.trim();
+    setSearchValue(trimvalue);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
+
+    if (location.pathname === '/main' && searchValue !== '') {
+      navigate(`/search?q=${searchValue}`, {
+        state: { from: '/main' },
+      });
+      return;
+    }
 
     const params = Object.fromEntries(searchParams.entries());
     const { q, ing } = params;
@@ -70,15 +80,9 @@ const SearchForm = () => {
       return;
     }
 
-    if (location.pathname === '/main' && searchValue !== '') {
-      navigate(`/search?q=${searchValue}`, {
-        state: { from: '/main' },
-      });
-    }
-
     if (q && q !== '') {
       dispatch(resetRecipeByIngredient());
-       dispatch(getRecipesByTitle(title));
+      dispatch(getRecipesByTitle(title));
     }
     if (ing && ing !== '') {
       dispatch(resetRecipeByTitle());

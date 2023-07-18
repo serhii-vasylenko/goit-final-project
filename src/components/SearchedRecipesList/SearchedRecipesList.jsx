@@ -16,7 +16,7 @@ import SearchCapImage from '../ReusableComponents/SearchCap/SearhCap';
 import {
   showErrorToast,
 } from '../ReusableComponents/ToastCustom/showToast';
-import Paginator from '../ReusableComponents/Paginator/Paginator';
+// import Paginator from '../ReusableComponents/Paginator/Paginator';
 
 import {
   selectRecipeByTitle,
@@ -25,9 +25,7 @@ import {
   selectError,
 } from 'redux/search/searchSelector';
 import getRecipesByTitle from 'redux/search/operations/getRecipesByTitle';
-import getRecipesByIngredient from 'redux/search/operations/getRecipesByIngredient';
 import {
-  resetRecipeByTitle,
   resetRecipeByIngredient,
 } from 'redux/search/searchSlice';
 
@@ -50,10 +48,11 @@ const SearchedRecipesList = () => {
   const PER_PAGE = 6;
   const data = usePagination(visibleRecipes, PER_PAGE);
 
-  const handleChange = (e, p) => {
-    data.jump(p);
-    listRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
+
+  // const handleChange = (e, p) => {
+  //   data.jump(p);
+  //   listRef.current?.scrollIntoView({ behavior: 'smooth' });
+  // };
 
   useEffect(() => {
     if (error) showErrorToast(error);
@@ -62,17 +61,12 @@ const SearchedRecipesList = () => {
   useEffect(() => {
     if (location.state && location.state.from === '/main') {
       const params = Object.fromEntries(searchParams.entries());
-      const { q, ing } = params;
+      const { q } = params;
       const title = searchParams.get('q');
-      const ingredient = searchParams.get('ing');
 
       if (q && q !== '') {
         dispatch(resetRecipeByIngredient());
         dispatch(getRecipesByTitle(title));
-      }
-      if (ing && ing !== '') {
-        dispatch(resetRecipeByTitle());
-        dispatch(getRecipesByIngredient(ingredient));
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

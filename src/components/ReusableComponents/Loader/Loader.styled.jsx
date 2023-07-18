@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-// import { Oval } from 'react-loader-spinner';
+import { Oval } from 'react-loader-spinner';
 
 export const LoaderWrapper = styled.div`
   // display: flex;
@@ -11,8 +11,8 @@ export const LoaderWrapper = styled.div`
   }
 `;
 
-// export const StyledLoader = styled(Oval)`
-  // height: 70px;
-  // width: 70px;
-  // color: var(--accent-color);
-// `;
+export const StyledLoader = styled(Oval)`
+  height: 70px;
+  width: 70px;
+  color: var(--accent-color);
+`;
