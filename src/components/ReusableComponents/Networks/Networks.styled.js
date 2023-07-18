@@ -17,9 +17,7 @@ export const Link = styled.a`
   height: 100%;
 
   color: ${({ theme }) => theme.colors.accentColor};
-  transition: ${({ theme }) =>
-    `color ${theme.transforms.transforms} ${theme.transforms.timingFunction}`};
-
+  transition: ${({ theme }) => theme.transforms.all};
   cursor: pointer;
 
   svg {
