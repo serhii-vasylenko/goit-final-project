@@ -1,3 +1,8 @@
+import { useDispatch } from 'react-redux';
+
+import { removeFromShoppingList } from 'redux/shopping-list/operations';
+import { showMessageToast } from 'components/ReusableComponents/ToastCustom/showToast';
+
 import sprite from '../../images/sprite.svg';
 import defaultImage from '../../images/shoppingListPage/avocado.png';
 import {
@@ -11,16 +16,22 @@ import {
   ShoppingImage,
   ShoppingImageContainer,
 } from './ShoppingListItem.styled';
-import { useDeleteProductMutation } from 'redux/shopping-list/productsSlice';
-import { showMessageToast } from 'components/ReusableComponents/ToastCustom/showToast';
 
 const ShoppingListItem = ({ product }) => {
-  const [deleteProduct] = useDeleteProductMutation();
+  const dispatch = useDispatch();
 
-  const clickHandler = productId => {
-    showMessageToast('Product`s deleted!');
-    deleteProduct({});
+  const clickHandler = product => {
+    showMessageToast('Product was deleted from your shopping-list.');
+
+    dispatch(
+      removeFromShoppingList({
+        ingredientId: product._id,
+        recipeId: product.recipeId,
+        measure: product.measure,
+      })
+    );
   };
+
   return (
     <Item>
       <DescriptionContainer>
@@ -35,8 +46,8 @@ const ShoppingListItem = ({ product }) => {
       </DescriptionContainer>
 
       <NumberContainer>
-        <ProductQuantity></ProductQuantity>
-        <DeleteBtn onClick={() => clickHandler(product._id)}>
+        <ProductQuantity>{product.measure}</ProductQuantity>
+        <DeleteBtn onClick={() => clickHandler(product)}>
           <CrossIcon>
             <use href={`${sprite}#icon-cross`}></use>
           </CrossIcon>

@@ -15,7 +15,7 @@ overflow-x:hidden;
 padding: 18px 16px;
 transform: translateY(-100%);
 transition: transform var(--transition-duration) var(--timing-function);
-background: #EBF3D4 url(${bgImgMob}) no-repeat;
+background: ${({theme}) => theme.colors.mobileMenuBGColor} url(${bgImgMob}) no-repeat;
 background-position: right -285px bottom -85px;
 background-size: 585px 378px;
 
@@ -23,7 +23,7 @@ background-size: 585px 378px;
       transform: translateY(0%);
 }
 @media (min-width: 768px) {
-        background: #EBF3D4 url(${bgImgTab}) no-repeat;
+        background: ${({theme}) => theme.colors.mobileMenuBGColor} url(${bgImgTab}) no-repeat;
         background-position: right -323px bottom -335px;
         background-size: 904px 747px;
         padding: 18px 32px 32px 32px;

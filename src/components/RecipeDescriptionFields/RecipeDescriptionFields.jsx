@@ -110,9 +110,10 @@ const RecipeDescriptionFields = ({ file, handleFileChange }) => {
             options={categories}
             classNamePrefix="custom-select"
             isSearchable={false}
-              
-            onChange={event => setFieldValue('category', event.label)
-            }
+            onChange={(event) => {setFieldValue('category', event.label)
+          console.log(event)}}
+            // onBlur={event=> console.log(event)} 
+            
           >
             {categoryRecipes.map(({ _id, name }) => (
               <option value={name} key={_id}>
@@ -121,7 +122,7 @@ const RecipeDescriptionFields = ({ file, handleFileChange }) => {
             ))}
           </Select>
           
-          <FormError name="category" style={{ position: 'absolute', bottom: '-14px' }}  />
+          <FormError name="category" style={{ position: 'absolute', bottom: '-16px' }}  />
         </FieldContainer>
         
         <FieldContainer
@@ -146,19 +147,8 @@ const RecipeDescriptionFields = ({ file, handleFileChange }) => {
             ))}
           </Select>
           
-          <FormError name="time" style={{ position: 'absolute', bottom: '-14px' }}/>
+          <FormError name="time" style={{ position: 'absolute', bottom: '-16px' }}/>
         </FieldContainer>
-        
-
-        {/* <Field name="time" as="select">
-          <option value="">Select time</option>
-          {cookTime.map(({ id, time }) => (
-            <option value={time} key={id}>
-              {`${time} min`}
-            </option>
-          ))}
-        </Field>
-        <ErrorMessage name="time" component="div" className="error-message" /> */}
       </FieldWrapper>
     </DescriptionFields>
   );
