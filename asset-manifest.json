@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/goit-final-project/static/css/main.c97838f7.css",
-    "main.js": "/goit-final-project/static/js/main.bf970550.js",
+    "main.js": "/goit-final-project/static/js/main.0280798c.js",
     "static/js/741.a534533b.chunk.js": "/goit-final-project/static/js/741.a534533b.chunk.js",
     "static/js/215.f8925e61.chunk.js": "/goit-final-project/static/js/215.f8925e61.chunk.js",
-    "static/js/785.cff2b511.chunk.js": "/goit-final-project/static/js/785.cff2b511.chunk.js",
+    "static/js/800.261eb991.chunk.js": "/goit-final-project/static/js/800.261eb991.chunk.js",
     "static/js/438.8e71ea38.chunk.js": "/goit-final-project/static/js/438.8e71ea38.chunk.js",
     "static/js/914.af7cb864.chunk.js": "/goit-final-project/static/js/914.af7cb864.chunk.js",
     "static/js/762.ebc62b7a.chunk.js": "/goit-final-project/static/js/762.ebc62b7a.chunk.js",
@@ -85,10 +85,10 @@
     "static/media/correct.svg": "/goit-final-project/static/media/correct.2c20cfce5010676dc2acf065541b3183.svg",
     "static/media/pick.svg": "/goit-final-project/static/media/pick.247b86d0e6a26346bf0885b5b0408bd8.svg",
     "main.c97838f7.css.map": "/goit-final-project/static/css/main.c97838f7.css.map",
-    "main.bf970550.js.map": "/goit-final-project/static/js/main.bf970550.js.map",
+    "main.0280798c.js.map": "/goit-final-project/static/js/main.0280798c.js.map",
     "741.a534533b.chunk.js.map": "/goit-final-project/static/js/741.a534533b.chunk.js.map",
     "215.f8925e61.chunk.js.map": "/goit-final-project/static/js/215.f8925e61.chunk.js.map",
-    "785.cff2b511.chunk.js.map": "/goit-final-project/static/js/785.cff2b511.chunk.js.map",
+    "800.261eb991.chunk.js.map": "/goit-final-project/static/js/800.261eb991.chunk.js.map",
     "438.8e71ea38.chunk.js.map": "/goit-final-project/static/js/438.8e71ea38.chunk.js.map",
     "914.af7cb864.chunk.js.map": "/goit-final-project/static/js/914.af7cb864.chunk.js.map",
     "762.ebc62b7a.chunk.js.map": "/goit-final-project/static/js/762.ebc62b7a.chunk.js.map",
@@ -101,6 +101,6 @@
   },
   "entrypoints": [
     "static/css/main.c97838f7.css",
-    "static/js/main.bf970550.js"
+    "static/js/main.0280798c.js"
   ]
 }
