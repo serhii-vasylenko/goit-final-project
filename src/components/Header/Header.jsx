@@ -16,7 +16,6 @@ export const Header = () => {
             <Navigation/>
             <Wrapper>
                 <UserLogo />
-                {/* <ThemeToggle />      */}
                 <MobileSwitcher nav={nav} setNav={setNav} />
                 <ThemeToggler/>
             </Wrapper>

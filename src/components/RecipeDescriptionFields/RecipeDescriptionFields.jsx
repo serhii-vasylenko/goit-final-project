@@ -22,7 +22,6 @@ import {
   Select,
 } from './RecipeDescriptionFields.styled';
 
-
 const RecipeDescriptionFields = ({ file, handleFileChange }) => {
   const categoryRecipes = useSelector(selectCategoryList);
   const categories = categoryRecipes.map(el => ({
@@ -32,11 +31,10 @@ const RecipeDescriptionFields = ({ file, handleFileChange }) => {
 
   const time = cookTime.map(el => ({
     value: el.time,
-    label: convertMinutesToHours(el.time) 
+    label: convertMinutesToHours(el.time),
   }));
 
   const { setFieldValue, errors, touched } = useFormikContext();
-
 
   return (
     <DescriptionFields>
@@ -44,7 +42,11 @@ const RecipeDescriptionFields = ({ file, handleFileChange }) => {
         <Field name="photo" type="file">
           {({ field }) => {
             return (
-              <ImgWrapper>
+              <ImgWrapper
+                className={
+                  hasError('title', getIn, errors, touched) ? 'error' : ''
+                }
+              >
                 <ImgLabel htmlFor={field.name}>
                   <InputFileThumb>
                     {file ? (
@@ -77,7 +79,7 @@ const RecipeDescriptionFields = ({ file, handleFileChange }) => {
             );
           }}
         </Field>
-        <FormError name="photo" />
+        <FormError name="photo" style={{ paddingTop: '5px' }} />
       </PhotoFieldWrapper>
 
       <FieldWrapper>
@@ -86,7 +88,7 @@ const RecipeDescriptionFields = ({ file, handleFileChange }) => {
         >
           <FieldLabel htmlFor="title">Enter item title</FieldLabel>
           <Input name="title" id="title" type="text" />
-          <FormError name="title" />
+          <FormError name="title" style={{ paddingTop: '5px' }} />
         </FieldContainer>
 
         <FieldContainer
@@ -94,7 +96,7 @@ const RecipeDescriptionFields = ({ file, handleFileChange }) => {
         >
           <FieldLabel htmlFor="about">Enter about recipe</FieldLabel>
           <Input name="about" id="about" type="text" />
-          <FormError name="about" />
+          <FormError name="about" style={{ paddingTop: '5px' }} />
         </FieldContainer>
 
         <FieldContainer
@@ -103,16 +105,16 @@ const RecipeDescriptionFields = ({ file, handleFileChange }) => {
           }
         >
           <FieldLabel htmlFor="category">Category</FieldLabel>
-          
+
           <Select
             name="category"
             as="select"
             options={categories}
             classNamePrefix="custom-select"
             isSearchable={false}
-              
-            onChange={event => setFieldValue('category', event.label)
-            }
+            onChange={event => {
+              setFieldValue('category', event.label);
+            }}
           >
             {categoryRecipes.map(({ _id, name }) => (
               <option value={name} key={_id}>
@@ -120,17 +122,23 @@ const RecipeDescriptionFields = ({ file, handleFileChange }) => {
               </option>
             ))}
           </Select>
-          
-          <FormError name="category" style={{ position: 'absolute', bottom: '-14px' }}  />
+
+          <FormError
+            name="category"
+            style={{
+              position: 'absolute',
+              ...(window.innerWidth >= 768
+                ? { bottom: '-21px' }
+                : { bottom: '-19px' }),
+            }}
+          />
         </FieldContainer>
-        
+
         <FieldContainer
-          className={
-            hasError('time', getIn, errors, touched) ? 'error' : ''
-          }
+          className={hasError('time', getIn, errors, touched) ? 'error' : ''}
         >
           <FieldLabel htmlFor="time">Cooking time</FieldLabel>
-          
+
           <Select
             name="time"
             as="select"
@@ -141,24 +149,21 @@ const RecipeDescriptionFields = ({ file, handleFileChange }) => {
           >
             {cookTime.map(({ id, time }) => (
               <option value={time} key={id}>
-                 {time} 
+                {time}
               </option>
             ))}
           </Select>
-          
-          <FormError name="time" style={{ position: 'absolute', bottom: '-14px' }}/>
-        </FieldContainer>
-        
 
-        {/* <Field name="time" as="select">
-          <option value="">Select time</option>
-          {cookTime.map(({ id, time }) => (
-            <option value={time} key={id}>
-              {`${time} min`}
-            </option>
-          ))}
-        </Field>
-        <ErrorMessage name="time" component="div" className="error-message" /> */}
+          <FormError
+            name="time"
+            style={{
+              position: 'absolute',
+              ...(window.innerWidth >= 768
+                ? { bottom: '-21px' }
+                : { bottom: '-19px' }),
+            }}
+          />
+        </FieldContainer>
       </FieldWrapper>
     </DescriptionFields>
   );

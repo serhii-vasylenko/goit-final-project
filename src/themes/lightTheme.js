@@ -21,8 +21,18 @@ export const lightTheme = {
     recipeCardDescriptionColor: '#23262A',
     paginationBgHoverColor: '#EBF3D4',
     categoriesListBGColor: '#ebf3d4',
+    categoryListLine: '#e0e0e0',
+    categoryListItem: '#bdbdbd',
+    backgroundModalColor: '#fafafa',
+    modalInputBorderColor: 'rgba(0, 0, 0, 0.20)',
+    backgroundMobileMenu: '#EBF3D4',
+    selectBGColor: '#d9d9d9',
+    dropDownColor: '#fafafa',
+    selectHoverColor: 'rgba(217,217,217,0.2)',
+    selectBorderColor: 'rgba(217,217,217,0.2)',
     togglerBGColor: '#EFEFEF',
     mobileMenuBGColor: '#EBF3D4',
+    mobileMenuColor: '#22252a'
   },
   transforms: {
     transitionDuration: '250ms',

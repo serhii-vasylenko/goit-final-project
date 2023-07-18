@@ -57,6 +57,7 @@ const AddRecipePage = () => {
           hInstagram={24}
           hoverColor={'#1E1F28'}
           flex={'start'}
+          
         />
       </FollowUsSection>
 

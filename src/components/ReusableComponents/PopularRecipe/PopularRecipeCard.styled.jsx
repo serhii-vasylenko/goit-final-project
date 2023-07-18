@@ -7,6 +7,17 @@ export const Recipe = styled(NavLink)`
   border-bottom: 1px solid #7070702b;
   display: flex;
 
+  &:focus{
+  outline: 1px solid rgba(217, 217, 217, 1);
+  border-radius: 6px;
+}
+
+&:hover {
+  scale: 1.02;
+}
+
+transition: scale var(--transition-duration) var(--timing-function);
+
   @media (min-width: 768px) {
     width: 336px;
   }

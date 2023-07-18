@@ -53,7 +53,7 @@ const App = () => {
   console.log(theme);
 
   return isRefreshing ? (
-    <RefreshingScreen/>
+    <RefreshingScreen />
   ) : (
     <ThemeProvider theme={theme}>
       <Routes>
@@ -82,10 +82,34 @@ const App = () => {
               <PrivateRoute redirectTo="/signin" component={<MainPage />} />
             }
           />
-          <Route path="/categories" element={<CategoriesPage />}>
-            <Route path=":categoryName" element={<CategoryGallery />} />
+          <Route
+            path="/categories"
+            element={
+              <PrivateRoute
+                redirectTo="/signin"
+                component={<CategoriesPage />}
+              />
+            }
+          >
+            <Route
+              path=":categoryName"
+              element={
+                <PrivateRoute
+                  redirectTo="/signin"
+                  component={<CategoryGallery />}
+                />
+              }
+            />
           </Route>
-          <Route path="add" element={<AddRecipePage />} />
+          <Route
+            path="add"
+            element={
+              <PrivateRoute
+                redirectTo="/signin"
+                component={<AddRecipePage />}
+              />
+            }
+          />
           <Route
             path="my"
             element={
@@ -110,8 +134,18 @@ const App = () => {
               />
             }
           />
-          <Route path="search" element={<SearchPage />} />
-          <Route path="/recipes/:recipeId" element={<RecipePage />} />
+          <Route
+            path="search"
+            element={
+              <PrivateRoute redirectTo="/signin" component={<SearchPage />} />
+            }
+          />
+          <Route
+            path="/recipes/:recipeId"
+            element={
+              <PrivateRoute redirectTo="/signin" component={<RecipePage />} />
+            }
+          />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

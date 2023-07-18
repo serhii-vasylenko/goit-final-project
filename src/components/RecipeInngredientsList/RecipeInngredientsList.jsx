@@ -1,57 +1,68 @@
-// import { useEffect } from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { selectIngredientsList } from 'redux/ingredients/ingredientsSelector';
-// import getIngredientsList from 'redux/ingredients/operations/getIngredientsList';
-import CustomCheckBox from './Checkbox';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+
 import {
   IngredientList,
   IngredientItem,
-  ImageContainer,
   NameIngredient,
   IngredientMeasure,
   HeaderList,
   ContainerList,
-  ContentWrap
+  ContentWrap,
+  ContentWrapMeasure,
+  Image,
 } from './RecipeInngredientsList.styled';
+import { getShoppingList } from 'redux/shopping-list/operations';
+import { selectShoppingList } from 'redux/shopping-list/selectors';
+import CustomCheckbox from './CustomCheckbox';
 
-const RecipeInngredientsList = ({ ingredients } ) => {
+const RecipeInngredientsList = ({ ingredients, recipeId}) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getShoppingList());
+  }, [dispatch]);
+
+  const shoppingList = useSelector(selectShoppingList);
 
   return (
-  <>
-    {ingredients && (     
-      <ContainerList>
-    <HeaderList>
+    <>
+      {ingredients && (
+        <ContainerList>
+          <HeaderList>
             <p>Ingredients</p>
             <p>
               Number
               <span>Add to list</span>
             </p>
           </HeaderList>
-    <IngredientList>
-      {ingredients?.map(({ _id, measure, img, name}) => {
-        return (
-          <IngredientItem key={`${measure}_${_id}`}>
-           
-              <ContentWrap>
-                <ImageContainer>
-                  <img src={img} alt="name" />
-              </ImageContainer>
-               <NameIngredient>{name}</NameIngredient>
-              </ContentWrap>
+          <IngredientList>
+            {ingredients?.map(({ _id, measure, img, name }) => {
 
-              <ContentWrap>    
-                <IngredientMeasure>{measure}</IngredientMeasure>
-                <CustomCheckBox id={_id} measure={measure}/>
-              </ContentWrap>
-           
-          </IngredientItem>
-        );
-      })}
-    </IngredientList>
-    </ContainerList> 
-     
-    )}
-       </> 
+              return (
+                <IngredientItem key={`${measure}_${_id}`}>
+                  <ContentWrap>
+                    <Image src={img} alt="name" />
+                    <NameIngredient>{name}</NameIngredient>
+                  </ContentWrap>
+
+                  <ContentWrapMeasure>
+                    <IngredientMeasure>
+                      {measure ?? 'No info'}
+                    </IngredientMeasure>
+                    <CustomCheckbox
+                      ingredient={{ _id, name, img, measure }}
+                      shoppingList={shoppingList}
+                      recipeId = {recipeId}
+                    />
+                  </ContentWrapMeasure>
+                </IngredientItem>
+              );
+            })}
+          </IngredientList>
+        </ContainerList>
+      )}
+    </>
   );
 };
 

@@ -36,9 +36,9 @@ const UserName = styled.p`
   font-weight: 600;
   line-height: 170%;
   margin-left: 14px;
-  transition: color var(--transition-duration) var(--timing-function);
+  transition: color ${({theme }) => theme.transforms.transitionDuration} ${({theme }) => theme.transforms.timingFunction};
   &:hover {
-    color: var(--accent-color);
+    color: ${({theme }) => theme.colors.accentColor};
   }
   @media (min-width: 768px) {
     font-size: 14px;

@@ -7,13 +7,13 @@ position: absolute;
 top: 0;
 z-index: 110;
 box-sizing: border-box;
-background-color: var(--background-color);
+background-color: ${({theme }) => theme.colors.backgroundColor};
 width: 161px;
 padding: 18px;
 border-radius: 8px;
-border: 1px solid var(--accent-color);
+border: 1px solid ${({theme }) => theme.colors.accentColor};
 transform: translate(-90px, -140px);
-transition: transform var(--transition-duration) var(--timing-function);
+transition: all ${({theme }) => theme.transforms.transitionDuration} ${({theme }) => theme.transforms.timingFunction};
 &.active {
     transform: translate(-90px, 78px); 
 }
@@ -47,8 +47,8 @@ justify-content: center;
 width: 100%;
 padding: 12px 0;
 font-family: inherit;
-background-color: var(--accent-color);
-color: var(--white-color);
+background-color: ${({theme }) => theme.colors.accentColor};
+color: ${({theme }) => theme.colors.whiteColor};
 border: none;
 cursor: pointer;
 border-radius: 24px 44px;
