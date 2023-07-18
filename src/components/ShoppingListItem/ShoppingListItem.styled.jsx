@@ -78,26 +78,34 @@ export const ProductName = styled.p`
 `;
 
 export const ProductQuantity = styled.div`
-  width: 23px;
-  height: 23px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  max-width: 50px;
+  max-height: 50px;
 
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 5px;
+  font-size: 10px;
+  padding: 5px;
 
   color: #fafafa;
 
   background-color: #8baa36;
 
   @media screen and (min-width: 768px) {
-    width: 68px;
-    height: 35px;
+    max-width: 90px;
+    max-height: 70px;
     font-size: 16px;
+    padding: 15px;
   }
-  @media screen and (min-width: 1280px) {
+  /* @media screen and (min-width: 1280px) {
     font-size: 18px;
-  }
+  } */
 `;
 
 export const DeleteBtn = styled.button`

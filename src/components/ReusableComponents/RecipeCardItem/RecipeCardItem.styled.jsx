@@ -2,8 +2,9 @@ import styled from '@emotion/styled/macro';
 
 export const Card = styled.div`
   position: relative;
+  border-radius: 8px;
   padding: 14px 9px;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.colors.recipeCardBgColor};
   display: flex;
   gap: 14px;
   @media screen and (min-width: 768px) {
@@ -55,7 +56,7 @@ export const Title = styled.h3`
   }
 `;
 export const TrashIcon = styled.svg`
-  stroke: #000;
+  stroke: ${({ theme }) => theme.colors.recipeCardDeleteColor};
   transition: stroke var(--transition-duration) var(--timing-function);
   width: 14px;
   height: 14px;
@@ -76,12 +77,11 @@ export const Trash = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 4px;
-  background-color: #ebf3d4;
+  background-color: ${({ theme }) => theme.colors.recipeCardDeleteBgColor};
   transition: background-color var(--transition-duration) var(--timing-function);
   cursor: pointer;
   &:hover {
     background-color: #8baa36;
-
     ${TrashIcon} {
       stroke: #fff;
     }
@@ -104,6 +104,7 @@ export const Description = styled.p`
   font-size: 8px;
   width: calc(100% - 24px);
   line-height: 1.25;
+  color: ${({ theme }) => theme.colors.recipeCardDescriptionColor};
   @media screen and (min-width: 768px) {
     font-size: 14px;
     width: calc(100% - 50px);

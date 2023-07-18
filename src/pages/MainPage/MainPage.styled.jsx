@@ -183,19 +183,6 @@ export const HeroImg = styled.picture`
     width: 578px;
     height: 539px;
   }
-
-  &.loading img {
-    animation: rotation 2s var(--timing-function) infinite;
-  }
-
-  @keyframes rotation {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
 `;
 
 export const PointerImg = styled.picture`
