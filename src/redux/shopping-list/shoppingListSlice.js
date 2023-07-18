@@ -38,10 +38,8 @@ const shoppingListSlice = createSlice({
       .addCase(addToShoppingList.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.products.shoppingList = [
-          ...state.shoppingList,
-          action.payload.data.shoppingList,
-        ];
+		//   console.log("PAYLOAD", action.payload)
+        state.shoppingList = action.payload.data.shoppingList;
       })
       .addCase(addToShoppingList.rejected, handleRejected)
 
@@ -50,6 +48,7 @@ const shoppingListSlice = createSlice({
       .addCase(removeFromShoppingList.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
+		//   console.log("PAYLOAD DELETE", action.payload.data.shoppingList)
 		  state.shoppingList = action.payload.data.shoppingList
       })
       .addCase(removeFromShoppingList.rejected, handleRejected);
