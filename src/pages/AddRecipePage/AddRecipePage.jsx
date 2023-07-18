@@ -8,6 +8,7 @@ import PageTitle from 'components/ReusableComponents/PageTitle/PageTitle';
 import { selectIngredientsList } from 'redux/ingredients/ingredientsSelector';
 import PopularRecipes from 'components/PopularRecipes/PopularRecipes';
 import Networks from 'components/ReusableComponents/Networks/Networks';
+import FormLoader from 'components/FormLoader/FormLoader';
 import {
   FormSection,
   SectionPopular,
@@ -40,7 +41,7 @@ const AddRecipePage = () => {
 
         <Wrapper>
         <FormSection>
-        {ingredientsList && <AddRecipeForm />}
+        {ingredientsList ? <AddRecipeForm /> : <FormLoader/>}
       </FormSection>
 
       <Container>
