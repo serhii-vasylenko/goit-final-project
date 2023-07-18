@@ -15,7 +15,6 @@ import {
   PreviewCategoriesList,
   PreviewCategoriesListItem,
   SeeCategoryBtn,
-  Wrapper,
 } from './PreviewCategories.styled';
 
 import {
@@ -24,6 +23,7 @@ import {
   selectError,
 } from 'redux/recipes/recipesSelector';
 import getMainPageRecipes from 'redux/recipes/operations/getMainPageRecipes';
+import { selectTheme } from 'redux/theme/selectors';
 
 const PreviewCategories = () => {
   const dispatch = useDispatch();
@@ -31,6 +31,7 @@ const PreviewCategories = () => {
   const navigate = useNavigate();
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
+  const stateTheme = useSelector(selectTheme);
 
   useEffect(() => {
     dispatch(getMainPageRecipes());
@@ -61,7 +62,7 @@ const PreviewCategories = () => {
         {isLoading && <Loader />}
         {!isLoading && !categories && <ErrorBanner />}
         {!isLoading && categories && !error && (
-          <Wrapper>
+          <>
             <PreviewCategoriesList>
               {recipesByCategories.map(({ category, recipes }) => (
                 <PreviewCategoriesListItem key={category}>
@@ -79,6 +80,7 @@ const PreviewCategories = () => {
               bgColor="transparent"
               border="2px"
               borderColor={'#8aa936'}
+              color={stateTheme === 'light' ? '#22252a' : '#fafafa'}
               borderRadius="24px 44px"
               padding={{
                 paddingTop: '14px',
@@ -108,7 +110,7 @@ const PreviewCategories = () => {
               }}
               onClick={() => navigate('/categories/beef')}
             />
-          </Wrapper>
+          </>
         )}
       </MainContainer>
     </PreviewCategoriesSection>
