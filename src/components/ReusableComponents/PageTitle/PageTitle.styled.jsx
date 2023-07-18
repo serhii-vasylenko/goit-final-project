@@ -1,50 +1,52 @@
 import styled from '@emotion/styled';
 
 export const Title = styled.h1`
-  color: var(--page-title-color);
-  font-size: 28px;
-  font-weight: 600;
-  line-height: 1;
+  color: ${({ theme }) => theme.colors.pageTitleColor};
+  font-size: ${({ theme }) => theme.fontSizes[28]}px;
+  font-weight: ${({ theme }) => theme.fontWeights.semibold};
+  line-height: ${({ theme }) => theme.lineHeights['1']};
   letter-spacing: -0.56px;
-  padding-top: 35px;
   padding-bottom: 3px;
 
   @media screen and (min-width: 768px) {
-    font-size: 32px;
+    font-size: ${({ theme }) => theme.fontSizes[32]}px;
     letter-spacing: -0.64px;
     padding-bottom: 6px;
-    padding-top: 46px;
   }
   @media screen and (min-width: 1280px) {
-    font-size: 44px;
+    font-size: ${({ theme }) => theme.fontSizes[44]}px;
     letter-spacing: -0.88px;
-    padding-top: 44px;
   }
 `;
 
 export const RectangleFirst = styled.div`
   position: absolute;
-  top: 0;
+  top: 76px;
   left: 104px;
   width: 8px;
   height: 8px;
   transform: rotate(-25deg);
   flex-shrink: 0;
   border-radius: 3px;
-  background: var(--accent-color);
+  background: ${({ theme }) => theme.colors.accentColor};
 
   @media screen and (min-width: 768px) {
+    left: 187px;
     width: 14px;
     height: 14px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    left: 247px;
   }
 `;
 
 export const RectangleSecond = styled(RectangleFirst)`
-  top: 30px;
+  top: 106px;
   left: 333px;
 
   @media screen and (min-width: 768px) {
-    top: 13px;
+    top: 89px;
     left: 694px;
   }
 
@@ -62,7 +64,7 @@ export const Circle = styled.div`
   transform: rotate(-25deg);
   flex-shrink: 0;
   border-radius: 3px;
-  background: var(--background-color-circle);
+  background: ${({ theme }) => theme.colors.backgroundColorCircle};
 
   @media screen and (min-width: 768px) {
     width: 12px;
@@ -79,6 +81,13 @@ export const Circle = styled.div`
 
 export const Section = styled.section`
   position: relative;
+  padding-top: 114px;
 
-  background-color: ${({theme}) => theme.colors.backgroundColor}
+  @media screen and (min-width: 768px) {
+    padding-top: 136px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding-top: 164px;
+  }
 `;
