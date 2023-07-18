@@ -7,7 +7,7 @@ min-width: 320px;
 margin: 0 auto;
 padding: 0 16px;
 padding-top: 18px;
-
+color: ${({theme }) => theme.colors.primaryTextColor};
 z-index: 10; // не видаляти
 @media (min-width: 375px) {
 		width: 375px;
@@ -40,7 +40,7 @@ margin-right: 187px;
 const Wrapper = styled.div`
 display: flex;
 align-items: center;
-margin-left: auto
+margin-left: auto;
 `
 
 export {HeaderEl, Logo, Wrapper}

@@ -16,13 +16,13 @@ margin-top: ${props => props.nav ? '182px' : '0'};
 const NavLinkEl = styled(NavLink)`
 display: flex;
 align-items: center;
-color: var(--primary-text-color);
-transition: color var(--transition-duration) var(--timing-function);
+color: inherit;
+transition: color ${({theme }) => theme.transforms.transitionDuration} ${({theme }) => theme.transforms.timingFunction};
 &:hover{
-    color: var(--accent-color);
+    color: ${({theme }) => theme.colors.accentColor};
 }
 &.active {
-    color: var(--accent-color);
+    color: ${({theme }) => theme.colors.accentColor};
     font-weight: 600;
 }
 `

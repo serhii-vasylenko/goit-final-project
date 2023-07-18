@@ -5,7 +5,7 @@ import { MobileMenuEl, Wrapper } from "./MobileMenu.styled"
 import { NavLink } from 'react-router-dom';
 import { Navigation } from "components/Navigation/Navigation";
 import { MobileSwitcher } from "components/MobileSwitcher/MobileSwitcher";
-// import { ThemeToggle } from "components/ThemeToggler/ThemeToggler";
+import ThemeToggle from "components/ThemeToggler/ThemeToggler";
 const menuRoot = document.getElementById('menu-root');
 
 export const MobileMenu = ({nav, setNav}) => {
@@ -16,7 +16,7 @@ export const MobileMenu = ({nav, setNav}) => {
                 <MobileSwitcher nav={nav} setNav={setNav}/>
             </Wrapper>
             <Navigation nav={nav} setNav={setNav} />
-            {/* <ThemeToggle nav={nav} /> */}
+            <ThemeToggle nav={nav} />
         </MobileMenuEl>,
         menuRoot
     )

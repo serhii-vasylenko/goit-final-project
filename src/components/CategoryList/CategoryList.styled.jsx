@@ -5,7 +5,6 @@ const Categories = styled.ul`
   align-items: center;
   padding-top: 100px;
   /* width:100%; */
-
   flex-wrap: nowrap;
   overflow-x: scroll;
   overflow-y: hidden;
@@ -18,13 +17,13 @@ const Categories = styled.ul`
 `;
 const Category = styled.li`
   position: relative;
-  color: #bdbdbd;
+  color:  ${({theme }) => theme.colors.categoryListItem};
   font-size: 18px;
   font-weight: 400;
   line-height: 1;
   padding-bottom: 27px;
   text-transform: capitalize;
-  transition: color var(--transition-duration) var(--timing-function);
+  transition: color ${({theme }) => theme.transforms.transitionDuration} ${({theme }) => theme.transforms.timingFunction};
 
   &:not(:last-child) {
     margin-right: 55px;
@@ -32,7 +31,7 @@ const Category = styled.li`
 
   &:hover,
   &:focus {
-    color: var(--accent-color);
+    color: ${({theme }) => theme.colors.accentColor};
   }
 
   &.active::after {
@@ -43,7 +42,7 @@ const Category = styled.li`
     display: block;
     width: 100%;
     height: 3px;
-    background: var(--accent-color);
+    background: ${({theme }) => theme.colors.accentColor};
   }
 `;
 
@@ -51,6 +50,6 @@ const Line = styled.span`
   display: block;
   width: 1240px;
   height: 1px;
-  background: #e0e0e0;
+  background: ${({theme }) => theme.colors.categoryListLine};
 `;
 export { Categories, Category, Line };

@@ -16,6 +16,11 @@ export const darkTheme = {
     footerBGColor: '#8BAA36',
     privacyColor: '#fafafa',
     categoriesListBGColor: '#2a2c36',
+    categoryListLine: 'rgba(250, 250, 250, 0.20)',
+    categoryListItem: 'rgba(250, 250, 250, 0.60)',
+    backgroundModalColor: '#2A2C36',
+    modalInputBorderColor: 'rgba(250, 250, 250, 0.5)',
+    backgroundMobileMenu: '#1E1F28',
   },
   transforms: {
     transitionDuration: '250ms',
