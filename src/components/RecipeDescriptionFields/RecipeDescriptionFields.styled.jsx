@@ -1,6 +1,6 @@
 import styled from '@emotion/styled/macro';
 import { Field } from 'formik';
-import ReactSelect from "react-select"
+import ReactSelect from 'react-select';
 
 export const DescriptionFields = styled.div`
   display: flex;
@@ -23,6 +23,13 @@ export const PhotoFieldWrapper = styled.div`
   @media screen and (min-width: 768px) {
     margin-right: 32px;
     margin-bottom: 0;
+  }
+
+  transition: scale var(--transition-duration) var(--timing-function);
+
+  &:focus,
+  &:hover {
+    scale: 1.01;
   }
 `;
 
@@ -92,9 +99,9 @@ export const FieldContainer = styled.div`
   }
 
   &:focus,
-    &:hover {
-      box-shadow: 0 5px 5px -5px rgba(217, 217, 217, 1);
-    }
+  &:hover {
+    box-shadow: 0 5px 5px -5px rgba(217, 217, 217, 1);
+  }
 
   &.error {
     box-shadow: 0 5px 5px -5px var(--error-color);
@@ -124,6 +131,8 @@ export const Input = styled(Field)`
   height: 100%;
   outline: none;
   padding-top: 23px;
+
+  
 
   @media screen and (min-width: 768px) {
     font-size: 14px;
@@ -163,7 +172,13 @@ export const Select = styled(ReactSelect)`
       &:hover {
         ${FieldContainer} {
           box-shadow: 0 5px 5px -5px rgba(217, 217, 217, 1);
-    }
+        }
+      }
+      
+      &:hover,
+      &--is-focused {
+       box-shadow: 0 0 5px rgba(217, 217, 217, 1);
+        border-radius: 6px;
       }
 
       @media screen and (min-width: 768px) {
@@ -186,7 +201,7 @@ export const Select = styled(ReactSelect)`
       right: 0px;
       box-shadow: 0px 6.518518447875977px 7.8222222328186035px 0px
         rgba(0, 0, 0, 0.03);
-        border: none;
+      border: none;
       border-radius: 6px;
 
       @media screen and (min-width: 768px) {
@@ -242,6 +257,7 @@ export const Select = styled(ReactSelect)`
     }
 
     &__indicator {
+      padding: 0;
       cursor: pointer;
 
       color: var(--accent-color);
@@ -249,7 +265,7 @@ export const Select = styled(ReactSelect)`
       &:hover,
       &:focus {
         transform: scale(1.1);
-        color: var(--accent-color); 
+        color: var(--accent-color);
       }
 
       transition: stroke var(--transition-duration) var(--timing-function);
