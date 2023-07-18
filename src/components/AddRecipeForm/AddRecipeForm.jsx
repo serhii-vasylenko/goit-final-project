@@ -1,5 +1,5 @@
 import { Formik, Form } from 'formik';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 
@@ -37,10 +37,24 @@ const AddRecipeForm = () => {
 
   const navigate = useNavigate();
 
-  const currentAddedOwnRecipe = useSelector(selectCurrentAddedOwnRecipe);
+  const {currentAddedOwnRecipe} = useSelector(selectCurrentAddedOwnRecipe);
   const error = useSelector(selectError);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (error) {
+      showErrorToast('Oops... Something went wrong.');
+      return;
+    }
+
+    showMessageToast('Congratulations! You have added a recipe.');
+    resetForm();
+    
+    if (currentAddedOwnRecipe) {
+      navigate(`/recipes/${currentAddedOwnRecipe}`);
+    }
+  }, [currentAddedOwnRecipe]);
 
   const handleFileChange = event => {
     const file = event.target.files[0];
@@ -64,21 +78,21 @@ const AddRecipeForm = () => {
     formData.append('recipeImg', file);
     formData.append('data', data);
 
-    const disp = await dispatch(recipeOperations.addOwnRecipe(formData));
+     await dispatch(recipeOperations.addOwnRecipe(formData));
 
-    if (disp) {
-      if (error) {
-        showErrorToast('Oops... Something went wrong.');
-        return;
-      }
+    
+      // if (error) {
+      //   showErrorToast('Oops... Something went wrong.');
+      //   return;
+      // }
 
-      showMessageToast('Congratulations! You have added a recipe.');
-      // resetForm();
-      console.log(currentAddedOwnRecipe);
-      if (currentAddedOwnRecipe) {
-        navigate(`/recipes/${currentAddedOwnRecipe}`);
-      }
-    }
+      // showMessageToast('Congratulations! You have added a recipe.');
+      // // resetForm();
+      // console.log(currentAddedOwnRecipe);
+      // if (currentAddedOwnRecipe) {
+      //   navigate(`/recipes/${currentAddedOwnRecipe}`);
+      // }
+    
   };
 
   return (
