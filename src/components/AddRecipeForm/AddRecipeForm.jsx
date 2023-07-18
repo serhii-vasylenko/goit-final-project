@@ -54,7 +54,7 @@ const AddRecipeForm = () => {
     if (currentAddedOwnRecipe) {
       navigate(`/recipes/${currentAddedOwnRecipe}`);
     }
-  }, [currentAddedOwnRecipe]);
+  }, [error, currentAddedOwnRecipe]);
 
   const handleFileChange = event => {
     const file = event.target.files[0];
