@@ -25,7 +25,7 @@ const RecipePreparation = ({ instructions, image }) => {
   }
   const filteredInstructions = res.filter(str => str !== '');
 
-  //  console.log(filteredInstructions);
+   console.log(filteredInstructions);
 
   return (
     <Container>
@@ -48,6 +48,8 @@ const RecipePreparation = ({ instructions, image }) => {
       </ImageWrapper>
     </Container>
   );
+
+
 }
 
 export default RecipePreparation
