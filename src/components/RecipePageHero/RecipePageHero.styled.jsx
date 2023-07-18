@@ -11,6 +11,7 @@ import { ReactComponent as Clock } from '../../images/icons/clock.svg';
 
 export const HeroContainer = styled.div`
   background-image: url(${hero_mob_1});
+
   background-size: 100%;
   background-repeat: no-repeat;
   width: 100%;
@@ -19,7 +20,6 @@ export const HeroContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: -61px;
 
   @media screen and (min-device-pixel-ratio: 2),
     screen and (min-resolution: 192dpi),
@@ -29,6 +29,7 @@ export const HeroContainer = styled.div`
 
   @media screen and (min-width: 768px) {
     height: 495px;
+    -webkit-background-size: 100%;
     background-image: url(${hero_tab_1});
 
     @media screen and (min-device-pixel-ratio: 2),
@@ -40,6 +41,8 @@ export const HeroContainer = styled.div`
 
   @media screen and (min-width: 1280px) {
     height: 493px;
+    background-size: 100%;
+    background-position-y: 20%;
     background-image: url(${hero_desk_1});
 
     @media screen and (min-device-pixel-ratio: 2),
