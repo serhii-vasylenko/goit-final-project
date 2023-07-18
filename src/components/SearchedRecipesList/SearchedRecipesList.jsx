@@ -8,15 +8,12 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router';
 import { useSearchParams } from 'react-router-dom';
-import usePagination from 'hooks/usePagination';
 
 import Loader from '../ReusableComponents/Loader/Loader';
 import RecipeGalleryItem from '../ReusableComponents/RecipeGalleryItem/RecipeGalleryItem';
 import SearchCapImage from '../ReusableComponents/SearchCap/SearhCap';
-import {
-  showErrorToast,
-} from '../ReusableComponents/ToastCustom/showToast';
-// import Paginator from '../ReusableComponents/Paginator/Paginator';
+import { showErrorToast } from '../ReusableComponents/ToastCustom/showToast';
+import Paginator from '../Paginator/PaginatorSearch';
 
 import {
   selectRecipeByTitle,
@@ -25,9 +22,7 @@ import {
   selectError,
 } from 'redux/search/searchSelector';
 import getRecipesByTitle from 'redux/search/operations/getRecipesByTitle';
-import {
-  resetRecipeByIngredient,
-} from 'redux/search/searchSlice';
+import { resetRecipeByIngredient } from 'redux/search/searchSlice';
 
 import { Section, List } from './SearchRecipesList.styled';
 
@@ -45,14 +40,13 @@ const SearchedRecipesList = () => {
   const dispatch = useDispatch();
 
   const listRef = useRef(null);
-  const PER_PAGE = 6;
-  const data = usePagination(visibleRecipes, PER_PAGE);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
 
-
-  // const handleChange = (e, p) => {
-  //   data.jump(p);
-  //   listRef.current?.scrollIntoView({ behavior: 'smooth' });
-  // };
+  const handlePageChange = pageNumber => {
+    setCurrentPage(pageNumber);
+    listRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   useEffect(() => {
     if (error) showErrorToast(error);
@@ -92,21 +86,26 @@ const SearchedRecipesList = () => {
     visibleRecipeList();
   }, [visibleRecipeList]);
 
+  const currentPageData = visibleRecipes.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
   return (
     <Section>
       {isLoading ? (
         <Loader />
       ) : (
         <>
-          {(windowWidth >= 1280 ? visibleRecipes : data.currentData)?.length ||
+          {(windowWidth >= 1280 ? visibleRecipes : currentPageData)?.length ||
           0 ? (
             <List ref={listRef}>
-              {(windowWidth >= 1280 ? visibleRecipes : data.currentData)
+              {(windowWidth >= 1280 ? visibleRecipes : currentPageData)
                 .slice(
                   0,
                   windowWidth >= 1280
                     ? 12
-                    : (windowWidth >= 1280 ? visibleRecipes : data.currentData)
+                    : (windowWidth >= 1280 ? visibleRecipes : currentPageData)
                         .length
                 )
                 .map(({ _id: id, title, preview }) => (
@@ -121,13 +120,18 @@ const SearchedRecipesList = () => {
           ) : (
             <SearchCapImage>Try looking for something else...</SearchCapImage>
           )}
-          {/* {windowWidth < 1280 && (
-            <Paginator count={data.count} handleChange={handleChange} />
-          )} */}
+          {windowWidth < 1280 && visibleRecipes.length !== 0 && (
+            <Paginator
+              data={visibleRecipes}
+              itemsPerPage={itemsPerPage}
+              currentPage={currentPage}
+              onPageChange={handlePageChange}
+            />
+          )}
         </>
       )}
     </Section>
   );
-}
+};
 
 export default SearchedRecipesList;
