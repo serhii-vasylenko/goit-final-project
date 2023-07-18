@@ -32,7 +32,6 @@ export const HeroSection = styled.section`
   background-position: right 54px, right 38px, left top;
   background-repeat: no-repeat;
 
-  //Завантаження ретінізованого 2х фонового зображення
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
@@ -41,14 +40,11 @@ export const HeroSection = styled.section`
   }
 
   @media screen and (min-width: 768px) {
-    margin-top: -64px;
-
     background-image: url(${TabletBgLeavesBottom}), url(${TabletBg}),
       url(${TabletBgLeavesTop});
     background-size: 573px auto, 374px auto, 58px 315px;
     background-position: right top, right top, left top;
 
-    // Завантаження ретінізованого 2х фонового зображення
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
@@ -62,7 +58,6 @@ export const HeroSection = styled.section`
       url(${DesktopBgLeavesTop});
     background-size: 909px auto, 775px 625px, 107px 390px;
 
-    // Завантаження ретінізованого 2х фонового зображення
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
@@ -115,24 +110,24 @@ export const FlexWrapper = styled.div`
 `;
 
 export const HeroTitle = styled.h1`
-  color:  var(--primary-text-color);
-  font-size: 60px;
+  color: ${({ theme }) => theme.colors.primaryTextColor};
+  font-size: ${({ theme }) => theme.fontSizes[60]}px;
   font-style: normal;
-  font-weight: 400;
-  line-height: 1;
+  font-weight: ${({ theme }) => theme.fontWeights.regular};
+  line-height: ${({ theme }) => theme.lineHeights['1']};
   letter-spacing: -0.3px;
 
   margin-bottom: 14px;
 
   @media screen and (min-width: 768px) {
-    font-size: 72px;
+    font-size: ${({ theme }) => theme.fontSizes[72]}px;
     letter-spacing: -0.36px;
 
     margin-bottom: 24px;
   }
 
   @media screen and (min-width: 1280px) {
-    font-size: 100px;
+    font-size: ${({ theme }) => theme.fontSizes[100]}px;
     letter-spacing: -0.5px;
 
     margin-bottom: 14px;
@@ -140,15 +135,15 @@ export const HeroTitle = styled.h1`
 `;
 
 export const HeroTitleAccent = styled.span`
-  color: ${props => props.theme.colors.primary};
+  color: ${({ theme }) => theme.colors.accentColor};
 `;
 
 export const HeroDescription = styled.p`
-  color: var(--primary-text-color);
-  font-size: 14px;
+  color: ${({ theme }) => theme.colors.primaryTextColor};
+  font-size: ${({ theme }) => theme.fontSizes[14]}px;
   font-style: normal;
-  font-weight: 400;
-  line-height: 1.3;
+  font-weight: ${({ theme }) => theme.fontWeights.regular};
+  line-height: ${({ theme }) => theme.lineHeights['1_3']};
   letter-spacing: -0.28px;
 
   @media screen and (min-width: 768px) {
@@ -157,7 +152,7 @@ export const HeroDescription = styled.p`
 
   @media screen and (min-width: 1280px) {
     width: 465px;
-    font-size: 18px;
+    font-size: ${({ theme }) => theme.fontSizes[18]}px;
     margin-bottom: 50px;
   }
 `;

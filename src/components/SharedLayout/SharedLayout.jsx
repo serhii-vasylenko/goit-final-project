@@ -3,7 +3,7 @@ import { Header } from 'components/Header/Header';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router';
 import { MainContainer } from './SharedLayout.styled';
-import Loader from 'components/ReusableComponents/Loader/Loader'
+import Loader from 'components/ReusableComponents/Loader'
 
 const SharedLayout = () => {
   return (

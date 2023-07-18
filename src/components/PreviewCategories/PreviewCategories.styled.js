@@ -18,17 +18,23 @@ export const PreviewCategoriesList = styled.ul`
   margin-bottom: 40px;
 `;
 
+export const Wrapper = styled.div`
+  btn {
+    color: ${({ theme }) => theme.colors.privacyColor};
+  }
+`;
+
 export const GalleryTitle = styled.h2`
   margin-bottom: 40px;
-  color: var(--page-title-color);
-  font-size: 28px;
+  color: ${({ theme }) => theme.colors.pageTitleColor};
+  font-size: ${({ theme }) => theme.fontSizes[28]}px;
   font-style: normal;
-  font-weight: 600;
-  line-height: 1;
+  font-weight: ${({ theme }) => theme.fontWeights.semibold};
+  line-height: ${({ theme }) => theme.lineHeights[1]};
   letter-spacing: -0.56px;
 
   @media screen and (min-width: 768px) {
-    font-size: 44px;
+    font-size: ${({ theme }) => theme.fontSizes[44]}px;
     letter-spacing: -0.88px;
   }
 `;
@@ -43,22 +49,23 @@ export const SeeCategoryBtn = styled(Link)`
   padding: 10px 24px;
   border-radius: 6px;
 
-  color: var(--white-color);
+  color: ${({ theme }) => theme.colors.whiteColor};
   font-family: inherit;
-  font-size: 14px;
+  font-size: ${({ theme }) => theme.fontSizes[14]}px;
   font-style: normal;
-  font-weight: 400;
-  line-height: 1.3;
+  font-weight: ${({ theme }) => theme.fontWeights.regular};
+  line-height: ${({ theme }) => theme.lineHeights[1_3]};
   background-color: var(--accent-color);
 
   border: none;
   text-decoration: none;
 
   cursor: pointer;
-  transition: color 250ms var(--timing-function);
+  transition: ${({ theme }) =>
+    `color ${theme.transforms.transforms} ${theme.transforms.timingFunction}`};
 
   &:hover {
-    color: var(--background-color-circle);
+    color: ${({ theme }) => theme.colors.backgroundColorCircle};
   }
 `;
 
