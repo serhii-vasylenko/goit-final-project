@@ -38,6 +38,7 @@ export const lightTheme = {
   transforms: {
     transitionDuration: '250ms',
     timingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+    all: 'all 250ms cubic-bezier(0.4, 0, 0.2, 1)',
   },
   fontWeights: {
     regular: 400,
