@@ -39,7 +39,7 @@ const shoppingListSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.products.shoppingList = [
-          ...state.products.shoppingList,
+          ...state.shoppingList,
           action.payload.data.shoppingList,
         ];
       })
@@ -50,11 +50,7 @@ const shoppingListSlice = createSlice({
       .addCase(removeFromShoppingList.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-
-        const index = state.shoppingList.findIndex(
-          product => (product._id === action.payload.data.shoppingList.ingredientId)
-        );
-        state.shoppingList.splice(index, 1);
+		  state.shoppingList = action.payload.data.shoppingList
       })
       .addCase(removeFromShoppingList.rejected, handleRejected);
   },

@@ -45,7 +45,7 @@ const ShoppingListPage = () => {
             <ProductsHead>
               <div>Products</div>
               <HeadContainer>
-                <div>Number</div>
+                <div>Quantity</div>
                 <div>Remove</div>
               </HeadContainer>
             </ProductsHead>
