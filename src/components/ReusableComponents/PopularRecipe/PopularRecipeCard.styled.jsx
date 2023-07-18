@@ -2,13 +2,16 @@ import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
 export const Recipe = styled(NavLink)`
+outline: none;
   width: 343px;
   padding-bottom: 13px;
   border-bottom: 1px solid #7070702b;
   display: flex;
 
-  &:focus{
-  outline: 1px solid rgba(217, 217, 217, 1);
+  transition: box-shadow var(--transition-duration) var(--timing-function);
+
+&:focus {
+  box-shadow: 0 0 5px rgba(217, 217, 217, 1);
   border-radius: 6px;
 }
 
