@@ -22,6 +22,7 @@ import {
 const ShoppingListPage = () => {
   const dispatch = useDispatch();
   const shoppingList = useSelector(selectShoppingList);
+  console.log('Shopping list', shoppingList)
 
   useEffect(() => {
     dispatch(getShoppingList());
