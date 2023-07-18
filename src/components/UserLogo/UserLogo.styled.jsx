@@ -36,24 +36,35 @@ const UserName = styled.p`
   font-weight: 600;
   line-height: 170%;
   margin-left: 14px;
-  transition: color ${({theme }) => theme.transforms.transitionDuration} ${({theme }) => theme.transforms.timingFunction};
+  transition: color ${({ theme }) => theme.transforms.transitionDuration} ${({ theme }) => theme.transforms.timingFunction};
+  
+
+  
   &:hover {
     color: ${({theme }) => theme.colors.accentColor};
   }
   @media (min-width: 768px) {
     font-size: 14px;
   }
-
-  ${() => {
+  @media (min-width: 1280px) {
+    font-size: 14px;
+     ${() => {
     const location = useLocation();
-    if (
-      location.pathname.includes('/recipes/') ||
-      location.pathname.includes('/main')
-    ) {
+    if (location.pathname.includes('/main')) {
       return `
         color: #22252a`;
     }
-  }}
+}}
+  }
+
+  ${() => {
+    const location = useLocation();
+  if (location.pathname.includes('/recipes/')) {
+      return `
+        color: #22252a`;
+    }
+}}
+
 `;
 
 export { UserWrapper, ImgContainer, UserImg, UserName };

@@ -7,7 +7,8 @@ position: absolute;
 top: 0;
 z-index: 110;
 box-sizing: border-box;
-background-color: ${({theme }) => theme.colors.backgroundColor};
+background-color: ${({ theme }) => theme.colors.backgroundColor};
+color: ${({ theme }) => theme.colors.backgroundColor};
 width: 161px;
 padding: 18px;
 border-radius: 8px;
@@ -27,6 +28,7 @@ justify-content: space-between;
 align-items: center;
 width: 100%;
 margin-bottom: 28px;
+color: ${({theme }) => theme.colors.primaryTextColor};
 @media (min-width: 768px) {
     margin-bottom: 32px;
 }
@@ -34,11 +36,12 @@ margin-bottom: 28px;
 const ModalText = styled.p`
 font-weight: 500;
 line-height: 1.6;
-
+color: inherit;
 `
 const EditIcon = styled(LuEdit2)`
 width: 14px;
 height: 14px;
+color: inherit;
 `
 const Button = styled.button`
 display: flex;
@@ -52,8 +55,10 @@ color: ${({theme }) => theme.colors.whiteColor};
 border: none;
 cursor: pointer;
 border-radius: 24px 44px;
+transition: all ${({theme }) => theme.transforms.transitionDuration} ${({theme }) => theme.transforms.timingFunction};
 &:hover{
     background: #22252A;
+    border: 1px solid ${({theme }) => theme.colors.logoutBtnColor};
 }
 `
 const ArrowIcon = styled(FiArrowRight)`

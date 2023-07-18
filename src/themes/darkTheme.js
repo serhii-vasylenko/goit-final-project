@@ -33,6 +33,7 @@ export const darkTheme = {
     togglerBGColor: '#8BAA36',
     mobileMenuBGColor: '#1E1F28',
     mobileMenuColor: '#fafafa',
+    logoutBtnColor: '#8BAA36',
   },
   transforms: {
     transitionDuration: '250ms',
