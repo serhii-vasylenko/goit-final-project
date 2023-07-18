@@ -7,12 +7,12 @@ export const DescriptionFields = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 67px;
+  padding-bottom: 67px;
   padding-top: 97px;
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
-    margin-bottom: 104px;
+    padding-bottom: 104px;
   }
 `;
 
@@ -36,11 +36,7 @@ export const ImgWrapper = styled.div`
   }
 `;
 
-
-export const ImgLabel = styled.label`
-  /* width: 279px;
-  height: 268px; */
-`;
+export const ImgLabel = styled.label``;
 
 export const InputFileThumb = styled.div`
   width: 100%;
@@ -97,10 +93,10 @@ export const FieldContainer = styled.div`
     }
   }
 
-   @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1280px) {
     :not(:last-child) {
       margin-bottom: 40px;
-    } 
+    }
   }
 `;
 
@@ -140,6 +136,7 @@ export const Select = styled(StyledSelect)`
 
   .custom-select {
     &__control {
+      box-shadow: none;
       background-color: var(--background-color);
       min-height: 20px;
       min-width: 87px;
@@ -160,25 +157,34 @@ export const Select = styled(StyledSelect)`
     }
 
     &__menu {
-      padding: 4px 4px 4px 14px;
+      font-size: 12px;
+      padding: 0 4px 0 14px;
       width: 123px;
-      top: 15px;
-      right: 5px;
-    }
-
-    &__menu-list {
-      height: calc(6 * 27px + 6px);
+      top: 22px;
+      right: 0px;
 
       @media screen and (min-width: 768px) {
-        height: calc(6 * 22px + 20px);
+        width: 132px;
+        font-size: 14px;
       }
     }
+
     &__value-container {
       padding: 0px 8px;
     }
     &__option {
+      font-size: 12px;
       padding: 3px 0;
       gap: 4px;
+      font-size: 12px;
+    }
+
+    &__menu-list {
+      height: calc(6 * 22px + 16px);
+
+      /* @media screen and (min-width: 768px) {
+        height: calc(6 * 22px + 20px);
+      } */
     }
 
     &__indicator {

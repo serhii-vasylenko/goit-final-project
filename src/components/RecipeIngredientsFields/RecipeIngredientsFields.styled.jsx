@@ -42,6 +42,7 @@ export const StyledSelect = styled(ReactSelect)`
     &__control {
       font-family: 'Poppins';
       border: none;
+      box-shadow: none;
       border-radius: 6px;
       background-color: rgba(217, 217, 217, 0.157);
       font-size: 14px;
@@ -54,17 +55,26 @@ export const StyledSelect = styled(ReactSelect)`
     }
 
     &__menu {
+      
       padding: 4px 4px 4px 18px;
       box-shadow: 0px 6.518518447875977px 7.8222222328186035px 0px
         rgba(0, 0, 0, 0.03);
       border: none;
-      border-radius: 6px;
+      border-radius: 6px; 
+    }
+
+    &__menu {
+      margin: 0;
     }
 
     &__menu-list {
-      border: none;
-      height: calc(6 * 20px + 10px);
+      height: calc(6 * 24px + 2px);
+
+      @media screen and (min-width: 768px) {
+        height: calc(6 * 27px + 2px);
+      }
     }
+
     &__value-container {
       padding: 12px 8px;
     }
@@ -76,8 +86,9 @@ export const StyledSelect = styled(ReactSelect)`
     }
 
     &__option {
+     
       margin: 6px 0;
-      padding: 0 3px;
+      padding: 2px 0;
 
       font-size: 12px;
       color: #000000;
@@ -161,7 +172,6 @@ export const MeasureField = styled(Field)`
   font-family: 'Poppins';
   color: #23262a;
 
-  /* padding: 16px 12px; */
   cursor: text;
 
   &:focus,
