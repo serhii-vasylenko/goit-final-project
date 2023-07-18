@@ -14,7 +14,7 @@ const handleRejected = (state, action) => {
 const initialState = {
   recipeByTitle: [],
   recipesByIngredient: [],
-  searchFilter: null,
+  searchFilter: '',
   isLoading: false,
   error: null,
 };
