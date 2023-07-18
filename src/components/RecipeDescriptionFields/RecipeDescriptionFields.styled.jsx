@@ -1,6 +1,6 @@
-import styled from '@emotion/styled';
+import styled from '@emotion/styled/macro';
 import { Field } from 'formik';
-import { StyledSelect } from 'components/RecipeIngredientsFields/RecipeIngredientsFields.styled';
+import ReactSelect from "react-select"
 
 export const DescriptionFields = styled.div`
   display: flex;
@@ -30,9 +30,16 @@ export const ImgWrapper = styled.div`
   width: 279px;
   height: 268px;
 
+  transition: box-shadow var(--transition-duration) var(--timing-function);
+
   @media screen and (min-width: 1280px) {
     width: 357px;
     height: 344px;
+  }
+
+  &.error {
+    box-shadow: 0 0 5px var(--error-color);
+    border-radius: 8px;
   }
 `;
 
@@ -78,12 +85,19 @@ export const FieldContainer = styled.div`
   height: 40px;
   border-bottom: 1px solid var(--input-border-color);
 
+  transition: box-shadow var(--transition-duration) var(--timing-function);
+
   :not(:last-child) {
     margin-bottom: 24px;
   }
 
+  &:focus,
+    &:hover {
+      box-shadow: 0 5px 5px -5px rgba(217, 217, 217, 1);
+    }
+
   &.error {
-    border-bottom-color: var(--error-color);
+    box-shadow: 0 5px 5px -5px var(--error-color);
   }
 
   @media screen and (min-width: 768px) {
@@ -129,7 +143,7 @@ export const FieldLabel = styled.label`
   }
 `;
 
-export const Select = styled(StyledSelect)`
+export const Select = styled(ReactSelect)`
   position: absolute;
   top: 4px;
   right: 0;
@@ -137,13 +151,20 @@ export const Select = styled(StyledSelect)`
   .custom-select {
     &__control {
       box-shadow: none;
-      background-color: var(--background-color);
+      background-color: transparent;
+      border: none;
       min-height: 20px;
       min-width: 87px;
       font-size: 12px;
       line-height: 1;
       font-weight: 500;
       cursor: pointer;
+
+      &:hover {
+        ${FieldContainer} {
+          box-shadow: 0 5px 5px -5px rgba(217, 217, 217, 1);
+    }
+      }
 
       @media screen and (min-width: 768px) {
         font-size: 14px;
@@ -158,10 +179,15 @@ export const Select = styled(StyledSelect)`
 
     &__menu {
       font-size: 12px;
-      padding: 0 4px 0 14px;
+      padding: 4px 4px 4px 14px;
+      margin: 0;
       width: 123px;
-      top: 22px;
+      top: 28px;
       right: 0px;
+      box-shadow: 0px 6.518518447875977px 7.8222222328186035px 0px
+        rgba(0, 0, 0, 0.03);
+        border: none;
+      border-radius: 6px;
 
       @media screen and (min-width: 768px) {
         width: 132px;
@@ -169,26 +195,81 @@ export const Select = styled(StyledSelect)`
       }
     }
 
+    &__menu-list {
+      height: calc(6 * 22px + 2px);
+
+      @media screen and (min-width: 768px) {
+        height: calc(6 * 27px);
+      }
+    }
+
     &__value-container {
       padding: 0px 8px;
     }
+
+    &__single-value {
+      color: #23262a;
+      line-height: 1;
+      letter-spacing: -0.28px;
+    }
+
     &__option {
       font-size: 12px;
       padding: 3px 0;
-      gap: 4px;
+      margin-bottom: 4px;
       font-size: 12px;
+
+      color: #000000;
+      letter-spacing: -0.24px;
+      opacity: 0.5;
+      cursor: pointer;
+
+      @media screen and (min-width: 768px) {
+        font-size: 14px;
+      }
     }
 
-    &__menu-list {
-      height: calc(6 * 22px + 16px);
+    &__option--is-focused {
+      background-color: rgba(139, 170, 54, 0.2);
+    }
 
-      /* @media screen and (min-width: 768px) {
-        height: calc(6 * 22px + 20px);
-      } */
+    &__option--is-selected {
+      background-color: var(--accent-color);
+    }
+
+    &__indicator-separator {
+      display: none;
     }
 
     &__indicator {
-      padding: 0;
+      cursor: pointer;
+
+      color: var(--accent-color);
+
+      &:hover,
+      &:focus {
+        transform: scale(1.1);
+        color: var(--accent-color); 
+      }
+
+      transition: stroke var(--transition-duration) var(--timing-function);
+    }
+
+    &__menu-list::-webkit-scrollbar {
+      width: 4px;
+      height: 0px;
+    }
+    &__menu-list::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    &__menu-list::-webkit-scrollbar-thumb {
+      padding: 4px 0;
+      border-radius: 12px;
+      background: #e7e5e5;
+      cursor: pointer;
+    }
+    &__menu-list::-webkit-scrollbar-thumb:hover {
+      background: var(--accent-color);
     }
   }
 `;

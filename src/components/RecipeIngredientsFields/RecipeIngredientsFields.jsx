@@ -15,6 +15,7 @@ import {
   MeasureField,
   SelectContainer,
   MeasureFieldContainer,
+  BorderError,
 } from './RecipeIngredientsFields.styled';
 
 const RecipeIngredientsFields = () => {
@@ -54,15 +55,38 @@ const RecipeIngredientsFields = () => {
               {ingredients.map((ingredient, index) => (
                 <Wrap key={index}>
                   <SelectContainer>
-                    <StyledSelect
-                      classNamePrefix="custom-select"
-                      name={`ingredients[${index}].id`}
-                      placeholder={'Select ingredient'}
-                      options={nameIngredients}
-                      onChange={selectedOption =>
-                        handleIngredientChange(index, selectedOption)
+                    <BorderError
+                      className={
+                        hasError(
+                          `ingredients[${index}].measure`,
+                          getIn,
+                          errors,
+                          touched
+                        )
+                          ? 'error'
+                          : ''
                       }
-                    />
+                    >
+                      <StyledSelect
+                        className={
+                          hasError(
+                            `ingredients[${index}].id`,
+                            getIn,
+                            errors,
+                            touched
+                          )
+                            ? 'error'
+                            : ''
+                        }
+                        classNamePrefix="custom-select"
+                        name={`ingredients[${index}].id`}
+                        placeholder={'Select ingredient'}
+                        options={nameIngredients}
+                        onChange={selectedOption => {
+                          handleIngredientChange(index, selectedOption);
+                        }}
+                      />
+                    </BorderError>
                     <FormError
                       name={`ingredients[${index}].id`}
                       style={{ marginTop: '5px' }}
@@ -78,7 +102,16 @@ const RecipeIngredientsFields = () => {
                         handleCountChange(index, event.target.value);
                       }}
                       placeholder={'Enter measure'}
-                      className={hasError(`ingredients[${index}].measure`, getIn, errors, touched) ? 'error' : ''}
+                      className={
+                        hasError(
+                          `ingredients[${index}].measure`,
+                          getIn,
+                          errors,
+                          touched
+                        )
+                          ? 'error'
+                          : ''
+                      }
                     />
                     <FormError
                       name={`ingredients[${index}].measure`}

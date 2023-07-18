@@ -29,25 +29,37 @@ export const SelectContainer = styled.div`
   }
 `;
 
-export const StyledSelect = styled(ReactSelect)`
- 
-  &:hover,
-  &:focus {
-    border: 1px solid rgba(217, 217, 217, 1);
-    border-radius: 6px;
+export const BorderError = styled.div`
+  .error {
+    box-shadow: 0 0 5px var(--error-color);
+    border-radius: 8px;
   }
-  
 
+  transition: stroke var(--transition-duration) var(--timing-function);
+`;
+
+export const StyledSelect = styled(ReactSelect)`
   .custom-select {
     &__control {
       font-family: 'Poppins';
       border: none;
-      box-shadow: none;
+      /* box-shadow:none; */
       border-radius: 6px;
       background-color: rgba(217, 217, 217, 0.157);
       font-size: 14px;
       line-height: 1;
       cursor: text;
+
+      &:hover,
+      &--is-focused {
+        box-shadow: 0 0 5px rgba(217, 217, 217, 1);
+        border-radius: 6px;
+      }
+
+      .error {
+        box-shadow: 0 0 5px var(--error-color);
+        border-radius: 8px;
+      }
 
       @media screen and (min-width: 768px) {
         font-size: 18px;
@@ -57,14 +69,11 @@ export const StyledSelect = styled(ReactSelect)`
     &__menu {
       
       padding: 4px 4px 4px 18px;
+      margin: 0;
       box-shadow: 0px 6.518518447875977px 7.8222222328186035px 0px
         rgba(0, 0, 0, 0.03);
       border: none;
-      border-radius: 6px; 
-    }
-
-    &__menu {
-      margin: 0;
+      border-radius: 6px;
     }
 
     &__menu-list {
@@ -86,7 +95,6 @@ export const StyledSelect = styled(ReactSelect)`
     }
 
     &__option {
-     
       margin: 6px 0;
       padding: 2px 0;
 
@@ -121,6 +129,7 @@ export const StyledSelect = styled(ReactSelect)`
       &:hover,
       &:focus {
         transform: scale(1.1);
+        color: var(--accent-color);
       }
 
       transition: stroke var(--transition-duration) var(--timing-function);
@@ -172,11 +181,14 @@ export const MeasureField = styled(Field)`
   font-family: 'Poppins';
   color: #23262a;
 
+  transition: box-shadow var(--transition-duration) var(--timing-function);
+
   cursor: text;
 
   &:focus,
   &:hover {
-    border: 1px solid rgba(217, 217, 217, 1);
+    box-shadow: 0 0 5px rgba(217, 217, 217, 1);
+    border-radius: 6px;
   }
 
   @media screen and (min-width: 768px) {
@@ -186,7 +198,8 @@ export const MeasureField = styled(Field)`
   }
 
   &.error {
-    border: 1px solid var(--error-color);
+    box-shadow: 0 0 5px var(--error-color);
+    border-radius: 6px;
   }
 `;
 
@@ -211,6 +224,7 @@ export const Button = styled.button`
   outline: none;
   border: none;
   background-color: transparent;
+  transition: box-shadow var(--transition-duration) var(--timing-function);
   cursor: pointer;
 
   &:active {
@@ -224,7 +238,7 @@ export const Button = styled.button`
   }
 
   &:focus {
-    border: 1px solid rgba(217, 217, 217, 1);
+    box-shadow: 0 0 5px rgba(217, 217, 217, 1);
     border-radius: 4px;
     ${Svg} {
       stroke: var(--accent-color);
