@@ -24,6 +24,7 @@ const initialState = {
     totalPages: 0,
     perPage: 0,
   },
+  currentAddedOwnRecipe: '',
   popularRecipes: [],
   recipesByIngredient: [],
   recipesByCategory: [],
@@ -44,6 +45,10 @@ const recipesSlice = createSlice({
   reducers: {
     setSearchFilter: (state, action) => {
       state.searchFilter = action.payload;
+    },
+
+    removeCurrentAddedOwnRecipe: (state, action) => {
+      state.currentAddedOwnRecipe = action.payload;
     },
   },
 
@@ -101,6 +106,7 @@ const recipesSlice = createSlice({
           ...state.ownRecipes.recipe,
           action.payload.data.recipe,
         ];
+        state.currentAddedOwnRecipe = action.payload.data.recipe._id;
       })
       .addCase(recipeOperations.addOwnRecipe.rejected, handleRejected)
       .addCase(recipeOperations.getFavoriteRecipes.pending, handlePending)
@@ -170,4 +176,5 @@ const recipesSlice = createSlice({
   },
 });
 
+export const { setSearchFilter, removeCurrentAddedOwnRecipe } = recipesSlice.actions;
 export default recipesSlice.reducer;
