@@ -17,6 +17,7 @@ import MainButton from '../ReusableComponents/MainButton/MainButton';
 import RecipeDescriptionFields from 'components/RecipeDescriptionFields/RecipeDescriptionFields';
 import RecipeIngredientsFields from 'components/RecipeIngredientsFields/RecipeIngredientsFields';
 import RecipePreparationFields from 'components/RecipePreparationFields/RecipePreparationFields';
+import { removeCurrentAddedOwnRecipe } from 'redux/recipes/recipesSlice';
 
 const initialValues = {
   photo: '',
@@ -37,7 +38,7 @@ const AddRecipeForm = () => {
 
   const navigate = useNavigate();
 
-  const {currentAddedOwnRecipe} = useSelector(selectCurrentAddedOwnRecipe);
+  const currentAddedOwnRecipe = useSelector(selectCurrentAddedOwnRecipe);
   const error = useSelector(selectError);
 
   const dispatch = useDispatch();
@@ -47,14 +48,17 @@ const AddRecipeForm = () => {
       showErrorToast('Oops... Something went wrong.');
       return;
     }
-
+    if (currentAddedOwnRecipe) {
     showMessageToast('Congratulations! You have added a recipe.');
-    // resetForm();
-    
+    }
     if (currentAddedOwnRecipe) {
       navigate(`/recipes/${currentAddedOwnRecipe}`);
     }
-  }, [error, currentAddedOwnRecipe]);
+
+    return () => {
+      dispatch(removeCurrentAddedOwnRecipe(''))
+    }
+  }, [error, currentAddedOwnRecipe, navigate, dispatch]);
 
   const handleFileChange = event => {
     const file = event.target.files[0];
@@ -62,7 +66,7 @@ const AddRecipeForm = () => {
     console.log(file);
   };
 
-  const handleSubmit = async (values, { resetForm, setSubmitting }) => {
+  const handleSubmit =  (values, { resetForm, setSubmitting }) => {
     console.log(values);
 
     const data = JSON.stringify({
@@ -78,21 +82,7 @@ const AddRecipeForm = () => {
     formData.append('recipeImg', file);
     formData.append('data', data);
 
-     await dispatch(recipeOperations.addOwnRecipe(formData));
-
-    
-      // if (error) {
-      //   showErrorToast('Oops... Something went wrong.');
-      //   return;
-      // }
-
-      // showMessageToast('Congratulations! You have added a recipe.');
-      // // resetForm();
-      // console.log(currentAddedOwnRecipe);
-      // if (currentAddedOwnRecipe) {
-      //   navigate(`/recipes/${currentAddedOwnRecipe}`);
-      // }
-    
+    dispatch(recipeOperations.addOwnRecipe(formData));
   };
 
   return (

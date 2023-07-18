@@ -46,6 +46,10 @@ const recipesSlice = createSlice({
     setSearchFilter: (state, action) => {
       state.searchFilter = action.payload;
     },
+
+    removeCurrentAddedOwnRecipe: (state, action) => {
+      state.currentAddedOwnRecipe = action.payload;
+    },
   },
 
   extraReducers: builder => {
@@ -172,4 +176,5 @@ const recipesSlice = createSlice({
   },
 });
 
+export const { setSearchFilter, removeCurrentAddedOwnRecipe } = recipesSlice.actions;
 export default recipesSlice.reducer;
