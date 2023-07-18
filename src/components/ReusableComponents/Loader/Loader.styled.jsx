@@ -14,5 +14,5 @@ export const LoaderWrapper = styled.div`
 export const StyledLoader = styled(Oval)`
   height: 70px;
   width: 70px;
-  color: var(--accent-color);
+  color: ${({ theme }) => theme.colors.accentColor};
 `;

@@ -34,14 +34,14 @@ export const Title = styled.h3`
   padding-bottom: 16px;
   padding-left: 16px;
 
-  font-size: 16px;
+  font-size: ${({ theme }) => theme.fontSizes[16]}px;
   font-style: normal;
-  font-weight: 500;
-  line-height: 1.25;
+  font-weight: ${({ theme }) => theme.fontWeights.meduim};
+  line-height: ${({ theme }) => theme.lineHeights[1_25]};
   letter-spacing: -0.24px;
-  color: var(--secondary-text-color);
+  color: ${({ theme }) => theme.colors.secondaryTextColor};
 
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.colors.recipeCardBgColor};
   border-radius: 8px;
 
   @media screen and (min-width: 768px) {

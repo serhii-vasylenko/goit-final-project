@@ -1,26 +1,48 @@
 import styled from '@emotion/styled';
-import bgImgMob from './images/blured-bg-mob.png';
-import bgImgTab from './images/blured-bg-tab.png';
-import bgImgDesk from './images/blured-bg-desk.png';
+
+import BgImgMob from 'images/sharedLayout/bg-mob.png';
+import BgImgMob2x from 'images/sharedLayout/bg-mob@2x.png';
+import BgImgTab from 'images/sharedLayout/bg-tab.png';
+import BgImgTab2x from 'images/sharedLayout/bg-tab@2x.png';
+import BgImgDesk from 'images/sharedLayout/bg-desk.png';
+import BgImgDesk2x from 'images/sharedLayout/bg-desk@2x.png';
 
 export const MainContainer = styled.main`
-  display: block;
   min-height: calc(100vh - (58px + 590px));
-  width: 100%;
-  background: url(${bgImgMob}) no-repeat;
-  background-position: left -115px bottom -220px;
-  background-size: 354px 404px;
+  background-image: url(${BgImgMob});
+  background-size: 256px 392px;
+  background-position: left 0px bottom -175px;
+  background-repeat: no-repeat;
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: url(${BgImgMob2x});
+  }
 
   @media (min-width: 768px) {
     min-height: calc(100vh - (62px + 550px));
-    background: url(${bgImgTab}) no-repeat;
-    background-position: left -190px bottom -175px;
-    background-size: 478px 507px;
+    background-image: url(${BgImgTab});
+    background-size: 423px 646px;
+    background-position: left 0px bottom -275px;
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(${BgImgTab2x});
+    }
   }
+
   @media (min-width: 1280px) {
-    /* min-height: calc(100vh - (62px + 533px)); */
-    background: url(${bgImgDesk}) no-repeat;
-    background-position: left -200px bottom -520px;
-    background-size: 917px 1041px;
+    min-height: calc(100vh - (62px + 533px));
+    background-image: url(${BgImgDesk});
+    background-size: 558px 852px;
+    background-position: left 0px bottom -375px;
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(${BgImgDesk2x});
+    }
   }
 `;
