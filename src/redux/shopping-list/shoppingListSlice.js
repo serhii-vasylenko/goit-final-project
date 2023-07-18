@@ -38,9 +38,9 @@ const shoppingListSlice = createSlice({
       .addCase(addToShoppingList.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.products.shoppingList = [
+        state.shoppingList = [
           ...state.shoppingList,
-          action.payload.data.shoppingList,
+          ...action.payload.data.shoppingList,
         ];
       })
       .addCase(addToShoppingList.rejected, handleRejected)
