@@ -1,4 +1,4 @@
-import { ImgContainer, UserImg, SaveBtn, AddPhotoBtn, Plus, InputFile } from './ChangeUserDataForm.styled';
+import {Form, ImgContainer, UserImg, SaveBtn, AddPhotoBtn, Plus, InputFile } from './ChangeUserDataForm.styled';
 import defaultImg from '../../images/default-img.png';
 import { FieldChangeName } from 'components/FieldChangeName/FieldChangeName';
 import { useState } from 'react';
@@ -25,7 +25,7 @@ export const ChangeUserDataForm = ({setEditIsOpen}) => {
         setEditIsOpen(false)
     }
 
-    return <form onSubmit={e => onFormSubmit(e)}>
+    return <Form onSubmit={e => onFormSubmit(e)}>
             <div style={{position: 'relative'}}>
                 <ImgContainer>
                     {file ? ( <UserImg src={URL.createObjectURL(file)} alt="Uploaded" />) : (
@@ -38,5 +38,5 @@ export const ChangeUserDataForm = ({setEditIsOpen}) => {
             </div>
             <FieldChangeName setName={setName} />
             <SaveBtn type='submit'>Save changes</SaveBtn>
-        </form>
+        </Form>
 }

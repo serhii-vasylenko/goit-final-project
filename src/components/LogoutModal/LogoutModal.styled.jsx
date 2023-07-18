@@ -19,9 +19,11 @@ justify-content: center;
 const Modal = styled.div`
 position: relative;
 border-radius: 30px;
-background: var(--white-color);
+background: ${({ theme }) => theme.colors.backgroundModalColor};
+color: ${({theme }) => theme.colors.primaryTextColor}
 box-shadow: 0px 4px 48px 0px rgba(0, 0, 0, 0.10);
 padding: 44px 24px;
+transition: all ${({theme }) => theme.transforms.transitionDuration} ${({theme }) => theme.transforms.timingFunction};
 @media (min-width: 768px) {
         padding: 50px 40px;
 }
@@ -30,10 +32,11 @@ padding: 44px 24px;
 }
 `
 const Text = styled.p`
-color: var(--primary-text-color);
+color: inherit;
 text-align: center;
 line-height: 0.77;
 letter-spacing: -0.28px;
+transition: all ${({theme }) => theme.transforms.transitionDuration} ${({theme }) => theme.transforms.timingFunction};
 @media (min-width: 768px) {
     font-size: 18px;
     line-height: 24px;
@@ -73,14 +76,13 @@ padding: 14px 18px;
 cursor: pointer;
 border-radius: 6px;
 font-family: inherit;
-color: var(--primary-text-color);
+color: #23262a;
 background: #D9D9D9;
 border: 1px solid transparent;
-transition: all var(--transition-duration) var(--timing-function);
+transition: all ${({theme }) => theme.transforms.transitionDuration} ${({theme }) => theme.transforms.timingFunction};
 
 &:hover{
-    color: #23262A;
-    background: var(--white-color);
+    background: ${({theme }) => theme.colors.whiteColor};
     border: 1px solid #23262A;
 
 }
@@ -102,13 +104,12 @@ padding: 14px 18px;
 cursor: pointer;
 border-radius: 6px;
 font-family: inherit;
-color: var(--white-color);
-background: var(--accent-color);
+color: ${({theme }) => theme.colors.whiteColor};
+background: ${({theme }) => theme.colors.accentColor};
 border: 1px solid transparent;
-transition: all var(--transition-duration) var(--timing-function);
+transition: all ${({theme }) => theme.transforms.transitionDuration} ${({theme }) => theme.transforms.timingFunction};
 
 &:hover{
-    color: var(--white-color);
     background: #22252A;
 }
 @media (min-width: 768px) {
@@ -122,10 +123,10 @@ top: 18px;
 right: 18px;
 width: 18px;
 height: 18px;
-color: var(--primary-text-color);
-transition: color var(--transition-duration) var(--timing-function);
+color: inherit;
+transition: color ${({theme }) => theme.transforms.transitionDuration} ${({theme }) => theme.transforms.timingFunction};
 &:hover{
-    color: var(--accent-color);
+    color: ${({theme }) => theme.colors.accentColor}
 }
 @media (min-width: 768px) {
     top: 24px;

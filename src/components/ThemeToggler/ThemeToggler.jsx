@@ -8,7 +8,7 @@ import {
 import { selectTheme } from 'redux/theme/selectors';
 import { setTheme } from 'redux/theme/themeSlice';
 
-const ThemeToggler = () => {
+const ThemeToggler = ({nav}) => {
   const dispatch = useDispatch();
   const stateTheme = useSelector(selectTheme);
 
@@ -19,7 +19,7 @@ const ThemeToggler = () => {
   };
 
   return (
-    <TogglerWrapper>
+    <TogglerWrapper nav={nav}>
       <Label mode={stateTheme}>
         <Swithcher
           type="checkbox"

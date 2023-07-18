@@ -1,13 +1,15 @@
 import styled from "@emotion/styled";
 
 const HeaderEl = styled.header`
+position: absolute;
+left: 50%;
+transform: translate(-50%, 0);
 display: flex;
 align-items: center;
 min-width: 320px;
 margin: 0 auto;
 padding: 0 16px;
 padding-top: 18px;
-
 z-index: 10; // не видаляти
 @media (min-width: 375px) {
 		width: 375px;
@@ -40,7 +42,7 @@ margin-right: 187px;
 const Wrapper = styled.div`
 display: flex;
 align-items: center;
-margin-left: auto
+margin-left: auto;
 `
 
 export {HeaderEl, Logo, Wrapper}

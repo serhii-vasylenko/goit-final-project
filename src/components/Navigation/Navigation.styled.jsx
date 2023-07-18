@@ -7,22 +7,24 @@ display: ${props => props.nav ? 'flex' : 'none'};
 align-items: center;
 flex-direction: column;
 margin-top: ${props => props.nav ? '182px' : '0'};
+color: ${({theme }) => theme.colors.mobileMenuColor};
 @media (min-width: 1280px) {
     display: flex;
     flex-direction: row;
+    color: ${({theme }) => theme.colors.primaryTextColor};
 }
 `
 
 const NavLinkEl = styled(NavLink)`
 display: flex;
 align-items: center;
-color: ${({theme}) => theme.colors.primaryTextColor};
-transition: color var(--transition-duration) var(--timing-function);
+color: inherit;
+transition: color ${({theme }) => theme.transforms.transitionDuration} ${({theme }) => theme.transforms.timingFunction};
 &:hover{
-    color: var(--accent-color);
+    color: ${({theme }) => theme.colors.accentColor};
 }
 &.active {
-    color: var(--accent-color);
+    color: ${({theme }) => theme.colors.accentColor};
     font-weight: 600;
 }
 
