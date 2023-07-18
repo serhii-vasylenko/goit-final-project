@@ -1,8 +1,4 @@
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import {
-  selectIsLoading
-} from 'redux/recipes/recipesSelector';
 
 import СhooseYourBreakfast from 'components/СhooseYourBreakfast';
 import SearchForm from 'components/ReusableComponents/SearchForm/SearchForm';
@@ -33,7 +29,6 @@ import {
 
 const MainPage = () => {
   const [isMobile, setIsMobile] = useState(false);
-  const isLoading = useSelector(selectIsLoading);
 
   useEffect(() => {
     if (window.innerWidth >= 768) {
@@ -70,7 +65,7 @@ const MainPage = () => {
             {isMobile && <SearchForm />}
           </FlexWrapper>
           <HeroImgWrapper>
-            <HeroImg className={isLoading ? 'loading' : ''}>
+            <HeroImg>
               <source
                 media="(min-width: 1280px)"
                 srcSet={`${DesktopDish}, ${DesktopDishRetina} 2x`}

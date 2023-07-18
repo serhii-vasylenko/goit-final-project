@@ -9,10 +9,10 @@ export const List = styled.ul`
   display: flex;
   align-items: center;
   gap: 15px;
-  background-color: #fafafa;
+  background-color: ${({ theme }) => theme.colors.recipeCardBgColor};
   box-shadow: 0px 4px 4px 0px rgba(135, 135, 135, 0.2);
   border-radius: 33px;
-  padding: 20px 24px;
+  padding: 17px 20px;
 `;
 
 export const Item = styled.li`
@@ -21,19 +21,27 @@ export const Item = styled.li`
   display: flex;
   align-items: center;
   justify-content: center;
+  color: ${({ theme }) => theme.colors.recipeCardDescriptionColor};
   cursor: ${props => (props.dots || props.disabled ? 'default' : 'pointer')};
   border-radius: 50%;
-  background-color: ${props => (props.selected ? '#EBF3D4' : '#fafafa')};
+  background-color: ${props =>
+    props.selected
+      ? ({ theme }) => theme.colors.paginationBgHoverColor
+      : 'transparent'};
   &:hover {
     background-color: ${props =>
-      props.disabled ? '#fafafa' : props.selected ? '#EBF3D4' : '#EBF3D4'};
+      props.disabled
+        ? 'transparent'
+        : ({ theme }) => theme.colors.paginationBgHoverColor};
   }
-  color: #656565;
 `;
 
 export const Icon = styled.svg`
   width: 8px;
   height: 15px;
 
-  fill: ${props => (props.disabled ? '#a9a9a9ba' : '#656565')};
+  fill: ${props =>
+    props.disabled
+      ? '#5c5b5b'
+      : ({ theme }) => theme.colors.recipeCardDescriptionColor};
 `;
