@@ -15,10 +15,12 @@ import MainButton from 'components/ReusableComponents/MainButton/MainButton';
 import { useFormik } from 'formik';
 import { subscribeSchema } from 'helpers/registerValidationShema';
 import { getStatus } from 'helpers/utils';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { subscribeUser } from 'redux/auth/operations';
+import { selectTheme } from 'redux/theme/selectors';
 
 const SubscribeForm = () => {
+  const theme = useSelector(selectTheme);
   const dispatch = useDispatch();
   const {
     values,
@@ -96,8 +98,12 @@ const SubscribeForm = () => {
           }}
           fontSize="14px"
           borderRadius="6px"
-          bgColor="#8BAA36"
-          hoverParams={{ paramFirst: '#6b8328' }}
+          bgColor={theme === 'dark' ? '#1E1F28' : '#8BAA36'}
+          hoverStyles={{ styleFirst: 'background-color', styleSecond: 'color' }}
+          hoverParams={{
+            paramFirst: theme === 'dark' ? '#1E1F28' : '#6b8328',
+            paramSecond: theme === 'dark' ? '#6b8328' : '#fafafa',
+          }}
           cofByMedia768={{
             font: 1.125,
             padX: 1.45,

@@ -18,8 +18,6 @@ const Pagination = props => {
     pageSize,
   });
 
-  console.log(paginationRange);
-
   if (currentPage === 0 || paginationRange.length < 1) {
     return null;
   }
