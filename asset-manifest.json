@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/goit-final-project/static/css/main.1a3255d7.css",
-    "main.js": "/goit-final-project/static/js/main.254d9667.js",
+    "main.js": "/goit-final-project/static/js/main.28c2a088.js",
     "static/js/117.87cc2ca9.chunk.js": "/goit-final-project/static/js/117.87cc2ca9.chunk.js",
     "static/js/215.ffc1b786.chunk.js": "/goit-final-project/static/js/215.ffc1b786.chunk.js",
-    "static/js/785.42aae626.chunk.js": "/goit-final-project/static/js/785.42aae626.chunk.js",
+    "static/js/785.e29f724c.chunk.js": "/goit-final-project/static/js/785.e29f724c.chunk.js",
     "static/js/438.80ff920c.chunk.js": "/goit-final-project/static/js/438.80ff920c.chunk.js",
     "static/js/786.ff85c113.chunk.js": "/goit-final-project/static/js/786.ff85c113.chunk.js",
     "static/js/762.3fe6fbdf.chunk.js": "/goit-final-project/static/js/762.3fe6fbdf.chunk.js",
@@ -82,10 +82,10 @@
     "static/media/correct.svg": "/goit-final-project/static/media/correct.2c20cfce5010676dc2acf065541b3183.svg",
     "static/media/pick.svg": "/goit-final-project/static/media/pick.247b86d0e6a26346bf0885b5b0408bd8.svg",
     "main.1a3255d7.css.map": "/goit-final-project/static/css/main.1a3255d7.css.map",
-    "main.254d9667.js.map": "/goit-final-project/static/js/main.254d9667.js.map",
+    "main.28c2a088.js.map": "/goit-final-project/static/js/main.28c2a088.js.map",
     "117.87cc2ca9.chunk.js.map": "/goit-final-project/static/js/117.87cc2ca9.chunk.js.map",
     "215.ffc1b786.chunk.js.map": "/goit-final-project/static/js/215.ffc1b786.chunk.js.map",
-    "785.42aae626.chunk.js.map": "/goit-final-project/static/js/785.42aae626.chunk.js.map",
+    "785.e29f724c.chunk.js.map": "/goit-final-project/static/js/785.e29f724c.chunk.js.map",
     "438.80ff920c.chunk.js.map": "/goit-final-project/static/js/438.80ff920c.chunk.js.map",
     "786.ff85c113.chunk.js.map": "/goit-final-project/static/js/786.ff85c113.chunk.js.map",
     "762.3fe6fbdf.chunk.js.map": "/goit-final-project/static/js/762.3fe6fbdf.chunk.js.map",
@@ -98,6 +98,6 @@
   },
   "entrypoints": [
     "static/css/main.1a3255d7.css",
-    "static/js/main.254d9667.js"
+    "static/js/main.28c2a088.js"
   ]
 }
