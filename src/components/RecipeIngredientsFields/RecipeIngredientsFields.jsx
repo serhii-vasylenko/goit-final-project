@@ -1,6 +1,7 @@
-import { FieldArray } from 'formik';
+import { FieldArray, getIn } from 'formik';
 import { useSelector } from 'react-redux';
 import { selectIngredientsList } from 'redux/ingredients/ingredientsSelector';
+import { hasError } from 'helpers/hasError';
 import Counter from 'components/Counter/Counter';
 import sprite from '../../images/AddRecipePage/sprite.svg';
 import FormError from 'components/ReusableComponents/FormError/FormError';
@@ -32,7 +33,7 @@ const RecipeIngredientsFields = () => {
         {fieldArrayProps => {
           const { push, remove, form } = fieldArrayProps;
 
-          const { values, setFieldValue } = form;
+          const { values, setFieldValue, errors, touched } = form;
           const { ingredients } = values;
 
           const handleIngredientChange = (index, selectedOption) => {
@@ -56,7 +57,7 @@ const RecipeIngredientsFields = () => {
                     <StyledSelect
                       classNamePrefix="custom-select"
                       name={`ingredients[${index}].id`}
-                      placeholder={''}
+                      placeholder={'Select ingredient'}
                       options={nameIngredients}
                       onChange={selectedOption =>
                         handleIngredientChange(index, selectedOption)
@@ -77,6 +78,7 @@ const RecipeIngredientsFields = () => {
                         handleCountChange(index, event.target.value);
                       }}
                       placeholder={'Enter measure'}
+                      className={hasError(`ingredients[${index}].measure`, getIn, errors, touched) ? 'error' : ''}
                     />
                     <FormError
                       name={`ingredients[${index}].measure`}

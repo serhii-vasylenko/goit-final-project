@@ -15,7 +15,6 @@ const initialState = {
   recipeByTitle: [],
   recipesByIngredient: [],
   searchFilter: null,
-  lastRequest: null,
   isLoading: false,
   error: null,
 };
@@ -31,8 +30,8 @@ const searchSlice = createSlice({
 
     resetRecipeByTitle: state => {
       state.recipeByTitle = initialState.recipeByTitle;
-      },
-    
+    },
+
     resetRecipeByIngredient: state => {
       state.recipesByIngredient = initialState.recipesByIngredient;
     },
@@ -57,6 +56,7 @@ const searchSlice = createSlice({
   },
 });
 
-export const { resetRecipeByTitle, resetRecipeByIngredient } = searchSlice.actions;
+export const { resetRecipeByTitle, resetRecipeByIngredient } =
+  searchSlice.actions;
 
 export default searchSlice.reducer;

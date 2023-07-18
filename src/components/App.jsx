@@ -14,6 +14,7 @@ import { ThemeProvider } from '@emotion/react';
 import { selectTheme } from 'redux/theme/selectors';
 
 import * as themes from 'themes';
+import RefreshingScreen from './RefreshingScreen/RefreshingScreen';
 
 const MainPage = lazy(() => import('pages/MainPage/MainPage'));
 const CategoriesPage = lazy(() =>
@@ -52,7 +53,7 @@ const App = () => {
   console.log(theme);
 
   return isRefreshing ? (
-    <p>Refreshing user</p>
+    <RefreshingScreen/>
   ) : (
     <ThemeProvider theme={theme}>
       <Routes>

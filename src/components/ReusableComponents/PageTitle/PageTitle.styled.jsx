@@ -79,4 +79,6 @@ export const Circle = styled.div`
 
 export const Section = styled.section`
   position: relative;
+
+  background-color: ${({theme}) => theme.colors.backgroundColor}
 `;

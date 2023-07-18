@@ -55,7 +55,7 @@ const SearchForm = () => {
     setSearchValue(trimmedValue);
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     const params = Object.fromEntries(searchParams.entries());
@@ -78,7 +78,7 @@ const SearchForm = () => {
 
     if (q && q !== '') {
       dispatch(resetRecipeByIngredient());
-      dispatch(getRecipesByTitle(title));
+       dispatch(getRecipesByTitle(title));
     }
     if (ing && ing !== '') {
       dispatch(resetRecipeByTitle());
