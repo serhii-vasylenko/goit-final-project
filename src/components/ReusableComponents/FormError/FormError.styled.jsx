@@ -5,6 +5,6 @@ export const ErrorText = styled.p`
   font-size: 12px;
 
   @media screen and (min-width: 768px) {
-        font-size: 14px;
-      }
+    font-size: 14px;
+  }
 `;

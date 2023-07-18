@@ -5,7 +5,10 @@ import { useNavigate } from 'react-router';
 
 import addRecipeValidationSchema from 'helpers/addRecipeValidationSchema';
 import { recipeOperations } from 'redux/recipes/operations';
-import { selectError, selectCurrentAddedOwnRecipe } from 'redux/recipes/recipesSelector';
+import {
+  selectError,
+  selectCurrentAddedOwnRecipe,
+} from 'redux/recipes/recipesSelector';
 import {
   showMessageToast,
   showErrorToast,
@@ -61,20 +64,21 @@ const AddRecipeForm = () => {
     formData.append('recipeImg', file);
     formData.append('data', data);
 
-    await dispatch(recipeOperations.addOwnRecipe(formData));
+    const disp = await dispatch(recipeOperations.addOwnRecipe(formData));
 
-    if (error) {
-      showErrorToast('Oops... Something went wrong.');
-      return;
-    }
+    if (disp) {
+      if (error) {
+        showErrorToast('Oops... Something went wrong.');
+        return;
+      }
 
-    showMessageToast('Congratulations! You have added a recipe.');
-    // resetForm();
-
-    if (currentAddedOwnRecipe){
+      showMessageToast('Congratulations! You have added a recipe.');
+      // resetForm();
       console.log(currentAddedOwnRecipe);
-    navigate(`recipes/${currentAddedOwnRecipe}`);
-  }
+      if (currentAddedOwnRecipe) {
+        navigate(`/recipes/${currentAddedOwnRecipe}`);
+      }
+    }
   };
 
   return (
