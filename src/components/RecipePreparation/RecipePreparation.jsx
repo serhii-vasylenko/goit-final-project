@@ -17,27 +17,30 @@ const RecipePreparation = ({ instructions, image }) => {
    let instructionsString = instructions?.toString();
    let res = instructionsString?.split('\n');
 
-  //  console.log(res);
-
   for (let i = 0; i < res.length; i += 1) {
     const regex = /^(?:\d+[.)]*\s*)*/;
     res[i] = res[i].replace(regex, '').trim();
   }
   const filteredInstructions = res.filter(str => str !== '');
 
-   console.log(filteredInstructions);
-
   return (
     <Container>
       <div>
         <Title>Recipe Preparation</Title>
         <InstructionsList>
-          {instructions && filteredInstructions?.map((item, index) => (
-            <ListItem key={nanoid()}>
-              <GreenCircle>{index + 1}</GreenCircle>
-              {item}
-            </ListItem>
-          ))}
+          {instructions && filteredInstructions.length > 1
+            ? filteredInstructions?.map((item, index) => (
+                <ListItem key={nanoid()}>
+                  <GreenCircle>{index + 1}</GreenCircle>
+                  {item}
+                </ListItem>
+              ))
+            : instructions?.map((item, index) => (
+                <ListItem key={nanoid()}>
+                  <GreenCircle>{index + 1}</GreenCircle>
+                  {item}
+                </ListItem>
+              ))}
         </InstructionsList>
       </div>
       <ImageWrapper>
