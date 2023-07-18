@@ -1,26 +1,23 @@
 import styled from '@emotion/styled';
-import checked from '../../images/pick.svg';
+import checked from '../../images/icons/pick.svg';
 
 export const ContainerList = styled.div`
   width: 100%;
-  padding-left: 16px;
-  padding-right: 16px;
   margin-bottom: 50px;
-  margin-top: 32px;
+  margin-top: 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   @media screen and (min-width: 768px) {
-    padding-left: 32px;
-    padding-right: 32px;
-    margin-top: 50px;
+    margin-top: 32px;
+    margin-bottom: 50px;
+
   }
 
-  @media screen and (min-width: 1440px) {
-    padding-left: 0;
-    padding-right: 0;
-    margin-top: 100px;
+  @media screen and (min-width: 1280px) {
+     margin-bottom: 50px;
+  margin-top: 50px;
   }
 `;
 
@@ -30,11 +27,11 @@ export const HeaderList = styled.div`
   justify-content: space-between;
   border-radius: 8px;
   height: 42px;
-  width:100%;
+  width: 100%;
   padding: 0 14px;
   margin-bottom: 24px;
-  color: #FAFAFA;
-  background-color: #8BAA36;
+  color: var(--white-color);
+  background-color: var(--accent-color);
 
   @media screen and (min-width: 768px) {
     height: 58px;
@@ -49,14 +46,14 @@ export const HeaderList = styled.div`
   }
 
   p {
-    font-weight:600;
+    font-weight: 600;
     font-size: 10px;
     line-height: normal;
     letter-spacing: 0.3px;
 
     @media screen and (min-width: 768px) {
       font-size: 18px;
-       letter-spacing: 0.54px;
+      letter-spacing: 0.54px;
     }
   }
 
@@ -82,9 +79,7 @@ width:100%;
   @media screen and (min-width: 768px) {
     gap: 24px;
   }
-  /* @media screen and (min-width: 1280px) {
-    margin-bottom: 100px;
-  } */
+
 `;
 
 export const IngredientItem = styled.li`
@@ -95,7 +90,6 @@ export const IngredientItem = styled.li`
   border-radius: 8px;
   background-color: #ebf3d4;
   padding: 10px;
-  gap: 8px;
   max-width: 100%;
   @media screen and (min-width: 768px) {
      padding: 16px 24px;
@@ -109,25 +103,37 @@ export const IngredientItem = styled.li`
 export const ContentWrap = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 8px;
 
   @media screen and (min-width: 768px) {
     gap: 78px;
-    &:first-of-type {
-      gap: 24px;
-    }
   }
 
   @media screen and (min-width: 1440px) {
     gap: 151px;
-    &:first-of-type {
-      gap: 40px;
-    }
   }
 `;
 
-export const ImageContainer = styled.div`
-  width: 65px;
+export const ContentWrapMeasure = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 120px;
+
+  @media screen and (min-width: 768px) {
+   gap: 35px;
+    width: 225px;
+  }
+
+  @media screen and (min-width: 1440px) {
+   
+  }
+`;
+
+export const Image = styled.img`
+ width: 65px;
   height: 65px;
 
   @media screen and (min-width: 768px) {
@@ -139,30 +145,31 @@ export const ImageContainer = styled.div`
     width: 180px;
     height: 180px;
   }
-
-  & img {
-    border-radius: 4px;
-    display: block;
-   object-fit: contain;
-  }
-`;
+`
 
 export const NameIngredient = styled.p`
   font-weight: 500;
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: -0.24px;
-  color: #3e4462;
+  color: var(--secondary-text-color);
+  overflow: hidden;
+  width: 99px;
 
   @media screen and (min-width: 768px) {
     font-size: 24px;
     line-height: 24px;
+    width: 206px;
+  }
+
+  @media screen and (min-width: 1240px) {
+    width: 545px;
   }
 `;
 
 export const IngredientMeasure = styled.span`
   display: block;
-  background: #8baa36;
+  background: var(--accent-color);
   border-radius: 4px;
   padding: 4px;
   min-width: 37px;
@@ -171,7 +178,8 @@ export const IngredientMeasure = styled.span`
   font-size: 10px;
   line-height: 1.5;
   text-align: center;
-  color: #fafafa;
+  color: var(--white-color);
+  overflow: hidden;
 
   @media screen and (min-width: 768px) {
     min-width: 68px;
@@ -224,4 +232,5 @@ export const CheckBox = styled.input`
     }
   }
 `;
+
 

@@ -17,7 +17,7 @@ const RecipePreparation = ({ instructions, image }) => {
    let instructionsString = instructions?.toString();
    let res = instructionsString?.split('\n');
 
-   console.log(res);
+  //  console.log(res);
 
   for (let i = 0; i < res.length; i += 1) {
     const regex = /^(?:\d+[.)]*\s*)*/;
@@ -48,6 +48,8 @@ const RecipePreparation = ({ instructions, image }) => {
       </ImageWrapper>
     </Container>
   );
+
+
 }
 
 export default RecipePreparation
