@@ -49,7 +49,7 @@ const AddRecipeForm = () => {
     }
 
     showMessageToast('Congratulations! You have added a recipe.');
-    resetForm();
+    // resetForm();
     
     if (currentAddedOwnRecipe) {
       navigate(`/recipes/${currentAddedOwnRecipe}`);
