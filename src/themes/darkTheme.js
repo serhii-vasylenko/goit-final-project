@@ -16,6 +16,11 @@ export const darkTheme = {
     footerBGColor: '#8BAA36',
     privacyColor: '#fafafa',
     categoriesListBGColor: '#2a2c36',
+
+    selectBGColor: '#2a2c36',
+    dropDownColor: '#8baa36',
+    selectHoverColor: '#2a2c36',
+    selectBorderColor: 'rgba(250,250,250,0.5)',
   },
   transforms: {
     transitionDuration: '250ms',

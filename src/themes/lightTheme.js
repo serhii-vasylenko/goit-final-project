@@ -16,6 +16,11 @@ export const lightTheme = {
     footerBGColor: '#22252a',
     privacyColor: '#22252a',
     categoriesListBGColor: '#ebf3d4',
+
+    selectBGColor: '#d9d9d9',
+    dropDownColor: '#fafafa',
+    selectHoverColor: 'rgba(217,217,217,0.2)',
+    selectBorderColor: 'rgba(217,217,217,0.2)',
   },
   transforms: {
     transitionDuration: '250ms',
