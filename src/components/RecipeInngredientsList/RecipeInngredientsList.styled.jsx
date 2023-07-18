@@ -88,15 +88,15 @@ export const IngredientItem = styled.li`
   align-items: center;
   justify-content: space-between;
   border-radius: 8px;
-  background-color: #ebf3d4;
+  background-color: ${({ theme }) => theme.colors.categoriesListBGColor};
   padding: 10px;
   max-width: 100%;
   @media screen and (min-width: 768px) {
-     padding: 16px 24px;
+    padding: 16px 24px;
   }
 
   @media screen and (min-width: 1280px) {
-   padding: 26px 32px;
+    padding: 26px 32px;
   }
 `;
 
@@ -152,7 +152,7 @@ export const NameIngredient = styled.p`
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: -0.24px;
-  color: var(--secondary-text-color);
+  color: ${({ theme })=>theme.colors.secondaryTextColor};
   overflow: hidden;
   width: 99px;
 

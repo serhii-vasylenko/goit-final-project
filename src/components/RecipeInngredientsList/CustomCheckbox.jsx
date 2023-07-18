@@ -35,7 +35,9 @@ const CustomCheckbox = ({ ingredient, shoppingList, recipeId }) => {
   const toggleCheckBox = ({ measure, ingredientId, recipeId }) => {
     if (shoppingList.length === 0) return;
 
-    const alreadyInSL = shoppingList.filter(item => item._id === ingredientId);
+    const alreadyInSL = shoppingList.filter(
+      item => item._id === ingredientId && item.recipeId === recipeId
+    );
     //   (item._id === ingredientId && item.recipeId === recipeId)
 
     if (alreadyInSL.length > 0) {

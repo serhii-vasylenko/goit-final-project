@@ -38,7 +38,7 @@ const shoppingListSlice = createSlice({
       .addCase(addToShoppingList.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-		//   console.log("PAYLOAD", action.payload)
+		  // console.log("PAYLOAD", action.payload)
         state.shoppingList = action.payload.data.shoppingList;
       })
       .addCase(addToShoppingList.rejected, handleRejected)
