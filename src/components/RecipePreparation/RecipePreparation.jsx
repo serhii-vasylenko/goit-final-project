@@ -17,7 +17,7 @@ const RecipePreparation = ({ instructions, image }) => {
    let instructionsString = instructions?.toString();
    let res = instructionsString?.split('\n');
 
-  //  console.log(res);
+   console.log(instructionsString.length);
 
   for (let i = 0; i < res.length; i += 1) {
     const regex = /^(?:\d+[.)]*\s*)*/;
@@ -25,7 +25,7 @@ const RecipePreparation = ({ instructions, image }) => {
   }
   const filteredInstructions = res.filter(str => str !== '');
 
-   console.log(filteredInstructions);
+   console.log(filteredInstructions.length);
 
   return (
     <Container>

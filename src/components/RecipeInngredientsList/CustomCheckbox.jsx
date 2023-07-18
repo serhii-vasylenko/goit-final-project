@@ -10,7 +10,7 @@ const CustomCheckbox = ({ ingredient, shoppingList, recipeId }) => {
    
    const [checked, setChecked] = useState(false);
    const dispatch = useDispatch();
-   const { _id, measure } = ingredient;
+   const { _id: ingredientId, measure } = ingredient;
 
 //    useEffect(() => {
 //     if (shoppingList.length > 0) {
@@ -21,15 +21,32 @@ const CustomCheckbox = ({ ingredient, shoppingList, recipeId }) => {
        
 //     }
 //   }, [shoppingList, dispatch, _id]);
+   console.log(shoppingList);
 
+  const toggleCheckBox = ({ measure, ingredientId, recipeId }) => {
+    if (shoppingList.length === 0) return;
 
-  const toggleCheckBox = ( product) => {
-    if (checked) {
-       dispatch(removeFromShoppingList(checked))
-       setChecked(false);
+    const alreadyInSL = shoppingList.filter(item => item._id === ingredientId);
+    //   (item._id === ingredientId && item.recipeId === recipeId)
+
+    if (alreadyInSL.length > 0) {
+      dispatch(
+        removeFromShoppingList({
+          ingredientId: ingredientId,
+          recipeId: recipeId,
+          measure: measure,
+        })
+      );
+      setChecked(false);
     } else {
-       dispatch(addToShoppingList(product))
-       setChecked(true);
+      dispatch(
+        addToShoppingList({
+          ingredientId: ingredientId,
+          recipeId: recipeId,
+          measure: measure,
+        })
+      );
+      setChecked(true);
     }
   };
    
@@ -37,7 +54,7 @@ const CustomCheckbox = ({ ingredient, shoppingList, recipeId }) => {
      <CheckBox
         type="checkbox"
         checked={checked}
-      onChange={() => toggleCheckBox({ measure, ingredientId:_id, recipeId})}
+        onChange={() => toggleCheckBox({ measure, ingredientId, recipeId})}
     >
      
     </CheckBox>
