@@ -25,6 +25,8 @@ const RecipeInngredientsList = ({ ingredients, recipeId}) => {
 
   const shoppingList = useSelector(selectShoppingList);
 
+  console.log("SHOPPING_LIST", shoppingList)
+
   return (
     <>
       {ingredients && (
