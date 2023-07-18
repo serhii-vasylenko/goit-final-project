@@ -1,8 +1,5 @@
-// import {
-//   useAddProductMutation,
-//   useGetProductsQuery,
-//   useDeleteProductMutation,
-// } from 'redux/shopping-list/productsSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 import {
   IngredientList,
@@ -14,21 +11,19 @@ import {
   ContentWrap,
   ContentWrapMeasure,
   Image,
-  CheckBox,
 } from './RecipeInngredientsList.styled';
+import { getShoppingList } from 'redux/shopping-list/operations';
+import { selectShoppingList } from 'redux/shopping-list/selectors';
+import CustomCheckbox from './CustomCheckbox';
 
-const RecipeInngredientsList = ({ ingredients, recipeId }) => {
-  // const { _id, measure, name, img } = ingredients;
+const RecipeInngredientsList = ({ ingredients, recipeId}) => {
+  const dispatch = useDispatch();
 
-  // const { data: shoppingList } = useGetProductsQuery();
-  // const [deleteProduct] = useDeleteProductMutation();
-  // const [addProduct] = useAddProductMutation();
+  useEffect(() => {
+    dispatch(getShoppingList());
+  }, [dispatch]);
 
-  //     const clickHandler = product => {
-  //  addProduct({ ingredientId: _id, recipeId: recipeId, measure: measure });
-  //    };
-
-  // console.log(shoppingList)
+  const shoppingList = useSelector(selectShoppingList);
 
   return (
     <>
@@ -43,6 +38,7 @@ const RecipeInngredientsList = ({ ingredients, recipeId }) => {
           </HeaderList>
           <IngredientList>
             {ingredients?.map(({ _id, measure, img, name }) => {
+
               return (
                 <IngredientItem key={`${measure}_${_id}`}>
                   <ContentWrap>
@@ -51,11 +47,13 @@ const RecipeInngredientsList = ({ ingredients, recipeId }) => {
                   </ContentWrap>
 
                   <ContentWrapMeasure>
-                    <IngredientMeasure>{measure}</IngredientMeasure>
-                    <CheckBox
-                      recipeId={recipeId}
-                      type="checkbox"
-                      ingredient={{ _id, measure, img, name }}
+                    <IngredientMeasure>
+                      {measure ?? 'No info'}
+                    </IngredientMeasure>
+                    <CustomCheckbox
+                      ingredient={{ _id, name, img, measure }}
+                      shoppingList={shoppingList}
+                      recipeId = {recipeId}
                     />
                   </ContentWrapMeasure>
                 </IngredientItem>
