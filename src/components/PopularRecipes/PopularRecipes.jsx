@@ -25,7 +25,7 @@ const PopularRecipes = () => {
                 <PopularRecipe
                   _id={_id}
                   title={title}
-                  description={truncateString(description, 100)}
+                  description={truncateString(description, 70)}
                   thumb={thumb}
                 />
               </Item>

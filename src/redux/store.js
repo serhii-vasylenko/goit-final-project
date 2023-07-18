@@ -4,6 +4,7 @@ import authSlice from 'redux/auth/authSlice';
 import recipesSlice from './recipes/recipesSlice';
 import searchSlice from './search/searchSlice';
 import ingredientsSlice from './ingredients/ingredientsSlice';
+import shoppingListSlice from './shopping-list/shoppingListSlice'
 import themeSlice from './theme/themeSlice';
 
 import {
@@ -17,7 +18,6 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { shoppingListApi } from './shopping-list/productsSlice';
 
 const enhancer = devToolsEnhancer();
 
@@ -39,7 +39,7 @@ const store = configureStore(
       recipes: recipesSlice,
       search: searchSlice,
       ingredients: ingredientsSlice,
-      [shoppingListApi.reducerPath]: shoppingListApi.reducer,
+      products: shoppingListSlice,
       theme: persistReducer(themePersistConfig, themeSlice),
     },
     middleware: getDefaultMiddleware => [
@@ -48,7 +48,6 @@ const store = configureStore(
           ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
         },
       }),
-      shoppingListApi.middleware,
     ],
   },
   enhancer

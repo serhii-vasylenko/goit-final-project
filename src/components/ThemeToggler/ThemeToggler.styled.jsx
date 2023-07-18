@@ -42,7 +42,7 @@ export const Label = styled.label`
   gap: 10px;
   width: 61px;
   height: 27px;
-  
+  background-color: ${({theme}) => theme.colors.togglerBGColor};
   box-shadow: inset 0px 6px 8px 3px rgba(0, 0, 0, 0.1);
   border-radius: 25px;
   cursor: pointer;

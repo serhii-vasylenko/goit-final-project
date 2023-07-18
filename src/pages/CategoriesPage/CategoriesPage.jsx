@@ -4,7 +4,6 @@ import { Outlet, useParams } from "react-router";
 import { recipeOperations } from 'redux/recipes/operations';
 import { CategoryList } from "components/CategoryList/CategoryList";
 import PageTitle from "components/ReusableComponents/PageTitle/PageTitle";
-import { PageTitleWrap } from "pages/AddRecipePage/AddRecipePage.styled";
 import { MainContainer } from "components/MainContainer/MainContainer";
 
 const CategoriesPage = () => {
@@ -23,9 +22,7 @@ const CategoriesPage = () => {
 
 
   return <MainContainer style={{ paddingTop: '58px' }}>
-    <PageTitleWrap>
       <PageTitle title={'Categories'}/>
-    </PageTitleWrap>
     <CategoryList currentCategory={currentCategory} />
     <Suspense>
         <Outlet />

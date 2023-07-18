@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { FiSearch } from "react-icons/fi";
 
 const NavList = styled.ul`
@@ -7,9 +7,11 @@ display: ${props => props.nav ? 'flex' : 'none'};
 align-items: center;
 flex-direction: column;
 margin-top: ${props => props.nav ? '182px' : '0'};
+color: ${({theme }) => theme.colors.mobileMenuColor};
 @media (min-width: 1280px) {
     display: flex;
     flex-direction: row;
+    color: ${({theme }) => theme.colors.primaryTextColor};
 }
 `
 
@@ -25,6 +27,14 @@ transition: color ${({theme }) => theme.transforms.transitionDuration} ${({theme
     color: ${({theme }) => theme.colors.accentColor};
     font-weight: 600;
 }
+
+${() => {
+    const location = useLocation();
+    if (location.pathname.includes('/recipes/')) {
+      return `
+        color: #22252a`;
+    }
+  }}
 `
 const NavItem = styled.li`
 font-size: 18px;
