@@ -21,8 +21,7 @@ const { recipeId } = useParams();
   const favoriteRecipes = useSelector(selectFavoriteRecipes);
   const ownRecipes = useSelector(selectOwnRecipes);
 
-  const isFavorite = favoriteRecipes.recipe.find(favorite => favorite._id === recipeId);
-  console.log(isFavorite)
+  const isFavorite = favoriteRecipes.find(favorite => favorite._id === recipeId);
 
   const toggleFavorite = async () => {
     try {
@@ -31,7 +30,6 @@ const { recipeId } = useParams();
         showMessageToast(`Recipe is added to the list of favorites`)
       } else {
         await dispatch(deleteFromFavoriteRecipes(recipeId));
-        // showMessageToast(`Recipe ${title} is removed from the list of favorites`);
       }
     } catch (error) {
       console.log(error);
@@ -43,7 +41,7 @@ const { recipeId } = useParams();
     <HeroContainer>
       <HeroTitle>{title}</HeroTitle>
       <HeroText>{description}</HeroText>
-      {favoriteRecipes.recipe && ownRecipes.recipe && (<Button type="button" onClick={toggleFavorite}>{
+      {favoriteRecipes && ownRecipes && (<Button type="button" onClick={toggleFavorite}>{
         isFavorite ? 'Remove from favorite recipes' : 'Add to favorite recipes'
       }
       </Button>

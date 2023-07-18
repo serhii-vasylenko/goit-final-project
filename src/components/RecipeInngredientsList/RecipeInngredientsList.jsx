@@ -1,4 +1,8 @@
-// import { useAddProductMutation, useGetProductsQuery, useDeleteProductMutation } from 'redux/shopping-list/productsSlice';
+// import {
+//   useAddProductMutation,
+//   useGetProductsQuery,
+//   useDeleteProductMutation,
+// } from 'redux/shopping-list/productsSlice';
 
 import {
   IngredientList,
@@ -10,16 +14,19 @@ import {
   ContentWrap,
   ContentWrapMeasure,
   Image,
-  CheckBox
+  CheckBox,
 } from './RecipeInngredientsList.styled';
 
 const RecipeInngredientsList = ({ ingredients, recipeId }) => {
-
   // const { _id, measure, name, img } = ingredients;
 
   // const { data: shoppingList } = useGetProductsQuery();
   // const [deleteProduct] = useDeleteProductMutation();
   // const [addProduct] = useAddProductMutation();
+
+  //     const clickHandler = product => {
+  //  addProduct({ ingredientId: _id, recipeId: recipeId, measure: measure });
+  //    };
 
   // console.log(shoppingList)
 
@@ -53,12 +60,11 @@ const RecipeInngredientsList = ({ ingredients, recipeId }) => {
                   </ContentWrapMeasure>
                 </IngredientItem>
               );
-      })}
-    </IngredientList>
-    </ContainerList> 
-     
-    )}
-       </> 
+            })}
+          </IngredientList>
+        </ContainerList>
+      )}
+    </>
   );
 };
 
