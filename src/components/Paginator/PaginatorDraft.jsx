@@ -1,5 +1,5 @@
 // import { useEffect, useState, useCallback } from 'react';
-// import { StyledPaginator } from '../ReusableComponents/Paginator/Paginator.styled';
+import { StyledPaginator } from '../ReusableComponents/Paginator/Paginator.styled';
 // import {
 //   selectRecipeByTitle,
 //   selectRecipesByIngredient,
