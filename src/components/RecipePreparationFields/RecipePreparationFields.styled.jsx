@@ -19,6 +19,7 @@ export const Container = styled.div`
 `;
 
 export const TextArea = styled(Field)`
+  outline: none;
   width: 100%;
   height: 154px;
   resize: none;
@@ -34,6 +35,8 @@ export const TextArea = styled(Field)`
   font-size: 14px;
   letter-spacing: -0.28px;
 
+  transition: box-shadow var(--transition-duration) var(--timing-function);
+
   &::placeholder {
     color: #000000;
     opacity: 0.5;
@@ -41,15 +44,18 @@ export const TextArea = styled(Field)`
 
   &:focus,
   &:hover {
-    outline: 1px solid rgba(217, 217, 217, 1);
+    box-shadow: 0 0 5px rgba(217, 217, 217, 1);
+    border-radius: 6px;
   }
 
   &.error {
-    border: 1px solid var(--error-color);
+    box-shadow: 0 0 5px var(--error-color);
+    border-radius: 6px;
   }
 
   @media screen and (min-width: 768px) {
     width: 505px;
-  height: 224px;
+    height: 224px;
+    font-size: 18px;
   }
 `;

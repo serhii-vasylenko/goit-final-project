@@ -21,12 +21,14 @@ export const Svg = styled.svg`
 `;
 
 export const Button = styled.button`
-outline: none;
+/* outline: 1px solid rgba(217, 217, 217, 1); */
   width: auto;
+  outline: none;
   height: auto;
   padding: 0;
   background: none;
   border: none;
+  transition: box-shadow var(--transition-duration) var(--timing-function);
   cursor: pointer;
 
   &:active {
@@ -40,7 +42,7 @@ outline: none;
     }
   }
   &:focus {
-    border: 1px solid rgba(217, 217, 217, 1);
+    box-shadow: 0 0 5px rgba(217, 217, 217, 1);
     border-radius: 4px;
     ${Svg} {
       stroke: var(--accent-color);
