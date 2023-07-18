@@ -102,3 +102,15 @@ export const subscribeUser = createAsyncThunk(
     }
   }
 );
+
+export const getUserInfo = createAsyncThunk(
+  'auth/getUserInfo',
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get('/users/modal');
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
