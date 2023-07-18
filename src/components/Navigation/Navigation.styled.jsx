@@ -6,7 +6,7 @@ const NavList = styled.ul`
 display: ${props => props.nav ? 'flex' : 'none'};
 align-items: center;
 flex-direction: column;
-margin-top: ${props => props.nav ? '182px' : '0'};
+margin-top: ${props => props.nav ? '124px' : '0'};
 color: ${({theme }) => theme.colors.mobileMenuColor};
 @media (min-width: 1280px) {
     display: flex;

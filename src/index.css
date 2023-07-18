@@ -63,6 +63,7 @@ html {
 
 body.modal-open {
   overflow: hidden;
+  pointer-events: none;
 }
 
 #root {

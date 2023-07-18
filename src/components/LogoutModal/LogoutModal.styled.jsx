@@ -12,6 +12,7 @@ height: 100%;
 background-color: rgba(0, 0, 0, 0.50);
 align-items: center;
 justify-content: center;
+pointer-events: auto;
 &.open{
     display: flex;
 }
@@ -20,7 +21,7 @@ const Modal = styled.div`
 position: relative;
 border-radius: 30px;
 background: ${({ theme }) => theme.colors.backgroundModalColor};
-color: ${({theme }) => theme.colors.primaryTextColor}
+color: ${({theme }) => theme.colors.primaryTextColor};
 box-shadow: 0px 4px 48px 0px rgba(0, 0, 0, 0.10);
 padding: 44px 24px;
 transition: all ${({theme }) => theme.transforms.transitionDuration} ${({theme }) => theme.transforms.timingFunction};
