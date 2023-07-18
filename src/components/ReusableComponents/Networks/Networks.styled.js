@@ -16,8 +16,9 @@ export const Link = styled.a`
   justify-content: center;
   height: 100%;
 
-  color: var(--accent-color);
-  transition: color 250ms var(--timing-function);
+  color: ${({ theme }) => theme.colors.accentColor};
+  transition: ${({ theme }) =>
+    `color ${theme.transforms.transforms} ${theme.transforms.timingFunction}`};
 
   cursor: pointer;
 

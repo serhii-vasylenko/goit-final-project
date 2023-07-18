@@ -15,6 +15,7 @@ import {
   PreviewCategoriesList,
   PreviewCategoriesListItem,
   SeeCategoryBtn,
+  Wrapper,
 } from './PreviewCategories.styled';
 
 import {
@@ -60,7 +61,7 @@ const PreviewCategories = () => {
         {isLoading && <Loader />}
         {!isLoading && !categories && <ErrorBanner />}
         {!isLoading && categories && !error && (
-          <>
+          <Wrapper>
             <PreviewCategoriesList>
               {recipesByCategories.map(({ category, recipes }) => (
                 <PreviewCategoriesListItem key={category}>
@@ -76,7 +77,6 @@ const PreviewCategories = () => {
               nameButton="Other categories"
               fontSize="14px"
               bgColor="transparent"
-              color={'#22252a'}
               border="2px"
               borderColor={'#8aa936'}
               borderRadius="24px 44px"
@@ -108,7 +108,7 @@ const PreviewCategories = () => {
               }}
               onClick={() => navigate('/categories/beef')}
             />
-          </>
+          </Wrapper>
         )}
       </MainContainer>
     </PreviewCategoriesSection>

@@ -22,25 +22,23 @@ export const TextWrapper = styled.div`
 export const Title = styled.h2`
   margin-bottom: 8px;
 
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 20px;
+  font-weight: ${({ theme }) => theme.fontWeights.semibold};
+  font-size: ${({ theme }) => theme.fontSizes[18]}px;
+  line-height: ${({ theme }) => theme.lineHeights[1_1]};
 
   @media screen and (min-width: 768px) {
-    font-size: 24px;
-    line-height: 24px;
+    font-size: ${({ theme }) => theme.fontSizes[24]}px;
+    line-height: ${({ theme }) => theme.lineHeights[1]};
   }
 `;
 
 export const Text = styled.p`
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
+  font-weight: ${({ theme }) => theme.fontWeights.regular};
+  font-size: ${({ theme }) => theme.fontSizes[14]}px;
+  line-height: ${({ theme }) => theme.lineHeights[1_3]};
 
   @media screen and (min-width: 768px) {
-    font-size: 18px;
-    line-height: 24px;
-
+    font-size: ${({ theme }) => theme.fontSizes[18]}px;
     letter-spacing: -0.5px;
   }
 `;
