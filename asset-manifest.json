@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/goit-final-project/static/css/main.5a17fe83.css",
-    "main.js": "/goit-final-project/static/js/main.34e9329f.js",
+    "main.css": "/goit-final-project/static/css/main.c97838f7.css",
+    "main.js": "/goit-final-project/static/js/main.4228b8d7.js",
     "static/js/741.a534533b.chunk.js": "/goit-final-project/static/js/741.a534533b.chunk.js",
     "static/js/215.f8925e61.chunk.js": "/goit-final-project/static/js/215.f8925e61.chunk.js",
     "static/js/785.cff2b511.chunk.js": "/goit-final-project/static/js/785.cff2b511.chunk.js",
@@ -34,12 +34,13 @@
     "static/media/hero-desktop-dish.png": "/goit-final-project/static/media/hero-desktop-dish.9d9e6d0ee8b3f0030879.png",
     "static/media/searchCapLarge@2x.png": "/goit-final-project/static/media/searchCapLarge@2x.831629f38acb698698c1.png",
     "static/media/hero-desktop-leaves-bottom.png": "/goit-final-project/static/media/hero-desktop-leaves-bottom.0d9bc7e0a4e80e4bc1d5.png",
-    "static/media/bg-img.png": "/goit-final-project/static/media/bg-img.b7f90b04d88fb5c81bf1.png",
+    "static/media/bg-footer-desk.png": "/goit-final-project/static/media/bg-footer-desk.5edaae222aa96d633038.png",
     "static/media/salat_sm.jpg": "/goit-final-project/static/media/salat_sm.7b82a8a7773366f5c2b0.jpg",
     "static/media/bg-desk.png": "/goit-final-project/static/media/bg-desk.8e6e1b0572a6317ce0a5.png",
     "static/media/hero-tablet-dish.png": "/goit-final-project/static/media/hero-tablet-dish.57329ba675e2aee976f3.png",
     "static/media/bg-mob@2x.png": "/goit-final-project/static/media/bg-mob@2x.511f0358ab49b1fc6036.png",
     "static/media/searchCapSmall@2x.png": "/goit-final-project/static/media/searchCapSmall@2x.22bf64dcd04d440d3bf8.png",
+    "static/media/bg-footer-tab.png": "/goit-final-project/static/media/bg-footer-tab.5e7d8d13f15403df62c9.png",
     "static/media/hero-tablet-leaves-bottom.png": "/goit-final-project/static/media/hero-tablet-leaves-bottom.bb59d4c982aff2372aa4.png",
     "static/media/hero-mobile-dish.png": "/goit-final-project/static/media/hero-mobile-dish.68662c8f1c68a847ec01.png",
     "static/media/hero-desktop-leaves-top@2x.png": "/goit-final-project/static/media/hero-desktop-leaves-top@2x.2b84c27fc12361b40c9f.png",
@@ -50,6 +51,7 @@
     "static/media/notFoundImage-pc@2x.png": "/goit-final-project/static/media/notFoundImage-pc@2x.64f09015aacc5ff186d1.png",
     "static/media/notFoundImage-tab@2x.png": "/goit-final-project/static/media/notFoundImage-tab@2x.a28d9d1c13b39d524956.png",
     "static/media/order_lg@2x.png": "/goit-final-project/static/media/order_lg@2x.6335385e80c26b670320.png",
+    "static/media/bg-footer-mob.png": "/goit-final-project/static/media/bg-footer-mob.19705f88506304eeaab8.png",
     "static/media/hero-tablet-leaves-top@2x.png": "/goit-final-project/static/media/hero-tablet-leaves-top@2x.b9c97c76cf818956c79c.png",
     "static/media/recipe_hero_mob@2x.jpg": "/goit-final-project/static/media/recipe_hero_mob@2x.6fa532a3f7889f579266.jpg",
     "static/media/order_sm@2x.png": "/goit-final-project/static/media/order_sm@2x.21db056bbbb82fe2512f.png",
@@ -82,8 +84,8 @@
     "static/media/warn.svg": "/goit-final-project/static/media/warn.ca3153853e225d3b9c404b8265186fc9.svg",
     "static/media/correct.svg": "/goit-final-project/static/media/correct.2c20cfce5010676dc2acf065541b3183.svg",
     "static/media/pick.svg": "/goit-final-project/static/media/pick.247b86d0e6a26346bf0885b5b0408bd8.svg",
-    "main.5a17fe83.css.map": "/goit-final-project/static/css/main.5a17fe83.css.map",
-    "main.34e9329f.js.map": "/goit-final-project/static/js/main.34e9329f.js.map",
+    "main.c97838f7.css.map": "/goit-final-project/static/css/main.c97838f7.css.map",
+    "main.4228b8d7.js.map": "/goit-final-project/static/js/main.4228b8d7.js.map",
     "741.a534533b.chunk.js.map": "/goit-final-project/static/js/741.a534533b.chunk.js.map",
     "215.f8925e61.chunk.js.map": "/goit-final-project/static/js/215.f8925e61.chunk.js.map",
     "785.cff2b511.chunk.js.map": "/goit-final-project/static/js/785.cff2b511.chunk.js.map",
@@ -98,7 +100,7 @@
     "154.5b5141ec.chunk.js.map": "/goit-final-project/static/js/154.5b5141ec.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5a17fe83.css",
-    "static/js/main.34e9329f.js"
+    "static/css/main.c97838f7.css",
+    "static/js/main.4228b8d7.js"
   ]
 }
