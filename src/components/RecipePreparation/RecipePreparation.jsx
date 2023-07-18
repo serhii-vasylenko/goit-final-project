@@ -1,7 +1,7 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
 
-import imagePlaceHolder from '../../images/recipePageImg/recipe_tab@1x-min.jpg'
+import imagePlaceHolder from '../../images/recipePageImg/recipe_tab@1x-min.jpg';
 import {
   Container,
   Title,
@@ -13,11 +13,10 @@ import {
 } from './RecipePreparation.styled';
 
 const RecipePreparation = ({ instructions, image }) => {
+  let instructionsString = instructions?.toString();
+  let res = instructionsString?.split('\n');
 
-   let instructionsString = instructions?.toString();
-   let res = instructionsString?.split('\n');
-
-  //  console.log(res);
+  //  //console.log(res);
 
   for (let i = 0; i < res.length; i += 1) {
     const regex = /^(?:\d+[.)]*\s*)*/;
@@ -25,19 +24,20 @@ const RecipePreparation = ({ instructions, image }) => {
   }
   const filteredInstructions = res.filter(str => str !== '');
 
-   console.log(filteredInstructions);
+  //console.log(filteredInstructions);
 
   return (
     <Container>
       <div>
         <Title>Recipe Preparation</Title>
         <InstructionsList>
-          {instructions && filteredInstructions?.map((item, index) => (
-            <ListItem key={nanoid()}>
-              <GreenCircle>{index + 1}</GreenCircle>
-              {item}
-            </ListItem>
-          ))}
+          {instructions &&
+            filteredInstructions?.map((item, index) => (
+              <ListItem key={nanoid()}>
+                <GreenCircle>{index + 1}</GreenCircle>
+                {item}
+              </ListItem>
+            ))}
         </InstructionsList>
       </div>
       <ImageWrapper>
@@ -48,8 +48,6 @@ const RecipePreparation = ({ instructions, image }) => {
       </ImageWrapper>
     </Container>
   );
+};
 
-
-}
-
-export default RecipePreparation
+export default RecipePreparation;

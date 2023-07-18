@@ -46,7 +46,7 @@ const App = () => {
   }, [dispatcher, token]);
 
   const stateTheme = useSelector(selectTheme);
-  console.log(stateTheme);
+  // //console.log(stateTheme);
 
   const dark = useMemo(() => themes.darkTheme, []);
 
@@ -58,7 +58,7 @@ const App = () => {
     stateTheme === 'light' ? setTheme(light) : setTheme(dark);
   }, [stateTheme, light, dark]);
 
-  console.log(theme);
+  // //console.log(theme);
 
   return isRefreshing ? (
     <RefreshingScreen />
