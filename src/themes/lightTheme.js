@@ -32,7 +32,8 @@ export const lightTheme = {
     selectBorderColor: 'rgba(217,217,217,0.2)',
     togglerBGColor: '#EFEFEF',
     mobileMenuBGColor: '#EBF3D4',
-    mobileMenuColor: '#22252a'
+    mobileMenuColor: '#22252a',
+    logoutBtnColor: 'transparent',
   },
   transforms: {
     transitionDuration: '250ms',

@@ -112,6 +112,7 @@ transition: all ${({theme }) => theme.transforms.transitionDuration} ${({theme }
 
 &:hover{
     background: #22252A;
+    
 }
 @media (min-width: 768px) {
         padding: 18px 39px;

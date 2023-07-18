@@ -55,8 +55,10 @@ color: ${({theme }) => theme.colors.whiteColor};
 border: none;
 cursor: pointer;
 border-radius: 24px 44px;
+transition: all ${({theme }) => theme.transforms.transitionDuration} ${({theme }) => theme.transforms.timingFunction};
 &:hover{
     background: #22252A;
+    border: 1px solid ${({theme }) => theme.colors.logoutBtnColor};
 }
 `
 const ArrowIcon = styled(FiArrowRight)`
