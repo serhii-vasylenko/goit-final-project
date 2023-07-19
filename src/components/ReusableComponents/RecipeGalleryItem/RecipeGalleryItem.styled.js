@@ -28,7 +28,7 @@ export const Thumb = styled.div`
 export const Title = styled.h3`
   position: absolute;
   width: 307px;
-  top: 245px;
+  bottom: 26px;
   left: 18px;
   padding-top: 16px;
   padding-bottom: 16px;
