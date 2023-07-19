@@ -18,6 +18,7 @@ import {
   ShoppingList,
   Title,
 } from './ShoppingList.styled';
+import PageTitle from 'components/ReusableComponents/PageTitle/PageTitle';
 
 const ShoppingListPage = () => {
   const dispatch = useDispatch();
@@ -28,39 +29,37 @@ const ShoppingListPage = () => {
   }, [dispatch]);
 
   return (
-    <Section>
-      <MainContainer>
-        <Title title="Shopping list"></Title>
+    <MainContainer>
+      <PageTitle title="Shopping list"></PageTitle>
 
-        {shoppingList.length <= 0 && (
-          <NotFound>
-            <SearchCapImage>
-              There are not any products in your shopping-list
-            </SearchCapImage>
-          </NotFound>
-        )}
+      {shoppingList.length <= 0 && (
+        <NotFound>
+          <SearchCapImage>
+            There are not any products in your shopping-list
+          </SearchCapImage>
+        </NotFound>
+      )}
 
-        {shoppingList.length > 0 && (
-          <>
-            <ProductsHead>
-              <div>Products</div>
-              <HeadContainer>
-                <div>Quantity</div>
-                <div>Remove</div>
-              </HeadContainer>
-            </ProductsHead>
+      {shoppingList.length > 0 && (
+        <>
+          <ProductsHead>
+            <div>Products</div>
+            <HeadContainer>
+              <div>Quantity</div>
+              <div>Remove</div>
+            </HeadContainer>
+          </ProductsHead>
 
-            <ShoppingList>
-              {shoppingList.map(product => (
-                <Item key={nanoid()}>
-                  {<ShoppingListItem product={product} />}
-                </Item>
-              ))}
-            </ShoppingList>
-          </>
-        )}
-      </MainContainer>
-    </Section>
+          <ShoppingList>
+            {shoppingList.map(product => (
+              <Item key={nanoid()}>
+                {<ShoppingListItem product={product} />}
+              </Item>
+            ))}
+          </ShoppingList>
+        </>
+      )}
+    </MainContainer>
   );
 };
 export default ShoppingListPage;
