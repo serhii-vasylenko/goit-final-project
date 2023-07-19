@@ -40,16 +40,6 @@ const Paginator = ({ data, itemsPerPage, currentPage, onPageChange }) => {
       }
     }
 
-    paginationItems.push(
-      <NumberButton
-        key={1}
-        onClick={() => handlePageChange(1)}
-        className={currentPage === 1 ? 'active' : ''}
-      >
-        1
-      </NumberButton>
-    );
-
     if (startPage > 2) {
       paginationItems.push(
         <NumberButton key="ellipsis-left" disabled>
@@ -58,7 +48,7 @@ const Paginator = ({ data, itemsPerPage, currentPage, onPageChange }) => {
       );
     }
 
-    for (let i = startPage + 1; i < endPage; i++) {
+    for (let i = startPage; i < endPage; i++) {
       paginationItems.push(
         <NumberButton
           key={i}

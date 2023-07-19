@@ -13,7 +13,7 @@ import Loader from '../ReusableComponents/Loader/Loader';
 import RecipeGalleryItem from '../ReusableComponents/RecipeGalleryItem/RecipeGalleryItem';
 import SearchCapImage from '../ReusableComponents/SearchCap/SearhCap';
 import { showErrorToast } from '../ReusableComponents/ToastCustom/showToast';
-// import Paginator from '../Paginator/PaginatorSearch';
+import Paginator from '../Paginator/PaginatorSearch';
 
 import {
   selectRecipeByTitle,
@@ -40,13 +40,8 @@ const SearchedRecipesList = () => {
   const dispatch = useDispatch();
 
   const listRef = useRef(null);
-  const [currentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
-
-  // const handlePageChange = pageNumber => {
-  //   setCurrentPage(pageNumber);
-  //   listRef.current?.scrollIntoView({ behavior: 'smooth' });
-  // };
 
   useEffect(() => {
     if (error) showErrorToast(error);
@@ -86,6 +81,14 @@ const SearchedRecipesList = () => {
     visibleRecipeList();
   }, [visibleRecipeList]);
 
+    const handlePageChange = useCallback(
+      pageNumber => {
+        setCurrentPage(pageNumber);
+        listRef.current?.scrollIntoView({ behavior: 'smooth' });
+      },
+      [setCurrentPage]
+    );
+
   const currentPageData = visibleRecipes.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
@@ -120,14 +123,14 @@ const SearchedRecipesList = () => {
           ) : (
             <SearchCapImage>Try looking for something else...</SearchCapImage>
           )}
-          {/* {(windowWidth < 1280 && visibleRecipes.length !== 0) && (
+          {(windowWidth < 1280 && visibleRecipes.length !== 0) && (
             <Paginator
               data={visibleRecipes}
               itemsPerPage={itemsPerPage}
               currentPage={currentPage}
               onPageChange={handlePageChange}
             />
-          )} */}
+          )}
         </>
       )}
     </Section>
