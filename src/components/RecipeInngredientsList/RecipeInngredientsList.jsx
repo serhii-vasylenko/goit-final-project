@@ -16,7 +16,7 @@ import { getShoppingList } from 'redux/shopping-list/operations';
 import { selectShoppingList } from 'redux/shopping-list/selectors';
 import CustomCheckbox from './CustomCheckbox';
 
-const RecipeInngredientsList = ({ ingredients, recipeId}) => {
+const RecipeInngredientsList = ({ ingredients, recipeId }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -38,7 +38,6 @@ const RecipeInngredientsList = ({ ingredients, recipeId}) => {
           </HeaderList>
           <IngredientList>
             {ingredients?.map(({ _id, measure, img, name }) => {
-
               return (
                 <IngredientItem key={`${measure}_${_id}`}>
                   <ContentWrap>
@@ -53,7 +52,7 @@ const RecipeInngredientsList = ({ ingredients, recipeId}) => {
                     <CustomCheckbox
                       ingredient={{ _id, name, img, measure }}
                       shoppingList={shoppingList}
-                      recipeId = {recipeId}
+                      recipeId={recipeId}
                     />
                   </ContentWrapMeasure>
                 </IngredientItem>

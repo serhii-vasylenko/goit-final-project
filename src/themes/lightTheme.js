@@ -12,6 +12,7 @@ export const lightTheme = {
     pageTitleColor: '#001833',
     boxShadow:' rgba(217, 217, 217, 1)',
     blackColor: '#000000',
+    descriptionRecipeColor: '#23262a',
     
     backgroundColor: '#fafafa',
     primaryTextColor: '#23262a',
