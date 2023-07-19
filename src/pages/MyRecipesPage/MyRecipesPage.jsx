@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLayoutEffect, useRef } from 'react';
 
 import getOwnRecipe from 'redux/recipes/operations/getOwnRecipes';
-import { selectUser } from 'redux/auth/selectors';
 
 import { MainContainer } from 'components/MainContainer/MainContainer';
 import Loader from 'components/ReusableComponents/Loader/Loader';
@@ -15,14 +14,13 @@ import getOwnRecipes from 'redux/recipes/operations/getOwnRecipes';
 import Pagination from 'components/ReusableComponents/Pagination/Pagination';
 
 const MyRecipesPage = () => {
-  const { userId } = useSelector(selectUser);
   const { isLoading, error, ownRecipes } = useSelector(state => state.recipes);
   const listRef = useRef(null);
   const dispatch = useDispatch();
 
   const handleChange = num => {
     listRef.current?.scrollIntoView({ behavior: 'smooth' });
-    dispatch(getOwnRecipe({ id: userId, page: num }));
+    dispatch(getOwnRecipe({ page: num }));
   };
 
   const onDeleteHandler = id => {
@@ -39,8 +37,8 @@ const MyRecipesPage = () => {
   };
 
   useLayoutEffect(() => {
-    dispatch(getOwnRecipe({ id: userId, page: 1 }));
-  }, [dispatch, userId]);
+    dispatch(getOwnRecipe({ page: 1 }));
+  }, [dispatch]);
 
   return (
     <Section>
