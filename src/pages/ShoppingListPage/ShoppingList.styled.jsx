@@ -2,13 +2,16 @@ import styled from '@emotion/styled';
 import PageTitle from 'components/ReusableComponents/PageTitle/PageTitle';
 
 export const Section = styled.section`
-  padding: 12px 0 100px;
+  /* padding: 12px 0 100px; */
+  padding-bottom: 100px;
 
   @media (min-width: 768px) {
-    padding: 20px 0 200px;
+    /* padding: 20px 0 200px; */
+    padding-bottom: 200px;
   }
   @media (min-width: 1280px) {
-    padding: 55px 0 100px;
+    /* padding: 55px 0 100px; */
+    padding-bottom: 100px;
   }
 `;
 

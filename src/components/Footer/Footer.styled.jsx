@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 const FooterEl = styled.footer``;
 
 const Wrapper = styled.div`
-  background-color: ${({theme}) => theme.colors.footerBGColor};
+  background-color: ${({ theme }) => theme.colors.footerBGColor};
   display: flex;
   flex-direction: column;
   padding: 28px 0 18px;
@@ -149,12 +149,29 @@ const PrivacyContainer = styled.div`
 `;
 
 const PrivacyTextBold = styled.p`
-  font-weight: 500;
-  margin-right: 40px;
+  color: ${({ theme }) => theme.colors.privacyColor};
+  font-size: ${({ theme }) => theme.fontSizes[10]}px;
+  font-style: normal;
+  font-weight: ${({ theme }) => theme.fontWeights.meduim};
+  line-height: ${({ theme }) => theme.lineHeights['1']};
+  letter-spacing: -0.1px;
+
+  margin-right: 14px;
   opacity: 0.5;
+
+  @media (min-width: 768px) {
+    font-size: ${({ theme }) => theme.fontSizes[14]}px;
+    letter-spacing: -0.14px;
+    margin-right: 28px;
+  }
+
+  @media (min-width: 1280px) {
+    margin-right: 40px;
+  }
 `;
-const PrivacyText = styled.p`
-  opacity: 0.5;
+
+const PrivacyText = styled(PrivacyTextBold)`
+ font-weight: ${({ theme }) => theme.fontWeights.regular};
 `;
 
 export {
