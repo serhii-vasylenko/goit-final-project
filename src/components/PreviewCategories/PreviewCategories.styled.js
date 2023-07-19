@@ -18,12 +18,6 @@ export const PreviewCategoriesList = styled.ul`
   margin-bottom: 40px;
 `;
 
-export const Wrapper = styled.div`
-  btn {
-    color: ${({ theme }) => theme.colors.privacyColor};
-  }
-`;
-
 export const GalleryTitle = styled.h2`
   margin-bottom: 40px;
   color: ${({ theme }) => theme.colors.pageTitleColor};

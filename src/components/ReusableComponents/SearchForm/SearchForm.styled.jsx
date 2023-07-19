@@ -5,9 +5,9 @@ export const Input = styled.input`
   width: 295px;
   padding: 16px 32px;
   drop-shadow: 0px 4px 97px rgba(34, 37, 42, 0.03);
-  background-color: #ffffff;
+  background-color: ${({ theme }) => theme.colors.inputSearchBGColor};
   border-radius: 24px 44px;
-  border: 1px solid #f0f0f0;
+  border: ${({ theme }) => theme.borders.inputSearchBorder};
   color: var(--primary-text-color);
   font-size: 12px;
   line-height: 1.2;
@@ -17,7 +17,7 @@ export const Input = styled.input`
   :hover,
   :focus,
   :active {
-    border: 1px solid rgba(35, 38, 42, 0.2);
+    border: ${({ theme }) => theme.borders.inputSearchBorderHover};
     outline: rgba(35, 38, 42, 0.2);
   }
 

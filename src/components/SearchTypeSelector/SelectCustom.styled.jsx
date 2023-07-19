@@ -1,16 +1,16 @@
 import styled from '@emotion/styled';
 
 export const PositionWrapper = styled.div`
-position: relative;
+  position: relative;
 `;
 
 export const StyledFormControl = styled.div`
+  border: ${({ theme }) => theme.borders.inputSearchBorder};
+  color: ${({ theme }) => theme.colors.selectTextColor};
+  background-color: ${({ theme }) => theme.colors.selectBGColor};
   position: relative;
   width: 146px;
-  border: 1px solid rgba(217, 217, 217, 0.2);
   border-radius: 6px;
-  background-color: rgba(217, 217, 217, 0.2);
-  color: rgba(0, 0, 0, 0.5);
   position: relative;
   text-align: left;
   padding: 10px 14px;
@@ -18,6 +18,12 @@ export const StyledFormControl = styled.div`
   font-weight: 500;
   letter-spacing: -0.24px;
   cursor: pointer;
+
+  :hover,
+  :focus,
+  :activ {
+    border: ${({ theme }) => theme.borders.inputSearchBorderHover};
+  }
 
   svg {
     width: 15px;
@@ -44,26 +50,28 @@ export const StyledFormControl = styled.div`
 `;
 
 export const OptionWrapper = styled.div`
-position: absolute;
-top: 34px;
-left: 0;
-z-index: 5;
-`
+  position: absolute;
+  top: 34px;
+  left: 0;
+  z-index: 5;
+`;
 
 export const StyledSelect = styled.ul`
+  background-color: ${({ theme }) => theme.colors.inputSearchBGColor};
+  width: 146px;
+  padding: 4px 0;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: -0.24px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 4px;
-  width: 146px;
-  padding: 4px 0;
-  border-radius: 0px 0px 6px 6px;
-  background-color: #fafafa;
+  border: ${({ theme }) => theme.borders.selectBorderHover};
+
+  color: ${({ theme }) => theme.colors.selectTextColor};
   text-align: left;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: -0.24px;
-  color: rgba(0, 0, 0, 0.5);
+  border-radius: 0px 0px 6px 6px;
 
   @media screen and (min-width: 768px) {
     font-size: 14px;
@@ -76,13 +84,13 @@ export const StyledSelect = styled.ul`
 `;
 
 export const StyledMenuItem = styled.li`
-  background-color: #fafafa;
+  background-color: ${({ theme }) => theme.colors.inputSearchBGColor};
   width: 100%;
   padding: 8px 14px;
   cursor: pointer;
 
   &:hover {
-    background-color: rgba(217, 217, 217, 0.2);
+    background-color: ${({ theme }) => theme.colors.dropDownColor};
   }
 
   @media screen and (min-width: 768px) {
