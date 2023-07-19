@@ -6,8 +6,8 @@ import {
   loginUser,
   logoutUser,
   refreshUser,
-  uploadAvatar,
-  changeUserName,
+  // uploadAvatar,
+  changeUserData,
   subscribeUser,
   getUserInfo,
 } from 'redux/auth/operations';
@@ -69,33 +69,45 @@ const authSlice = createSlice({
     builder.addCase(refreshUser.rejected, state => {
       state.isRefreshing = false;
     });
-    builder.addCase(uploadAvatar.pending, state => {
+    // builder.addCase(uploadAvatar.pending, state => {
+    //   state.loading = true;
+    //   state.error = null;
+    // });
+    // builder.addCase(uploadAvatar.fulfilled, (state, action) => {
+    //   state.loading = false;
+    //   state.user = {
+    //     ...state.user,
+    //     avatarURL: action.payload.data.user.avatarURL,
+    //   };
+    // });
+    // builder.addCase(uploadAvatar.rejected, (state, action) => {
+    //   state.loading = false;
+    //   state.error = action.payload;
+    // });
+    builder.addCase(changeUserData.pending, state => {
       state.loading = true;
       state.error = null;
     });
-    builder.addCase(uploadAvatar.fulfilled, (state, action) => {
+    builder.addCase(changeUserData.fulfilled, (state, action) => {
       state.loading = false;
-      state.user = {
-        ...state.user,
-        avatarURL: action.payload.data.user.avatarURL,
-      };
+      state.user = { ...state.user, name: action.payload.data.user.name, avatarURL: action.payload.data.user.avatarURL };
     });
-    builder.addCase(uploadAvatar.rejected, (state, action) => {
+    builder.addCase(changeUserData.rejected, (state, action) => {
       state.loading = false;
       state.error = action.payload;
     });
-    builder.addCase(changeUserName.pending, state => {
-      state.loading = true;
-      state.error = null;
-    });
-    builder.addCase(changeUserName.fulfilled, (state, action) => {
-      state.loading = false;
-      state.user = { ...state.user, name: action.payload.data.user.name };
-    });
-    builder.addCase(changeUserName.rejected, (state, action) => {
-      state.loading = false;
-      state.error = action.payload;
-    });
+    // builder.addCase(changeUserName.pending, state => {
+    //   state.loading = true;
+    //   state.error = null;
+    // });
+    // builder.addCase(changeUserName.fulfilled, (state, action) => {
+    //   state.loading = false;
+    //   state.user = { ...state.user, name: action.payload.data.user.name };
+    // });
+    // builder.addCase(changeUserName.rejected, (state, action) => {
+    //   state.loading = false;
+    //   state.error = action.payload;
+    // });
     builder.addCase(subscribeUser.pending, state => {
       state.loading = true;
       state.error = null;

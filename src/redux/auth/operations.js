@@ -67,11 +67,22 @@ export const refreshUser = createAsyncThunk(
   }
 );
 
-export const uploadAvatar = createAsyncThunk(
-  'auth/uploadAvatar',
-  async (avatarData, thunkAPI) => {
+// export const uploadAvatar = createAsyncThunk(
+//   'auth/uploadAvatar',
+//   async (avatarData, thunkAPI) => {
+//     try {
+//       const response = await axios.patch('/users/avatars', avatarData);
+//       return response.data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
+export const changeUserData = createAsyncThunk(
+  'auth/changeUserData',
+  async (userData, thunkAPI) => {
     try {
-      const response = await axios.patch('/users/avatars', avatarData);
+      const response = await axios.patch('/users/avatars', userData);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -79,17 +90,17 @@ export const uploadAvatar = createAsyncThunk(
   }
 );
 
-export const changeUserName = createAsyncThunk(
-  'auth/changeUserName',
-  async (userName, thunkAPI) => {
-    try {
-      const response = await axios.patch('/users', userName);
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
+// export const changeUserName = createAsyncThunk(
+//   'auth/changeUserName',
+//   async (userName, thunkAPI) => {
+//     try {
+//       const response = await axios.patch('/users', userName);
+//       return response.data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
 
 export const subscribeUser = createAsyncThunk(
   'auth/subscribeUser',
