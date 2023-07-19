@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import {
   PaginationStyled,
   NumberButton,
@@ -8,7 +8,24 @@ import {
 import sprite from '../../images/sprite.svg';
 
 const Paginator = ({ data, itemsPerPage, currentPage, onPageChange }) => {
+  const [visiblePagesCount, setVisiblePagesCount] = useState(10);
   const pageCount = Math.ceil(data.length / itemsPerPage);
+
+  const updateVisiblePagesCount = () => {
+    const screenWidth = window.innerWidth;
+    if (screenWidth <= 767) {
+      setVisiblePagesCount(6);
+    } else {
+      setVisiblePagesCount(10);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', updateVisiblePagesCount);
+    return () => {
+      window.removeEventListener('resize', updateVisiblePagesCount);
+    }
+  }, [])
 
   const handlePageChange = useCallback(
     pageNumber => {
@@ -28,7 +45,6 @@ const Paginator = ({ data, itemsPerPage, currentPage, onPageChange }) => {
   const renderPaginationItems = () => {
     const paginationItems = [];
 
-    const visiblePagesCount = 10;
     let startPage;
     let endPage;
 
