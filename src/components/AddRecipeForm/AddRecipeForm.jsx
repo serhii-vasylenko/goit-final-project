@@ -13,10 +13,10 @@ import {
   showMessageToast,
   showErrorToast,
 } from 'components/ReusableComponents/ToastCustom/showToast';
-import MainButton from '../ReusableComponents/MainButton/MainButton';
-import RecipeDescriptionFields from 'components/RecipeDescriptionFields/RecipeDescriptionFields';
-import RecipeIngredientsFields from 'components/RecipeIngredientsFields/RecipeIngredientsFields';
-import RecipePreparationFields from 'components/RecipePreparationFields/RecipePreparationFields';
+import MainButton from '../ReusableComponents/MainButton/';
+import RecipeDescriptionFields from 'components/RecipeDescriptionFields/';
+import RecipeIngredientsFields from 'components/RecipeIngredientsFields/';
+import RecipePreparationFields from 'components/RecipePreparationFields/';
 import { removeCurrentAddedOwnRecipe } from 'redux/recipes/recipesSlice';
 
 const initialValues = {
