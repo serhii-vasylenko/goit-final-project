@@ -58,8 +58,6 @@ const App = () => {
     stateTheme === 'light' ? setTheme(light) : setTheme(dark);
   }, [stateTheme, light, dark]);
 
-
-
   // //console.log(theme);
 
   return isRefreshing ? (
@@ -122,7 +120,6 @@ const App = () => {
           }
         />
       </Routes>
-      ;
     </ThemeProvider>
   );
 };
