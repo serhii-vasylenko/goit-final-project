@@ -32,7 +32,7 @@ const { recipeId } = useParams();
         await dispatch(deleteFromFavoriteRecipes(recipeId));
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       showErrorToast();
     }
   };
