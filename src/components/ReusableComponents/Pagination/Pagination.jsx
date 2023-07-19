@@ -23,6 +23,9 @@ const Pagination = props => {
   }
 
   const onNext = () => {
+    if (currentPage === paginationRange.length) {
+      return;
+    }
     onPageChange(currentPage + 1);
   };
 
