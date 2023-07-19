@@ -47,7 +47,9 @@ export const Footer = () => {
               <Nav />
               <SubscribeForm />
             </Top>
-            <Networks />
+            <Networks hoverColor={({theme}) => theme.colors.socialIconHover}
+            color={({ theme }) => theme.colors.socialIconColor}
+            />
           </Inner>
         </MainContainer>
       </Wrapper>
