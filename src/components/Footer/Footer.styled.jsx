@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 const FooterEl = styled.footer``;
 
 const Wrapper = styled.div`
-  background-color: ${({theme}) => theme.colors.footerBGColor};
+  background-color: ${({ theme }) => theme.colors.footerBGColor};
   display: flex;
   flex-direction: column;
   padding: 28px 0 18px;
@@ -83,6 +83,7 @@ const Item = styled.li`
   color: var(--white-color);
   font-size: 14px;
   line-height: 1.3;
+  list-style: disc;
 
   @media (min-width: 1280px) {
     font-size: 18px;
@@ -128,33 +129,51 @@ const PrivacyContainer = styled.div`
   line-height: 1;
   letter-spacing: -0.14px;
   color: ${({ theme }) => theme.colors.privacyColor};
-  background: ${({theme}) => theme.colors.backgroundColor} url(${bgImgMob}) no-repeat;
+  background: ${({ theme }) => theme.colors.backgroundColor} url(${bgImgMob})
+    no-repeat;
   background-position: right -50px bottom -70px;
   background-size: 216px 222px;
-  
+
   @media (min-width: 768px) {
-        padding: 32px 0;
-        background: ${({theme }) => theme.colors.backgroundColor} url(${bgImgTab}) no-repeat;
-        background-position: right -70px bottom -150px;
-        background-size: 393px 404px;
-
-}
-@media (min-width: 1280px) {
-        padding: 50px 0;
-        background: ${({theme }) => theme.colors.backgroundColor} url(${bgImgDesk}) no-repeat;
-        background-position: right -70px bottom -230px;
-        background-size: 593px 611px;
-
-	}
+    padding: 32px 0;
+    background: ${({ theme }) => theme.colors.backgroundColor} url(${bgImgTab})
+      no-repeat;
+    background-position: right -70px bottom -150px;
+    background-size: 393px 404px;
+  }
+  @media (min-width: 1280px) {
+    padding: 50px 0;
+    background: ${({ theme }) => theme.colors.backgroundColor} url(${bgImgDesk})
+      no-repeat;
+    background-position: right -70px bottom -230px;
+    background-size: 593px 611px;
+  }
 `;
 
 const PrivacyTextBold = styled.p`
-  font-weight: 500;
-  margin-right: 40px;
+  color: ${({ theme }) => theme.colors.privacyColor};
+  font-size: ${({ theme }) => theme.fontSizes[10]}px;
+  font-style: normal;
+  font-weight: ${({ theme }) => theme.fontWeights.meduim};
+  line-height: ${({ theme }) => theme.lineHeights['1']};
+  letter-spacing: -0.1px;
+
+  margin-right: 14px;
   opacity: 0.5;
+
+  @media (min-width: 768px) {
+    font-size: ${({ theme }) => theme.fontSizes[14]}px;
+    letter-spacing: -0.14px;
+    margin-right: 28px;
+  }
+
+  @media (min-width: 1280px) {
+    margin-right: 40px;
+  }
 `;
-const PrivacyText = styled.p`
-  opacity: 0.5;
+
+const PrivacyText = styled(PrivacyTextBold)`
+  font-weight: ${({ theme }) => theme.fontWeights.regular};
 `;
 
 export {

@@ -11,7 +11,7 @@ export const ImageContainer = styled.div`
 
 export const Text = styled.p`
   margin-top: 24px;
-  color: #000000;
+  color: ${({theme}) => theme.colors.selectTextColor}
   font-size: 14px;
   font-weight: 500;
   line-height: 1;

@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import {
   PaginationStyled,
   NumberButton,
@@ -8,7 +8,24 @@ import {
 import sprite from '../../images/sprite.svg';
 
 const Paginator = ({ data, itemsPerPage, currentPage, onPageChange }) => {
+  const [visiblePagesCount, setVisiblePagesCount] = useState(10);
   const pageCount = Math.ceil(data.length / itemsPerPage);
+
+  const updateVisiblePagesCount = () => {
+    const screenWidth = window.innerWidth;
+    if (screenWidth <= 767) {
+      setVisiblePagesCount(6);
+    } else {
+      setVisiblePagesCount(10);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', updateVisiblePagesCount);
+    return () => {
+      window.removeEventListener('resize', updateVisiblePagesCount);
+    }
+  }, [])
 
   const handlePageChange = useCallback(
     pageNumber => {
@@ -19,10 +36,15 @@ const Paginator = ({ data, itemsPerPage, currentPage, onPageChange }) => {
     [onPageChange, pageCount]
   );
 
+  useEffect(() => {
+    if (currentPage > pageCount) {
+      onPageChange(1);
+    }
+  }, [currentPage, pageCount, onPageChange]);
+
   const renderPaginationItems = () => {
     const paginationItems = [];
 
-    const visiblePagesCount = 10;
     let startPage;
     let endPage;
 
@@ -40,17 +62,7 @@ const Paginator = ({ data, itemsPerPage, currentPage, onPageChange }) => {
       }
     }
 
-    paginationItems.push(
-      <NumberButton
-        key={1}
-        onClick={() => handlePageChange(1)}
-        className={currentPage === 1 ? 'active' : ''}
-      >
-        1
-      </NumberButton>
-    );
-
-    if (startPage > 2) {
+    if (startPage > 1) {
       paginationItems.push(
         <NumberButton key="ellipsis-left" disabled>
           ...
@@ -58,12 +70,12 @@ const Paginator = ({ data, itemsPerPage, currentPage, onPageChange }) => {
       );
     }
 
-    for (let i = startPage + 1; i < endPage; i++) {
+    for (let i = startPage; i < endPage; i++) {
       paginationItems.push(
         <NumberButton
           key={i}
           onClick={() => handlePageChange(i)}
-          className={currentPage === i ? 'active' : ''}
+          selected={currentPage === i}
         >
           {i}
         </NumberButton>
@@ -82,7 +94,7 @@ const Paginator = ({ data, itemsPerPage, currentPage, onPageChange }) => {
       <NumberButton
         key={pageCount}
         onClick={() => handlePageChange(pageCount)}
-        className={currentPage === pageCount ? 'active' : ''}
+        selected={currentPage === pageCount}
       >
         {pageCount}
       </NumberButton>

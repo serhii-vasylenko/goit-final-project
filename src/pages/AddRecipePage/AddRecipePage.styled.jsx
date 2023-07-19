@@ -2,13 +2,13 @@ import styled from '@emotion/styled';
 import { Title } from 'components/RecipeIngredientsFields/RecipeIngredientsFields.styled';
 
 export const PageTitleWrap = styled.div`
-  padding-top: 12px;
+  /* padding-top: 12px; */
 
   @media (min-width: 768px) {
-    padding-top: 20px;
+    /* padding-top: 20px; */
   }
   @media (min-width: 1280px) {
-    padding-top: 55px;
+    /* padding-top: 55px; */
   }
 `;
 

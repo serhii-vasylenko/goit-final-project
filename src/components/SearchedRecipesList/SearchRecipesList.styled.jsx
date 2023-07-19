@@ -17,17 +17,21 @@ export const Section = styled.section`
 
 
 export const List = styled.ul`
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
   align-items: center;
-  justify-content: center;
   margin-bottom: 50px;
+  li {
+    margin-bottom: 24px;
+  }
 
   @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 32px;
+    li {
+      margin-bottom: 0;
+    }
   }
 
   @media screen and (min-width: 1280px) {

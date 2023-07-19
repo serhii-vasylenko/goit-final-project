@@ -82,11 +82,25 @@ const SearchForm = () => {
 
     if (q && q !== '') {
       dispatch(resetRecipeByIngredient());
-      dispatch(getRecipesByTitle(title));
+      dispatch(getRecipesByTitle(title)).then(result => {
+        if (
+          result.payload.code === 200 &&
+          result.payload.data?.recipe?.length === 0
+        ) {
+          showMessageToast(`On request "${title}" found nothing`);
+        }
+      });
     }
     if (ing && ing !== '') {
       dispatch(resetRecipeByTitle());
-      dispatch(getRecipesByIngredient(ingredient));
+      dispatch(getRecipesByIngredient(ingredient)).then(result => {
+        if (
+          result.payload.code === 200 &&
+          result.payload.data?.recipe?.length === 0
+        ) {
+          showMessageToast(`On request "${ingredient}" found nothing`);
+        }
+      });
     }
   };
 
@@ -107,8 +121,8 @@ const SearchForm = () => {
               nameButton="Search"
               fontSize="14px"
               padding={{
-                paddingTop: '13px',
-                paddingBottom: '13px',
+                paddingTop: '13.3px',
+                paddingBottom: '13.3px',
                 paddingLeft: '32px',
                 paddingRight: '32px',
               }}
@@ -119,7 +133,7 @@ const SearchForm = () => {
               }}
               cofByMedia1280={{
                 font: 1.2,
-                padX: 1.52,
+                padX: 1.54,
                 padY: 1.63,
               }}
               bgColor={

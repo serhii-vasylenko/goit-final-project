@@ -24,7 +24,7 @@ export const Title = styled.h2`
   font-size: 24px;
   line-height: 1;
   margin-bottom: 28px;
-  color: var(--secondary-text-color);
+  color: ${({ theme }) => theme.colors.secondaryTextColor};
   @media screen and (min-width: 768px) {
     letter-spacing: -0.24px;
   }
@@ -46,7 +46,7 @@ export const ListItem = styled.li`
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: -0.02em;
-  color: var(--primary-text-color);
+  color: ${({ theme }) => theme.colors.primaryTextColor};
   display: flex;
   gap: 14px;
   align-items: flex-start;

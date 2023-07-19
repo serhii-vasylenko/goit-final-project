@@ -5,7 +5,7 @@ export const PaginationStyled = styled.div`
   justify-content: center;
   align-iems: center;
   border-radius: 26px;
-  background: #fafafa;
+  background: ${({ theme }) => theme.colors.paginatorBGColor};
   box-shadow: 0px 4px 4px 0px rgba(135, 135, 135, 0.2);
   padding: 12px 20px;
 
@@ -60,14 +60,9 @@ export const NumberButton = styled.button`
   color: ${({ theme }) => theme.colors.recipeCardDescriptionColor};
   cursor: pointer;
   border-radius: 50%;
-  background-color: ${props =>
-    props.selected
-      ? ({ theme }) => theme.colors.paginationBgHoverColor
-      : 'transparent'};
+  background-color: ${({ selected, theme }) =>
+    selected ? theme.colors.paginationBgHoverColor : 'transparent'};
   &:hover {
-    background-color: ${props =>
-      props.disabled
-        ? 'transparent'
-        : ({ theme }) => theme.colors.paginationBgHoverColor};
+    background-color: ${({ theme }) => theme.colors.paginationBgHoverColor};
   }
 `;

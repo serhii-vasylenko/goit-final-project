@@ -120,7 +120,6 @@ const App = () => {
           }
         />
       </Routes>
-      ;
     </ThemeProvider>
   );
 };
