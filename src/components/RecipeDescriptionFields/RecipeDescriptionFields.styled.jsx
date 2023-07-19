@@ -92,7 +92,7 @@ export const FieldContainer = styled.div`
   height: 40px;
   border-bottom: 1px solid ${({ theme }) => theme.colors.inputBorderColor};
 
-  transition: box-shadow var(--transition-duration) var(--timing-function);
+  transition: box-shadow ${({ theme }) => theme.transforms.transitionDuration} ${({ theme }) => theme.transforms.timingFunction};
 
   :not(:last-child) {
     margin-bottom: 24px;
@@ -104,7 +104,7 @@ export const FieldContainer = styled.div`
   }
 
   &.error {
-    box-shadow: 0 5px 5px -5px ${({ theme }) => theme.colors.accentColor};
+    box-shadow: 0 5px 5px -5px ${({ theme }) => theme.colors.errorColor};
   }
 
   @media screen and (min-width: 768px) {
@@ -127,11 +127,12 @@ export const Input = styled(Field)`
   border: none;
   background-color: transparent;
   padding: 0;
-  color: ${({ theme }) => theme.colors.blackColor};
+  color: ${({ theme }) => theme.colors.primaryTextColor};
   height: 100%;
   outline: none;
   padding-top: 23px;
-
+  
+  caret-color: ${({ theme }) => theme.colors.primaryTextColor};
   
 
   @media screen and (min-width: 768px) {
@@ -171,13 +172,13 @@ export const Select = styled(ReactSelect)`
 
       &:hover {
         ${FieldContainer} {
-          box-shadow: 0 5px 5px -5px rgba(217, 217, 217, 1);
+          box-shadow: 0 5px 5px -5px ${({ theme }) => theme.colors.boxShadow};
         }
       }
       
       &:hover,
       &--is-focused {
-       box-shadow: 0 0 5px rgba(217, 217, 217, 1);
+       box-shadow: 0 0 5px ${({ theme }) => theme.colors.boxShadow};
         border-radius: 6px;
       }
 
@@ -203,7 +204,10 @@ export const Select = styled(ReactSelect)`
         rgba(0, 0, 0, 0.03);
       border: none;
       border-radius: 6px;
-
+      background-color: ${({ theme }) => theme.colors.menuBgColor};
+      color: ${({ theme }) => theme.colors.formLabelColor};
+      
+      
       @media screen and (min-width: 768px) {
         width: 132px;
         font-size: 14px;
@@ -212,18 +216,22 @@ export const Select = styled(ReactSelect)`
 
     &__menu-list {
       height: calc(6 * 22px + 2px);
-
+      
       @media screen and (min-width: 768px) {
         height: calc(6 * 27px);
       }
     }
 
+    &__placeholder {
+      color: ${({ theme }) => theme.colors.selectPlaceholder};
+    }
+    
     &__value-container {
       padding: 0px 8px;
     }
 
     &__single-value {
-      color: #23262a;
+      color: ${({ theme }) => theme.colors.formLabelColor};
       line-height: 1;
       letter-spacing: -0.28px;
     }
@@ -233,10 +241,7 @@ export const Select = styled(ReactSelect)`
       padding: 3px 0;
       margin-bottom: 4px;
       font-size: 12px;
-
-      color: #000000;
       letter-spacing: -0.24px;
-      opacity: 0.5;
       cursor: pointer;
 
       @media screen and (min-width: 768px) {
@@ -245,11 +250,11 @@ export const Select = styled(ReactSelect)`
     }
 
     &__option--is-focused {
-      background-color: rgba(139, 170, 54, 0.2);
+      background-color: ${({ theme }) => theme.colors.menuFocusColor};
     }
 
     &__option--is-selected {
-      background-color: var(--accent-color);
+      background-color: ${({ theme }) => theme.colors.menuSelectColor};
     }
 
     &__indicator-separator {
@@ -260,15 +265,15 @@ export const Select = styled(ReactSelect)`
       padding: 0;
       cursor: pointer;
 
-      color: var(--accent-color);
+      color: ${({ theme }) => theme.colors.accentColor};
 
       &:hover,
       &:focus {
         transform: scale(1.1);
-        color: var(--accent-color);
+        color: ${({ theme }) => theme.colors.accentColor};
       }
 
-      transition: stroke var(--transition-duration) var(--timing-function);
+      transition: stroke ${({ theme }) => theme.transforms.transitionDuration} ${({ theme }) => theme.transforms.timingFunction};
     }
 
     &__menu-list::-webkit-scrollbar {
@@ -281,11 +286,12 @@ export const Select = styled(ReactSelect)`
     &__menu-list::-webkit-scrollbar-thumb {
       padding: 4px 0;
       border-radius: 12px;
-      background: #e7e5e5;
+      background: ${({ theme }) => theme.colors.menuScrollbarThumbColor};
+      transition: stroke ${({ theme }) => theme.transforms.transitionDuration} ${({ theme }) => theme.transforms.timingFunction};
       cursor: pointer;
     }
     &__menu-list::-webkit-scrollbar-thumb:hover {
-      background: var(--accent-color);
+      background: ${({ theme }) => theme.colors.menuSelectColor};
     }
   }
 `;

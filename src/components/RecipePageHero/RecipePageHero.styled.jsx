@@ -60,7 +60,7 @@ export const HeroTitle = styled.h1`
   margin-top: 80px;
   letter-spacing: -0.02em;
   text-align: center;
-  color: var(--accent-color);
+  color: ${({ theme }) => theme.colors.accentColor};
 
   @media screen and (min-width: 768px) {
     font-size: 44px;
@@ -74,7 +74,7 @@ export const HeroTitle = styled.h1`
 `;
 
 export const HeroText = styled.p`
-  color: #23262a;
+  color: ${({ theme }) => theme.colors.descriptionRecipeColor};
   font-size: 12px;
   line-height: 1.33;
   text-align: center;
@@ -94,21 +94,23 @@ export const HeroText = styled.p`
 export const Button = styled.button`
   background-color: transparent;
   border-radius: 24px 44px;
-  border: 1px solid var(--accent-color);
+  border: 1px solid ${({ theme }) => theme.colors.accentColor};
   font-size: 10px;
   line-height: 1.5;
   padding: 10px 18px;
-  color: #23262a;
+  color: ${({ theme }) => theme.colors.descriptionRecipeColor};
   margin-bottom: 42px;
   cursor: pointer;
-  transform: ${({ theme }) => theme.transforms.transitionDuration} ${({ theme }) => theme.transforms.timingFunction};
+  transition: background-color
+    ${({ theme }) => theme.transforms.transitionDuration}
+    ${({ theme }) => theme.transforms.timingFunction};
 
   @media only screen and (min-width: 768px) {
     font-size: 16px;
     max-width: 330px;
     margin-bottom: 60px;
     padding: 18px 44px;
-    border: 2px solid var(--accent-color);
+    border: 2px solid ${({ theme }) => theme.colors.accentColor};
   }
 
   @media only screen and (min-width: 1280px) {
@@ -117,17 +119,16 @@ export const Button = styled.button`
 
   &:hover,
   &:focus {
-    background-color: var(--accent-color);
-    color: #fafafa;
+    background-color: ${({ theme }) => theme.colors.accentColor};
+    color: ${({ theme }) => theme.colors.whiteColor};
   }
 `;
-
 
 export const CookingTime = styled.div`
   display: flex;
   width: fit-content;
   align-items: center;
-  color: #23262a;
+  color: ${({ theme }) => theme.colors.descriptionRecipeColor};
   font-weight: 500;
   font-size: 10px;
   line-height: 14px;
@@ -145,7 +146,7 @@ export const CookingTime = styled.div`
 
 export const ClockIcon = styled(Clock)`
   margin-right: 5px;
-  stroke:  #23262a;
+  stroke: ${({ theme }) => theme.colors.descriptionRecipeColor};
   display: inline-block;
   width: 14px;
   height: 14px;

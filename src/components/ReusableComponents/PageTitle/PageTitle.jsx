@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import {
   Section,
   Title,
@@ -16,10 +15,6 @@ const PageTitle = ({ title }) => {
       <Circle />
     </Section>
   );
-};
-
-PageTitle.propTypes = {
-  title: PropTypes.string,
 };
 
 export default PageTitle;

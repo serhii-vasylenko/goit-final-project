@@ -40,7 +40,6 @@ const RecipePageHero = ({ title, description, time }) => {
         await dispatch(deleteFromFavoriteRecipes(recipeId));
       }
     } catch (error) {
-      //console.log(error);
       showErrorToast();
     }
   };

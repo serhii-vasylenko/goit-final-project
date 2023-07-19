@@ -8,7 +8,7 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h2`
-  color: #3e4462;
+  color: ${({ theme }) => theme.colors.secondaryTextColor};
   font-size: 24px;
   font-weight: 600;
   line-height: 1;
@@ -31,33 +31,35 @@ export const SelectContainer = styled.div`
 
 export const BorderError = styled.div`
   .error {
-    box-shadow: 0 0 5px var(--error-color);
+    box-shadow: 0 0 5px ${({ theme }) => theme.colors.errorColor};
     border-radius: 8px;
   }
 
-  transition: stroke var(--transition-duration) var(--timing-function);
+  transition: stroke ${({ theme }) => theme.transforms.transitionDuration} ${({ theme }) => theme.transforms.timingFunction};
 `;
 
 export const StyledSelect = styled(ReactSelect)`
+box-shadow: none;
   .custom-select {
     &__control {
       font-family: 'Poppins';
-      border: none;
-      /* box-shadow:none; */
+      border: ${({ theme }) => theme.colors.selectBrdColor};
       border-radius: 6px;
-      background-color: rgba(217, 217, 217, 0.157);
+      box-shadow: none;
+      background-color: ${({ theme }) => theme.colors.selectBgColor};
       font-size: 14px;
       line-height: 1;
       cursor: text;
+      
 
       &:hover,
       &--is-focused {
-        box-shadow: 0 0 5px rgba(217, 217, 217, 1);
+        box-shadow: 0 0 5px ${({ theme }) => theme.colors.boxShadow};
         border-radius: 6px;
       }
 
       .error {
-        box-shadow: 0 0 5px var(--error-color);
+        box-shadow: 0 0 5px ${({ theme }) => theme.colors.boxShadow};
         border-radius: 8px;
       }
 
@@ -66,14 +68,23 @@ export const StyledSelect = styled(ReactSelect)`
       }
     }
 
+    &__placeholder {
+      color: ${({ theme }) => theme.colors.selectPlaceholderColor};
+    }
+
+    &__input-container {
+      color: ${({ theme }) => theme.colors.primaryTextColor};
+    }
+
     &__menu {
-      
       padding: 4px 4px 4px 18px;
       margin: 0;
       box-shadow: 0px 6.518518447875977px 7.8222222328186035px 0px
         rgba(0, 0, 0, 0.03);
       border: none;
       border-radius: 6px;
+      background-color: ${({ theme }) => theme.colors.menuBgColor};
+      color: ${({ theme }) => theme.colors.formLabelColor};
     }
 
     &__menu-list {
@@ -89,7 +100,7 @@ export const StyledSelect = styled(ReactSelect)`
     }
 
     &__single-value {
-      color: #23262a;
+      color: ${({ theme }) => theme.colors.primaryTextColor};
       line-height: 1;
       letter-spacing: -0.28px;
     }
@@ -99,9 +110,7 @@ export const StyledSelect = styled(ReactSelect)`
       padding: 2px 0;
 
       font-size: 12px;
-      color: #000000;
       letter-spacing: -0.24px;
-      opacity: 0.5;
       cursor: pointer;
 
       @media screen and (min-width: 768px) {
@@ -110,11 +119,11 @@ export const StyledSelect = styled(ReactSelect)`
     }
 
     &__option--is-focused {
-      background-color: rgba(139, 170, 54, 0.2);
+      background-color: ${({ theme }) => theme.colors.menuFocusColor};
     }
 
     &__option--is-selected {
-      background-color: var(--accent-color);
+      background-color: ${({ theme }) => theme.colors.menuSelectColor};
     }
 
     &__indicator-separator {
@@ -124,15 +133,15 @@ export const StyledSelect = styled(ReactSelect)`
     &__indicator {
       cursor: pointer;
 
-      color: var(--accent-color);
+      color: ${({ theme }) => theme.colors.accentColor};
 
       &:hover,
       &:focus {
         transform: scale(1.1);
-        color: var(--accent-color);
+        color: ${({ theme }) => theme.colors.accentColor};
       }
 
-      transition: stroke var(--transition-duration) var(--timing-function);
+      transition: stroke ${({ theme }) => theme.transforms.transitionDuration} ${({ theme }) => theme.transforms.timingFunction};
     }
 
     &__menu-list::-webkit-scrollbar {
@@ -145,11 +154,12 @@ export const StyledSelect = styled(ReactSelect)`
     &__menu-list::-webkit-scrollbar-thumb {
       padding: 4px 0;
       border-radius: 12px;
-      background: #e7e5e5;
+      background: ${({ theme }) => theme.colors.menuScrollbarThumbColor};
+      transition: stroke ${({ theme }) => theme.transforms.transitionDuration} ${({ theme }) => theme.transforms.timingFunction};
       cursor: pointer;
     }
     &__menu-list::-webkit-scrollbar-thumb:hover {
-      background: var(--accent-color);
+      background: ${({ theme }) => theme.colors.menuSelectColor};
     }
   }
 `;
@@ -169,25 +179,28 @@ export const MeasureField = styled(Field)`
   width: 109px;
   height: 54px;
   padding: 0 0 0 5px;
-  border: none;
+  border: ${({ theme }) => theme.colors.selectBrdColor};
   border-radius: 6px;
-  background-color: rgba(217, 217, 217, 0.157);
+  background-color: ${({ theme }) => theme.colors.selectBgColor};
 
-  color: #23262a;
+  color: ${({ theme }) => theme.colors.primaryTextColor};
   font-size: 14px;
   line-height: 1;
   letter-spacing: -0.28px;
-
   font-family: 'Poppins';
-  color: #23262a;
+  caret-color: ${({ theme }) => theme.colors.primaryTextColor};
 
-  transition: box-shadow var(--transition-duration) var(--timing-function);
+  transition: box-shadow ${({ theme }) => theme.transforms.transitionDuration} ${({ theme }) => theme.transforms.timingFunction};
 
   cursor: text;
 
+  &::placeholder {
+    color: ${({ theme }) => theme.colors.fieldPlaceholderColor};
+  }
+
   &:focus,
   &:hover {
-    box-shadow: 0 0 5px rgba(217, 217, 217, 1);
+    box-shadow: 0 0 5px ${({ theme }) => theme.colors.boxShadow};
     border-radius: 6px;
   }
 
@@ -198,7 +211,7 @@ export const MeasureField = styled(Field)`
   }
 
   &.error {
-    box-shadow: 0 0 5px var(--error-color);
+    box-shadow: 0 0 5px ${({ theme }) => theme.colors.errorColor};
     border-radius: 6px;
   }
 `;
@@ -209,14 +222,14 @@ export const Wrap = styled.div`
 `;
 
 export const Svg = styled.svg`
-  stroke: #333333;
+  stroke: ${({ theme }) => theme.colors.svgCrossColor};
 
   @media screen and (min-width: 768px) {
     width: 20px;
     height: 20px;
   }
 
-  transition: stroke var(--transition-duration) var(--timing-function);
+  transition: stroke ${({ theme }) => theme.transforms.transitionDuration} ${({ theme }) => theme.transforms.timingFunction};
 `;
 
 export const Button = styled.button`
@@ -224,7 +237,7 @@ export const Button = styled.button`
   outline: none;
   border: none;
   background-color: transparent;
-  transition: box-shadow var(--transition-duration) var(--timing-function);
+  transition: box-shadow ${({ theme }) => theme.transforms.transitionDuration} ${({ theme }) => theme.transforms.timingFunction};
   cursor: pointer;
 
   &:active {
@@ -233,15 +246,15 @@ export const Button = styled.button`
 
   &:hover {
     ${Svg} {
-      stroke: var(--accent-color);
+      stroke: ${({ theme }) => theme.colors.accentColor};
     }
   }
 
   &:focus {
-    box-shadow: 0 0 5px rgba(217, 217, 217, 1);
+    box-shadow: 0 0 5px ${({ theme }) => theme.colors.boxShadow};;
     border-radius: 4px;
     ${Svg} {
-      stroke: var(--accent-color);
+      stroke: ${({ theme }) => theme.colors.accentColor};
     }
   }
 `;

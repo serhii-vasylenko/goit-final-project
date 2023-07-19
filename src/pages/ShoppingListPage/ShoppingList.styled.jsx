@@ -1,26 +1,4 @@
 import styled from '@emotion/styled';
-import PageTitle from 'components/ReusableComponents/PageTitle/PageTitle';
-
-export const Section = styled.section`
-  /* padding: 12px 0 100px; */
-  padding-bottom: 100px;
-
-  @media (min-width: 768px) {
-    /* padding: 20px 0 200px; */
-    padding-bottom: 200px;
-  }
-  @media (min-width: 1280px) {
-    /* padding: 55px 0 100px; */
-    padding-bottom: 100px;
-  }
-`;
-
-export const Title = styled(PageTitle)`
-  margin-bottom: 50px;
-  @media (min-width: 768px) {
-    margin-bottom: 100px;
-  }
-`;
 
 export const ProductsHead = styled.div`
   margin-top: 40px;
@@ -29,7 +7,7 @@ export const ProductsHead = styled.div`
   border-radius: 8px;
 
   width: 359px;
-  height: 38px;
+  height: 32px;
 
   display: flex;
   align-items: center;
@@ -44,7 +22,7 @@ export const ProductsHead = styled.div`
   @media screen and (min-width: 768px) {
     font-size: 18px;
     width: 704px;
-    height: 58px;
+    height: 48px;
   }
   @media screen and (min-width: 1280px) {
     padding: 18px 35px 18px 35px;
@@ -55,11 +33,12 @@ export const ProductsHead = styled.div`
 
 export const HeadContainer = styled.div`
   display: flex;
-  gap: 37px;
+  gap: 32px;
 
   @media screen and (min-width: 768px) {
     gap: 50px;
   }
+
   @media screen and (min-width: 1280px) {
     gap: 120px;
   }
@@ -80,18 +59,24 @@ export const ShoppingList = styled.div`
   @media screen and (min-width: 768px) {
     font-size: 10px;
   }
-  @media screen and (min-width: 1280px) {
-  }
 `;
 
 export const Item = styled.li`
+<<<<<<< HEAD
   &:not(:last-child) {
     border-bottom: 2px solid #e0e0e0;
+=======
+  &&:not(:last-child) {
+    border-bottom: 2px solid;
+    border-color: var(--border-line-color);
+>>>>>>> 5fea36ffe19c044279b8ea65c611cb6fe417bb84
   }
 `;
 
 export const NotFound = styled.div`
   margin-top: 50px;
+  margin-bottom: 100px;
+  text-align: center;
 
   @media (min-width: 768px) {
     margin-top: 100px;

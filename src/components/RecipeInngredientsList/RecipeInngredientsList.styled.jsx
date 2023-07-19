@@ -12,12 +12,11 @@ export const ContainerList = styled.div`
   @media screen and (min-width: 768px) {
     margin-top: 32px;
     margin-bottom: 50px;
-
   }
 
   @media screen and (min-width: 1280px) {
-     margin-bottom: 50px;
-  margin-top: 50px;
+    margin-bottom: 50px;
+    margin-top: 50px;
   }
 `;
 
@@ -30,8 +29,8 @@ export const HeaderList = styled.div`
   width: 100%;
   padding: 0 14px;
   margin-bottom: 24px;
-  color: var(--white-color);
-  background-color: var(--accent-color);
+  color: ${({ theme }) => theme.colors.whiteColor};
+  background-color: ${({ theme }) => theme.colors.accentColor};
 
   @media screen and (min-width: 768px) {
     height: 58px;
@@ -69,17 +68,15 @@ export const HeaderList = styled.div`
   }
 `;
 
-
 export const IngredientList = styled.ul`
-display: flex;
-flex-direction: column;
-gap: 16px;
-width:100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
 
   @media screen and (min-width: 768px) {
     gap: 24px;
   }
-
 `;
 
 export const IngredientItem = styled.li`
@@ -89,29 +86,28 @@ export const IngredientItem = styled.li`
   justify-content: space-between;
   border-radius: 8px;
   background-color: ${({ theme }) => theme.colors.categoriesListBGColor};
-  padding: 10px;
+  padding: 14px 29px 14px 14px;
   max-width: 100%;
   @media screen and (min-width: 768px) {
-    padding: 16px 24px;
+    padding: 33px 58px 33px 40px;
   }
 
   @media screen and (min-width: 1280px) {
-    padding: 26px 32px;
+    padding: 26px 70px 26px 58px;
   }
 `;
 
 export const ContentWrap = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 8px;
+  gap: 12px;
 
   @media screen and (min-width: 768px) {
-    gap: 78px;
+    gap: 40px;
   }
 
   @media screen and (min-width: 1440px) {
-    gap: 151px;
+    gap: 66px;
   }
 `;
 
@@ -123,17 +119,16 @@ export const ContentWrapMeasure = styled.div`
   width: 120px;
 
   @media screen and (min-width: 768px) {
-   gap: 35px;
-    width: 225px;
+    width: 190px;
   }
 
-  @media screen and (min-width: 1440px) {
-   
+  @media screen and (min-width: 1280px) {
+    width: 250px;
   }
 `;
 
 export const Image = styled.img`
- width: 65px;
+  width: 65px;
   height: 65px;
 
   @media screen and (min-width: 768px) {
@@ -145,7 +140,7 @@ export const Image = styled.img`
     width: 180px;
     height: 180px;
   }
-`
+`;
 
 export const NameIngredient = styled.p`
   font-weight: 500;
@@ -155,6 +150,7 @@ export const NameIngredient = styled.p`
   color: ${({ theme }) => theme.colors.secondaryTextColor};
   overflow: hidden;
   width: 99px;
+  padding: 2px;
 
   @media screen and (min-width: 768px) {
     font-size: 24px;
@@ -169,7 +165,7 @@ export const NameIngredient = styled.p`
 
 export const IngredientMeasure = styled.span`
   display: block;
-  background: var(--accent-color);
+  background: ${({ theme }) => theme.colors.accentColor};
   border-radius: 4px;
   padding: 4px;
   min-width: 37px;
@@ -178,12 +174,12 @@ export const IngredientMeasure = styled.span`
   font-size: 10px;
   line-height: 1.5;
   text-align: center;
-  color: var(--white-color);
+  color: ${({ theme }) => theme.colors.whiteColor};
   overflow: hidden;
 
   @media screen and (min-width: 768px) {
     min-width: 68px;
-    max-width: 150px;
+    max-width: 120px;
     font-size: 18px;
     line-height: 27px;
   }

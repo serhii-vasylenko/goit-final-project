@@ -83,6 +83,7 @@ const Item = styled.li`
   color: ${({ theme }) => theme.colors.whiteColor};
   font-size: 14px;
   line-height: 1.3;
+  list-style: disc;
 
   @media (min-width: 1280px) {
     font-size: 18px;
@@ -128,24 +129,25 @@ const PrivacyContainer = styled.div`
   line-height: 1;
   letter-spacing: -0.14px;
   color: ${({ theme }) => theme.colors.privacyColor};
-  background: ${({theme}) => theme.colors.backgroundColor} url(${bgImgMob}) no-repeat;
+  background: ${({ theme }) => theme.colors.backgroundColor} url(${bgImgMob})
+    no-repeat;
   background-position: right -50px bottom -70px;
   background-size: 216px 222px;
-  
+
   @media (min-width: 768px) {
-        padding: 32px 0;
-        background: ${({theme }) => theme.colors.backgroundColor} url(${bgImgTab}) no-repeat;
-        background-position: right -70px bottom -150px;
-        background-size: 393px 404px;
-
-}
-@media (min-width: 1280px) {
-        padding: 50px 0;
-        background: ${({theme }) => theme.colors.backgroundColor} url(${bgImgDesk}) no-repeat;
-        background-position: right -70px bottom -230px;
-        background-size: 593px 611px;
-
-	}
+    padding: 32px 0;
+    background: ${({ theme }) => theme.colors.backgroundColor} url(${bgImgTab})
+      no-repeat;
+    background-position: right -70px bottom -150px;
+    background-size: 393px 404px;
+  }
+  @media (min-width: 1280px) {
+    padding: 50px 0;
+    background: ${({ theme }) => theme.colors.backgroundColor} url(${bgImgDesk})
+      no-repeat;
+    background-position: right -70px bottom -230px;
+    background-size: 593px 611px;
+  }
 `;
 
 const PrivacyTextBold = styled.p`
@@ -171,7 +173,7 @@ const PrivacyTextBold = styled.p`
 `;
 
 const PrivacyText = styled(PrivacyTextBold)`
- font-weight: ${({ theme }) => theme.fontWeights.regular};
+  font-weight: ${({ theme }) => theme.fontWeights.regular};
 `;
 
 export {
