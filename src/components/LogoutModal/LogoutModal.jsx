@@ -42,6 +42,8 @@ export const LogoutModal = ({ modalIsOpen, setModalIsOpen }) => {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
+    document.body.classList.remove('modal-open');
+    setModalIsOpen(false);
     dispatch(logoutUser());
   };
 
