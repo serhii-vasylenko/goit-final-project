@@ -25,7 +25,7 @@ export const Title = styled(PageTitle)`
 export const ProductsHead = styled.div`
   margin-top: 40px;
   padding: 12px 8px 12px 8px;
-  background-color: #8baa36;
+  background-color: ${({ theme }) => theme.colors.accentColor};
   border-radius: 8px;
 
   width: 359px;
@@ -39,7 +39,7 @@ export const ProductsHead = styled.div`
   font-size: 12px;
   font-weight: 600;
   line-height: 1.5;
-  color: var(--white-color);
+  color: ${({ theme }) => theme.colors.whiteColor};
 
   @media screen and (min-width: 768px) {
     font-size: 18px;
@@ -85,7 +85,7 @@ export const ShoppingList = styled.div`
 `;
 
 export const Item = styled.li`
-  &&:not(:last-child) {
+  &:not(:last-child) {
     border-bottom: 2px solid #e0e0e0;
   }
 `;

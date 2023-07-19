@@ -80,7 +80,7 @@ const List = styled.ul`
 `;
 
 const Item = styled.li`
-  color: var(--white-color);
+  color: ${({ theme }) => theme.colors.whiteColor};
   font-size: 14px;
   line-height: 1.3;
 
@@ -94,7 +94,7 @@ const Title = styled.h2`
   font-size: 18px;
   line-height: 1;
   font-weight: 700;
-  color: var(--white-color);
+  color: ${({ theme }) => theme.colors.whiteColor};
   letter-spacing: 0.27px;
   font-style: normal;
   text-align: center;
@@ -116,7 +116,7 @@ const LogoWrapper = styled(NavLink)`
 const Logo = styled.svg`
   height: 30px;
   width: 30px;
-  stroke: var(--accent-color);
+  stroke: ${({ theme }) => theme.colors.whiteColor};
 `;
 
 const PrivacyContainer = styled.div`

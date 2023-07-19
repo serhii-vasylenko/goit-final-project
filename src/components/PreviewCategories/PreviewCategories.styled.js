@@ -49,7 +49,7 @@ export const SeeCategoryBtn = styled(Link)`
   font-style: normal;
   font-weight: ${({ theme }) => theme.fontWeights.regular};
   line-height: ${({ theme }) => theme.lineHeights[1_3]};
-  background-color: var(--accent-color);
+  background-color: ${({ theme }) => theme.colors.accentColor};
 
   border: none;
   text-decoration: none;

@@ -51,7 +51,7 @@ export const Container = styled.div`
 `;
 
 export const StyledLink = styled(NavLink)`
-  color: var(--white-color);
+  color: ${({ theme }) => theme.colors.whiteColor};
   text-decoration: underline;
   font-size: 14px;
   position: absolute;

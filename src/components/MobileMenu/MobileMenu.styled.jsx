@@ -14,7 +14,6 @@ overflow-y:hidden;
 overflow-x:hidden;
 padding: 18px 16px;
 transform: translateY(-100%);
-transition: transform var(--transition-duration) var(--timing-function);
 background: ${({theme }) => theme.colors.backgroundMobileMenu} url(${mobMenuImage}) no-repeat;
 background-position: right -285px bottom -120px;
 background-size: 585px 378px;

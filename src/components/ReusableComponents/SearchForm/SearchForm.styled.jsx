@@ -8,11 +8,11 @@ export const Input = styled.input`
   background-color: ${({ theme }) => theme.colors.inputSearchBGColor};
   border-radius: 24px 44px;
   border: ${({ theme }) => theme.borders.inputSearchBorder};
-  color: var(--primary-text-color);
+  color: ${({theme }) => theme.colors.primaryTextColor};
   font-size: 12px;
   line-height: 1.2;
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all ${({theme }) => theme.transforms.transitionDuration} ${({theme }) => theme.transforms.timingFunction};
 
   :hover,
   :focus,
