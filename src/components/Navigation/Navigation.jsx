@@ -1,5 +1,14 @@
+import { useEffect, useState } from 'react';
 import { NavList, NavItem, NavLinkEl, SearchIcon } from './Navigation.styled'
+import { useLocation } from 'react-router';
+
 export const Navigation = ({ nav, setNav }) => {
+    const [active, setActive]= useState(false)
+    const location = useLocation();
+    useEffect(() => {
+       setActive(location.pathname.includes('/categories/'));
+    }, [location.pathname])
+
     const onListClick = () => {
         if(!nav) return
         setNav(false)
@@ -8,7 +17,7 @@ export const Navigation = ({ nav, setNav }) => {
         <nav>
             <NavList nav={nav} onClick={() => onListClick()}>
                 <NavItem> 
-                    <NavLinkEl to={'/categories/Beef'}>
+                    <NavLinkEl to={'/categories/Beef'} className={active ? 'active' : ''}>
                         Categories   
                     </NavLinkEl>
                     </NavItem>

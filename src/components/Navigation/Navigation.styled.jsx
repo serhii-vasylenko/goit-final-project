@@ -11,8 +11,16 @@ color: ${({theme }) => theme.colors.mobileMenuColor};
 @media (min-width: 1280px) {
     display: flex;
     flex-direction: row;
-    color: ${({theme }) => theme.colors.primaryTextColor};
-}
+    color: ${({ theme }) => theme.colors.primaryTextColor};
+    ${() => {
+    const location = useLocation();
+    if (location.pathname.includes('/recipes/')) {
+      return `
+        color: #22252a`;
+    }
+  }}
+};
+
 `
 
 const NavLinkEl = styled(NavLink)`
@@ -28,13 +36,6 @@ transition: color ${({theme }) => theme.transforms.transitionDuration} ${({theme
     font-weight: 600;
 }
 
-${() => {
-    const location = useLocation();
-    if (location.pathname.includes('/recipes/')) {
-      return `
-        color: #22252a`;
-    }
-  }}
 `
 const NavItem = styled.li`
 font-size: 18px;
