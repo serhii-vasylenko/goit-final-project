@@ -36,6 +36,7 @@ export const lightTheme = {
     mobileMenuBGColor: '#EBF3D4',
     mobileMenuColor: '#22252a',
     logoutBtnColor: 'transparent',
+    paginatorBGColor: '#fafafa',
     mainButtonColor: '#22252a',
     hoverMainButtonColor: '#8aa936',
     formLabelColor: '#797979',
