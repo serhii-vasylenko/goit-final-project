@@ -52,6 +52,8 @@ export const lightTheme = {
     svgCrossColor: '#333333',
     counterBrdColor: 'rgba(51, 51, 51, 0.3)',
     popularRecipeDescriptionColor: '#7e7e7e',
+    socialIconColor: '#8aa936',
+    socialIconHover: '#FAFAFA',
   },
   transforms: {
     transitionDuration: '250ms',
