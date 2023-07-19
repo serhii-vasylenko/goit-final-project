@@ -82,11 +82,25 @@ const SearchForm = () => {
 
     if (q && q !== '') {
       dispatch(resetRecipeByIngredient());
-      dispatch(getRecipesByTitle(title));
+      dispatch(getRecipesByTitle(title)).then(result => {
+        if (
+          result.payload.code === 200 &&
+          result.payload.data?.recipe?.length === 0
+        ) {
+          showMessageToast(`On request "${title}" found nothing`);
+        }
+      });
     }
     if (ing && ing !== '') {
       dispatch(resetRecipeByTitle());
-      dispatch(getRecipesByIngredient(ingredient));
+      dispatch(getRecipesByIngredient(ingredient)).then(result => {
+        if (
+          result.payload.code === 200 &&
+          result.payload.data?.recipe?.length === 0
+        ) {
+          showMessageToast(`On request "${ingredient}" found nothing`);
+        }
+      });
     }
   };
 

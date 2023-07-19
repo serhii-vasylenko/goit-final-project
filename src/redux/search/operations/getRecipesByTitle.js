@@ -4,9 +4,8 @@ import axios from '../../../const/axiosBaseUrl';
 const getRecipesByTitle = createAsyncThunk(
   'search/getRecipesByTitle',
   async (title, thunkAPI) => {
-    // //console.log(' getRecipesByTitle:>> ');
     try {
-      const response = await axios.get(`/search?q=${title}`);
+      const response = await axios.get(`recipes/search?q=${title}`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
