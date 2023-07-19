@@ -1,7 +1,7 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
 
-import imagePlaceHolder from '../../images/recipePageImg/recipe_tab@1x-min.jpg'
+import imagePlaceHolder from '../../images/recipePageImg/recipe_tab@1x-min.jpg';
 import {
   Container,
   Title,
@@ -13,9 +13,8 @@ import {
 } from './RecipePreparation.styled';
 
 const RecipePreparation = ({ instructions, image }) => {
-
-   let instructionsString = instructions?.toString();
-   let res = instructionsString?.split('\n');
+  let instructionsString = instructions?.toString();
+  let res = instructionsString?.split('\n');
 
   for (let i = 0; i < res.length; i += 1) {
     const regex = /^(?:\d+[.)]*\s*)*/;
@@ -51,8 +50,6 @@ const RecipePreparation = ({ instructions, image }) => {
       </ImageWrapper>
     </Container>
   );
+};
 
-
-}
-
-export default RecipePreparation
+export default RecipePreparation;

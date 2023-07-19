@@ -9,6 +9,7 @@ import {
   uploadAvatar,
   changeUserName,
   subscribeUser,
+  getUserInfo,
 } from 'redux/auth/operations';
 
 const authSlice = createSlice({
@@ -20,6 +21,9 @@ const authSlice = createSlice({
       avatarUrl: null,
       userId: null,
       subscribe: null,
+      numberOfDaysInApp: null,
+      numberOfAddedRecipes: null,
+      numberOfFavoriteRecipes: null,
     },
     token: null,
     isLoggedIn: false,
@@ -28,7 +32,7 @@ const authSlice = createSlice({
   },
   extraReducers: builder => {
     builder.addCase(registerUser.fulfilled, (state, actions) => {
-      console.log('Payload', actions.payload);
+      //console.log('Payload', actions.payload);
       state.user = actions.payload.data.user;
       state.token = actions.payload.data.token;
       state.isLoggedIn = true;
@@ -102,6 +106,29 @@ const authSlice = createSlice({
       showMessageToast(action.payload.message);
     });
     builder.addCase(subscribeUser.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    });
+    builder.addCase(getUserInfo.pending, state => {
+      state.loading = true;
+      state.error = null;
+    });
+    builder.addCase(getUserInfo.fulfilled, (state, action) => {
+      state.loading = false;
+      const {
+        numberOfDaysInApp,
+        numberOfAddedRecipes,
+        numberOfFavoriteRecipes,
+      } = action.payload;
+      state.user = {
+        ...state.user,
+        numberOfDaysInApp,
+        numberOfAddedRecipes,
+        numberOfFavoriteRecipes,
+      };
+      showMessageToast(action.payload.message);
+    });
+    builder.addCase(getUserInfo.rejected, (state, action) => {
       state.loading = false;
       state.error = action.payload;
     });

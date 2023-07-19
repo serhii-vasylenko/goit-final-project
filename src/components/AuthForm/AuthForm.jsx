@@ -45,7 +45,7 @@ export const AuthForm = () => {
     validationSchema: registrationSchema,
 
     onSubmit: values => {
-      console.log('values', values);
+      //console.log('values', values);
 
       dispatch(
         registerUser({
