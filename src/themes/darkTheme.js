@@ -7,7 +7,6 @@ export const darkTheme = {
     backgroundAuthFormColor: '#2a2c3',
     inputBorderColor: '#FAFAFA',
     errorColor: '#e74a3b',
-    pageTitleColor: '#001833',
     usernameColor: '#22252a',
     pageTitleColor: '#fafafa',
     boxShadow: 'rgba(217, 217, 217, 1)',
