@@ -46,7 +46,7 @@ const ShoppingListItem = ({ product }) => {
       </DescriptionContainer>
 
       <NumberContainer>
-        <ProductQuantity>{product.measure}</ProductQuantity>
+        <ProductQuantity>{product.measure ?? 'No info'}</ProductQuantity>
         <DeleteBtn onClick={() => clickHandler(product)}>
           <CrossIcon>
             <use href={`${sprite}#icon-cross`}></use>

@@ -5,14 +5,9 @@ export const Item = styled.div`
   justify-content: space-between;
 
   width: 343px;
-  height: 70px;
+  height: 84px;
   margin-left: auto;
   margin-right: auto;
-
-  &&:not(:last-child) {
-    border-bottom: 2px solid #e0e0e0;
-  }
-
   margin-top: 20px;
 
   @media screen and (min-width: 768px) {
@@ -22,15 +17,13 @@ export const Item = styled.div`
   }
   @media screen and (min-width: 1280px) {
     width: 1160px;
-    height: 140px;
-
     margin-top: 40px;
   }
 `;
 
 export const ShoppingImageContainer = styled.div`
   padding: 12px;
-  background-color: #ebf3d4;
+  background-color: var(--image-background-color);
 
   display: flex;
   align-items: center;
@@ -43,10 +36,8 @@ export const ShoppingImageContainer = styled.div`
 
   @media screen and (min-width: 768px) {
     width: 93px;
-    height: 94px;
+    height: 97px;
     margin-right: 20px;
-  }
-  @media screen and (min-width: 1280px) {
   }
 `;
 
@@ -57,10 +48,6 @@ export const ShoppingImage = styled.img`
   @media screen and (min-width: 768px) {
     width: 81px;
     height: 81px;
-  }
-  @media screen and (min-width: 1280px) {
-    width: 93px;
-    height: 97px;
   }
 `;
 
@@ -78,50 +65,38 @@ export const ProductName = styled.p`
 `;
 
 export const ProductQuantity = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  align-content: center;
   flex-wrap: wrap;
-  max-width: 50px;
-  max-height: 50px;
+  text-align: center;
+  display: inline-block;
+  word-break: break-word;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 25px;
+
   border-radius: 5px;
   font-size: 10px;
   padding: 5px;
 
-  color: #fafafa;
-
-  background-color: #8baa36;
+  color: ${({ theme }) => theme.colors.whiteColor};
+  background-color: ${({ theme }) => theme.colors.accentColor};
 
   @media screen and (min-width: 768px) {
-    max-width: 90px;
-    max-height: 70px;
+    height: 35px;
     font-size: 16px;
-    padding: 15px;
+    padding: 8px;
   }
-  /* @media screen and (min-width: 1280px) {
-    font-size: 18px;
-  } */
 `;
 
 export const DeleteBtn = styled.button`
-  /* width: 14px; */
   height: 14px;
-  stroke: var(--primary-text-color);
   margin-right: 10px;
   margin-left: 60px;
   border: none;
   background-color: transparent;
-  cursor: pointer;
   padding: 5px;
+  cursor: pointer;
 
   @media screen and (min-width: 768px) {
     height: 20px;
-
     margin-right: 33px;
     margin-left: 80px;
   }
@@ -134,7 +109,7 @@ export const DeleteBtn = styled.button`
 export const CrossIcon = styled.svg`
   width: 14px;
   height: 14px;
-  stroke: var(--primary-text-color);
+  stroke: var(--cross-icon-color);
 
   @media screen and (min-width: 768px) {
     width: 20px;
@@ -148,7 +123,4 @@ export const DescriptionContainer = styled.div`
 
 export const NumberContainer = styled.div`
   display: flex;
-
-  @media screen and (min-width: 1280px) {
-  }
 `;

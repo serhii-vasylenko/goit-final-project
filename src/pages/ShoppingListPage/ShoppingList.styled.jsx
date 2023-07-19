@@ -1,35 +1,13 @@
 import styled from '@emotion/styled';
-import PageTitle from 'components/ReusableComponents/PageTitle/PageTitle';
-
-export const Section = styled.section`
-  /* padding: 12px 0 100px; */
-  padding-bottom: 100px;
-
-  @media (min-width: 768px) {
-    /* padding: 20px 0 200px; */
-    padding-bottom: 200px;
-  }
-  @media (min-width: 1280px) {
-    /* padding: 55px 0 100px; */
-    padding-bottom: 100px;
-  }
-`;
-
-export const Title = styled(PageTitle)`
-  margin-bottom: 50px;
-  @media (min-width: 768px) {
-    margin-bottom: 100px;
-  }
-`;
 
 export const ProductsHead = styled.div`
   margin-top: 40px;
   padding: 12px 8px 12px 8px;
-  background-color: #8baa36;
+  background-color: ${({ theme }) => theme.colors.accentColor};
   border-radius: 8px;
 
   width: 359px;
-  height: 38px;
+  height: 32px;
 
   display: flex;
   align-items: center;
@@ -39,12 +17,12 @@ export const ProductsHead = styled.div`
   font-size: 12px;
   font-weight: 600;
   line-height: 1.5;
-  color: var(--white-color);
+  color: ${({ theme }) => theme.colors.whiteColor};
 
   @media screen and (min-width: 768px) {
     font-size: 18px;
     width: 704px;
-    height: 58px;
+    height: 48px;
   }
   @media screen and (min-width: 1280px) {
     padding: 18px 35px 18px 35px;
@@ -60,6 +38,7 @@ export const HeadContainer = styled.div`
   @media screen and (min-width: 768px) {
     gap: 50px;
   }
+  
   @media screen and (min-width: 1280px) {
     gap: 120px;
   }
@@ -80,13 +59,13 @@ export const ShoppingList = styled.div`
   @media screen and (min-width: 768px) {
     font-size: 10px;
   }
-  @media screen and (min-width: 1280px) {
-  }
 `;
 
 export const Item = styled.li`
+
   &&:not(:last-child) {
-    border-bottom: 2px solid #e0e0e0;
+    border-bottom: 2px solid;
+    border-color: var(--border-line-color);
   }
 `;
 
