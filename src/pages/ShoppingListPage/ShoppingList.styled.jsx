@@ -62,9 +62,14 @@ export const ShoppingList = styled.div`
 `;
 
 export const Item = styled.li`
+<<<<<<< HEAD
+  &:not(:last-child) {
+    border-bottom: 2px solid #e0e0e0;
+=======
   &&:not(:last-child) {
     border-bottom: 2px solid;
     border-color: var(--border-line-color);
+>>>>>>> 5fea36ffe19c044279b8ea65c611cb6fe417bb84
   }
 `;
 
