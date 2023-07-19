@@ -97,6 +97,7 @@ const RecipeIngredientsFields = () => {
                     <MeasureField
                       name={`ingredients[${index}].measure`}
                       type="text"
+                      autoComplete="off"
                       value={ingredients[index].measure || ''}
                       onChange={event => {
                         handleCountChange(index, event.target.value);
