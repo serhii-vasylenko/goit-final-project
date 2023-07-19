@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+
 import {
   addToShoppingList,
   removeFromShoppingList,
@@ -6,6 +7,7 @@ import {
 import {
   CheckBox
 } from './RecipeInngredientsList.styled';
+import { showMessageToast } from 'components/ReusableComponents/ToastCustom/showToast';
 
 const CustomCheckbox = ({ ingredient, shoppingList, recipeId }) => {
   const dispatch = useDispatch();
@@ -24,9 +26,11 @@ const CustomCheckbox = ({ ingredient, shoppingList, recipeId }) => {
   const toggleCheckBox = () => {
     if (inShoppingList) {
       dispatch(removeFromShoppingList({ measure, ingredientId: _id, recipeId }))
+      showMessageToast('Product was deleted from your shopping-list.');
         
     } else {
-      dispatch(addToShoppingList({ measure, ingredientId: _id, recipeId }))     
+      dispatch(addToShoppingList({ measure, ingredientId: _id, recipeId }))
+      showMessageToast('Product was added to your shopping-list.');     
     }
     return
   };
