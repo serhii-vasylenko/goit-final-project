@@ -69,21 +69,6 @@ const authSlice = createSlice({
     builder.addCase(refreshUser.rejected, state => {
       state.isRefreshing = false;
     });
-    // builder.addCase(uploadAvatar.pending, state => {
-    //   state.loading = true;
-    //   state.error = null;
-    // });
-    // builder.addCase(uploadAvatar.fulfilled, (state, action) => {
-    //   state.loading = false;
-    //   state.user = {
-    //     ...state.user,
-    //     avatarURL: action.payload.data.user.avatarURL,
-    //   };
-    // });
-    // builder.addCase(uploadAvatar.rejected, (state, action) => {
-    //   state.loading = false;
-    //   state.error = action.payload;
-    // });
     builder.addCase(changeUserData.pending, state => {
       state.loading = true;
       state.error = null;
@@ -96,18 +81,6 @@ const authSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     });
-    // builder.addCase(changeUserName.pending, state => {
-    //   state.loading = true;
-    //   state.error = null;
-    // });
-    // builder.addCase(changeUserName.fulfilled, (state, action) => {
-    //   state.loading = false;
-    //   state.user = { ...state.user, name: action.payload.data.user.name };
-    // });
-    // builder.addCase(changeUserName.rejected, (state, action) => {
-    //   state.loading = false;
-    //   state.error = action.payload;
-    // });
     builder.addCase(subscribeUser.pending, state => {
       state.loading = true;
       state.error = null;

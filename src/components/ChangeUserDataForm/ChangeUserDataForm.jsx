@@ -20,10 +20,8 @@ export const ChangeUserDataForm = ({setEditIsOpen}) => {
         e.preventDefault();
         const formData = new FormData();
         formData.append('avatar', file);
-        formData.append('name', name)
+        formData.append('name', JSON.stringify(name))
         dispatch(changeUserData(formData))
-        // dispatch(uploadAvatar(formData))
-        // dispatch(changeUserName({ name: `${name}` }))
         setEditIsOpen(false)
     }
 
