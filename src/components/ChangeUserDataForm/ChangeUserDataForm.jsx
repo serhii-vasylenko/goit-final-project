@@ -4,7 +4,7 @@ import { FieldChangeName } from 'components/FieldChangeName/FieldChangeName';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectAuth } from 'redux/auth/selectors';
-import { changeUserName, uploadAvatar } from 'redux/auth/operations';
+import { changeUserData } from 'redux/auth/operations';
 
 export const ChangeUserDataForm = ({setEditIsOpen}) => {
     const { user } = useSelector(selectAuth);
@@ -20,8 +20,8 @@ export const ChangeUserDataForm = ({setEditIsOpen}) => {
         e.preventDefault();
         const formData = new FormData();
         formData.append('avatar', file);
-        dispatch(uploadAvatar(formData))
-        dispatch(changeUserName({ name: `${name}` }))
+        formData.append('name', JSON.stringify(name))
+        dispatch(changeUserData(formData))
         setEditIsOpen(false)
     }
 
