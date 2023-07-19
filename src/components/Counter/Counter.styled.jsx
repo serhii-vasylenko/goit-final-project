@@ -5,14 +5,13 @@ export const Container = styled.div`
   top: 0;
   right: 0;
   border-radius: 18px;
-  border: 1px solid rgba(51, 51, 51, 0.3);
+  border: 1px solid ${({ theme }) => theme.colors.counterBrdColor};
 `;
 
 export const Svg = styled.svg`
-  stroke: #333333;
-  stroke-opacity: 0.3;
+  stroke: ${({ theme }) => theme.colors.counterBrdColor};
 
-  transition: stroke var(--transition-duration) var(--timing-function);
+  transition: stroke ${({ theme }) => theme.transforms.transitionDuration} ${({ theme }) => theme.transforms.timingFunction};
 
   @media screen and (min-width: 768px) {
         width: 16px;
@@ -21,14 +20,13 @@ export const Svg = styled.svg`
 `;
 
 export const Button = styled.button`
-/* outline: 1px solid rgba(217, 217, 217, 1); */
   width: auto;
   outline: none;
   height: auto;
   padding: 0;
   background: none;
   border: none;
-  transition: box-shadow var(--transition-duration) var(--timing-function);
+  transition: box-shadow ${({ theme }) => theme.transforms.transitionDuration} ${({ theme }) => theme.transforms.timingFunction};
   cursor: pointer;
 
   &:active {
@@ -37,22 +35,22 @@ export const Button = styled.button`
 
   &:hover {
     ${Svg} {
-      stroke: var(--accent-color);
+      stroke: ${({ theme }) => theme.colors.accentColor};
       stroke-opacity: 1;
     }
   }
   &:focus {
-    box-shadow: 0 0 5px rgba(217, 217, 217, 1);
+    box-shadow: 0 0 5px ${({ theme }) => theme.colors.boxShadow};
     border-radius: 4px;
     ${Svg} {
-      stroke: var(--accent-color);
+      stroke: ${({ theme }) => theme.colors.accentColor};
       stroke-opacity: 1;
     }
   }
 `;
 
 export const Span = styled.span`
-  color: #333333;
+  color: ${({ theme }) => theme.colors.svgCrossColor};
   margin-left: 14px;
   margin-right: 14px;
   font-size: 14px;

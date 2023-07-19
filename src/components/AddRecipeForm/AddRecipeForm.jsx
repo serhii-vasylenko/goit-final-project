@@ -63,12 +63,9 @@ const AddRecipeForm = () => {
   const handleFileChange = event => {
     const file = event.target.files[0];
     setFile(file);
-    //console.log(file);
   };
 
   const handleSubmit =  (values, { resetForm, setSubmitting }) => {
-    //console.log(values);
-
     const data = JSON.stringify({
       title: values.title,
       description: values.about,
@@ -102,7 +99,8 @@ const AddRecipeForm = () => {
           nameButton="Add"
           type={'submit'}
           bgColor = {({ theme }) => theme.colors.mainButtonColor} 
-          color = {({ theme }) => theme.colors.whiteColor} 
+          color = {({ theme }) => theme.colors.whiteColor}
+          hoverStyles = {{ styleFirst: 'color' }}
           hoverParams = {{ paramFirst: ({ theme }) => theme.colors.hoverMainButtonColor}}
            focusParams = {{ paramFirst: ({ theme }) => theme.colors.hoverMainButtonColor }}
           cofByMedia768={{ font: 1, padX: 1.17, padY: 1.333 }}
