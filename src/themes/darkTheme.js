@@ -11,6 +11,7 @@ export const darkTheme = {
     usernameColor: '#22252a',
     boxShadow: 'rgba(217, 217, 217, 1)',
     blackColor: '#000000',
+    popularCardBrdColor: '#7070702b',
 
     backgroundColor: '#1e1f28',
     primaryTextColor: '#fafafa',

@@ -56,7 +56,7 @@ const AddRecipePage = () => {
           hTwitter={22}
           wInstagram={24}
           hInstagram={24}
-          hoverColor={(theme) => theme === 'dark' ? '#ffffff':'#ffffff'}
+          hoverColor={(theme) => theme === 'dark' ? '#1E1F28':'#ffffff'}
           flex={'start'}
         />
       </FollowUsSection>
