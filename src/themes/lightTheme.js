@@ -7,7 +7,6 @@ export const lightTheme = {
     backgroundAuthFormColor: '#2a2c3',
     inputBorderColor: '#e0e0e0',
     errorColor: '#e74a3b',
-    pageTitleColor: '#001833',
     usernameColor: '#22252a',
     pageTitleColor: '#001833',
     boxShadow:' rgba(217, 217, 217, 1)',
