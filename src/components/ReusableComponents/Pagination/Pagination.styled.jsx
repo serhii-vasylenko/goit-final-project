@@ -21,6 +21,7 @@ export const Item = styled.li`
   display: flex;
   align-items: center;
   justify-content: center;
+  line-height: 1;
   color: ${({ theme }) => theme.colors.recipeCardDescriptionColor};
   cursor: ${props => (props.dots || props.disabled ? 'default' : 'pointer')};
   border-radius: 50%;
