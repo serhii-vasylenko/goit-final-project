@@ -12,6 +12,7 @@ export const darkTheme = {
     boxShadow: 'rgba(217, 217, 217, 1)',
     blackColor: '#000000',
     popularCardBrdColor: '#7070702b',
+    descriptionRecipeColor: '#23262a',
     
     backgroundColor: '#1e1f28',
     primaryTextColor: '#fafafa',
