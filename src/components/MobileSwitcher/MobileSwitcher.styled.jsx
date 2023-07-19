@@ -21,7 +21,7 @@ transition: color ${({theme }) => theme.transforms.transitionDuration} ${({theme
     color: ${({theme }) => theme.colors.accentColor};
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 870px) {
         ${() => {
     const location = useLocation();
     if (

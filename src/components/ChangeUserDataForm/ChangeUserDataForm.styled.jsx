@@ -45,7 +45,7 @@ margin-top: 24px;
 cursor: pointer;
 border-radius: 6px;
 font-family: inherit;
-color: var(--white-color);
+color: ${({theme }) => theme.colors.whiteColor};
 background: ${({theme }) => theme.colors.accentColor};
 border: 1px solid transparent;
 transition: all ${({theme }) => theme.transforms.transitionDuration} ${({theme }) => theme.transforms.timingFunction};
@@ -53,10 +53,10 @@ transition: all ${({theme }) => theme.transforms.transitionDuration} ${({theme }
 &:hover{
     color: ${({theme }) => theme.colors.whiteColor};
     background: #22252A;
+    border: 1px solid ${({theme }) => theme.colors.logoutBtnColor};
 }
 @media (min-width: 768px) {
         padding: 18px 39px;
-        width: 192px;
         margin-top: 32px;
 
 }
@@ -75,10 +75,12 @@ width: 24px;
 height: 24px;
 background: ${({theme }) => theme.colors.accentColor};
 cursor: pointer;
+border: 1px solid transparent;
 transition: all ${({theme }) => theme.transforms.transitionDuration} ${({theme }) => theme.transforms.timingFunction};
 
 &:hover{
     background: #22252A;
+    border: 1px solid ${({theme }) => theme.colors.logoutBtnColor};
 }
 @media (min-width: 768px) {
     right: 158px;

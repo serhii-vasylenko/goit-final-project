@@ -16,7 +16,7 @@ const SharedLayout = () => {
         </MainContainer>
         <Footer />
     </>
-  );
-};
+  )
+}
 
 export default SharedLayout;

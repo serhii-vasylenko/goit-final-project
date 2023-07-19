@@ -37,7 +37,8 @@ export const RectangleFirst = styled.div`
   }
 
   @media screen and (min-width: 1280px) {
-    left: 247px;
+    top: 116px;
+    left: 228px;
   }
 `;
 
@@ -51,7 +52,8 @@ export const RectangleSecond = styled(RectangleFirst)`
   }
 
   @media screen and (min-width: 1280px) {
-    left: 1150px;
+    top: 129px;
+    left: 1149px;
   }
 `;
 
@@ -75,7 +77,8 @@ export const Circle = styled.div`
   }
 
   @media screen and (min-width: 1280px) {
-    left: 707px;
+    top: 200px;
+    left: 706px;
   }
 `;
 

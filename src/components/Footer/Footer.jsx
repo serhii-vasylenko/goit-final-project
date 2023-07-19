@@ -56,5 +56,5 @@ export const Footer = () => {
         <PrivacyText>Terms of Service</PrivacyText>
       </PrivacyContainer>
     </FooterEl>
-  );
-};
+  )
+}
