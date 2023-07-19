@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 import {
   PaginationStyled,
   NumberButton,
@@ -18,6 +18,12 @@ const Paginator = ({ data, itemsPerPage, currentPage, onPageChange }) => {
     },
     [onPageChange, pageCount]
   );
+
+  useEffect(() => {
+    if (currentPage > pageCount) {
+      onPageChange(1);
+    }
+  }, [currentPage, pageCount, onPageChange]);
 
   const renderPaginationItems = () => {
     const paginationItems = [];

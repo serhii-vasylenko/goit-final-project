@@ -24,8 +24,7 @@ export const showErrorToast = error => {
     duration: 3000,
     style: {
       marginTop: '30px',
-      backgroundColor: '#2A2C36',
-      color: '#FAFAFA',
+      backgroundColor: '#8BAA36',
     },
     ariaProps: {
       role: 'status',
