@@ -9,6 +9,7 @@ import { selectIngredientsList } from 'redux/ingredients/ingredientsSelector';
 import PopularRecipes from 'components/PopularRecipes/PopularRecipes';
 import Networks from 'components/ReusableComponents/Networks/Networks';
 import FormLoader from 'components/FormLoader/FormLoader';
+import { selectTheme } from 'redux/theme/selectors';
 import {
   FormSection,
   SectionPopular,
@@ -18,11 +19,12 @@ import {
   Wrapper,
   Container,
   PageTitleWrap,
-
 } from './AddRecipePage.styled';
+
 
 const AddRecipePage = () => {
   const dispatch = useDispatch();
+  const themas = useSelector(selectTheme);
 
   useEffect(() => {
     dispatch(ingredientOperations.getIngredientsList());
@@ -34,38 +36,41 @@ const AddRecipePage = () => {
 
   return (
     <MainContainer>
-      
-        <PageTitleWrap>
+      <PageTitleWrap>
         <PageTitle title={'Add recipe'} />
-        </PageTitleWrap>
+      </PageTitleWrap>
 
-        <Wrapper>
+      <Wrapper>
         <FormSection>
-        {ingredientsList ? <AddRecipeForm /> : <FormLoader/>}
-      </FormSection>
+          {ingredientsList ? <AddRecipeForm /> : <FormLoader />}
+        </FormSection>
 
-      <Container>
-      <FollowUsSection>
-        <FollowUsTitle>Follow us</FollowUsTitle>
-        <Networks
-          wFacebook={26}
-          hFacebook={26}
-          wYoutube={28}
-          hYoutube={22}
-          wTwitter={25}
-          hTwitter={22}
-          wInstagram={24}
-          hInstagram={24}
-          hoverColor={(theme) => theme === 'dark' ? '#1E1F28':'#ffffff'}
-          flex={'start'}
-        />
-      </FollowUsSection>
+        <Container>
+          <FollowUsSection>
+            <FollowUsTitle>Follow us</FollowUsTitle>
+            <Networks
+              wFacebook={26}
+              hFacebook={26}
+              wYoutube={28}
+              hYoutube={22}
+              wTwitter={25}
+              hTwitter={22}
+              wInstagram={24}
+              hInstagram={24}
+              hoverColor={themas === 'light' ? '#1E1F28' : '#fafafa'}
+              flex={'start'}
+              boxShadow={'0 0 5px rgba(217, 217, 217, 1)'}
+              outline={'none'}
+              borderRadius={'4px'}
+              color={({ theme }) => theme.colors.accentColor}
+            />
+          </FollowUsSection>
 
-      <SectionPopular>
-        <PopularTitle>Popular recipe</PopularTitle>
-        <PopularRecipes />
-      </SectionPopular>
-      </Container>
+          <SectionPopular>
+            <PopularTitle>Popular recipe</PopularTitle>
+            <PopularRecipes />
+          </SectionPopular>
+        </Container>
       </Wrapper>
     </MainContainer>
   );

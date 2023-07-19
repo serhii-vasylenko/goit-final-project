@@ -53,6 +53,8 @@ export const darkTheme = {
     svgCrossColor: '#FAFAFA',
     counterBrdColor: '#FAFAFA',
     popularRecipeDescriptionColor: 'rgba(250, 250, 250, 0.60)',
+    socialIconColor: '#FAFAFA',
+    socialIconHover: '#1E1F28',
   },
   transforms: {
     transitionDuration: '250ms',
