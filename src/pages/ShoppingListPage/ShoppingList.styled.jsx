@@ -33,12 +33,12 @@ export const ProductsHead = styled.div`
 
 export const HeadContainer = styled.div`
   display: flex;
-  gap: 37px;
+  gap: 32px;
 
   @media screen and (min-width: 768px) {
     gap: 50px;
   }
-  
+
   @media screen and (min-width: 1280px) {
     gap: 120px;
   }
@@ -62,7 +62,6 @@ export const ShoppingList = styled.div`
 `;
 
 export const Item = styled.li`
-
   &&:not(:last-child) {
     border-bottom: 2px solid;
     border-color: var(--border-line-color);
@@ -71,6 +70,8 @@ export const Item = styled.li`
 
 export const NotFound = styled.div`
   margin-top: 50px;
+  margin-bottom: 100px;
+  text-align: center;
 
   @media (min-width: 768px) {
     margin-top: 100px;

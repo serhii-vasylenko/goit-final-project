@@ -89,7 +89,7 @@ export const ProductQuantity = styled.div`
 export const DeleteBtn = styled.button`
   height: 14px;
   margin-right: 10px;
-  margin-left: 60px;
+  margin-left: 50px;
   border: none;
   background-color: transparent;
   padding: 5px;
