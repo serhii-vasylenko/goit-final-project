@@ -1,5 +1,7 @@
 import styled from '@emotion/styled/macro';
-import bgImg from './images/bg-img.png';
+import bgImgMob from '../../images/backgroundImages/bg-footer-mob.png';
+import bgImgTab from '../../images/backgroundImages/bg-footer-tab.png';
+import bgImgDesk from '../../images/backgroundImages/bg-footer-desk.png';
 import { NavLink } from 'react-router-dom';
 const FooterEl = styled.footer``;
 
@@ -122,15 +124,29 @@ const PrivacyContainer = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 50px 20px;
+  padding: 28px 0;
   line-height: 1;
   letter-spacing: -0.14px;
-  background: url(${bgImg}) no-repeat;
-  background-position: right -30px bottom -150px;
-  background-size: 404px 496px;
+  color: ${({ theme }) => theme.colors.privacyColor};
+  background: ${({theme}) => theme.colors.backgroundColor} url(${bgImgMob}) no-repeat;
+  background-position: right -50px bottom -70px;
+  background-size: 216px 222px;
+  
+  @media (min-width: 768px) {
+        padding: 32px 0;
+        background: ${({theme }) => theme.colors.backgroundColor} url(${bgImgTab}) no-repeat;
+        background-position: right -70px bottom -150px;
+        background-size: 393px 404px;
 
-  background-color: ${({ theme }) => theme.colors.backgroundColor};
- `;
+}
+@media (min-width: 1280px) {
+        padding: 50px 0;
+        background: ${({theme }) => theme.colors.backgroundColor} url(${bgImgDesk}) no-repeat;
+        background-position: right -70px bottom -230px;
+        background-size: 593px 611px;
+
+	}
+`;
 
 const PrivacyTextBold = styled.p`
   color: ${({ theme }) => theme.colors.privacyColor};

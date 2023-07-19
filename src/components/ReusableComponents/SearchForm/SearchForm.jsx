@@ -107,8 +107,8 @@ const SearchForm = () => {
               nameButton="Search"
               fontSize="14px"
               padding={{
-                paddingTop: '13px',
-                paddingBottom: '13px',
+                paddingTop: '13.3px',
+                paddingBottom: '13.3px',
                 paddingLeft: '32px',
                 paddingRight: '32px',
               }}
@@ -119,7 +119,7 @@ const SearchForm = () => {
               }}
               cofByMedia1280={{
                 font: 1.2,
-                padX: 1.52,
+                padX: 1.54,
                 padY: 1.63,
               }}
               bgColor={

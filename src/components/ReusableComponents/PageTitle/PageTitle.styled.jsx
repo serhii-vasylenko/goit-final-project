@@ -64,7 +64,7 @@ export const Circle = styled.div`
   transform: rotate(-25deg);
   flex-shrink: 0;
   border-radius: 3px;
-  background: ${({ theme }) => theme.colors.backgroundColorCircle};
+  background: ${({ theme }) => theme.colors.pageTitleColor};
 
   @media screen and (min-width: 768px) {
     width: 12px;

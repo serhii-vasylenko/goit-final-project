@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import {
   TogglerWrapper,
-  Swithcher,
+  Switcher,
   Label,
-  Cyrcle,
+  Circle,
 } from './ThemeToggler.styled';
 import { selectTheme } from 'redux/theme/selectors';
 import { setTheme } from 'redux/theme/themeSlice';
@@ -21,12 +21,12 @@ const ThemeToggler = ({nav}) => {
   return (
     <TogglerWrapper nav={nav}>
       <Label mode={stateTheme}>
-        <Swithcher
+        <Switcher
           type="checkbox"
           checked={stateTheme === 'dark'}
           onChange={handleToggleTheme}
         />
-        <Cyrcle />
+        <Circle />
       </Label>
     </TogglerWrapper>
   );

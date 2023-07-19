@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const ErrorText = styled.p`
-  color: var(--error-color);
+  color: ${({ theme }) => theme.colors.errorColor};
   font-size: 12px;
 
   @media screen and (min-width: 768px) {

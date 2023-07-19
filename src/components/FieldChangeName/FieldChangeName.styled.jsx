@@ -34,6 +34,7 @@ color: inherit;
 const Field = styled.div`
 position: relative;
 width: 282px;
+color: ${({theme }) => theme.colors.primaryTextColor};
 @media (min-width: 768px) {
 	width: 400px;
 }
@@ -44,7 +45,7 @@ padding: 15px 40px 15px 40px;
 outline: none;
 font-size: 18px;
 letter-spacing: -0.36px;
-color: ${({theme }) => theme.colors.primaryTextColor};
+color: inherit;
 border-radius: 3px;
 border: 1px solid ${({theme }) => theme.colors.modalInputBorderColor};
 background: ${({ theme }) => theme.colors.backgroundModalColor};

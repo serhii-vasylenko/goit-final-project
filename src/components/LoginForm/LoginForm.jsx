@@ -40,7 +40,7 @@ export const LoginForm = () => {
     validationSchema: signInSchema,
 
     onSubmit: values => {
-      console.log('values', values);
+      //console.log('values', values);
 
       dispatch(
         loginUser({
@@ -126,7 +126,7 @@ export const LoginForm = () => {
         </ErrMessage>
 
         {errors.password && touched.password ? <ErrorIconStyled /> : null}
-		  
+
         {!isValid && !isSubmitting && !errors.password ? (
           <CorrectIconIconStyled />
         ) : null}
