@@ -15,6 +15,10 @@ export const List = styled.ul`
 
 export const Item = styled.li`
   text-align: center;
+
+  @media (min-width: 768px) {
+    text-align: left;
+  }
 `;
 
 export const Link = styled(NavLink)`
