@@ -62,7 +62,7 @@ const Paginator = ({ data, itemsPerPage, currentPage, onPageChange }) => {
       }
     }
 
-    if (startPage > 2) {
+    if (startPage > 1) {
       paginationItems.push(
         <NumberButton key="ellipsis-left" disabled>
           ...

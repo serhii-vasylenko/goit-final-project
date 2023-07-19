@@ -19,10 +19,9 @@ export const Section = styled.section`
 export const List = styled.ul`
   align-items: center;
   margin-bottom: 50px;
-
-li:not(:last-child){
-  margin-bottom: 24px;
-}
+  li {
+    margin-bottom: 24px;
+  }
 
   @media screen and (min-width: 768px) {
     display: flex;
@@ -30,6 +29,9 @@ li:not(:last-child){
     flex-direction: row;
     flex-wrap: wrap;
     gap: 32px;
+    li {
+      margin-bottom: 0;
+    }
   }
 
   @media screen and (min-width: 1280px) {
