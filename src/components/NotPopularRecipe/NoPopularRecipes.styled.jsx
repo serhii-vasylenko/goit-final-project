@@ -5,7 +5,7 @@ import { Title } from 'components/ReusableComponents/PopularRecipe/PopularRecipe
 export const Svg = styled.svg`
 width: 100% ;
 height: 300px;
-fill: var(--accent-color);
+fill: ${({ theme }) => theme.colors.accentColor};
 margin-bottom: 15px;
 
 @media screen and (min-width: 1280px) {

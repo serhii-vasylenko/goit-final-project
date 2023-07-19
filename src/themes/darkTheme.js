@@ -5,10 +5,12 @@ export const darkTheme = {
     whiteColor: '#fafafa',
     backgroundColorCircle: '#22252a',
     backgroundAuthFormColor: '#2a2c3',
-    inputBorderColor: '#e0e0e0',
+    inputBorderColor: '#FAFAFA',
     errorColor: '#e74a3b',
     pageTitleColor: '#001833',
     usernameColor: '#22252a',
+    boxShadow: 'rgba(217, 217, 217, 1)',
+    blackColor: '#000000',
 
     backgroundColor: '#1e1f28',
     primaryTextColor: '#fafafa',
@@ -34,6 +36,9 @@ export const darkTheme = {
     mobileMenuBGColor: '#1E1F28',
     mobileMenuColor: '#fafafa',
     logoutBtnColor: '#8BAA36',
+    mainButtonColor: '#8aa936',
+    hoverMainButtonColor: '#22252a',
+    formLabelColor: '#FAFAFA',
   },
   transforms: {
     transitionDuration: '250ms',

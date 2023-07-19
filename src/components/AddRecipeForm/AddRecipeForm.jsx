@@ -101,6 +101,10 @@ const AddRecipeForm = () => {
         <MainButton
           nameButton="Add"
           type={'submit'}
+          bgColor = {({ theme }) => theme.colors.mainButtonColor} 
+          color = {({ theme }) => theme.colors.whiteColor} 
+          hoverParams = {{ paramFirst: ({ theme }) => theme.colors.hoverMainButtonColor}}
+           focusParams = {{ paramFirst: ({ theme }) => theme.colors.hoverMainButtonColor }}
           cofByMedia768={{ font: 1, padX: 1.17, padY: 1.333 }}
           cofByMedia1280={{ font: 1, padX: 1.17, padY: 1.333 }}
         />
