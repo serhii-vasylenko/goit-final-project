@@ -9,6 +9,9 @@ export const lightTheme = {
     errorColor: '#e74a3b',
     usernameColor: '#22252a',
     pageTitleColor: '#001833',
+    boxShadow:' rgba(217, 217, 217, 1)',
+    blackColor: '#000000',
+    
     backgroundColor: '#fafafa',
     primaryTextColor: '#23262a',
     secondaryTextColor: '#3e4462',
@@ -33,6 +36,9 @@ export const lightTheme = {
     mobileMenuBGColor: '#EBF3D4',
     mobileMenuColor: '#22252a',
     logoutBtnColor: 'transparent',
+    mainButtonColor: '#22252a',
+    hoverMainButtonColor: '#8aa936',
+    formLabelColor: '#797979',
   },
   transforms: {
     transitionDuration: '250ms',

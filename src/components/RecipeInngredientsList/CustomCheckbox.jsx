@@ -1,46 +1,47 @@
-import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+
 import {
   addToShoppingList,
   removeFromShoppingList,
 } from 'redux/shopping-list/operations';
-import { CheckBox } from './RecipeInngredientsList.styled';
+import {
+  CheckBox
+} from './RecipeInngredientsList.styled';
+import { showMessageToast } from 'components/ReusableComponents/ToastCustom/showToast';
 
 const CustomCheckbox = ({ ingredient, shoppingList, recipeId }) => {
-  // //console.log(ingredient);
-  // //console.log(recipeId)
-  // //console.log(shoppingList);
-
-  const [checked, setChecked] = useState(false);
   const dispatch = useDispatch();
   const { _id, measure } = ingredient;
+  
+  const isProductInShoppingList = (_id) => {
+     if (shoppingList.length !== 0) {
+       const product = shoppingList.some(item => item._id === _id && item.recipeId === recipeId);
+       return product;
+     }
+     return false;
+   }
 
-  //    useEffect(() => {
-  //     if (shoppingList.length > 0) {
-  //       const inShoppingList = shoppingList.filter(
-  //         item => item.ingredientId === _id
-  //       );
-  //        setChecked(inShoppingList ? inShoppingList.id : false);
-
-  //     }
-  //   }, [shoppingList, dispatch, _id]);
-
-  const toggleCheckBox = product => {
-    if (checked) {
-      dispatch(removeFromShoppingList(checked));
-      setChecked(false);
+  const inShoppingList = (isProductInShoppingList(_id))
+    
+  const toggleCheckBox = () => {
+    if (inShoppingList) {
+      dispatch(removeFromShoppingList({ measure, ingredientId: _id, recipeId }))
+      showMessageToast('Product was deleted from your shopping-list.');
+        
     } else {
-      dispatch(addToShoppingList(product));
-      setChecked(true);
+      dispatch(addToShoppingList({ measure, ingredientId: _id, recipeId }))
+      showMessageToast('Product was added to your shopping-list.');     
     }
+    return
   };
 
-  return (
-    <CheckBox
-      type="checkbox"
-      checked={checked}
-      onChange={() => toggleCheckBox({ measure, ingredientId: _id, recipeId })}
-    ></CheckBox>
+
+  return (   
+      <CheckBox
+        type="checkbox"
+        checked={inShoppingList}
+        onChange={toggleCheckBox}
+      />
   );
 };
 

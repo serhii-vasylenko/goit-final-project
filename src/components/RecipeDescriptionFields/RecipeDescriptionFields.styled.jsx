@@ -25,7 +25,7 @@ export const PhotoFieldWrapper = styled.div`
     margin-bottom: 0;
   }
 
-  transition: scale var(--transition-duration) var(--timing-function);
+  transition: scale ${({ theme }) => theme.transforms.transitionDuration} ${({ theme }) => theme.transforms.timingFunction};
 
   &:focus,
   &:hover {
@@ -37,7 +37,7 @@ export const ImgWrapper = styled.div`
   width: 279px;
   height: 268px;
 
-  transition: box-shadow var(--transition-duration) var(--timing-function);
+  transition: box-shadow ${({ theme }) => theme.transforms.transitionDuration} ${({ theme }) => theme.transforms.timingFunction};
 
   @media screen and (min-width: 1280px) {
     width: 357px;
@@ -45,7 +45,7 @@ export const ImgWrapper = styled.div`
   }
 
   &.error {
-    box-shadow: 0 0 5px var(--error-color);
+    box-shadow: 0 0 5px ${({ theme }) => theme.colors.errorColor};
     border-radius: 8px;
   }
 `;
@@ -60,7 +60,7 @@ export const InputFileThumb = styled.div`
   align-items: center;
   flex-shrink: 0;
 
-  background-color: var(--accent-color);
+  background-color: ${({ theme }) => theme.colors.accentColor};
   border-radius: 8px;
   cursor: pointer;
 
@@ -90,7 +90,7 @@ export const FieldContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: 40px;
-  border-bottom: 1px solid var(--input-border-color);
+  border-bottom: 1px solid ${({ theme }) => theme.colors.inputBorderColor};
 
   transition: box-shadow var(--transition-duration) var(--timing-function);
 
@@ -100,11 +100,11 @@ export const FieldContainer = styled.div`
 
   &:focus,
   &:hover {
-    box-shadow: 0 5px 5px -5px rgba(217, 217, 217, 1);
+    box-shadow: 0 5px 5px -5px ${({ theme }) => theme.colors.boxShadow};
   }
 
   &.error {
-    box-shadow: 0 5px 5px -5px var(--error-color);
+    box-shadow: 0 5px 5px -5px ${({ theme }) => theme.colors.accentColor};
   }
 
   @media screen and (min-width: 768px) {
@@ -127,7 +127,7 @@ export const Input = styled(Field)`
   border: none;
   background-color: transparent;
   padding: 0;
-  color: #000000;
+  color: ${({ theme }) => theme.colors.blackColor};
   height: 100%;
   outline: none;
   padding-top: 23px;
@@ -144,7 +144,7 @@ export const FieldLabel = styled.label`
   top: 0;
   left: 0;
   font-size: 14px;
-  color: #797979;
+  color: ${({ theme }) => theme.colors.formLabelColor};
   pointer-events: none;
 
   @media screen and (min-width: 768px) {
@@ -156,7 +156,7 @@ export const Select = styled(ReactSelect)`
   position: absolute;
   top: 4px;
   right: 0;
-
+  
   .custom-select {
     &__control {
       box-shadow: none;

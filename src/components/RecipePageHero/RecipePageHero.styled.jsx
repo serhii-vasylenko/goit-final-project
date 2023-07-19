@@ -74,7 +74,7 @@ export const HeroTitle = styled.h1`
 `;
 
 export const HeroText = styled.p`
-  color: var(--primary-text-color);
+  color: #23262a;
   font-size: 12px;
   line-height: 1.33;
   text-align: center;
@@ -98,10 +98,10 @@ export const Button = styled.button`
   font-size: 10px;
   line-height: 1.5;
   padding: 10px 18px;
-  color: var(--primary-text-color);
+  color: #23262a;
   margin-bottom: 42px;
   cursor: pointer;
-  transform: var(--transition-duration) var(--timing-function);
+  transform: ${({ theme }) => theme.transforms.transitionDuration} ${({ theme }) => theme.transforms.timingFunction};
 
   @media only screen and (min-width: 768px) {
     font-size: 16px;
@@ -118,7 +118,7 @@ export const Button = styled.button`
   &:hover,
   &:focus {
     background-color: var(--accent-color);
-    color: var(--background-color);
+    color: #fafafa;
   }
 `;
 
@@ -127,7 +127,7 @@ export const CookingTime = styled.div`
   display: flex;
   width: fit-content;
   align-items: center;
-  color:var(--primary-text-color);
+  color: #23262a;
   font-weight: 500;
   font-size: 10px;
   line-height: 14px;
@@ -145,7 +145,7 @@ export const CookingTime = styled.div`
 
 export const ClockIcon = styled(Clock)`
   margin-right: 5px;
-  stroke: var(--primary-text-color);
+  stroke:  #23262a;
   display: inline-block;
   width: 14px;
   height: 14px;
