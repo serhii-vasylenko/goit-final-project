@@ -18,7 +18,7 @@ export const darkTheme = {
     recipeCardBgColor: '#2A2C36',
     recipeCardDeleteBgColor: '#1e1f28',
     recipeCardDeleteColor: '#fff',
-    recipeCardDescriptionColor: '#fafafa99',
+    recipeCardDescriptionColor: '#fafafa',
     paginationBgHoverColor: '#8aa936',
     categoriesListBGColor: '#2a2c36',
     categoryListLine: 'rgba(250, 250, 250, 0.20)',
@@ -34,6 +34,7 @@ export const darkTheme = {
     mobileMenuBGColor: '#1E1F28',
     mobileMenuColor: '#fafafa',
     logoutBtnColor: '#8BAA36',
+    paginatorBGColor: '#2a2c36',
   },
   transforms: {
     transitionDuration: '250ms',

@@ -53,7 +53,7 @@ const Paginator = ({ data, itemsPerPage, currentPage, onPageChange }) => {
         <NumberButton
           key={i}
           onClick={() => handlePageChange(i)}
-          className={currentPage === i ? 'active' : ''}
+          selected={currentPage === i}
         >
           {i}
         </NumberButton>
@@ -72,7 +72,7 @@ const Paginator = ({ data, itemsPerPage, currentPage, onPageChange }) => {
       <NumberButton
         key={pageCount}
         onClick={() => handlePageChange(pageCount)}
-        className={currentPage === pageCount ? 'active' : ''}
+        selected={currentPage === pageCount}
       >
         {pageCount}
       </NumberButton>
