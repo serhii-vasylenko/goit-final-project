@@ -9,7 +9,7 @@ export const lightTheme = {
     errorColor: '#e74a3b',
     pageTitleColor: '#001833',
     usernameColor: '#22252a',
-
+    pageTitleColor: '#001833',
     backgroundColor: '#fafafa',
     primaryTextColor: '#23262a',
     secondaryTextColor: '#3e4462',
@@ -26,10 +26,10 @@ export const lightTheme = {
     backgroundModalColor: '#fafafa',
     modalInputBorderColor: 'rgba(0, 0, 0, 0.20)',
     backgroundMobileMenu: '#EBF3D4',
-    selectBGColor: '#d9d9d9',
+    inputSearchBGColor: '#ffffff',
+    selectBGColor: 'rgba(217, 217, 217, 0.2)',
+    selectTextColor: 'rgba(0, 0, 0, 0.5)',
     dropDownColor: '#fafafa',
-    selectHoverColor: 'rgba(217,217,217,0.2)',
-    selectBorderColor: 'rgba(217,217,217,0.2)',
     togglerBGColor: '#EFEFEF',
     mobileMenuBGColor: '#EBF3D4',
     mobileMenuColor: '#22252a',
@@ -73,6 +73,13 @@ export const lightTheme = {
     1_25: 1.25,
     1_4: 1.4,
     1_2: 1.2,
+  },
+
+  borders: {
+    inputSearchBorder: '1px solid #f0f0f0',
+    inputSearchBorderHover: '1px solid rgba(35, 38, 42, 0.2)',
+    selectBorder: '1px solid rgba(217,217,217,0.2)',
+    selectBorderHover: '1px solid rgba(217,217,217,0.5)',
   },
 };
 

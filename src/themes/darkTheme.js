@@ -9,7 +9,7 @@ export const darkTheme = {
     errorColor: '#e74a3b',
     pageTitleColor: '#001833',
     usernameColor: '#22252a',
-
+    pageTitleColor: '#fafafa',
     backgroundColor: '#1e1f28',
     primaryTextColor: '#fafafa',
     secondaryTextColor: '#fafafa',
@@ -26,10 +26,10 @@ export const darkTheme = {
     backgroundModalColor: '#2A2C36',
     modalInputBorderColor: 'rgba(250, 250, 250, 0.5)',
     backgroundMobileMenu: '#1E1F28',
+    inputSearchBGColor: '#1E1F28',
     selectBGColor: '#2a2c36',
+    selectTextColor: 'rgba(250, 250, 250, 1)',
     dropDownColor: '#8baa36',
-    selectHoverColor: '#2a2c36',
-    selectBorderColor: 'rgba(250,250,250,0.5)',
     togglerBGColor: '#8BAA36',
     mobileMenuBGColor: '#1E1F28',
     mobileMenuColor: '#fafafa',
@@ -73,5 +73,12 @@ export const darkTheme = {
     1_25: 1.25,
     1_4: 1.4,
     1_2: 1.2,
+  },
+
+  borders: {
+    inputSearchBorder: '1px solid #4a4b52',
+    inputSearchBorderHover: '1px solid #8c8c91',
+    selectBorder: '1px solid rgba(250,250,250,0.5)',
+    selectBorderHover: '1px solid #2a2c36',
   },
 };
