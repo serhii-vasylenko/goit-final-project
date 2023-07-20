@@ -16,18 +16,18 @@ export const SelectName = styled.p`
   align-self: top;
   padding: 10px 0;
   color: ${({ theme }) => theme.colors.pageTitleColor};
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 1.33;
+  font-size: ${({ theme }) => theme.fontSizes[12]}px;
+  font-weight: ${({ theme }) => theme.fontWeights.medium};
+  line-height: ${({ theme }) => theme.lineHeights[1_33]};
   letter-spacing: -0.24px;
 
   @media screen and (min-width: 768px) {
-    font-size: 14px;
+    font-size: ${({ theme }) => theme.fontSizes[14]}px;
     padding: 8px 0;
   }
 
   @media screen and (min-width: 1280px) {
-    font-size: 18px;
+    font-size: ${({ theme }) => theme.fontSizes[18]}px;
     padding: 6px 0;
   }
 `;
