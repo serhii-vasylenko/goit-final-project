@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { IoIosArrowDown } from 'react-icons/io';
+
+import { selectSearchFilter } from 'redux/search/searchSelector';
 
 import {
   PositionWrapper,
@@ -8,10 +10,18 @@ import {
   StyledMenuItem,
   OptionWrapper,
 } from './SelectCustom.styled';
+import { useSelector } from 'react-redux';
 
 const SelectCustom = ({ options, onChange }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(options[0]);
+  const chosenOption = useSelector(selectSearchFilter);
+
+  useEffect(() => {
+    if (chosenOption !== '') {
+      setSelectedOption(chosenOption);
+    }
+  }, [chosenOption]);
 
   const handleSelect = option => {
     setSelectedOption(option);

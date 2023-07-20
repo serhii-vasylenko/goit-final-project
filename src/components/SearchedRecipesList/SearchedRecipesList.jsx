@@ -81,13 +81,13 @@ const SearchedRecipesList = () => {
     visibleRecipeList();
   }, [visibleRecipeList]);
 
-    const handlePageChange = useCallback(
-      pageNumber => {
-        setCurrentPage(pageNumber);
-        listRef.current?.scrollIntoView({ behavior: 'smooth' });
-      },
-      [setCurrentPage]
-    );
+  const handlePageChange = useCallback(
+    pageNumber => {
+      setCurrentPage(pageNumber);
+      listRef.current?.scrollIntoView({ behavior: 'smooth' });
+    },
+    [setCurrentPage]
+  );
 
   const currentPageData = visibleRecipes.slice(
     (currentPage - 1) * itemsPerPage,
@@ -123,7 +123,7 @@ const SearchedRecipesList = () => {
           ) : (
             <SearchCapImage>Try looking for something else...</SearchCapImage>
           )}
-          {(windowWidth < 1280 && visibleRecipes.length !== 0) && (
+          {windowWidth < 1280 && visibleRecipes.length !== 0 && (
             <Paginator
               data={visibleRecipes}
               itemsPerPage={itemsPerPage}
@@ -135,6 +135,6 @@ const SearchedRecipesList = () => {
       )}
     </Section>
   );
-}
+};
 
 export default SearchedRecipesList;
