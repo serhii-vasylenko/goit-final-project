@@ -49,7 +49,14 @@ color: inherit;
 border-radius: 3px;
 border: 1px solid ${({theme }) => theme.colors.modalInputBorderColor};
 background: ${({ theme }) => theme.colors.backgroundModalColor};
-transition: all ${({ theme }) => theme.transforms.transitionDuration} ${({ theme }) => theme.transforms.timingFunction};
+transition: all ${({theme }) => theme.transforms.transitionDuration} ${({theme }) => theme.transforms.timingFunction};
+
+:hover,
+:focus,
+:active {
+  border: 1px solid ${({ theme }) => theme.borders.backgroundAuthFormColor};
+  outline: rgba(35, 38, 42, 0.2);
+}
 
 @media (min-width: 768px) {
 	padding: 17px 45px 17px 51px;
