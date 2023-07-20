@@ -5,57 +5,72 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from 'redux/auth/selectors';
 import { changeUserInfo } from 'redux/auth/operations';
 
-const data = {
-    isInformed: {
-      newUser: null,
-      daysInApp: false,
-      addedRecipes: false,
-      favoriteRecipes: false,
-    },
-  };
-
 const MotivationToast = ({ text }) => {
-  const { newUser, name } = useSelector(selectUser);
-  const dispatch = useDispatch();
   const [visible, setVisible] = useState(false);
+  const [message, setMessage] = useState('');
+
+  const { newUser, name, favoriteRecipes } = useSelector(selectUser);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (newUser) {
+      setVisible(true);
+      setMessage(`Hello and welcome, dear friend!`);
+      const timer = setTimeout(() => {
+        setVisible(false);
+        dispatch(
+          changeUserInfo({
+            newUser: false,
+          })
+        );
+      }, 10000);
+
+      return () => clearTimeout(timer);
+    }
+
+    if (
+      favoriteRecipes &&
+      !favoriteRecipes.isInformed &&
+      favoriteRecipes.number === 1
+    ) {
+      setMessage('You have added 5 recipes to your favorites!');
       setVisible(true);
       const timer = setTimeout(() => {
         setVisible(false);
         dispatch(
           changeUserInfo({
-            ...data,
-            isInformed: {
-              ...data.isInformed,
-              newUser: false,
-            },
+            favoriteRecipes: true,
           })
         );
-      }, 5000);
+      }, 10000);
 
       return () => clearTimeout(timer);
     }
-  }, [newUser, dispatch]);
+  }, [newUser, dispatch, favoriteRecipes]);
 
   const onCloseHandler = () => {
     setVisible(false);
-    dispatch(
+    if (newUser) {
+      dispatch(
         changeUserInfo({
-          ...data,
-          isInformed: {
-            ...data.isInformed,
-            newUser: false,
-          },
+          newUser: false,
         })
-      )
+      );
+    }
+    if (favoriteRecipes.number === 5) {
+      dispatch(
+        changeUserInfo({
+          favoriteRecipes: true,
+        })
+      );
+    }
   };
 
   return (
     visible && (
       <Container>
-        <MotivationCard text={`Hello and welcome, ${name}!`} onCloseHandler={onCloseHandler} />
+        <MotivationCard text={message} onCloseHandler={onCloseHandler} />
       </Container>
     )
   );
