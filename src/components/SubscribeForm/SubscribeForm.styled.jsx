@@ -16,8 +16,8 @@ export const Title = styled.h4`
   display: none;
   @media (min-width: 1280px) {
     display: block;
-    font-size: 18px;
-    font-weight: 700;
+    font-size: ${({ theme }) => theme.fontSizes[18]}px;
+    font-weight: ${({ theme }) => theme.fontWeights.bold};
     color: var(--white-color);
     margin-bottom: 14px;
   }
@@ -29,8 +29,8 @@ export const Text = styled.p`
     font-style: normal;
     display: block;
     color: var(--white-color);
-    font-size: 14px;
-    line-height: 1.3;
+    font-size: ${({ theme }) => theme.fontSizes[14]}px;
+    line-height: ${({ theme }) => theme.lineHeights[1_3]};
     margin-bottom: 28px;
   }
 `;
@@ -50,7 +50,6 @@ export const Form = styled.form`
   @media (min-width: 1280px) {
     flex-direction: column;
     gap: 12px;
-    /* justify-content: center; */
     width: 339px;
   }
 `;
@@ -155,10 +154,10 @@ export const Input = styled.input`
   outline: transparent;
   overflow: hidden;
   &::placeholder {
-    font-size: 10px;
+    font-size: ${({ theme }) => theme.fontSizes[10]}px;
     color: var(--white-color);
     @media (min-width: 768px) {
-      font-size: 14px;
+      font-size: ${({ theme }) => theme.fontSizes[14]}px;
     }
   }
 `;

@@ -1,5 +1,8 @@
 import { MainContainer } from 'components/MainContainer/MainContainer';
 import sprite from '../../images/sprite.svg';
+import Networks from 'components/ReusableComponents/Networks/Networks';
+import Nav from 'components/Nav';
+import SubscribeForm from 'components/SubscribeForm';
 import {
   FooterEl,
   PrivacyContainer,
@@ -16,10 +19,7 @@ import {
   List,
   Item,
 } from './Footer.styled';
-import Networks from 'components/ReusableComponents/Networks/Networks';
-import Nav from 'components/Nav/Nav';
-import SubscribeForm from 'components/SubscribeForm/SubscribeForm';
-export const Footer = () => {
+const Footer = () => {
   return (
     <FooterEl>
       <Wrapper>
@@ -47,8 +47,9 @@ export const Footer = () => {
               <Nav />
               <SubscribeForm />
             </Top>
-            <Networks hoverColor={({theme}) => theme.colors.socialIconHover}
-            iconColor={({ theme }) => theme.colors.socialIconColor}
+            <Networks
+              hoverColor={({ theme }) => theme.colors.socialIconHover}
+              iconColor={({ theme }) => theme.colors.socialIconColor}
             />
           </Inner>
         </MainContainer>
@@ -58,5 +59,7 @@ export const Footer = () => {
         <PrivacyText>Terms of Service</PrivacyText>
       </PrivacyContainer>
     </FooterEl>
-  )
-}
+  );
+};
+
+export default Footer;

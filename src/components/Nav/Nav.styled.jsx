@@ -22,10 +22,10 @@ export const Item = styled.li`
 `;
 
 export const Link = styled(NavLink)`
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1.3;
-  color: var(--white-color);
+  font-size: ${({ theme }) => theme.fontSizes[14]}px;
+  font-weight: ${({ theme }) => theme.fontWeights.meduim};
+  line-height: ${({ theme }) => theme.lineHeights[1_3]};
+  color: ${({ theme }) => theme.colors.whiteColor};
   display: inline-block;
 
   transition: scale var(--timing-function) var(--transition-duration);

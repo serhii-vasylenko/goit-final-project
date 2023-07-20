@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useRef } from 'react';
 
-import Pagination from 'components/ReusableComponents/Pagination/Pagination';
+import Pagination from 'components/ReusableComponents/Pagination';
 import { MainContainer } from 'components/MainContainer/MainContainer';
-import Loader from 'components/ReusableComponents/Loader/Loader';
-import RecipeCardItem from 'components/ReusableComponents/RecipeCardItem/RecipeCardItem';
+import Loader from 'components/ReusableComponents/Loader';
+import RecipeCardItem from 'components/ReusableComponents/RecipeCardItem';
 
 import { EmptyInfo, List, Section, Title } from './FavoritePage.styled';
 import getFavoriteRecipes from 'redux/recipes/operations/getFavoriteRecipes';

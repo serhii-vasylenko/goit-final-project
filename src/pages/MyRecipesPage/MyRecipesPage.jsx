@@ -4,14 +4,14 @@ import { useLayoutEffect, useRef } from 'react';
 import getOwnRecipe from 'redux/recipes/operations/getOwnRecipes';
 
 import { MainContainer } from 'components/MainContainer/MainContainer';
-import Loader from 'components/ReusableComponents/Loader/Loader';
-import RecipeCardItem from 'components/ReusableComponents/RecipeCardItem/RecipeCardItem';
+import Loader from 'components/ReusableComponents/Loader';
+import RecipeCardItem from 'components/ReusableComponents/RecipeCardItem';
 
 import { EmptyInfo, List, Section, Title } from './MyRecipiesPage.styled';
 import SearchCapImage from 'components/ReusableComponents/SearchCap/SearhCap';
 import deleteOwnRecipe from 'redux/recipes/operations/deleteOwnRecipe';
 import getOwnRecipes from 'redux/recipes/operations/getOwnRecipes';
-import Pagination from 'components/ReusableComponents/Pagination/Pagination';
+import Pagination from 'components/ReusableComponents/Pagination';
 
 const MyRecipesPage = () => {
   const { isLoading, error, ownRecipes } = useSelector(state => state.recipes);

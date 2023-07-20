@@ -42,13 +42,13 @@ export const Info = styled.div`
   flex-direction: column;
 `;
 export const Title = styled.h3`
-  font-size: 14px;
-  line-height: 1;
-  font-weight: 500;
+  font-size: ${({ theme }) => theme.fontSizes[14]}px;
+  line-height: ${({ theme }) => theme.lineHeights[1]};
+  font-weight: ${({ theme }) => theme.fontWeights.meduim};
   margin-bottom: 14px;
 
   @media screen and (min-width: 768px) {
-    font-size: 24px;
+    font-size: ${({ theme }) => theme.fontSizes[24]}px;
     margin-bottom: 28px;
   }
   @media screen and (min-width: 1280px) {
@@ -83,7 +83,7 @@ export const Trash = styled.div`
   &:hover {
     background-color: #8baa36;
     ${TrashIcon} {
-      stroke: #fff;
+      stroke: ${({ theme }) => theme.colors.whiteColor};
     }
   }
 
@@ -101,27 +101,25 @@ export const Trash = styled.div`
   }
 `;
 export const Description = styled.p`
-  font-size: 8px;
+  font-size: ${({ theme }) => theme.fontSizes[8]}px;
   width: calc(100% - 24px);
-  line-height: 1.25;
+  line-height: ${({ theme }) => theme.lineHeights[1_25]};
   color: ${({ theme }) => theme.colors.recipeCardDescriptionColor};
   @media screen and (min-width: 768px) {
-    font-size: 14px;
+    font-size: ${({ theme }) => theme.fontSizes[14]}px;
     width: calc(100% - 50px);
   }
   @media screen and (min-width: 1280px) {
-    font-size: 18px;
+    font-size: ${({ theme }) => theme.fontSizes[18]}px;
     width: 100%;
   }
 `;
 export const Time = styled.span`
-  font-size: 10px;
-  font-weight: 500;
-  line-height: 1.4;
+  font-size: ${({ theme }) => theme.fontSizes[10]}px;
+  font-weight: ${({ theme }) => theme.fontWeights.meduim};
+  line-height: ${({ theme }) => theme.lineHeights[1_4]};
   @media screen and (min-width: 768px) {
-    font-size: 14px;
-  }
-  @media screen and (min-width: 1280px) {
+    font-size: ${({ theme }) => theme.fontSizes[14]}px;
   }
 `;
 export const TitleContainer = styled.div`
