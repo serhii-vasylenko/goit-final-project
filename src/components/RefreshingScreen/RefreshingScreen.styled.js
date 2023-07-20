@@ -5,12 +5,12 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vw;
-  background: var(--background-color);
+  background: ${({ theme }) => theme.colors.backgroundColor};
 
   img {
     width: 320px;
     height: 296px;
-    animation: rotation 2s var(--timing-function) infinite;
+    animation: ${({ theme }) => `rotation 2s ${theme.transforms.timingFunction} infinite`};
 
     @media screen and (min-width: 768px) {
       width: 378px;
