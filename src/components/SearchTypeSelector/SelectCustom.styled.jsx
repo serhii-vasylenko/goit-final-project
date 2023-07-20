@@ -14,8 +14,8 @@ export const StyledFormControl = styled.div`
   position: relative;
   text-align: left;
   padding: 10px 14px;
-  font-size: 12px;
-  font-weight: 500;
+  font-size: ${({ theme }) => theme.fontSizes[12]}px;
+  font-weight: ${({ theme }) => theme.fontWeights.medium};
   letter-spacing: -0.24px;
   cursor: pointer;
 
@@ -31,11 +31,11 @@ export const StyledFormControl = styled.div`
     position: absolute;
     top: 10px;
     right: 10px;
-    fill: #8baa36;
+    fill: ${({ theme }) => theme.staticColors.iconFillGreen};
   }
 
   @media screen and (min-width: 768px) {
-    font-size: 14px;
+    font-size: ${({ theme }) => theme.fontSizes[14]}px;
     width: 175px;
 
     svg {
@@ -60,8 +60,8 @@ export const StyledSelect = styled.ul`
   background-color: ${({ theme }) => theme.colors.inputSearchBGColor};
   width: 146px;
   padding: 4px 0;
-  font-size: 12px;
-  font-weight: 500;
+  font-size: ${({ theme }) => theme.fontSizes[12]}px;
+  font-weight: ${({ theme }) => theme.fontWeights.medium};
   letter-spacing: -0.24px;
   display: flex;
   flex-direction: column;
@@ -74,7 +74,7 @@ export const StyledSelect = styled.ul`
   border-radius: 0px 0px 6px 6px;
 
   @media screen and (min-width: 768px) {
-    font-size: 14px;
+    font-size: ${({ theme }) => theme.fontSizes[14]}px;
     width: 175px;
   }
 

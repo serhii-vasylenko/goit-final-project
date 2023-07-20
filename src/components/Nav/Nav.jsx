@@ -1,19 +1,18 @@
 import React from 'react';
 import { Item, Link, List, Navigation } from './Nav.styled';
 import { useDispatch } from 'react-redux';
+import { selectOption } from 'components/SearchTypeSelector/SearchTypeSelector';
+
 const Nav = () => {
   const dispatch = useDispatch();
-  const selectOption = selectedOption => ({
-    type: 'recipes/setSearchFilter',
-    payload: selectedOption,
-  });
+
   return (
     <>
       <Navigation>
         <List>
           <Item>
             <Link
-              onClick={() => dispatch(selectOption('ingredient'))}
+              onClick={() => dispatch(selectOption('Ingredient'))}
               to={'/search'}
             >
               Ingredients

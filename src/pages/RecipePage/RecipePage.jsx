@@ -23,7 +23,7 @@ const RecipePage = () => {
   }, [dispatch, recipeId]);
 
   return (
-    <div>
+    <>
       {recipeInfo && !error && (
         <>
           <RecipePageHero
@@ -44,7 +44,7 @@ const RecipePage = () => {
           </MainContainer>
         </>
       )}
-    </div>
+    </>
   );
 };
 

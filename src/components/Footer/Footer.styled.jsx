@@ -117,7 +117,7 @@ const LogoWrapper = styled(NavLink)`
 const Logo = styled.svg`
   height: 30px;
   width: 30px;
-  stroke: ${({ theme }) => theme.colors.whiteColor};
+  stroke: ${({ theme }) => theme.colors.accentColor};
 `;
 
 const PrivacyContainer = styled.div`

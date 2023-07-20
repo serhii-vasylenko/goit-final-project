@@ -10,10 +10,10 @@ export const lightTheme = {
     usernameColor: '#22252a',
     popularCardBrdColor: '#7070702b',
     pageTitleColor: '#001833',
-    boxShadow:' rgba(217, 217, 217, 1)',
+    boxShadow: ' rgba(217, 217, 217, 1)',
     blackColor: '#000000',
     descriptionRecipeColor: '#23262a',
-    
+
     backgroundColor: '#fafafa',
     primaryTextColor: '#23262a',
     secondaryTextColor: '#3e4462',
@@ -101,7 +101,17 @@ export const lightTheme = {
     inputSearchBorderHover: '1px solid rgba(35, 38, 42, 0.2)',
     selectBorder: '1px solid rgba(217,217,217,0.2)',
     selectBorderHover: '1px solid rgba(217,217,217,0.5)',
+    checkedIngredientBorder:'2px solid rgba(126, 126, 126, 0.5)',
+  },
+
+  staticColors: {
+    iconFillGrey: 'rgba(169, 169, 169, 0.8)',
+    iconDisabledFillGrey: 'rgba(169, 169, 169, 0.3)',
+    iconHoverFillGrey: '#656565',
+    iconFillGreen: '#8baa36',
+    placeholderColor: '#bdbdbd',
   },
 };
+
 
 //${({theme}) => theme.colors.primaryTextColor}

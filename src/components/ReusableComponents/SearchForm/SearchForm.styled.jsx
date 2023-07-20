@@ -8,11 +8,12 @@ export const Input = styled.input`
   background-color: ${({ theme }) => theme.colors.inputSearchBGColor};
   border-radius: 24px 44px;
   border: ${({ theme }) => theme.borders.inputSearchBorder};
-  color: ${({theme }) => theme.colors.primaryTextColor};
-  font-size: 12px;
-  line-height: 1.2;
+  color: ${({ theme }) => theme.colors.primaryTextColor};
+  font-size: ${({ theme }) => theme.fontSizes[12]}px;
+  line-height: ${({ theme }) => theme.lineHeights[1_2]};
 
-  transition: all ${({theme }) => theme.transforms.transitionDuration} ${({theme }) => theme.transforms.timingFunction};
+  transition: all ${({ theme }) => theme.transforms.transitionDuration}
+    ${({ theme }) => theme.transforms.timingFunction};
 
   :hover,
   :focus,
@@ -22,21 +23,20 @@ export const Input = styled.input`
   }
 
   ::placeholder {
-    color: #bdbdbd;
+    color: ${({ theme }) => theme.staticColors.placeholderColor};
   }
 
   @media screen and (min-width: 768px) {
     width: 362px;
     padding: 17px 38px;
-    font-size: 14px;
-    line-height: 1.2;
+    font-size: ${({ theme }) => theme.fontSizes[14]}px;
+    line-height: ${({ theme }) => theme.lineHeights[1_2]};
   }
 
   @media screen and (min-width: 1280px) {
     width: 510px;
     padding: 23px 48px;
-    font-size: 16px;
-    line-height: 1.2;
+    font-size: ${({ theme }) => theme.fontSizes[16]}px;
   }
 `;
 export const InputWrapper = styled.div`
