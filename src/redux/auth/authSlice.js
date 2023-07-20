@@ -1,12 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { showMessageToast } from 'components/ReusableComponents/ToastCustom/showToast';
-import { toast } from 'react-toastify';
 import {
   registerUser,
   loginUser,
   logoutUser,
   refreshUser,
-  // uploadAvatar,
   changeUserData,
   subscribeUser,
   getUserInfo,
@@ -33,12 +31,10 @@ const authSlice = createSlice({
   },
   extraReducers: builder => {
     builder.addCase(registerUser.fulfilled, (state, actions) => {
-      //console.log('Payload', actions.payload);
       state.user = actions.payload.data.user;
       state.token = actions.payload.data.token;
       state.isLoggedIn = true;
       state.fetchError = null;
-      toast.info(`Successfully registered`);
     });
     builder.addCase(registerUser.rejected, (state, action) => {
       state.fetchError = action.payload;
@@ -48,7 +44,6 @@ const authSlice = createSlice({
       state.token = actions.payload.data.token;
       state.isLoggedIn = true;
       state.fetchError = null;
-      toast.info(`Successfully logged in`);
     });
     builder.addCase(loginUser.rejected, (state, action) => {
       state.fetchError = action.payload;
@@ -57,7 +52,6 @@ const authSlice = createSlice({
       state.user = { name: null, email: null, userId: null, avatarURL: null };
       state.token = '';
       state.isLoggedIn = false;
-      toast.info(`Successfully logged out`);
     });
     builder.addCase(refreshUser.pending, state => {
       state.isRefreshing = true;

@@ -127,8 +127,8 @@ export const CorrectIconIconStyled = styled(CorrectIcon)`
 
 export const WarnIconIconStyled = styled(WarnIcon)`
   position: absolute;
-  right: 20px;
-  top: 14px;
+  right: 25px;
+  top: 13px;
 
   @media (min-width: 768px) {
     right: 55px;
