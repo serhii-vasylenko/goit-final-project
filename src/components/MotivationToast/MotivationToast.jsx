@@ -76,4 +76,5 @@ const MotivationToast = ({ text }) => {
   );
 };
 
+
 export default MotivationToast;
