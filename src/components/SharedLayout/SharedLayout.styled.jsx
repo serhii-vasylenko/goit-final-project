@@ -8,7 +8,9 @@ import BgImgDesk from 'images/sharedLayout/bg-desk.png';
 import BgImgDesk2x from 'images/sharedLayout/bg-desk@2x.png';
 
 export const MainContainer = styled.main`
-  min-height: calc(100vh - (58px + 590px));
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   background-image: url(${BgImgMob});
   background-size: 256px 392px;
   background-position: left 0px bottom -175px;
@@ -21,7 +23,6 @@ export const MainContainer = styled.main`
   }
 
   @media (min-width: 768px) {
-    min-height: calc(100vh - (62px + 550px));
     background-image: url(${BgImgTab});
     background-size: 423px 646px;
     background-position: left 0px bottom -275px;
@@ -34,7 +35,6 @@ export const MainContainer = styled.main`
   }
 
   @media (min-width: 1280px) {
-    min-height: calc(100vh - (62px + 533px));
     background-image: url(${BgImgDesk});
     background-size: 558px 852px;
     background-position: left 0px bottom -375px;
@@ -45,4 +45,8 @@ export const MainContainer = styled.main`
       background-image: url(${BgImgDesk2x});
     }
   }
+`;
+
+export const Content = styled.div`
+  flex: 1;
 `;
