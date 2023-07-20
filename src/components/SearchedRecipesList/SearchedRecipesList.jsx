@@ -23,7 +23,6 @@ import {
   selectError,
 } from 'redux/search/searchSelector';
 import getRecipesByTitle from 'redux/search/operations/getRecipesByTitle';
-import getRecipesByIngredient from 'redux/search/operations/getRecipesByIngredient';
 import {
   resetRecipeByIngredient,
   resetRecipeByTitle,

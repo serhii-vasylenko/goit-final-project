@@ -64,7 +64,7 @@ const Paginator = ({ data, itemsPerPage, currentPage, onPageChange }) => {
 
     if (startPage > 1) {
       paginationItems.push(
-        <NumberButton key="ellipsis-left" disabled>
+        <NumberButton key="ellipsis-left" className="ellipsis-button" disabled>
           ...
         </NumberButton>
       );
@@ -84,7 +84,7 @@ const Paginator = ({ data, itemsPerPage, currentPage, onPageChange }) => {
 
     if (endPage < pageCount) {
       paginationItems.push(
-        <NumberButton key="ellipsis-right" disabled>
+        <NumberButton key="ellipsis-right" className="ellipsis-button" disabled>
           ...
         </NumberButton>
       );

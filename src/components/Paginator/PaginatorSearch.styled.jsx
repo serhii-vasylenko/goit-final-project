@@ -36,7 +36,7 @@ export const Icon = styled.svg`
   width: 8px;
   height: 15px;
   fill: rgba(169, 169, 169, 0.8);
-  
+
   &:disabled {
     fill: rgba(169, 169, 169, 0.3);
     cursor: not-allowed;
@@ -64,5 +64,11 @@ export const NumberButton = styled.button`
     selected ? theme.colors.paginationBgHoverColor : 'transparent'};
   &:hover {
     background-color: ${({ theme }) => theme.colors.paginationBgHoverColor};
+  }
+  &.ellipsis-button {
+    pointer-events: none;
+    &:hover {
+      bacground-color: transparent;
+    }
   }
 `;
