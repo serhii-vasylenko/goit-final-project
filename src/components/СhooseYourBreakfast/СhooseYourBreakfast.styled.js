@@ -68,7 +68,7 @@ export const StyledLink = styled(Link)`
   letter-spacing: 0.2px;
   cursor: pointer;
   transition: ${({ theme }) =>
-    `color ${theme.transforms.transforms} ${theme.transforms.timingFunction}`};
+    `color ${theme.transforms.transitionDuration} ${theme.transforms.timingFunction}`};
 
   &:hover,
   &:focus {
