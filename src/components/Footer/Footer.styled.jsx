@@ -36,7 +36,6 @@ const Top = styled.div`
   @media (min-width: 1280px) {
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: none;
-    /* gap: 20px; */
   }
 `;
 
@@ -81,27 +80,27 @@ const List = styled.ul`
 
 const Item = styled.li`
   color: ${({ theme }) => theme.colors.whiteColor};
-  font-size: 14px;
-  line-height: 1.3;
+  font-size: ${({ theme }) => theme.fontSizes[14]}px;
+  line-height: ${({ theme }) => theme.lineHeights[1_3]};
   list-style: disc;
 
   @media (min-width: 1280px) {
-    font-size: 18px;
+    font-size: ${({ theme }) => theme.fontSizes[18]}px;
   }
 `;
 
 const Title = styled.h2`
   text-transform: capitalize;
-  font-size: 18px;
-  line-height: 1;
-  font-weight: 700;
+  font-size: ${({ theme }) => theme.fontSizes[18]}px;
+  line-height: ${({ theme }) => theme.lineHeights[1]};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
   color: ${({ theme }) => theme.colors.whiteColor};
   letter-spacing: 0.27px;
   font-style: normal;
   text-align: center;
 
   @media (min-width: 768px) {
-    font-size: 28px;
+    font-size: ${({ theme }) => theme.fontSizes[28]}px;
   }
 `;
 
@@ -126,7 +125,7 @@ const PrivacyContainer = styled.div`
   justify-content: center;
   width: 100%;
   padding: 28px 0;
-  line-height: 1;
+  line-height: ${({ theme }) => theme.lineHeights[1]};
   letter-spacing: -0.14px;
   color: ${({ theme }) => theme.colors.privacyColor};
   background: ${({ theme }) => theme.colors.backgroundColor} url(${bgImgMob})
