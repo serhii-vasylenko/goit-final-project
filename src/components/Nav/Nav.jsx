@@ -1,14 +1,11 @@
 import React from 'react';
 import { Item, Link, List, Navigation } from './Nav.styled';
 import { useDispatch } from 'react-redux';
+import { selectOption } from 'components/SearchTypeSelector/SearchTypeSelector';
+
 const Nav = () => {
   const dispatch = useDispatch();
-  const selectOption = selectedOption => {
-    return {
-      type: 'search/setSearchFilter',
-      payload: selectedOption,
-    };
-  };
+
   return (
     <>
       <Navigation>

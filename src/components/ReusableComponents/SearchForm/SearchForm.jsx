@@ -14,6 +14,8 @@ import {
   resetRecipeByTitle,
   resetRecipeByIngredient,
 } from 'redux/search/searchSlice';
+import { selectOption } from 'components/SearchTypeSelector/SearchTypeSelector';
+
 
 const SearchForm = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -63,6 +65,7 @@ const SearchForm = () => {
     e.preventDefault();
 
     if (location.pathname === '/main' && searchValue !== '') {
+      dispatch(selectOption('Title'));
       navigate(`/search?q=${searchValue}`, {
         state: { from: '/main' },
       });

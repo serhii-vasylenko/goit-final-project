@@ -21,8 +21,7 @@ const SelectCustom = ({ options, onChange }) => {
     if (chosenOption !== '') {
       setSelectedOption(chosenOption);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [chosenOption]);
 
   const handleSelect = option => {
     setSelectedOption(option);
