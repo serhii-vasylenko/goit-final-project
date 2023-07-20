@@ -9,7 +9,7 @@ const MotivationToast = ({ text }) => {
   const [visible, setVisible] = useState(false);
   const [message, setMessage] = useState('');
 
-  const { newUser, favoriteRecipes } = useSelector(selectUser);
+  const { newUser, favoriteRecipes, addedRecipes } = useSelector(selectUser);
 
   const dispatch = useDispatch();
 
@@ -47,7 +47,22 @@ const MotivationToast = ({ text }) => {
 
       return () => clearTimeout(timer);
     }
-  }, [newUser, dispatch, favoriteRecipes]);
+
+    if (addedRecipes && !addedRecipes.isInformed && addedRecipes.number === 1) {
+      setMessage('You have create the first recipe!');
+      setVisible(true);
+      const timer = setTimeout(() => {
+        setVisible(false);
+        dispatch(
+          changeUserInfo({
+            addedRecipes: true,
+          })
+        );
+      }, 10000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [newUser, favoriteRecipes, addedRecipes, dispatch]);
 
   const onCloseHandler = () => {
     setVisible(false);
@@ -75,6 +90,5 @@ const MotivationToast = ({ text }) => {
     )
   );
 };
-
 
 export default MotivationToast;

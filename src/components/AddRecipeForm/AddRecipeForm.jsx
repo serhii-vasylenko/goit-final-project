@@ -13,6 +13,7 @@ import {
   showMessageToast,
   showErrorToast,
 } from 'components/ReusableComponents/ToastCustom/showToast';
+import { getUserInfo } from 'redux/auth/operations';
 import MainButton from '../ReusableComponents/MainButton/';
 import RecipeDescriptionFields from 'components/RecipeDescriptionFields/';
 import RecipeIngredientsFields from 'components/RecipeIngredientsFields/';
@@ -49,15 +50,16 @@ const AddRecipeForm = () => {
       return;
     }
     if (currentAddedOwnRecipe) {
-    showMessageToast('Congratulations! You have added a recipe.');
+      dispatch(getUserInfo());
+      showMessageToast('Congratulations! You have added a recipe.');
     }
     if (currentAddedOwnRecipe) {
       navigate(`/recipes/${currentAddedOwnRecipe}`);
     }
 
     return () => {
-      dispatch(removeCurrentAddedOwnRecipe(''))
-    }
+      dispatch(removeCurrentAddedOwnRecipe(''));
+    };
   }, [error, currentAddedOwnRecipe, navigate, dispatch]);
 
   const handleFileChange = event => {
@@ -100,11 +102,15 @@ const AddRecipeForm = () => {
         <MainButton
           nameButton="Add"
           type={'submit'}
-          bgColor = {({ theme }) => theme.colors.mainButtonColor} 
-          textColor = {({ theme }) => theme.colors.whiteColor}
-          hoverStyles = {{ styleFirst: 'color' }}
-          hoverParams = {{ paramFirst: ({ theme }) => theme.colors.hoverMainButtonColor}}
-           focusParams = {{ paramFirst: ({ theme }) => theme.colors.hoverMainButtonColor }}
+          bgColor={({ theme }) => theme.colors.mainButtonColor}
+          textColor={({ theme }) => theme.colors.whiteColor}
+          hoverStyles={{ styleFirst: 'color' }}
+          hoverParams={{
+            paramFirst: ({ theme }) => theme.colors.hoverMainButtonColor,
+          }}
+          focusParams={{
+            paramFirst: ({ theme }) => theme.colors.hoverMainButtonColor,
+          }}
           cofByMedia768={{ font: 1, padX: 1.17, padY: 1.333 }}
           cofByMedia1280={{ font: 1, padX: 1.17, padY: 1.333 }}
         />
