@@ -126,6 +126,7 @@ right: 18px;
 width: 18px;
 height: 18px;
 color: inherit;
+cursor: pointer;
 transition: color ${({theme }) => theme.transforms.transitionDuration} ${({theme }) => theme.transforms.timingFunction};
 &:hover{
     color: ${({theme }) => theme.colors.accentColor}

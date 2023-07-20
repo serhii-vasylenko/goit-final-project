@@ -49,7 +49,7 @@ cursor: pointer;
 `
 const Button = styled.button`
 display: flex;
-align-item: center;
+align-items: center;
 justify-content: center;
 width: 100%;
 padding: 12px 0;
