@@ -21,9 +21,10 @@ const authSlice = createSlice({
       avatarUrl: null,
       userId: null,
       subscribe: null,
-      numberOfDaysInApp: null,
-      numberOfAddedRecipes: null,
-      numberOfFavoriteRecipes: null,
+      newUser: null,
+      daysInApp: null,
+      addedRecipes: null,
+      favoriteRecipes: null,
     },
     token: null,
     isLoggedIn: false,
@@ -100,18 +101,9 @@ const authSlice = createSlice({
     });
     builder.addCase(getUserInfo.fulfilled, (state, action) => {
       state.loading = false;
-      const {
-        numberOfDaysInApp,
-        numberOfAddedRecipes,
-        numberOfFavoriteRecipes,
-      } = action.payload;
       state.user = {
-        ...state.user,
-        numberOfDaysInApp,
-        numberOfAddedRecipes,
-        numberOfFavoriteRecipes,
+        ...state.user, ...action.payload.data.user
       };
-      showMessageToast(action.payload.message);
     });
     builder.addCase(getUserInfo.rejected, (state, action) => {
       state.loading = false;
