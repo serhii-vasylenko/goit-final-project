@@ -32,7 +32,7 @@ const MotivationToast = ({ text }) => {
     if (
       favoriteRecipes &&
       !favoriteRecipes.isInformed &&
-      favoriteRecipes.number === 1
+      favoriteRecipes.number === 5
     ) {
       setMessage('You have added 5 recipes to your favorites!');
       setVisible(true);
