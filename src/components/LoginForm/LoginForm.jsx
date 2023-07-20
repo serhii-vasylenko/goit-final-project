@@ -40,8 +40,6 @@ export const LoginForm = () => {
     validationSchema: signInSchema,
 
     onSubmit: values => {
-      //console.log('values', values);
-
       dispatch(
         loginUser({
           email: values.email,

@@ -12,6 +12,7 @@ export const lightTheme = {
     pageTitleColor: '#001833',
     boxShadow:' rgba(217, 217, 217, 1)',
     blackColor: '#000000',
+    descriptionRecipeColor: '#23262a',
     
     backgroundColor: '#fafafa',
     primaryTextColor: '#23262a',
@@ -52,6 +53,8 @@ export const lightTheme = {
     svgCrossColor: '#333333',
     counterBrdColor: 'rgba(51, 51, 51, 0.3)',
     popularRecipeDescriptionColor: '#7e7e7e',
+    socialIconColor: '#8aa936',
+    socialIconHover: '#FAFAFA',
   },
   transforms: {
     transitionDuration: '250ms',

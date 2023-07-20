@@ -69,8 +69,8 @@ export const ProductQuantity = styled.div`
   text-align: center;
   display: inline-block;
   word-break: break-word;
-
-  height: 25px;
+  max-width: 85px;
+  max-height: auto;
 
   border-radius: 5px;
   font-size: 10px;
@@ -80,16 +80,20 @@ export const ProductQuantity = styled.div`
   background-color: ${({ theme }) => theme.colors.accentColor};
 
   @media screen and (min-width: 768px) {
-    height: 35px;
     font-size: 16px;
     padding: 8px;
+    max-width: 150px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    max-width: 200px;
   }
 `;
 
 export const DeleteBtn = styled.button`
   height: 14px;
   margin-right: 10px;
-  margin-left: 60px;
+  margin-left: 50px;
   border: none;
   background-color: transparent;
   padding: 5px;
@@ -123,4 +127,5 @@ export const DescriptionContainer = styled.div`
 
 export const NumberContainer = styled.div`
   display: flex;
+  height: fit-content;
 `;

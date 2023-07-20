@@ -15,7 +15,7 @@ export const Container = styled.div`
     width: 1240px;
     display: flex;
     gap: 50px;
-    flex-direction: row;  
+    flex-direction: row;
   }
 `;
 
@@ -69,13 +69,12 @@ export const GreenCircle = styled.div`
   align-items: center;
   padding: 0 7px;
   border-radius: 50%;
-  background-color: var(--accent-color);
-  color: var(--white-color);
+  background-color: ${({ theme }) => theme.colors.accentColor};
+  color: ${({ theme }) => theme.colors.whiteColor};
   flex-shrink: 0;
 `;
 
 export const ImageWrapper = styled.div`
-
   @media screen and (min-width: 768px) {
     max-width: 433px;
   }
@@ -84,6 +83,6 @@ export const ImageWrapper = styled.div`
 export const ImageRecipe = styled.img`
   display: block;
   object-fit: contain;
-  width:100%;
+  width: 100%;
   border-radius: 8px;
 `;

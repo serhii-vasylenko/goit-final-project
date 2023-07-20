@@ -21,12 +21,12 @@ const CategoriesPage = () => {
   }, [dispatch])
 
 
-  return <MainContainer style={{ paddingTop: '58px' }}>
+  return <MainContainer>
       <PageTitle title={'Categories'}/>
-    <CategoryList currentCategory={currentCategory} />
-    <Suspense>
-        <Outlet />
-    </Suspense>
+      <CategoryList currentCategory={currentCategory} />
+      <Suspense>
+          <Outlet />
+      </Suspense>
     </MainContainer>
 }
 

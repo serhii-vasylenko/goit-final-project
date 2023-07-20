@@ -33,7 +33,9 @@ const Category = styled.li`
   &:focus {
     color: ${({theme }) => theme.colors.accentColor};
   }
-
+  &.active{
+      color: ${({theme }) => theme.colors.accentColor};
+  }
   &.active::after {
     content: '';
     position: absolute;

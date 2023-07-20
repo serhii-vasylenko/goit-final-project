@@ -12,6 +12,7 @@ export const darkTheme = {
     boxShadow: 'rgba(217, 217, 217, 1)',
     blackColor: '#000000',
     popularCardBrdColor: '#7070702b',
+    descriptionRecipeColor: '#23262a',
     
     backgroundColor: '#1e1f28',
     primaryTextColor: '#fafafa',
@@ -53,6 +54,8 @@ export const darkTheme = {
     svgCrossColor: '#FAFAFA',
     counterBrdColor: '#FAFAFA',
     popularRecipeDescriptionColor: 'rgba(250, 250, 250, 0.60)',
+    socialIconColor: '#FAFAFA',
+    socialIconHover: '#1E1F28',
   },
   transforms: {
     transitionDuration: '250ms',

@@ -51,13 +51,19 @@ export const Container = styled.div`
 `;
 
 export const StyledLink = styled(NavLink)`
-  color: var(--white-color);
+  color: ${({ theme }) => theme.colors.whiteColor};
   text-decoration: underline;
   font-size: 14px;
   position: absolute;
   top: 670px;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: var(--transition-duration);
+
+  &:focus,
+  :hover {
+	opacity: 0.8;
+  }
 
   @media (min-width: 768px) {
     top: 965px;

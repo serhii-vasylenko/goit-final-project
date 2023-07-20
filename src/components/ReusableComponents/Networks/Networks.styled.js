@@ -16,7 +16,7 @@ export const Link = styled.a`
   justify-content: center;
   height: 100%;
 
-  color: ${({ theme }) => theme.colors.accentColor};
+  color: ${props => props.iconColor};
   transition: ${({ theme }) => theme.transforms.all};
   cursor: pointer;
 
@@ -24,8 +24,14 @@ export const Link = styled.a`
     fill: currentColor;
   }
 
-  &:hover,
+  &:hover {
+    color: ${props => props.hoverColor || '#ffffff'};
+  }
+
   &:focus {
     color: ${props => props.hoverColor || '#ffffff'};
+    box-shadow: ${props => props.boxShadow || 'none'};
+    border-radius: ${props => props.borderRadius || 'none'};;
+    outline: ${props => props.outline}
   }
 `;

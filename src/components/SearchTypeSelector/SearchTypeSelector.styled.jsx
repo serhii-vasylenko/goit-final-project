@@ -15,7 +15,7 @@ export const SelectWrapper = styled.div`
 export const SelectName = styled.p`
   align-self: top;
   padding: 10px 0;
-  color: var(--page-title-color);
+  color: ${({ theme }) => theme.colors.pageTitleColor};
   font-size: 12px;
   font-weight: 500;
   line-height: 1.33;

@@ -14,9 +14,7 @@ import {
   Item,
   NotFound,
   ProductsHead,
-  //Section,
   ShoppingList,
-  //Title,
 } from './ShoppingList.styled';
 import PageTitle from 'components/ReusableComponents/PageTitle/PageTitle';
 
