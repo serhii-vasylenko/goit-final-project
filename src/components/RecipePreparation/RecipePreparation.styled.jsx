@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const Container = styled.div`
+export const Container = styled.section`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -20,9 +20,9 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h2`
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 1;
+  font-weight: ${({ theme }) => theme.fontWeights.semibold};
+  font-size: ${({ theme }) => theme.fontSizes[24]}px;
+  line-height: ${({ theme }) => theme.lineHeights[1]};
   margin-bottom: 28px;
   color: ${({ theme }) => theme.colors.secondaryTextColor};
   @media screen and (min-width: 768px) {
@@ -43,8 +43,8 @@ export const InstructionsList = styled.ul`
 `;
 
 export const ListItem = styled.li`
-  font-size: 12px;
-  line-height: 1.17;
+  font-size: ${ ({ theme }) => theme.fontSizes[12]}px;
+  line-height: ${ ({ theme }) => theme.lineHeights[1_17]};
   letter-spacing: -0.02em;
   color: ${({ theme }) => theme.colors.primaryTextColor};
   display: flex;
@@ -52,8 +52,8 @@ export const ListItem = styled.li`
   align-items: flex-start;
 
   @media screen and (min-width: 768px) {
-    font-size: 14px;
-    line-height: 1.29;
+    font-size: ${ ({ theme }) => theme.fontSizes[14]}px;
+    line-height: ${ ({ theme }) => theme.lineHeights[1_29]};
   }
 
   @media screen and (min-width: 1280px) {

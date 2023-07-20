@@ -9,7 +9,7 @@ import hero_mob_2 from '../../images/recipePageImg/recipe_hero_mob@2x.jpg';
 
 import { ReactComponent as Clock } from '../../images/icons/clock.svg';
 
-export const HeroContainer = styled.div`
+export const HeroContainer = styled.section`
   background-image: url(${hero_mob_1});
 
   background-size: 100%;
@@ -54,8 +54,9 @@ export const HeroContainer = styled.div`
 `;
 
 export const HeroTitle = styled.h1`
-  font-size: 24px;
-  font-weight: 600;
+  font-size: ${({ theme }) => theme.fontSizes[24]}px;
+  line-height: ${({ theme }) => theme.lineHeights[1]};
+  font-weight: ${({ theme }) => theme.fontWeights.semibold};
   margin-bottom: 18px;
   margin-top: 80px;
   letter-spacing: -0.02em;
@@ -63,8 +64,7 @@ export const HeroTitle = styled.h1`
   color: ${({ theme }) => theme.colors.accentColor};
 
   @media screen and (min-width: 768px) {
-    font-size: 44px;
-    line-height: 1;
+    font-size: ${({ theme }) => theme.fontSizes[44]}px;
     margin-bottom: 24px;
     margin-top: 72px;
   }
@@ -75,15 +75,15 @@ export const HeroTitle = styled.h1`
 
 export const HeroText = styled.p`
   color: ${({ theme }) => theme.colors.descriptionRecipeColor};
-  font-size: 12px;
-  line-height: 1.33;
+  font-size: ${({ theme }) => theme.fontSizes[12]}px;
+  line-height: ${ ({ theme }) => theme.lineHeights[1_33] };
   text-align: center;
   margin-bottom: 24px;
   width: 303px;
 
   @media screen and (min-width: 768px) {
     width: 506px;
-    font-size: 18px;
+    font-size: ${({ theme }) => theme.fontSizes[18]}px;
   }
   @media screen and (min-width: 1280px) {
     margin-bottom: 30px;
@@ -95,18 +95,16 @@ export const Button = styled.button`
   background-color: transparent;
   border-radius: 24px 44px;
   border: 1px solid ${({ theme }) => theme.colors.accentColor};
-  font-size: 10px;
-  line-height: 1.5;
+  font-size: ${({ theme }) => theme.fontSizes[10]}px;
+  line-height: ${ ({ theme }) => theme.lineHeights[1_5]};
   padding: 10px 18px;
   color: ${({ theme }) => theme.colors.descriptionRecipeColor};
   margin-bottom: 42px;
   cursor: pointer;
-  transition: background-color
-    ${({ theme }) => theme.transforms.transitionDuration}
-    ${({ theme }) => theme.transforms.timingFunction};
+  transition: ${({ theme }) => theme.transforms.all};
 
   @media only screen and (min-width: 768px) {
-    font-size: 16px;
+    font-size: ${({ theme }) => theme.fontSizes[16]}px;
     max-width: 330px;
     margin-bottom: 60px;
     padding: 18px 44px;
@@ -129,18 +127,15 @@ export const CookingTime = styled.div`
   width: fit-content;
   align-items: center;
   color: ${({ theme }) => theme.colors.descriptionRecipeColor};
-  font-weight: 500;
-  font-size: 10px;
-  line-height: 14px;
+  font-weight: ${ ({ theme }) => theme.fontWeights.medium };
+  font-size: ${ ({ theme }) => theme.fontSizes[10]}px;
+  line-height: ${ ({ theme }) => theme.lineHeights[1]};
   letter-spacing: -0.24px;
   height: 14px;
 
   @media screen and (min-width: 768px) {
     height: 20px;
-    font-size: 14px;
-  }
-  @media screen and (min-width: 1280px) {
-    line-height: 20px;
+    font-size: ${ ({ theme }) => theme.fontSizes[14]}px;
   }
 `;
 

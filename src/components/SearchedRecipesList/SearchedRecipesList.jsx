@@ -18,17 +18,22 @@ import Paginator from '../Paginator/PaginatorSearch';
 import {
   selectRecipeByTitle,
   selectRecipesByIngredient,
+  selectSearchFilter,
   selectIsLoading,
   selectError,
 } from 'redux/search/searchSelector';
 import getRecipesByTitle from 'redux/search/operations/getRecipesByTitle';
-import { resetRecipeByIngredient } from 'redux/search/searchSlice';
+import {
+  resetRecipeByIngredient,
+  resetRecipeByTitle,
+} from 'redux/search/searchSlice';
 
 import { Section, List } from './SearchRecipesList.styled';
 
 const SearchedRecipesList = () => {
   const searchedList = useSelector(selectRecipeByTitle);
   const serchedIngredList = useSelector(selectRecipesByIngredient);
+  const chosenOption = useSelector(selectSearchFilter);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
@@ -48,11 +53,18 @@ const SearchedRecipesList = () => {
   }, [error]);
 
   useEffect(() => {
+    if (chosenOption === 'Ingredient') {
+      dispatch(resetRecipeByTitle());
+      dispatch(resetRecipeByIngredient());
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
     if (location.state && location.state.from === '/main') {
       const params = Object.fromEntries(searchParams.entries());
       const { q } = params;
       const title = searchParams.get('q');
-
       if (q && q !== '') {
         dispatch(resetRecipeByIngredient());
         dispatch(getRecipesByTitle(title));
@@ -81,13 +93,13 @@ const SearchedRecipesList = () => {
     visibleRecipeList();
   }, [visibleRecipeList]);
 
-    const handlePageChange = useCallback(
-      pageNumber => {
-        setCurrentPage(pageNumber);
-        listRef.current?.scrollIntoView({ behavior: 'smooth' });
-      },
-      [setCurrentPage]
-    );
+  const handlePageChange = useCallback(
+    pageNumber => {
+      setCurrentPage(pageNumber);
+      listRef.current?.scrollIntoView({ behavior: 'smooth' });
+    },
+    [setCurrentPage]
+  );
 
   const currentPageData = visibleRecipes.slice(
     (currentPage - 1) * itemsPerPage,
@@ -123,7 +135,7 @@ const SearchedRecipesList = () => {
           ) : (
             <SearchCapImage>Try looking for something else...</SearchCapImage>
           )}
-          {(windowWidth < 1280 && visibleRecipes.length !== 0) && (
+          {windowWidth < 1280 && visibleRecipes.length !== 0 && (
             <Paginator
               data={visibleRecipes}
               itemsPerPage={itemsPerPage}
@@ -135,6 +147,6 @@ const SearchedRecipesList = () => {
       )}
     </Section>
   );
-}
+};
 
 export default SearchedRecipesList;

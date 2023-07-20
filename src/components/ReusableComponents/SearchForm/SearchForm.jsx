@@ -14,6 +14,8 @@ import {
   resetRecipeByTitle,
   resetRecipeByIngredient,
 } from 'redux/search/searchSlice';
+import { selectOption } from 'components/SearchTypeSelector/SearchTypeSelector';
+
 
 const SearchForm = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -32,6 +34,10 @@ const SearchForm = () => {
   }, []);
 
   const updateQueryString = useCallback(() => {
+    if (location.pathname === '/search' && searchValue === '') {
+      setSearchParams({});
+    }
+
     if (location.pathname === '/search' && searchValue !== '') {
       switch (selectedOption) {
         case 'Title':
@@ -43,9 +49,6 @@ const SearchForm = () => {
         default:
           break;
       }
-    }
-    if (searchValue === '') {
-      setSearchParams({});
     }
   }, [location.pathname, searchValue, selectedOption, setSearchParams]);
 
@@ -62,6 +65,7 @@ const SearchForm = () => {
     e.preventDefault();
 
     if (location.pathname === '/main' && searchValue !== '') {
+      dispatch(selectOption('Title'));
       navigate(`/search?q=${searchValue}`, {
         state: { from: '/main' },
       });
@@ -76,7 +80,7 @@ const SearchForm = () => {
 
     if (searchValue === '') {
       setSearchParams({});
-      showMessageToast('enter any word in');
+      showMessageToast('Enter any word in');
       return;
     }
 

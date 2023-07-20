@@ -102,3 +102,15 @@ export const getUserInfo = createAsyncThunk(
     }
   }
 );
+
+export const changeUserInfo = createAsyncThunk(
+  'auth/changeUserInfo',
+  async (userData, thunkAPI) => {
+    try {
+      const response = await axios.patch('/users/isInformed', userData);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

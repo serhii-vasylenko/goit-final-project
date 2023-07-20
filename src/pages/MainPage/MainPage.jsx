@@ -99,7 +99,7 @@ const MainPage = () => {
           {!isMobile && <SearchForm />}
         </HeroContainer>
       </HeroSection>
-      {/*<PreviewCategories />*/}
+      {/* <PreviewCategories /> */}
     </>
   );
 };

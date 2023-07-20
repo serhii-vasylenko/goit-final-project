@@ -11,21 +11,21 @@ const Paginator = ({ data, itemsPerPage, currentPage, onPageChange }) => {
   const [visiblePagesCount, setVisiblePagesCount] = useState(10);
   const pageCount = Math.ceil(data.length / itemsPerPage);
 
-  const updateVisiblePagesCount = () => {
+  const updateVisiblePagesCount = useCallback(() => {
     const screenWidth = window.innerWidth;
     if (screenWidth <= 767) {
       setVisiblePagesCount(6);
     } else {
       setVisiblePagesCount(10);
     }
-  };
+  }, []);
 
   useEffect(() => {
     window.addEventListener('resize', updateVisiblePagesCount);
     return () => {
       window.removeEventListener('resize', updateVisiblePagesCount);
-    }
-  }, [])
+    };
+  }, [updateVisiblePagesCount]);
 
   const handlePageChange = useCallback(
     pageNumber => {
@@ -64,7 +64,7 @@ const Paginator = ({ data, itemsPerPage, currentPage, onPageChange }) => {
 
     if (startPage > 1) {
       paginationItems.push(
-        <NumberButton key="ellipsis-left" disabled>
+        <NumberButton key="ellipsis-left" className="ellipsis-button" disabled>
           ...
         </NumberButton>
       );
@@ -84,7 +84,7 @@ const Paginator = ({ data, itemsPerPage, currentPage, onPageChange }) => {
 
     if (endPage < pageCount) {
       paginationItems.push(
-        <NumberButton key="ellipsis-right" disabled>
+        <NumberButton key="ellipsis-right" className="ellipsis-button" disabled>
           ...
         </NumberButton>
       );

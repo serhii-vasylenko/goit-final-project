@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import checked from '../../images/icons/pick.svg';
 
-export const ContainerList = styled.div`
+export const ContainerList = styled.section`
   width: 100%;
   margin-bottom: 50px;
   margin-top: 24px;
@@ -45,13 +45,13 @@ export const HeaderList = styled.div`
   }
 
   p {
-    font-weight: 600;
-    font-size: 10px;
-    line-height: normal;
+    font-weight: ${({ theme }) => theme.fontWeights.semibold};
+    font-size: ${({ theme }) => theme.fontSizes[10]}px;
+    line-height: ${({ theme }) => theme.lineHeights[1]};
     letter-spacing: 0.3px;
 
     @media screen and (min-width: 768px) {
-      font-size: 18px;
+      font-size: ${ ({ theme }) => theme.fontSizes[18]}px;
       letter-spacing: 0.54px;
     }
   }
@@ -143,18 +143,17 @@ export const Image = styled.img`
 `;
 
 export const NameIngredient = styled.p`
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.17;
+  font-weight: ${({ theme }) => theme.fontWeights.medium};
+  font-size: ${({ theme }) => theme.fontSizes[12]}px;
+  line-height: ${ ({ theme }) => theme.lineHeights[1_17]};
   letter-spacing: -0.24px;
   color: ${({ theme }) => theme.colors.secondaryTextColor};
   overflow: hidden;
-  width: 99px;
-  padding: 2px;
+  width: 145px;
 
   @media screen and (min-width: 768px) {
-    font-size: 24px;
-    line-height: 24px;
+    font-size: ${ ({ theme }) => theme.fontSizes[24]}px;
+    line-height: ${ ({ theme }) => theme.lineHeights[1_5]};
     width: 206px;
   }
 
@@ -170,9 +169,9 @@ export const IngredientMeasure = styled.span`
   padding: 4px;
   min-width: 37px;
   max-width: 70px;
-  font-weight: 600;
-  font-size: 10px;
-  line-height: 1.5;
+  font-weight: ${ ({ theme }) => theme.fontWeights.semibold };
+  font-size: ${ ({ theme }) => theme.fontSizes[10]}px;
+  line-height: ${ ({ theme }) => theme.lineHeights[1_5]};
   text-align: center;
   color: ${({ theme }) => theme.colors.whiteColor};
   overflow: hidden;
@@ -180,8 +179,7 @@ export const IngredientMeasure = styled.span`
   @media screen and (min-width: 768px) {
     min-width: 68px;
     max-width: 120px;
-    font-size: 18px;
-    line-height: 27px;
+    font-size: ${ ({ theme }) => theme.fontSizes[18]}px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -194,16 +192,19 @@ export const CheckBox = styled.input`
   width: 18px;
   height: 18px;
   cursor: pointer;
+  border: ${({ theme }) => theme.borders.checkedIngredientBorder};
+  border-radius: 4px;
+  position: relative;
+  transition: transform;
 
   @media screen and (min-width: 768px) {
     width: 35px;
     height: 35px;
-    border: 2px solid rgba(126, 126, 126, 0.5);
   }
 
-  border: 1px solid rgba(126, 126, 126, 0.5);
-  border-radius: 4px;
-  position: relative;
+  &:hover, &:focus {
+    transform: scale(1.1)
+  }
 
   &:checked::after {
     content: '';
