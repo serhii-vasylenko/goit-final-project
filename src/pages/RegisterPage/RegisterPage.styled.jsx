@@ -62,7 +62,7 @@ export const StyledLink = styled(NavLink)`
 
   &:focus,
   :hover {
-	opacity: 0.8;
+	opacity: 0.7;
   }
 
   @media (min-width: 768px) {
