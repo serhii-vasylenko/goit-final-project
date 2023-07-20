@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { UserLogoModal } from 'components/UserLogoModal/UserLogoModal';
 import {
   UserWrapper,
@@ -11,15 +11,42 @@ import { useSelector } from 'react-redux';
 import { selectAuth } from 'redux/auth/selectors';
 
 export const UserLogo = () => {
+  const modalRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
-  const onModalClick = () => {
+  const { user, isLoggedIn } = useSelector(selectAuth)
+
+  const onModalClick = (event) => {
     setIsOpen(!isOpen);
+    event.stopPropagation();
   };
 
-  const { user, isLoggedIn } = useSelector(selectAuth)
-  
+    useEffect(() => {
+
+    const handleEscapeKey = (event) => {
+      if (event.key === 'Escape') {
+        setIsOpen(false);
+      }
+      };
+      const closeModal = (event) => {
+        if (!modalRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }      
+      }
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleEscapeKey);
+      document.addEventListener('click', closeModal);
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscapeKey);
+      document.removeEventListener('click', closeModal);
+
+    };
+    }, [isOpen, setIsOpen, modalRef]);
+    
   return (
-    <UserWrapper onClick={() => onModalClick()}>
+    <UserWrapper onClick={(event) => onModalClick(event)} ref={modalRef}>
       <ImgContainer>
         {user.avatarURL ? <UserImg src={user.avatarURL} /> : <UserImg src={defaultImg} />}
       </ImgContainer>
@@ -28,7 +55,7 @@ export const UserLogo = () => {
       ) : (
         <UserName>Anonym</UserName>
       )}
-      <UserLogoModal isOpen={isOpen} setIsOpen={setIsOpen} />
+      <UserLogoModal isOpen={isOpen} setIsOpen={setIsOpen} modalRef={modalRef}/>
     </UserWrapper>
   );
 };

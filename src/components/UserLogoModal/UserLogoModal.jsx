@@ -1,28 +1,11 @@
 import { LogoutModal } from "components/LogoutModal/LogoutModal";
 import { Modal, ModalWrapper, ModalText, EditIcon, Button, ArrowIcon } from "./UserLogoModal.styled"
-import { useState, useEffect} from "react";
+import { useState } from "react";
 import { UserInfoModal } from "components/UserInfoModal/UserInfoModal";
 
-export const UserLogoModal = ({ isOpen, setIsOpen }) => {
+export const UserLogoModal = ({ isOpen, setIsOpen, modalRef}) => {
     const [editIsOpen, setEditIsOpen] = useState(false)
     const [modalIsOpen, setModalIsOpen] = useState(false)
-
-    useEffect(() => {
-
-    const handleEscapeKey = (event) => {
-      if (event.key === 'Escape') {
-        setIsOpen(false);
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener('keydown', handleEscapeKey);
-    }
-
-    return () => {
-      document.removeEventListener('keydown', handleEscapeKey);
-    };
-  }, [isOpen, setIsOpen]);
 
     const onLogoutClick = () => {
         setModalIsOpen(true)
@@ -32,12 +15,12 @@ export const UserLogoModal = ({ isOpen, setIsOpen }) => {
     const onEditClick = () => {
         setEditIsOpen(true)
         document.body.classList.add('modal-open')
-        setIsOpen(false)
+        setIsOpen(!isOpen)
     }
     
 
     return <>
-        <Modal className={isOpen ? 'active' : ''}>
+        <Modal className={isOpen ? 'active' : ''} ref={modalRef}>
         <ModalWrapper onClick={() => onEditClick()}>
             <ModalText>Edit profile</ModalText>
             <EditIcon />
