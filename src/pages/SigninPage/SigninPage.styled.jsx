@@ -9,6 +9,12 @@ export const StyledLink = styled(NavLink)`
   top: 605px;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: var(--transition-duration);
+
+  &:focus,
+  :hover {
+    color: var(--accent-color);
+  }
 
   @media (min-width: 768px) {
     top: 910px;
