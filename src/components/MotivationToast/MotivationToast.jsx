@@ -9,7 +9,7 @@ const MotivationToast = ({ text }) => {
   const [visible, setVisible] = useState(false);
   const [message, setMessage] = useState('');
 
-  const { newUser, name, favoriteRecipes } = useSelector(selectUser);
+  const { newUser, favoriteRecipes } = useSelector(selectUser);
 
   const dispatch = useDispatch();
 
@@ -75,5 +75,6 @@ const MotivationToast = ({ text }) => {
     )
   );
 };
+
 
 export default MotivationToast;
