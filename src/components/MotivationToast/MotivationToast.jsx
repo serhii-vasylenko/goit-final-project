@@ -9,14 +9,15 @@ const MotivationToast = ({ text }) => {
   const [visible, setVisible] = useState(false);
   const [message, setMessage] = useState('');
 
-  const { newUser, favoriteRecipes, addedRecipes } = useSelector(selectUser);
+  const { newUser, favoriteRecipes, addedRecipes, daysInApp, name } =
+    useSelector(selectUser);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (newUser) {
       setVisible(true);
-      setMessage(`Hello and welcome, dear friend!`);
+      setMessage(`Hello and welcome, ${name}!`);
       const timer = setTimeout(() => {
         setVisible(false);
         dispatch(
@@ -62,7 +63,22 @@ const MotivationToast = ({ text }) => {
 
       return () => clearTimeout(timer);
     }
-  }, [newUser, favoriteRecipes, addedRecipes, dispatch]);
+
+    if (daysInApp && !daysInApp.isInformed && daysInApp.number === 30) {
+      setMessage('You have been using the application for 30 days!');
+      setVisible(true);
+      const timer = setTimeout(() => {
+        setVisible(false);
+        dispatch(
+          changeUserInfo({
+            daysInApp: true,
+          })
+        );
+      }, 10000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [newUser, favoriteRecipes, addedRecipes, daysInApp, name, dispatch]);
 
   const onCloseHandler = () => {
     setVisible(false);
@@ -77,6 +93,20 @@ const MotivationToast = ({ text }) => {
       dispatch(
         changeUserInfo({
           favoriteRecipes: true,
+        })
+      );
+    }
+    if (addedRecipes.number === 1) {
+      dispatch(
+        changeUserInfo({
+          addedRecipes: true,
+        })
+      );
+    }
+    if (daysInApp.number === 30) {
+      dispatch(
+        changeUserInfo({
+          daysInApp: true,
         })
       );
     }
