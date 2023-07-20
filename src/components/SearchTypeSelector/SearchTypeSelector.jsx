@@ -3,14 +3,18 @@ import { useDispatch } from 'react-redux';
 
 import SelectCustom from './SelectCustom';
 import { SelectWrapper, SelectName } from './SearchTypeSelector.styled';
+import { useLocation } from 'react-router';
 
 const SearchTypeSelector = () => {
   const dispatch = useDispatch();
+  const location = useLocation();
 
   useEffect(() => {
-    return () => {
-      dispatch(selectOption('Title'));
-    };
+    if (location.state && location.state.from === '/main') {
+      return () => {
+        dispatch(selectOption('Title'));
+      };
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

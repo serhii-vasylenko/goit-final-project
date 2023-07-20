@@ -32,6 +32,10 @@ const SearchForm = () => {
   }, []);
 
   const updateQueryString = useCallback(() => {
+    if (location.pathname === '/search' && searchValue === '') {
+      setSearchParams({});
+    }
+
     if (location.pathname === '/search' && searchValue !== '') {
       switch (selectedOption) {
         case 'Title':
@@ -43,9 +47,6 @@ const SearchForm = () => {
         default:
           break;
       }
-    }
-    if (searchValue === '') {
-      setSearchParams({});
     }
   }, [location.pathname, searchValue, selectedOption, setSearchParams]);
 
@@ -76,7 +77,7 @@ const SearchForm = () => {
 
     if (searchValue === '') {
       setSearchParams({});
-      showMessageToast('enter any word in');
+      showMessageToast('Enter any word in');
       return;
     }
 
