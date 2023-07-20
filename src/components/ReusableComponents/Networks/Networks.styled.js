@@ -16,7 +16,7 @@ export const Link = styled.a`
   justify-content: center;
   height: 100%;
 
-  color: ${props => props.color};
+  color: ${props => props.iconColor};
   transition: ${({ theme }) => theme.transforms.all};
   cursor: pointer;
 

@@ -80,7 +80,7 @@ const PreviewCategories = () => {
               bgColor="transparent"
               border="2px"
               borderColor={'#8aa936'}
-              color={stateTheme === 'light' ? '#22252a' : '#fafafa'}
+              textColor={stateTheme === 'light' ? '#22252a' : '#fafafa'}
               borderRadius="24px 44px"
               padding={{
                 paddingTop: '14px',

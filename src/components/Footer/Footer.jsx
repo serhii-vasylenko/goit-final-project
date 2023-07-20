@@ -48,7 +48,7 @@ export const Footer = () => {
               <SubscribeForm />
             </Top>
             <Networks hoverColor={({theme}) => theme.colors.socialIconHover}
-            color={({ theme }) => theme.colors.socialIconColor}
+            iconColor={({ theme }) => theme.colors.socialIconColor}
             />
           </Inner>
         </MainContainer>

@@ -99,7 +99,7 @@ const AddRecipeForm = () => {
           nameButton="Add"
           type={'submit'}
           bgColor = {({ theme }) => theme.colors.mainButtonColor} 
-          color = {({ theme }) => theme.colors.whiteColor}
+          textColor = {({ theme }) => theme.colors.whiteColor}
           hoverStyles = {{ styleFirst: 'color' }}
           hoverParams = {{ paramFirst: ({ theme }) => theme.colors.hoverMainButtonColor}}
            focusParams = {{ paramFirst: ({ theme }) => theme.colors.hoverMainButtonColor }}
