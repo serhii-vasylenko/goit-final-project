@@ -13,7 +13,7 @@ export const darkTheme = {
     blackColor: '#000000',
     popularCardBrdColor: '#7070702b',
     descriptionRecipeColor: '#23262a',
-    
+
     backgroundColor: '#1e1f28',
     primaryTextColor: '#fafafa',
     secondaryTextColor: '#fafafa',
@@ -102,5 +102,13 @@ export const darkTheme = {
     inputSearchBorderHover: '1px solid #8c8c91',
     selectBorder: '1px solid rgba(250,250,250,0.5)',
     selectBorderHover: '1px solid #2a2c36',
+  },
+
+  staticColors: {
+    iconFillGrey: 'rgba(169, 169, 169, 0.8)',
+    iconDisabledFillGrey: 'rgba(169, 169, 169, 0.3)',
+    iconHoverFillGrey: '#656565',
+    iconFillGreen: '#8baa36',
+    placeholderColor: '#bdbdbd',
   },
 };
