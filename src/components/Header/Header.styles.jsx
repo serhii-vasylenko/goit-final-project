@@ -25,20 +25,21 @@ z-index: 10; // не видаляти
 	width: 1280px;
 }
 `
-
 const Logo = styled.img`
-width: 40px;
-height: 40px;
-margin-right: 187px;
-@media (min-width: 768px) {
+  width: 40px;
+  height: 40px;
+  margin-right: auto;
+
+  @media (min-width: 375px) {
+    margin-right: 187px;
+  }
+
+  @media (min-width: 768px) {
     width: 44px;
     height: 44px;
-		
-}
-@media (min-width: 1260px) {
-	margin-right: 187px;
-}
-`
+  }
+`;
+
 const Wrapper = styled.div`
 display: flex;
 align-items: center;
