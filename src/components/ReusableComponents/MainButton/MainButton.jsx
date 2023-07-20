@@ -4,7 +4,7 @@ const MainButton = ({
   nameButton = '',
   fontSize = '16px',
   bgColor = '#22252A',
-  color = '#FAFAFA',
+  textColor = '#FAFAFA',
   border = '1px',
   borderColor = 'transparent',
   borderRadius = '24px 44px',
@@ -27,7 +27,7 @@ const MainButton = ({
     <Button
       fontSize={fontSize}
       bgColor={bgColor}
-      color={color}
+      textColor={textColor}
       border={border}
       borderColor={borderColor}
       borderRadius={borderRadius}

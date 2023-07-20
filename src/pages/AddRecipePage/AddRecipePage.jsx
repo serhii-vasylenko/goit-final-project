@@ -62,7 +62,7 @@ const AddRecipePage = () => {
               boxShadow={'0 0 5px rgba(217, 217, 217, 1)'}
               outline={'none'}
               borderRadius={'4px'}
-              color={({ theme }) => theme.colors.accentColor}
+              iconColor={({ theme }) => theme.colors.accentColor}
             />
           </FollowUsSection>
 

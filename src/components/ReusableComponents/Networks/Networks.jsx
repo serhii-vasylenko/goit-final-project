@@ -14,7 +14,7 @@ const Networks = ({
   //пропси для стилів
   hoverColor,
   gap,
-  color,
+  iconColor,
   ...props
 }) => {
   return (
@@ -26,7 +26,7 @@ const Networks = ({
           target="_blank"
           rel="noopener noreferrer"
           hoverColor={hoverColor}
-          color={color}
+          iconColor={iconColor}
         >
           <svg width={wFacebook || '20px'} height={hFacebook || '20px'}>
             <use href={`${sprite}#icon-facebook`}></use>
@@ -40,7 +40,7 @@ const Networks = ({
           target="_blank"
           rel="noopener noreferrer"
           hoverColor={hoverColor}
-          color={color}
+          iconColor={iconColor}
         >
           <svg width={wYoutube || '20px'} height={hYoutube || '20px'}>
             <use href={`${sprite}#icon-youtube`}></use>
@@ -54,7 +54,7 @@ const Networks = ({
           target="_blank"
           rel="noopener noreferrer"
           hoverColor={hoverColor}
-          color={color}
+          iconColor={iconColor}
         >
           <svg width={wTwitter || '20px'} height={hTwitter || '20px'}>
             <use href={`${sprite}#icon-twitter`}></use>
@@ -68,7 +68,7 @@ const Networks = ({
           target="_blank"
           rel="noopener noreferrer"
           hoverColor={hoverColor}
-          color={color}
+          iconColor={iconColor}
         >
           <svg width={wInstagram || '20px'} height={hInstagram || '20px'}>
             <use href={`${sprite}#icon-instagram`}></use>
