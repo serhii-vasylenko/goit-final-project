@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -6,7 +6,6 @@ import RecipeGallery from 'components/RecipeGallery';
 import { MainContainer } from 'components/MainContainer/MainContainer';
 import MainButton from 'components/ReusableComponents/MainButton/MainButton';
 import Loader from 'components/ReusableComponents/Loader';
-import { showMessageToast } from 'components/ReusableComponents/ToastCustom/showToast';
 import ErrorBanner from './ErrorBanner';
 
 import {
@@ -37,25 +36,6 @@ const PreviewCategories = () => {
     dispatch(getMainPageRecipes());
   }, [dispatch]);
 
-  const recipesByCategories = useMemo(() => {
-    const categoriesType = ['Breakfast', 'Miscellaneous', 'Chicken', 'Dessert'];
-    let filterRecipesByCategory = [];
-
-    if (categories) {
-      categoriesType.forEach(category => {
-        const filteredRecipes = categories.filter(
-          recipe => recipe.category === category
-        );
-
-        filterRecipesByCategory.push({ category, recipes: filteredRecipes });
-      });
-    } else {
-      showMessageToast('oops...something went wrong');
-    }
-
-    return filterRecipesByCategory;
-  }, [categories]);
-
   return (
     <PreviewCategoriesSection>
       <MainContainer>
@@ -64,7 +44,7 @@ const PreviewCategories = () => {
         {!isLoading && categories && !error && (
           <>
             <PreviewCategoriesList>
-              {recipesByCategories.map(({ category, recipes }) => (
+              {categories.map(({ category, recipes }) => (
                 <PreviewCategoriesListItem key={category}>
                   <GalleryTitle>{category}</GalleryTitle>
                   <RecipeGallery category={recipes} />
