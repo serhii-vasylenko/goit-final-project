@@ -1,113 +1,77 @@
-# React homework template
+# [![So-yummy]](./src/images/logo.svg) SoYummy App - your digital cookbook
+## Description:
+SoYummy is a feature-rich single-page application (SPA). Fully responsive design, oriented to any device (mobile, tablet, desktop).
+This app offers more than just a collection of recipes - it is designed to be your very own digital cookbook. You can easily save and retrieve your own recipes at any time.
+SoYummy [Live page](https://serhii-vasylenko.github.io/goit-final-project/).
 
-Этот проект был создан при помощи
-[Create React App](https://github.com/facebook/create-react-app). Для знакомства
-и настройки дополнительных возможностей
-[обратись к документации](https://facebook.github.io/create-react-app/docs/getting-started).
+<span>
+<img src="./src/images/readme/so-yummy-sample-2.png" width="400" title="welcome">
+</span>
+<span>
+<img src="./src/images/readme/soymmy_sample_1.png" width="400" title="welcome">
+</span>
 
-## Создание репозитория по шаблону
+### Features:
+- Registration and Login: user have the option to register and login (used: name, email, password)
+- User have the option to choose/change his avatar and name
+- Search for recipes by title, keywords or any ingredients
+- For comfort, it is possible to choose a dark or light theme with the toggle on the menu
+- Organization of recipes by categories, which makes it easier to find and navigate in the application on the `"Categories"` page
+- The user has the opportunity to add his own recipes to the app on the `"Add recipes"`. With the help of the form, you can upload a photo of the recipe, quickly and conveniently choose the ingredients and make a description of the preparation of the dish. The added recipe will appear both on the `"My Recipes"` and in the general collection of recipes on the `"Categories"`
+- The selected recipe page contains all the necessary information for its preparation. There is also an option to add/remove a recipe to favorites to return to the recipe later when needed on the `"Favorites"` page.
+- Ability to create a `"Shopping list"` based on selected recipes. The user can check the necessary ingredients and they will be available in the `"Shopping list"` page
+- Possibility to `subscribe` to the newsletter of new recipes and news
 
-Используй этот репозиторий организации GoIT как шаблон для создания репозитория
-своего проекта. Для этого нажми на кнопку `«Use this template»` и выбери опцию
-`«Create a new repository»`, как показано на изображении.
 
-![Creating repo from a template step 1](./assets/template-step-1.png)
+## Technologies Used:
 
-На следующем шаге откроется страница создания нового репозитория. Заполни поле
-его имени, убедись что репозиторий публичный, после чего нажми кнопку
-`«Create repository from template»`.
+### FrontEnd:
+- **HTML/CSS** 
+- **JavaScript** 
+- **Axios** 
+- **React** 
+- **React-router-dom** 
+- **ReduxToolkit** 
+- **React-select** 
+- **React-icons** 
+- **React-loader-spinner** 
+- **Emotion** 
+- **Formiks** 
+- **Yup** 
 
-![Creating repo from a template step 2](./assets/template-step-2.png)
+### BackEnd
+- **Node.js**
+- **Express**
+- **Mongoose**
+- **Swagger**
+- **Sendgrid**
+- **Cloudinary**
+- **Cors**
+- **Jimp**
+- **Joi**
+- **Jsonwebtoken**
+- **Morgan**
+- **Multer**
 
-После того как репозиторий будет создан, необходимо перейти в настройки
-созданного репозитория на вкладку `Settings` > `Actions` > `General` как
-показано на изображении.
+- Hosted on render.com: [https://database-cli.onrender.com/so-yummy](https://database-cli.onrender.com/so-yummy).
+- Github repository: [https://github.com/IgoryanDeltoro/database-cli](https://github.com/IgoryanDeltoro/database-cli)
 
-![Settings GitHub Actions permissions step 1](./assets/gh-actions-perm-1.png)
+### Swagger documentation:
+[https://database-cli.onrender.com/so-yummy/api-docs/](https://database-cli.onrender.com/so-yummy/api-docs/)
 
-Проскролив страницу до самого конца, в секции `«Workflow permissions»` выбери
-опцию `«Read and write permissions»` и поставь галочку в чекбоксе. Это
-необходимо для автоматизации процесса деплоя проекта.
+## Team of developers:
 
-![Settings GitHub Actions permissions step 2](./assets/gh-actions-perm-2.png)
+- [Serhii Vasylenko](https://github.com/serhii-vasylenko) - Team-lead (Frontend), developer
+- [Ihor Bondarchuk](https://github.com/IgoryanDeltoro) - Team lead (Backend), developer
+- [Yuliia Rudenko](https://github.com/yulyarudenko88) - Scrum master, Frontend developer 
+- [Oleksandra Stusova](https://github.com/OleksandraSt) - Backend developer
+- [Iryna Akulova](https://github.com/IraAkulova) - Backend developer
+- [Andriy Bogunets](https://github.com/ABogunets) - Backend developer
+- [Tetiana Svidrak](https://github.com/tetianasvidrak) - Frontend developer
+- [Yuliia Osnova](https://github.com/yuliaosnova) - Frontend developer
+- [Tetiana Tsar](https://github.com/tumanchyk) - Frontend developer
+- [Daniil Popov](https://github.com/DaniilPopov0809) - Frontend developer
+- [Inna Khavrat](https://github.com/khavrat) - Frontend developer
+- [Yuliia Kostovynska](https://github.com/Tinkkid) - Frontend developer
 
-Теперь у тебя есть личный репозиторий проекта, со структурой файлов и папок
-репозитория-шаблона. Далее работай с ним как с любым другим личным репозиторием,
-клонируй его себе на компьютер, пиши код, делай коммиты и отправляй их на
-GitHub.
-
-## Подготовка к работе
-
-1. Убедись что на компьютере установлена LTS-версия Node.js.
-   [Скачай и установи](https://nodejs.org/en/) её если необходимо.
-2. Установи базовые зависимости проекта командой `npm install`.
-3. Запусти режим разработки, выполнив команду `npm start`.
-4. Перейди в браузере по адресу [http://localhost:3000](http://localhost:3000).
-   Эта страница будет автоматически перезагружаться после сохранения изменений в
-   файлах проекта.
-
-## Деплой
-
-Продакшн версия проекта будет автоматически проходить линтинг, собираться и
-деплоиться на GitHub Pages, в ветку `gh-pages`, каждый раз когда обновляется
-ветка `main`. Например, после прямого пуша или принятого пул-реквеста. Для этого
-необходимо в файле `package.json` отредактировать поле `homepage`, заменив
-`your_username` и `your_repo_name` на свои, и отправить изменения на GitHub.
-
-```json
-"homepage": "https://your_username.github.io/your_repo_name/"
-```
-
-Далее необходимо зайти в настройки GitHub-репозитория (`Settings` > `Pages`) и
-выставить раздачу продакшн версии файлов из папки `/root` ветки `gh-pages`, если
-это небыло сделано автоматически.
-
-![GitHub Pages settings](./assets/repo-settings.png)
-
-### Статус деплоя
-
-Статус деплоя крайнего коммита отображается иконкой возле его идентификатора.
-
-- **Желтый цвет** - выполняется сборка и деплой проекта.
-- **Зеленый цвет** - деплой завершился успешно.
-- **Красный цвет** - во время линтинга, сборки или деплоя произошла ошибка.
-
-Более детальную информацию о статусе можно посмотреть кликнув по иконке, и в
-выпадающем окне перейти по ссылке `Details`.
-
-![Deployment status](./assets/deploy-status.png)
-
-### Живая страница
-
-Через какое-то время, обычно пару минут, живую страницу можно будет посмотреть
-по адресу указанному в отредактированном свойстве `homepage`. Например, вот
-ссылка на живую версию для этого репозитория
-[https://goitacademy.github.io/react-homework-template](https://goitacademy.github.io/react-homework-template).
-
-Если открывается пустая страница, убедись что во вкладке `Console` нет ошибок
-связанных с неправильными путями к CSS и JS файлам проекта (**404**). Скорее
-всего у тебя неправильное значение свойства `homepage` в файле `package.json`.
-
-### Маршрутизация
-
-Если приложение использует библиотеку `react-router-dom` для маршрутизации,
-необходимо дополнительно настроить компонент `<BrowserRouter>`, передав в пропе
-`basename` точное название твоего репозитория. Слеш в начале строки обязателен.
-
-```jsx
-<BrowserRouter basename="/your_repo_name">
-  <App />
-</BrowserRouter>
-```
-
-## Как это работает
-
-![How it works](./assets/how-it-works.png)
-
-1. После каждого пуша в ветку `main` GitHub-репозитория, запускается специальный
-   скрипт (GitHub Action) из файла `.github/workflows/deploy.yml`.
-2. Все файлы репозитория копируются на сервер, где проект инициализируется и
-   проходит линтинг и сборку перед деплоем.
-3. Если все шаги прошли успешно, собранная продакшн версия файлов проекта
-   отправляется в ветку `gh-pages`. В противном случае, в логе выполнения
-   скрипта будет указано в чем проблема.
+### If you have any questions :question:, our development team will be happy to answer :technologist:.
