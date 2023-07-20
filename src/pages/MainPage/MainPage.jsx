@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 import СhooseYourBreakfast from 'components/СhooseYourBreakfast';
 import SearchForm from 'components/ReusableComponents/SearchForm/SearchForm';
-import PreviewCategories from 'components/PreviewCategories';
+//import PreviewCategories from 'components/PreviewCategories';
 
 import MobileDish from 'images/mainPage/images/hero-mobile-dish.png';
 import MobileDishRetina from 'images/mainPage/images/hero-mobile-dish@2x.png';
@@ -99,7 +99,7 @@ const MainPage = () => {
           {!isMobile && <SearchForm />}
         </HeroContainer>
       </HeroSection>
-      <PreviewCategories />
+      {/*<PreviewCategories />*/}
     </>
   );
 };
