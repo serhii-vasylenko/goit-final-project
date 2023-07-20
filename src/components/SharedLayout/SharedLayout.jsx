@@ -2,7 +2,7 @@ import { Footer } from 'components/Footer/Footer';
 import { Header } from 'components/Header/Header';
 import { Suspense, useEffect } from 'react';
 import { Outlet } from 'react-router';
-import { MainContainer } from './SharedLayout.styled';
+import { MainContainer, Content } from './SharedLayout.styled';
 import Loader from 'components/ReusableComponents/Loader';
 import { useDispatch } from 'react-redux';
 import { getUserInfo } from 'redux/auth/operations';
@@ -24,12 +24,14 @@ const SharedLayout = () => {
     <>
       <Header />
       <MainContainer>
-        <Suspense fallback={<Loader />}>
-          <Outlet />
-        </Suspense>
-        <MotivationToast />
+        <Content>
+          <Suspense fallback={<Loader />}>
+            <Outlet />
+          </Suspense>
+          <MotivationToast />
+        </Content>
       </MainContainer>
-      <Footer />
+      <Footer style={{ marginTop: 'auto' }} />
     </>
   );
 };
