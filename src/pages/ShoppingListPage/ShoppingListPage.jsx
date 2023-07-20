@@ -33,7 +33,7 @@ const ShoppingListPage = () => {
       {shoppingList.length <= 0 && (
         <NotFound>
           <SearchCapImage>
-            There are not any products in your shopping-list
+            There are no products in your shopping-list
           </SearchCapImage>
         </NotFound>
       )}
