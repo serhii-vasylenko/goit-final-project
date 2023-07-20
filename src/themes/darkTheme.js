@@ -102,5 +102,6 @@ export const darkTheme = {
     inputSearchBorderHover: '1px solid #8c8c91',
     selectBorder: '1px solid rgba(250,250,250,0.5)',
     selectBorderHover: '1px solid #2a2c36',
+    checkedIngredientBorder:'2px solid rgba(126, 126, 126, 0.5)',
   },
 };
