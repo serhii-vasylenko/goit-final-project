@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 export const Button = styled.button`
   font-size: ${props => props.fontSize};
   background-color: ${props => props.bgColor};
-  color: ${props => props.color};
+  color: ${props => props.textColor};
   border: ${props => props.border};
   border-color: ${props => props.borderColor};
   border-radius: ${props => props.borderRadius};
