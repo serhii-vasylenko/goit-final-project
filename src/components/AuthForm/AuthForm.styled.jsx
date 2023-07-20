@@ -163,6 +163,7 @@ export const Input = styled.input`
   color: #ffffff;
   opacity: 0.9;
   border-radius: 6px;
+  transition: var(--transition-duration);
 
   &::placeholder {
     font-size: 14px;
@@ -241,6 +242,7 @@ export const BtnSubmit = styled.button`
   height: 45px;
   margin: 0 auto;
   color: var(--white-color);
+  transition: var(--transition-duration);
 
   font-family: inherit;
   font-size: 16px;

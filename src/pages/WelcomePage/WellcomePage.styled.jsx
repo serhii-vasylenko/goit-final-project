@@ -129,6 +129,7 @@ export const LinkStyled = styled(NavLink)`
   color: var(--white-color);
   border-radius: 24px 44px;
   border: 2px solid transparent;
+  transition: var(--transition-duration);
 
   &:focus,
   :hover {
