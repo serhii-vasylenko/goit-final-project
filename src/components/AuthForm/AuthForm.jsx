@@ -202,7 +202,7 @@ export const AuthForm = () => {
         {errors.password && touched.password ? <ErrorIconStyled /> : null}
       </InputGroup>
 
-      <BtnSubmit type="submit">Sing up</BtnSubmit>
+      <BtnSubmit type="submit">Sign up</BtnSubmit>
     </Form>
   );
 };

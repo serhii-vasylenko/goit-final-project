@@ -130,7 +130,7 @@ export const LoginForm = () => {
         ) : null}
       </InputGroup>
 
-      <BtnSubmit type="submit">Sing in</BtnSubmit>
+      <BtnSubmit type="submit">Sign in</BtnSubmit>
     </Form>
   );
 };
