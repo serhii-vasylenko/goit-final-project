@@ -15,6 +15,7 @@ import {
 } from 'redux/recipes/recipesSelector';
 import addToFavoriteRecipes from 'redux/recipes/operations/addToFavoriteRecipes';
 import deleteFromFavoriteRecipes from 'redux/recipes/operations/deleteFromFavoriteRecipes';
+import { getUserInfo } from 'redux/auth/operations';
 import {
   showErrorToast,
   showMessageToast,
@@ -35,6 +36,7 @@ const RecipePageHero = ({ title, description, time }) => {
     try {
       if (!isFavorite) {
         await dispatch(addToFavoriteRecipes(recipeId));
+        await dispatch(getUserInfo());
         showMessageToast(`Recipe is added to the list of favorites`);
       } else {
         await dispatch(deleteFromFavoriteRecipes(recipeId));
