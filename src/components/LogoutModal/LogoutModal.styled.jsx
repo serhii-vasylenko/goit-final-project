@@ -3,7 +3,7 @@ import {RxCross2} from "react-icons/rx";
 import { Link } from "react-router-dom";
 
 const Backdrop = styled.div`
-display: none;
+display: flex;
 position: absolute;
 top: 0;
 left: 0;
@@ -12,9 +12,13 @@ height: 100%;
 background-color: rgba(0, 0, 0, 0.50);
 align-items: center;
 justify-content: center;
-pointer-events: auto;
+pointer-events: none;
+opacity: 0;
+transition: all ${({theme }) => theme.transforms.transitionDuration} ${({theme }) => theme.transforms.timingFunction};
+
 &.open{
-    display: flex;
+    opacity: 1;
+    pointer-events: auto;
 }
 `
 const Modal = styled.div`
@@ -24,7 +28,6 @@ background: ${({ theme }) => theme.colors.backgroundModalColor};
 color: ${({theme }) => theme.colors.primaryTextColor};
 box-shadow: 0px 4px 48px 0px rgba(0, 0, 0, 0.10);
 padding: 44px 24px;
-transition: all ${({theme }) => theme.transforms.transitionDuration} ${({theme }) => theme.transforms.timingFunction};
 @media (min-width: 768px) {
         padding: 50px 40px;
 }
