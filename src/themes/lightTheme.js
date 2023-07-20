@@ -101,6 +101,7 @@ export const lightTheme = {
     inputSearchBorderHover: '1px solid rgba(35, 38, 42, 0.2)',
     selectBorder: '1px solid rgba(217,217,217,0.2)',
     selectBorderHover: '1px solid rgba(217,217,217,0.5)',
+    checkedIngredientBorder:'2px solid rgba(126, 126, 126, 0.5)',
   },
 };
 
