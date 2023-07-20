@@ -123,6 +123,7 @@ const RecipeIngredientsFields = () => {
                   <Button
                     type="button"
                     onClick={() => {
+                      setFieldValue(`ingredients[${index}].measure`, '')
                       remove(index);
                     }}
                   >

@@ -1,20 +1,17 @@
 import styled from '@emotion/styled';
-import one from './images/1.jpeg';
 
 export const Card = styled.div`
   position: relative;
   height: 300px;
   width: 300px;
   border-radius: 30px;
-  background-image: url(${one});
+  background-image: ${props => props.backgroundImage};
   background-size: cover;
   background-repeat: no-repeat;
 
   &::after {
     content: '';
     position: absolute;
-    /* width: 100%; */
-    /* height: 100%; */
     border-radius: 30px;
     top: 0;
     bottom: 0;

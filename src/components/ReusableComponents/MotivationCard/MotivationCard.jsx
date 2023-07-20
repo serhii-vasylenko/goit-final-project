@@ -1,5 +1,6 @@
 import React from 'react';
 import sprite from '../../../images/sprite.svg';
+import { randomImage } from 'helpers/randomBgImg';
 import {
   Accent,
   Bg,
@@ -10,9 +11,10 @@ import {
   Text,
 } from './MotivationCard.styled';
 
+
 const MotivationCard = ({ text, onCloseHandler }) => {
   return (
-    <Card>
+    <Card backgroundImage={`url(${randomImage()})`}>
       <Bg fill="none">
         <use href={`${sprite}#motivation-bg`}></use>
       </Bg>
