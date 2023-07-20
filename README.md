@@ -1,14 +1,15 @@
-# [![So-yummy]](./src/images/logo.svg) SoYummy App - your digital cookbook
+# ![Image alt](./src/images/logo.svg) SoYummy App - your digital cookbook!
+
 ## Description:
 SoYummy is a feature-rich single-page application (SPA). Fully responsive design, oriented to any device (mobile, tablet, desktop).
 This app offers more than just a collection of recipes - it is designed to be your very own digital cookbook. You can easily save and retrieve your own recipes at any time.
 SoYummy [Live page](https://serhii-vasylenko.github.io/goit-final-project/).
 
 <span>
-<img src="./src/images/readme/so-yummy-sample-2.png" width="400" title="welcome">
+<img src="./src/images/readme/so-yummy-sample-2.png" width="400" height="400" title="welcome">
 </span>
 <span>
-<img src="./src/images/readme/soymmy_sample_1.png" width="400" title="welcome">
+<img src="./src/images/readme/soymmy_sample_1.png" width="400" height="400" title="welcome">
 </span>
 
 ### Features:
@@ -19,7 +20,7 @@ SoYummy [Live page](https://serhii-vasylenko.github.io/goit-final-project/).
 - Organization of recipes by categories, which makes it easier to find and navigate in the application on the `"Categories"` page
 - The user has the opportunity to add his own recipes to the app on the `"Add recipes"`. With the help of the form, you can upload a photo of the recipe, quickly and conveniently choose the ingredients and make a description of the preparation of the dish. The added recipe will appear both on the `"My Recipes"` and in the general collection of recipes on the `"Categories"`
 - The selected recipe page contains all the necessary information for its preparation. There is also an option to add/remove a recipe to favorites to return to the recipe later when needed on the `"Favorites"` page.
-- Ability to create a `"Shopping list"` based on selected recipes. The user can check the necessary ingredients and they will be available in the `"Shopping list"` page
+- Ability to create a shopping list based on selected recipes. The user can check the necessary ingredients and they will be available in the `"Shopping list"` page
 - Possibility to `subscribe` to the newsletter of new recipes and news
 
 
@@ -53,8 +54,8 @@ SoYummy [Live page](https://serhii-vasylenko.github.io/goit-final-project/).
 - **Morgan**
 - **Multer**
 
-- Hosted on render.com: [https://database-cli.onrender.com/so-yummy](https://database-cli.onrender.com/so-yummy).
-- Github repository: [https://github.com/IgoryanDeltoro/database-cli](https://github.com/IgoryanDeltoro/database-cli)
+Hosted on render.com: [https://database-cli.onrender.com/so-yummy](https://database-cli.onrender.com/so-yummy).
+Github repository: [https://github.com/IgoryanDeltoro/database-cli](https://github.com/IgoryanDeltoro/database-cli)
 
 ### Swagger documentation:
 [https://database-cli.onrender.com/so-yummy/api-docs/](https://database-cli.onrender.com/so-yummy/api-docs/)
