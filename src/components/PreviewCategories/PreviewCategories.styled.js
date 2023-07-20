@@ -56,7 +56,7 @@ export const SeeCategoryBtn = styled(Link)`
 
   cursor: pointer;
   transition: ${({ theme }) =>
-    `color ${theme.transforms.transforms} ${theme.transforms.timingFunction}`};
+    `color ${theme.transforms.transitionDuration} ${theme.transforms.timingFunction}`};
 
   &:hover {
     color: ${({ theme }) => theme.colors.backgroundColorCircle};

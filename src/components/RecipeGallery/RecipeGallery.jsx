@@ -31,9 +31,9 @@ const RecipeGallery = ({ category }) => {
 
   return (
     <RecipeGalleryList>
-      {category?.slice(0, cardsToShow).map(({ _id: id, title, preview }) => {
+      {category?.slice(0, cardsToShow).map(({ _id: id, title, thumb }) => {
         return (
-          <RecipeGalleryItem key={id} id={id} title={title} src={preview} />
+          <RecipeGalleryItem key={id} id={id} title={title} src={thumb} />
         );
       })}
     </RecipeGalleryList>

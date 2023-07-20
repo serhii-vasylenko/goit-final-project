@@ -6,7 +6,7 @@ import RecipeGallery from 'components/RecipeGallery';
 import { MainContainer } from 'components/MainContainer/MainContainer';
 import MainButton from 'components/ReusableComponents/MainButton/MainButton';
 import Loader from 'components/ReusableComponents/Loader';
-import { showMessageToast } from 'components/ReusableComponents/ToastCustom/showToast';
+import showMessageToast from 'components/ReusableComponents/ToastCustom/ToastCustom';
 import ErrorBanner from './ErrorBanner';
 
 import {
@@ -41,13 +41,18 @@ const PreviewCategories = () => {
     const categoriesType = ['Breakfast', 'Miscellaneous', 'Chicken', 'Dessert'];
     let filterRecipesByCategory = [];
 
-    if (categories) {
-      categoriesType.forEach(category => {
-        const filteredRecipes = categories.filter(
-          recipe => recipe.category === category
-        );
+    categoriesType.forEach(category => {
+      filterRecipesByCategory.push({ category, recipes: [] });
+    });
 
-        filterRecipesByCategory.push({ category, recipes: filteredRecipes });
+    if (categories) {
+      categories.forEach(recipe => {
+        const categoryIndex = categoriesType.indexOf(recipe.category);
+        if (categoryIndex !== -1) {
+          filterRecipesByCategory[categoryIndex].recipes.push(
+            ...recipe.recipes
+          );
+        }
       });
     } else {
       showMessageToast('oops...something went wrong');

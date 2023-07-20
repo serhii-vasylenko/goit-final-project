@@ -46,7 +46,6 @@ const App = () => {
   }, [dispatcher, token]);
 
   const stateTheme = useSelector(selectTheme);
-  // //console.log(stateTheme);
 
   const dark = useMemo(() => themes.darkTheme, []);
 
@@ -58,68 +57,75 @@ const App = () => {
     stateTheme === 'light' ? setTheme(light) : setTheme(dark);
   }, [stateTheme, light, dark]);
 
-  // //console.log(theme);
-
-  return isRefreshing ? (
-    <RefreshingScreen />
-  ) : (
+  return (
     <ThemeProvider theme={theme}>
-      <Routes>
-        <Route path="/" element={<SharedLayout />}>
-          <Route index element={<Navigate to="/main" />} />
+      {isRefreshing ? (
+        <RefreshingScreen />
+      ) : (
+        <Routes>
+          <Route path="/" element={<SharedLayout />}>
+            <Route index element={<Navigate to="/main" />} />
+            <Route
+              path="/main"
+              element={
+                <PrivateRoute component={MainPage} redirectTo={'/welcome'} />
+              }
+            />
+            <Route path="categories" element={<CategoriesPage />}>
+              <Route
+                path=":categoryName"
+                element={
+                  <PrivateRoute
+                    component={CategoryGallery}
+                    redirectTo={'/welcome'}
+                  />
+                }
+              />
+            </Route>
+            <Route path="add" element={<AddRecipePage />} />
+
+            <Route path="my" element={<MyRecipesPage />} />
+
+            <Route path="favorite" element={<FavoritePage />} />
+
+            <Route path="recipes" element={<RecipePage />}>
+              <Route
+                path=":recipeId"
+                element={
+                  <PrivateRoute
+                    component={RecipePage}
+                    redirectTo={'/welcome'}
+                  />
+                }
+              />
+            </Route>
+
+            <Route path="shopping-list" element={<ShoppingListPage />} />
+
+            <Route path="search" element={<SearchPage />} />
+
+            <Route path="*" element={<NotFoundPage />} />
+          </Route>
           <Route
-            path="/main"
+            path="/welcome"
             element={
-              <PrivateRoute component={MainPage} redirectTo={'/welcome'} />
+              <PublicRoute component={WelcomePage} redirectTo={'/main'} />
             }
           />
-          <Route path="categories" element={<CategoriesPage />}>
-            <Route
-              path=":categoryName"
-              element={
-                <PrivateRoute
-                  component={CategoryGallery}
-                  redirectTo={'/welcome'}
-                />
-              }
-            />
-          </Route>
-          <Route path="add" element={<AddRecipePage />} />
-
-          <Route path="my" element={<MyRecipesPage />} />
-
-          <Route path="favorite" element={<FavoritePage />} />
-
-          <Route path="recipes" element={<RecipePage />}>
-            <Route
-              path=":recipeId"
-              element={
-                <PrivateRoute component={RecipePage} redirectTo={'/welcome'} />
-              }
-            />
-          </Route>
-
-          <Route path="shopping-list" element={<ShoppingListPage />} />
-
-          <Route path="search" element={<SearchPage />} />
-
-          <Route path="*" element={<NotFoundPage />} />
-        </Route>
-        <Route
-          path="/welcome"
-          element={<PublicRoute component={WelcomePage} redirectTo={'/main'} />}
-        />
-        <Route
-          path="/signin"
-          element={<PublicRoute component={SigninPage} redirectTo={'/main'} />}
-        />
-        <Route
-          path="/register"
-          element={
-            <PublicRoute component={RegisterPage} redirectTo={'/main'} />
-          }
-        />
-      </Routes>
+          <Route
+            path="/signin"
+            element={
+              <PublicRoute component={SigninPage} redirectTo={'/main'} />
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <PublicRoute component={RegisterPage} redirectTo={'/main'} />
+            }
+          />
+        </Routes>
+      )}
     </ThemeProvider>
   );
 };

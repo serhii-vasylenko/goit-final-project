@@ -62,7 +62,7 @@ transition: all ${({theme }) => theme.transforms.transitionDuration} ${({theme }
 }
 `
 
-const AddPhotoBtn = styled.div`
+const AddPhotoBtn = styled.label`
 position: absolute;
 bottom: -2px;
 right: 100px;
@@ -87,6 +87,7 @@ transition: all ${({theme }) => theme.transforms.transitionDuration} ${({theme }
 }
 `
 const InputFile = styled.input`
+display: none;
 width: 100%;
 height: 100%;
 opacity: 0

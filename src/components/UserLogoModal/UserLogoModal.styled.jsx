@@ -42,6 +42,10 @@ const EditIcon = styled(LuEdit2)`
 width: 14px;
 height: 14px;
 color: inherit;
+cursor: pointer;
+&:hover{
+  stroke: ${({theme }) => theme.colors.accentColor};
+}
 `
 const Button = styled.button`
 display: flex;

@@ -4,6 +4,8 @@ export const GalleryItem = styled.li`
   margin-bottom: ${props => props.marginBottom || '0px'};
   border-radius: 8px;
   overflow: hidden;
+  transform: scale(1);
+  transition: ${({ theme }) => theme.transforms.all};
 
   @media screen and (min-width: 768px) {
     margin-bottom: 0px;
@@ -12,6 +14,16 @@ export const GalleryItem = styled.li`
 
   @media screen and (min-width: 1280px) {
     flex-basis: calc((100% - 42px) / 4);
+  }
+
+  &:focus,
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:focus h3,
+  &:hover h3 {
+    color: ${({ theme }) => theme.colors.accentColor};
   }
 `;
 
@@ -27,12 +39,11 @@ export const Thumb = styled.div`
 
 export const Title = styled.h3`
   position: absolute;
-  width: 307px;
+  min-width: 270px;
+  left: 50%;
+  transform: translateX(-50%);
   bottom: 26px;
-  left: 18px;
-  padding-top: 16px;
-  padding-bottom: 16px;
-  padding-left: 16px;
+  padding: 16px;
 
   font-size: ${({ theme }) => theme.fontSizes[16]}px;
   font-style: normal;
@@ -44,13 +55,15 @@ export const Title = styled.h3`
   background-color: ${({ theme }) => theme.colors.recipeCardBgColor};
   border-radius: 8px;
 
+  @media screen and (min-width: 375px) {
+    min-width: 307px;
+  }
+
   @media screen and (min-width: 768px) {
-    width: 300px;
+    min-width: 300px;
   }
 
   @media screen and (min-width: 1280px) {
-    width: 268px;
-    top: 248px;
-    left: 16px;
+    min-width: 268px;
   }
 `;

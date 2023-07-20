@@ -70,11 +70,12 @@ export const HeroSection = styled.section`
 export const HeroContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
+  padding: 68px 0px 83px;
 
-  @media screen and (max-width: 767px) {
+  @media screen and (min-width: 375px) and (max-width: 767px) {
     max-width: 375px;
-    padding: 68px 27.5px 83px 27.5px;
-    text-align: center;
+    padding: 68px 27.5px 83px 27.5px;    
   }
 
   @media screen and (min-width: 768px) {
