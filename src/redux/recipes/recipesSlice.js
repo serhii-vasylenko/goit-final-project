@@ -12,6 +12,7 @@ const handleRejected = (state, action) => {
 };
 
 const initialState = {
+  name: 'recipe',
   categoryList: [],
   mainPageRecipes: [],
   searchFilter: null,

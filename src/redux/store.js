@@ -4,7 +4,7 @@ import authSlice from 'redux/auth/authSlice';
 import recipesSlice from './recipes/recipesSlice';
 import searchSlice from './search/searchSlice';
 import ingredientsSlice from './ingredients/ingredientsSlice';
-import shoppingListSlice from './shopping-list/shoppingListSlice'
+import shoppingListSlice from './shopping-list/shoppingListSlice';
 import themeSlice from './theme/themeSlice';
 
 import {
@@ -32,11 +32,17 @@ const themePersistConfig = {
   storage,
 };
 
+const recipePersistConfig = {
+  key: 'recipe',
+  storage,
+  whitelist: ['favoriteRecipes'],
+};
+
 const store = configureStore(
   {
     reducer: {
       auth: persistReducer(persistConfig, authSlice),
-      recipes: recipesSlice,
+      recipes: persistReducer(recipePersistConfig, recipesSlice),
       search: searchSlice,
       ingredients: ingredientsSlice,
       products: shoppingListSlice,
