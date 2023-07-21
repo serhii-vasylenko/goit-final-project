@@ -18,12 +18,15 @@ import Paginator from '../Paginator/PaginatorSearch';
 import {
   selectRecipeByTitle,
   selectRecipesByIngredient,
+  selectCurrentPage,
   selectIsLoading,
   selectError,
 } from 'redux/search/searchSelector';
 import getRecipesByTitle from 'redux/search/operations/getRecipesByTitle';
 import {
   resetRecipeByIngredient,
+  setCurrentPage,
+  resetCurrentPage,
 } from 'redux/search/searchSlice';
 
 import { Section, List } from './SearchRecipesList.styled';
@@ -31,6 +34,7 @@ import { Section, List } from './SearchRecipesList.styled';
 const SearchedRecipesList = () => {
   const searchedList = useSelector(selectRecipeByTitle);
   const serchedIngredList = useSelector(selectRecipesByIngredient);
+  const currentPage = useSelector(selectCurrentPage);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
@@ -42,7 +46,6 @@ const SearchedRecipesList = () => {
   const dispatch = useDispatch();
 
   const listRef = useRef(null);
-  const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
 
   useEffect(() => {
@@ -55,6 +58,7 @@ const SearchedRecipesList = () => {
       const { q } = params;
       const title = searchParams.get('q');
       if (q && q !== '') {
+        dispatch(resetCurrentPage());
         dispatch(resetRecipeByIngredient());
         dispatch(getRecipesByTitle(title));
       }
@@ -84,10 +88,10 @@ const SearchedRecipesList = () => {
 
   const handlePageChange = useCallback(
     pageNumber => {
-      setCurrentPage(pageNumber);
+      dispatch(setCurrentPage(pageNumber));
       listRef.current?.scrollIntoView({ behavior: 'smooth' });
     },
-    [setCurrentPage]
+    [dispatch]
   );
 
   const currentPageData = visibleRecipes.slice(
@@ -128,7 +132,6 @@ const SearchedRecipesList = () => {
             <Paginator
               data={visibleRecipes}
               itemsPerPage={itemsPerPage}
-              currentPage={currentPage}
               onPageChange={handlePageChange}
             />
           )}

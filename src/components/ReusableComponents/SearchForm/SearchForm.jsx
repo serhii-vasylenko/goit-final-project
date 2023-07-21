@@ -13,6 +13,7 @@ import getRecipesByIngredient from 'redux/search/operations/getRecipesByIngredie
 import {
   resetRecipeByTitle,
   resetRecipeByIngredient,
+  resetCurrentPage,
 } from 'redux/search/searchSlice';
 import { selectOption } from 'components/SearchTypeSelector/SearchTypeSelector';
 
@@ -63,6 +64,7 @@ const SearchForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    dispatch(resetCurrentPage())
 
     if (location.pathname === '/main' && searchValue !== '') {
       dispatch(selectOption('Title'));
