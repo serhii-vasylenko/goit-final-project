@@ -4,7 +4,6 @@ const Categories = styled.ul`
   display: flex;
   align-items: center;
   padding-top: 95px;
-  /* width:100%; */
   flex-wrap: nowrap;
   overflow-x: scroll;
   overflow-y: hidden;

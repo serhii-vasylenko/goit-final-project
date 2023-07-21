@@ -1,4 +1,3 @@
-// import notData from '../../images/registrationPage/images/order_lg.png';
 import { Svg, NoPopularTitle } from './NoPopularRecipes.styled';
 import sprite from '../../images/AddRecipePage/sprite.svg';
 
