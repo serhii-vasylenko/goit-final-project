@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/goit-final-project/static/css/main.68ab94ee.css",
-    "main.js": "/goit-final-project/static/js/main.e6601d0a.js",
+    "main.js": "/goit-final-project/static/js/main.712c572e.js",
     "static/js/321.0a922dd3.chunk.js": "/goit-final-project/static/js/321.0a922dd3.chunk.js",
     "static/js/215.fd5df3b4.chunk.js": "/goit-final-project/static/js/215.fd5df3b4.chunk.js",
-    "static/js/341.1f16a44b.chunk.js": "/goit-final-project/static/js/341.1f16a44b.chunk.js",
+    "static/js/341.81314638.chunk.js": "/goit-final-project/static/js/341.81314638.chunk.js",
     "static/js/854.6fb0ff74.chunk.js": "/goit-final-project/static/js/854.6fb0ff74.chunk.js",
     "static/js/831.8237dec1.chunk.js": "/goit-final-project/static/js/831.8237dec1.chunk.js",
     "static/js/914.fea550c7.chunk.js": "/goit-final-project/static/js/914.fea550c7.chunk.js",
@@ -88,10 +88,10 @@
     "static/media/correct.svg": "/goit-final-project/static/media/correct.2c20cfce5010676dc2acf065541b3183.svg",
     "static/media/pick.svg": "/goit-final-project/static/media/pick.247b86d0e6a26346bf0885b5b0408bd8.svg",
     "main.68ab94ee.css.map": "/goit-final-project/static/css/main.68ab94ee.css.map",
-    "main.e6601d0a.js.map": "/goit-final-project/static/js/main.e6601d0a.js.map",
+    "main.712c572e.js.map": "/goit-final-project/static/js/main.712c572e.js.map",
     "321.0a922dd3.chunk.js.map": "/goit-final-project/static/js/321.0a922dd3.chunk.js.map",
     "215.fd5df3b4.chunk.js.map": "/goit-final-project/static/js/215.fd5df3b4.chunk.js.map",
-    "341.1f16a44b.chunk.js.map": "/goit-final-project/static/js/341.1f16a44b.chunk.js.map",
+    "341.81314638.chunk.js.map": "/goit-final-project/static/js/341.81314638.chunk.js.map",
     "854.6fb0ff74.chunk.js.map": "/goit-final-project/static/js/854.6fb0ff74.chunk.js.map",
     "831.8237dec1.chunk.js.map": "/goit-final-project/static/js/831.8237dec1.chunk.js.map",
     "914.fea550c7.chunk.js.map": "/goit-final-project/static/js/914.fea550c7.chunk.js.map",
@@ -103,6 +103,6 @@
   },
   "entrypoints": [
     "static/css/main.68ab94ee.css",
-    "static/js/main.e6601d0a.js"
+    "static/js/main.712c572e.js"
   ]
 }
