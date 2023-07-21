@@ -34,8 +34,8 @@ const Top = styled.div`
     gap: 72px;
   }
   @media (min-width: 1280px) {
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: none;
+    display: flex;
+    justify-content: space-between;
   }
 `;
 
@@ -75,6 +75,7 @@ const List = styled.ul`
 
   @media (min-width: 1280px) {
     gap: 14px;
+    margin-right: 14px;
   }
 `;
 
