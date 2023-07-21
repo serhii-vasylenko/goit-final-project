@@ -38,18 +38,12 @@ const recipePersistConfig = {
   whitelist: ['favoriteRecipes'],
 };
 
-const searchPersistConfig = {
-  key: 'search',
-  storage,
-};
-
-
 const store = configureStore(
   {
     reducer: {
       auth: persistReducer(persistConfig, authSlice),
       recipes: persistReducer(recipePersistConfig, recipesSlice),
-      search: persistReducer(searchPersistConfig, searchSlice),
+      search: searchSlice,
       ingredients: ingredientsSlice,
       products: shoppingListSlice,
       theme: persistReducer(themePersistConfig, themeSlice),
