@@ -21,6 +21,7 @@ const Paginator = ({ data, itemsPerPage, currentPage, onPageChange }) => {
   }, []);
 
   useEffect(() => {
+    updateVisiblePagesCount();
     window.addEventListener('resize', updateVisiblePagesCount);
     return () => {
       window.removeEventListener('resize', updateVisiblePagesCount);
@@ -62,6 +63,16 @@ const Paginator = ({ data, itemsPerPage, currentPage, onPageChange }) => {
       }
     }
 
+    paginationItems.push(
+      <NumberButton
+        key={1}
+        onClick={() => handlePageChange(1)}
+        selected={currentPage === 1}
+      >
+        1
+      </NumberButton>
+    );
+
     if (startPage > 1) {
       paginationItems.push(
         <NumberButton key="ellipsis-left" className="ellipsis-button" disabled>
@@ -70,7 +81,7 @@ const Paginator = ({ data, itemsPerPage, currentPage, onPageChange }) => {
       );
     }
 
-    for (let i = startPage; i < endPage; i++) {
+    for (let i = startPage+1; i < endPage; i++) {
       paginationItems.push(
         <NumberButton
           key={i}
