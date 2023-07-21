@@ -10,8 +10,8 @@ import { useLocation } from 'react-router';
 import { useSearchParams } from 'react-router-dom';
 
 import Loader from '../ReusableComponents/Loader/Loader';
-import RecipeGalleryItem from '../ReusableComponents/RecipeGalleryItem/RecipeGalleryItem';
-import SearchCapImage from '../ReusableComponents/SearchCap/SearhCap';
+import RecipeGalleryItem from '../ReusableComponents/RecipeGalleryItem';
+import SearchCapImage from '../ReusableComponents/SearchCap';
 import { showErrorToast } from '../ReusableComponents/ToastCustom/showToast';
 import Paginator from '../Paginator/PaginatorSearch';
 

@@ -5,7 +5,7 @@ import { nanoid } from 'nanoid';
 
 import { MainContainer } from 'components/MainContainer/MainContainer';
 import ShoppingListItem from 'components/ShoppingListItem/ShoppingListItem';
-import SearchCapImage from 'components/ReusableComponents/SearchCap/SearhCap';
+import SearchCapImage from 'components/ReusableComponents/SearchCap';
 import { selectShoppingList } from 'redux/shopping-list/selectors';
 import { getShoppingList } from 'redux/shopping-list/operations';
 
