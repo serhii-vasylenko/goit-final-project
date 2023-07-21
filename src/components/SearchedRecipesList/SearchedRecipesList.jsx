@@ -18,14 +18,12 @@ import Paginator from '../Paginator/PaginatorSearch';
 import {
   selectRecipeByTitle,
   selectRecipesByIngredient,
-  selectSearchFilter,
   selectIsLoading,
   selectError,
 } from 'redux/search/searchSelector';
 import getRecipesByTitle from 'redux/search/operations/getRecipesByTitle';
 import {
   resetRecipeByIngredient,
-  resetRecipeByTitle,
 } from 'redux/search/searchSlice';
 
 import { Section, List } from './SearchRecipesList.styled';
@@ -33,7 +31,6 @@ import { Section, List } from './SearchRecipesList.styled';
 const SearchedRecipesList = () => {
   const searchedList = useSelector(selectRecipeByTitle);
   const serchedIngredList = useSelector(selectRecipesByIngredient);
-  const chosenOption = useSelector(selectSearchFilter);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
@@ -51,14 +48,6 @@ const SearchedRecipesList = () => {
   useEffect(() => {
     if (error) showErrorToast(error);
   }, [error]);
-
-  useEffect(() => {
-    if (chosenOption === 'Ingredient') {
-      dispatch(resetRecipeByTitle());
-      dispatch(resetRecipeByIngredient());
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   useEffect(() => {
     if (location.state && location.state.from === '/main') {
