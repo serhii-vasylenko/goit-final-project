@@ -1,7 +1,7 @@
 import { MainContainer } from 'components/MainContainer/MainContainer';
-import TitlePage from 'components/ReusableComponents/PageTitle/PageTitle';
-import SearchBar from 'components/SearchBar/SearchBar';
-import SearchedRecipesList from 'components/SearchedRecipesList/SearchedRecipesList';
+import TitlePage from 'components/ReusableComponents/PageTitle';
+import SearchBar from 'components/SearchBar';
+import SearchedRecipesList from 'components/SearchedRecipesList';
 
 const SearchPage = title => {
   return (

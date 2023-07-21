@@ -8,7 +8,7 @@ import RecipeCardItem from 'components/ReusableComponents/RecipeCardItem';
 
 import { EmptyInfo, List, Section, Title } from './FavoritePage.styled';
 import getFavoriteRecipes from 'redux/recipes/operations/getFavoriteRecipes';
-import SearchCapImage from 'components/ReusableComponents/SearchCap/SearhCap';
+import SearchCapImage from 'components/ReusableComponents/SearchCap';
 import deleteFromFavoriteRecipes from 'redux/recipes/operations/deleteFromFavoriteRecipes';
 
 const FavoritePage = () => {

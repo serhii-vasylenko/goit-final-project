@@ -8,7 +8,7 @@ import Loader from 'components/ReusableComponents/Loader';
 import RecipeCardItem from 'components/ReusableComponents/RecipeCardItem';
 
 import { EmptyInfo, List, Section, Title } from './MyRecipiesPage.styled';
-import SearchCapImage from 'components/ReusableComponents/SearchCap/SearhCap';
+import SearchCapImage from 'components/ReusableComponents/SearchCap';
 import deleteOwnRecipe from 'redux/recipes/operations/deleteOwnRecipe';
 import getOwnRecipes from 'redux/recipes/operations/getOwnRecipes';
 import Pagination from 'components/ReusableComponents/Pagination';
