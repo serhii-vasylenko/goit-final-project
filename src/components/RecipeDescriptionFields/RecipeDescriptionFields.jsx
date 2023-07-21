@@ -115,6 +115,7 @@ const RecipeDescriptionFields = ({ file, handleFileChange }) => {
             onChange={event => {
               setFieldValue('category', event.label);
             }}
+        
           >
             {categoryRecipes.map(({ _id, name }) => (
               <option value={name} key={_id}>
