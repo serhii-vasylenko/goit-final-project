@@ -32,23 +32,22 @@ export const Icon = styled.svg`
   height: 15px;
   fill: ${({ theme }) => theme.staticColors.iconFillGrey};
 
+  &:hover {
+    fill: ${({ theme }) => theme.staticColors.iconHoverFillGrey};
+  }
+
   &:disabled {
     fill: ${({ theme }) => theme.staticColors.iconDisabledFillGrey};
     cursor: not-allowed;
-  }
-
-  &:hover {
-    fill: ${({ theme }) => theme.staticColors.iconHoverFillGrey};
-    cursor: not-allowed;
+    &:hover {
+      fill: ${({ theme }) => theme.staticColors.iconHoverFillGrey};
+      cursor: not-allowed;
+    }
   }
 `;
 
 export const NumberButton = styled.button`
-  width: 20px;
-  height: 20px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  width: 26px;
   border: none;
   padding: 3px 5px;
   margin: 0 5px;
@@ -69,7 +68,6 @@ export const NumberButton = styled.button`
 
     @media and (min-width: 768px) {
       width: 27px;
-      height: 27px;
       padding: 5px 10px;
     }
   }
