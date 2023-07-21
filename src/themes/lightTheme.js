@@ -112,6 +112,3 @@ export const lightTheme = {
     placeholderColor: '#bdbdbd',
   },
 };
-
-
-//${({theme}) => theme.colors.primaryTextColor}

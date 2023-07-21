@@ -10,7 +10,7 @@ const HeaderEl = styled.header`
   margin: 0 auto;
   padding: 0 16px;
   padding-top: 18px;
-  z-index: 10; // не видаляти
+  z-index: 10;
   @media (min-width: 375px) {
     width: 375px;
   }

@@ -178,7 +178,6 @@ export const AuthForm = () => {
 
         {values.password.length > 0 &&
           !errors.password &&
-          //!touched.password &&
           !checkPasswordSecure(values.password) && (
             <div>
               <WarnIconIconStyled />

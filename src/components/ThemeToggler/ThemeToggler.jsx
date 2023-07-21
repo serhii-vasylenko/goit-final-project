@@ -16,7 +16,6 @@ const ThemeToggler = ({nav}) => {
   const handleToggleTheme = () => {
     const newTheme = stateTheme === 'light' ? 'dark' : 'light';
     dispatch(setTheme(newTheme));
-    //document.body.classList.toggle('dark')
     };
 
   useEffect(() => {
