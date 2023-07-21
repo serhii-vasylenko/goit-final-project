@@ -12,7 +12,7 @@ const RecipePreparationFields = () => {
   const [textArea, setTextArea] = useState(['']);
 
   const formik = useFormikContext();
-  const { errors, touched } = formik;
+  const { errors, touched, values } = formik;
 
   const handleChange = event => {
     const value = event.target.value;
@@ -32,7 +32,7 @@ const RecipePreparationFields = () => {
         as="textarea"
         placeholder="Enter recipe"
         onChange={handleChange}
-        value={textArea}
+        value={values.preparation.join('\n')}
         className={hasError('preparation', getIn, errors, touched) ? 'error' : ''}
       />
       {errors.preparation && <FormError name="preparation" />}

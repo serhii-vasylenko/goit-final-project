@@ -221,10 +221,14 @@ export const Select = styled(ReactSelect)`
         height: calc(6 * 27px);
       }
     }
-
-    &__placeholder {
-      color: ${({ theme }) => theme.colors.selectPlaceholder};
+  
+      &__placeholder {
+      color: ${({ theme }) => theme.colors.selectPlaceholderColor};
+      line-height: 1;
+      letter-spacing: -0.28px;
+      font-weight: 400;
     }
+    
     
     &__value-container {
       padding: 0px 8px;

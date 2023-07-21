@@ -20,6 +20,20 @@ import RecipeIngredientsFields from 'components/RecipeIngredientsFields/';
 import RecipePreparationFields from 'components/RecipePreparationFields/';
 import { removeCurrentAddedOwnRecipe } from 'redux/recipes/recipesSlice';
 
+// const initialValues = {
+//   photo: '',
+//   title: '',
+//   about: '',
+//   category: '',
+//   time: '',
+//   ingredients: [
+//     { id: '', measure: '' },
+//     { id: '', measure: '' },
+//     { id: '', measure: '' },
+//   ],
+//   preparation: [''],
+// };
+
 const initialValues = {
   photo: '',
   title: '',
@@ -27,9 +41,9 @@ const initialValues = {
   category: '',
   time: '',
   ingredients: [
-    { id: '', measure: '' },
-    { id: '', measure: '' },
-    { id: '', measure: '' },
+    { value: '', measure: '', label: '' },
+    { value: '', measure: '', label: '' },
+    { value: '', measure: '', label: '' },
   ],
   preparation: [''],
 };
@@ -67,23 +81,49 @@ const AddRecipeForm = () => {
     setFile(file);
   };
 
-  const handleSubmit = async (values, { resetForm, setSubmitting }) => {
+
+  // const handleSubmit = async (
+  //   values,
+  //   { resetForm, setSubmitting }
+  // ) => {
+  //   const data = JSON.stringify({
+  //     title: values.title,
+  //     description: values.about,
+  //     category: values.category,
+  //     time: values.time,
+  //     ingredients: values.ingredients,
+  //     instructions: values.preparation,
+  //   });
+
+  //   const formData = new FormData();
+  //   formData.append('recipeImg', file);
+  //   formData.append('data', data);
+  //   setSubmitting(true);
+  //   await dispatch(recipeOperations.addOwnRecipe(formData));
+  //   setSubmitting(false);
+  
+  //   resetForm(initialValues);
+  // };
+
+  const handleSubmit = async (
+    values,
+    { resetForm, setSubmitting }
+  ) => {
     const data = JSON.stringify({
       title: values.title,
       description: values.about,
       category: values.category,
       time: values.time,
-      ingredients: values.ingredients,
+      ingredients: values.ingredients.map(({value, measure}) => {return {id: value, measure: measure}}),
       instructions: values.preparation,
     });
-
     const formData = new FormData();
     formData.append('recipeImg', file);
     formData.append('data', data);
+    resetForm(initialValues);
     setSubmitting(true);
     await dispatch(recipeOperations.addOwnRecipe(formData));
     setSubmitting(false);
-    resetForm();
   };
 
   return (
