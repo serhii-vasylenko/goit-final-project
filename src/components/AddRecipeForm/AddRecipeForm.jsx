@@ -67,7 +67,11 @@ const AddRecipeForm = () => {
     setFile(file);
   };
 
-  const handleSubmit = async (values, { resetForm, setSubmitting }) => {
+
+  const handleSubmit = async (
+    values,
+    { resetForm, setSubmitting }
+  ) => {
     const data = JSON.stringify({
       title: values.title,
       description: values.about,
@@ -80,9 +84,9 @@ const AddRecipeForm = () => {
     const formData = new FormData();
     formData.append('recipeImg', file);
     formData.append('data', data);
-    setSubmitting(true);
+    // setSubmitting(true);
     await dispatch(recipeOperations.addOwnRecipe(formData));
-    setSubmitting(false);
+    // setSubmitting(false);
     resetForm();
   };
 
