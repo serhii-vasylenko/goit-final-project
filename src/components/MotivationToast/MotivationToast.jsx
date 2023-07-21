@@ -9,7 +9,7 @@ const MotivationToast = ({ text }) => {
   const [visible, setVisible] = useState(false);
   const [message, setMessage] = useState('');
 
-  const { newUser, favoriteRecipes, addedRecipes, daysInApp, name } =
+  const { newUser, favoriteRecipes, addedRecipes, daysInApp } =
     useSelector(selectUser);
 
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ const MotivationToast = ({ text }) => {
   useEffect(() => {
     if (newUser) {
       setVisible(true);
-      setMessage(`Hello and welcome, ${name}!`);
+      setMessage(`Hello and welcome, dear friend!`);
       const timer = setTimeout(() => {
         setVisible(false);
         dispatch(
@@ -78,7 +78,7 @@ const MotivationToast = ({ text }) => {
 
       return () => clearTimeout(timer);
     }
-  }, [newUser, favoriteRecipes, addedRecipes, daysInApp, name, dispatch]);
+  }, [newUser, favoriteRecipes, addedRecipes, daysInApp, dispatch]);
 
   const onCloseHandler = () => {
     setVisible(false);
