@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vw;
+  height: 100vh;
   background: ${({ theme }) => theme.colors.backgroundColor};
 
   img {
