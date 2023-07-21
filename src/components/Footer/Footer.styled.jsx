@@ -35,7 +35,6 @@ const Top = styled.div`
   }
   @media (min-width: 1280px) {
     display: flex;
-    justify-content: space-between;
   }
 `;
 
@@ -75,7 +74,8 @@ const List = styled.ul`
 
   @media (min-width: 1280px) {
     gap: 14px;
-    margin-right: 14px;
+    width: 460px;
+    margin-right: 28px;
   }
 `;
 
