@@ -1,4 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+
+import { selectCurrentPage } from 'redux/search/searchSelector';
 import {
   PaginationStyled,
   NumberButton,
@@ -7,8 +10,10 @@ import {
 } from './PaginatorSearch.styled';
 import sprite from '../../images/sprite.svg';
 
-const Paginator = ({ data, itemsPerPage, currentPage, onPageChange }) => {
+const Paginator = ({ data, itemsPerPage, onPageChange }) => {
   const [visiblePagesCount, setVisiblePagesCount] = useState(10);
+  const currentPage = useSelector(selectCurrentPage);
+
   const pageCount = Math.ceil(data.length / itemsPerPage);
 
   const updateVisiblePagesCount = useCallback(() => {
