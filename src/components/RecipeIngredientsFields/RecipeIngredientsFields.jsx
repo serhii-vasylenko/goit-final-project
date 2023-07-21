@@ -54,8 +54,10 @@
               newIngredients[index].id = ''; 
               newIngredients[index].measure = '';
               setFieldValue('ingredients', newIngredients);
+              if (newIngredients.length > 1) {
+                remove(index);
+              } 
               
-              remove(index);
             };
 
             return (

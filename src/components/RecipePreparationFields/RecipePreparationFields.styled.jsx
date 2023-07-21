@@ -40,7 +40,8 @@ export const TextArea = styled(Field)`
   transition: box-shadow ${({ theme }) => theme.transforms.transitionDuration} ${({ theme }) => theme.transforms.timingFunction};
 
   &::placeholder {
-    color: ${({ theme }) => theme.colors.fieldPlaceholderColor};
+    color: ${({ theme }) => theme.colors.selectPlaceholder};
+    opacity: 1;
   }
 
   &:focus,

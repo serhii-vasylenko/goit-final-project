@@ -35,11 +35,12 @@ export const BorderError = styled.div`
     border-radius: 8px;
   }
 
-  transition: stroke ${({ theme }) => theme.transforms.transitionDuration} ${({ theme }) => theme.transforms.timingFunction};
+  transition: stroke ${({ theme }) => theme.transforms.transitionDuration}
+    ${({ theme }) => theme.transforms.timingFunction};
 `;
 
 export const StyledSelect = styled(ReactSelect)`
-box-shadow: none;
+  box-shadow: none;
   .custom-select {
     &__control {
       font-family: 'Poppins';
@@ -50,7 +51,6 @@ box-shadow: none;
       font-size: 14px;
       line-height: 1;
       cursor: text;
-      
 
       &:hover,
       &--is-focused {
@@ -70,6 +70,8 @@ box-shadow: none;
 
     &__placeholder {
       color: ${({ theme }) => theme.colors.selectPlaceholderColor};
+      line-height: 1;
+      letter-spacing: -0.28px;
     }
 
     &__input-container {
@@ -141,7 +143,8 @@ box-shadow: none;
         color: ${({ theme }) => theme.colors.accentColor};
       }
 
-      transition: stroke ${({ theme }) => theme.transforms.transitionDuration} ${({ theme }) => theme.transforms.timingFunction};
+      transition: stroke ${({ theme }) => theme.transforms.transitionDuration}
+        ${({ theme }) => theme.transforms.timingFunction};
     }
 
     &__menu-list::-webkit-scrollbar {
@@ -155,7 +158,8 @@ box-shadow: none;
       padding: 4px 0;
       border-radius: 12px;
       background: ${({ theme }) => theme.colors.menuScrollbarThumbColor};
-      transition: stroke ${({ theme }) => theme.transforms.transitionDuration} ${({ theme }) => theme.transforms.timingFunction};
+      transition: stroke ${({ theme }) => theme.transforms.transitionDuration}
+        ${({ theme }) => theme.transforms.timingFunction};
       cursor: pointer;
     }
     &__menu-list::-webkit-scrollbar-thumb:hover {
@@ -190,12 +194,14 @@ export const MeasureField = styled(Field)`
   font-family: 'Poppins';
   caret-color: ${({ theme }) => theme.colors.primaryTextColor};
 
-  transition: box-shadow ${({ theme }) => theme.transforms.transitionDuration} ${({ theme }) => theme.transforms.timingFunction};
+  transition: box-shadow ${({ theme }) => theme.transforms.transitionDuration}
+    ${({ theme }) => theme.transforms.timingFunction};
 
   cursor: text;
 
   &::placeholder {
-    color: ${({ theme }) => theme.colors.fieldPlaceholderColor};
+    color: ${({ theme }) => theme.colors.selectPlaceholder};
+    opacity: 1;
   }
 
   &:focus,
@@ -229,7 +235,8 @@ export const Svg = styled.svg`
     height: 20px;
   }
 
-  transition: stroke ${({ theme }) => theme.transforms.transitionDuration} ${({ theme }) => theme.transforms.timingFunction};
+  transition: stroke ${({ theme }) => theme.transforms.transitionDuration}
+    ${({ theme }) => theme.transforms.timingFunction};
 `;
 
 export const Button = styled.button`
@@ -237,7 +244,8 @@ export const Button = styled.button`
   outline: none;
   border: none;
   background-color: transparent;
-  transition: box-shadow ${({ theme }) => theme.transforms.transitionDuration} ${({ theme }) => theme.transforms.timingFunction};
+  transition: box-shadow ${({ theme }) => theme.transforms.transitionDuration}
+    ${({ theme }) => theme.transforms.timingFunction};
   cursor: pointer;
 
   &:active {
@@ -251,7 +259,7 @@ export const Button = styled.button`
   }
 
   &:focus {
-    box-shadow: 0 0 5px ${({ theme }) => theme.colors.boxShadow};;
+    box-shadow: 0 0 5px ${({ theme }) => theme.colors.boxShadow};
     border-radius: 4px;
     ${Svg} {
       stroke: ${({ theme }) => theme.colors.accentColor};
