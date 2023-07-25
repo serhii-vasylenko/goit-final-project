@@ -98,6 +98,10 @@ const SearchedRecipesList = () => {
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
+  const currentPageDataForLargeWindowWidth = visibleRecipes.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage * 2
+  );
 
   return (
     <Section>
@@ -105,16 +109,23 @@ const SearchedRecipesList = () => {
         <Loader />
       ) : (
         <>
-          {(windowWidth >= 1280 ? visibleRecipes : currentPageData)?.length ||
-          0 ? (
+          {(windowWidth >= 1280
+            ? currentPageDataForLargeWindowWidth
+            : currentPageData
+          )?.length || 0 ? (
             <List ref={listRef}>
-              {(windowWidth >= 1280 ? visibleRecipes : currentPageData)
+              {(windowWidth >= 1280
+                ? currentPageDataForLargeWindowWidth
+                : currentPageData
+              )
                 .slice(
                   0,
                   windowWidth >= 1280
                     ? 12
-                    : (windowWidth >= 1280 ? visibleRecipes : currentPageData)
-                        .length
+                    : (windowWidth >= 1280
+                        ? currentPageDataForLargeWindowWidth
+                        : currentPageData
+                      ).length
                 )
                 .map(({ _id: id, title, preview }) => (
                   <RecipeGalleryItem
@@ -128,13 +139,13 @@ const SearchedRecipesList = () => {
           ) : (
             <SearchCapImage>Try looking for something else...</SearchCapImage>
           )}
-          {windowWidth < 1280 && visibleRecipes.length !== 0 && (
+          {visibleRecipes.length !== 0 && (
             <Paginator
               data={visibleRecipes}
               itemsPerPage={itemsPerPage}
               onPageChange={handlePageChange}
             />
-          )}
+           )}
         </>
       )}
     </Section>

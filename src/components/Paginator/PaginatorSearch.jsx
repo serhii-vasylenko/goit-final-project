@@ -67,6 +67,7 @@ const Paginator = ({ data, itemsPerPage, onPageChange }) => {
         startPage = endPage - visiblePagesCount + 3;
       }
     }
+    
 
     if (startPage > 1) {
       paginationItems.push(
